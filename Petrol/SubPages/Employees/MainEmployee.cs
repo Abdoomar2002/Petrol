@@ -8,21 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Petrol
+namespace Petrol.SubPages.Employees
 {
-    public partial class Form1 : Form
+    public partial class MainEmployee : UserControl
     {
-        public Form1()
+        public MainEmployee()
         {
             InitializeComponent();
-        }
-        public void ShowLogin()
-        {
-            login1.BringToFront();
-        }
-        public void ShowHome()
-        {
-            home1.BringToFront();
         }
     }
 }

@@ -168,7 +168,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\DUMMY.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DUMMY.Designer.cs">
+      <DependentUpon>DUMMY.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\EmployeeControl.cs" />
+    <Compile Include="Controls\Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\AppDbContext.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -176,10 +194,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CourseForm.cs" />
-    <Compile Include="Forms\DashboardForm.cs" />
-    <Compile Include="Forms\LoginForm.cs" />
-    <Compile Include="Forms\ReportForm.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CoursePlace.cs" />
     <Compile Include="Models\Department.cs" />
@@ -191,8 +205,50 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="SubPages\Departments\MainDepartments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Departments\MainDepartments.Designer.cs">
+      <DependentUpon>MainDepartments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Employees\MainEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Employees\MainEmployee.Designer.cs">
+      <DependentUpon>MainEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Places\MainPlaces.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Places\MainPlaces.Designer.cs">
+      <DependentUpon>MainPlaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Programs\MainPrograms.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Programs\MainPrograms.Designer.cs">
+      <DependentUpon>MainPrograms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Users\MainUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Users\MainUsers.Designer.cs">
+      <DependentUpon>MainUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Constants.cs" />
     <Compile Include="Utils\ExcelExporter.cs" />
+    <EmbeddedResource Include="Controls\DUMMY.resx">
+      <DependentUpon>DUMMY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -201,7 +257,23 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SubPages\Departments\MainDepartments.resx">
+      <DependentUpon>MainDepartments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Employees\MainEmployee.resx">
+      <DependentUpon>MainEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Places\MainPlaces.resx">
+      <DependentUpon>MainPlaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Programs\MainPrograms.resx">
+      <DependentUpon>MainPrograms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Users\MainUsers.resx">
+      <DependentUpon>MainUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Assets\.gitkeep" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
@@ -223,6 +295,14 @@
   <ItemGroup>
     <Folder Include="bin\Debug\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="SubPages\Finances\" />
+    <Folder Include="SubPages\Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Corporate-Training.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\شعار  الــشـركـة.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
