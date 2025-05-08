@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Windows.Forms;
 
 namespace Petrol
@@ -24,5 +17,27 @@ namespace Petrol
         {
             home1.BringToFront();
         }
+        public void ShowEmployeeData()
+        {
+            home1.EmployeeNavigation("Programs");
+        }
+        public void ShowEmployeeAdd() 
+        {
+            home1.EmployeeNavigation("Add");
+        }
+        public void ShowEmployeeEdit()
+        {
+            home1.EmployeeNavigation("Edit");
+        }
+        public void ShowEmployeeAddProgram()
+        {
+            home1.EmployeeNavigation("AddProgram");
+        }
+        public void ShowEmployeeMain()
+        {
+            home1.EmployeeNavigation("Main");
+        }
+
+
     }
 }

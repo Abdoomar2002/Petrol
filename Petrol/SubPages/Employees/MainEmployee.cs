@@ -16,5 +16,22 @@ namespace Petrol.SubPages.Employees
         {
             InitializeComponent();
         }
+
+        private void AddEmployeeBtn_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = (Form1)this.ParentForm;
+            form1.ShowEmployeeAdd();
+        }
+
+        private void EmployeesData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var form = (Form1)this.ParentForm;
+            form.ShowEmployeeEdit();
+        }
+        public void LoadData() 
+        {
+            EmployeesData.Rows.Clear();
+            EmployeesData.RowCount = 2;
+        }
     }
 }

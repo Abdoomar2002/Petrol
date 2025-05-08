@@ -174,7 +174,6 @@
     <Compile Include="Controls\DUMMY.Designer.cs">
       <DependentUpon>DUMMY.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\EmployeeControl.cs" />
     <Compile Include="Controls\Home.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -210,6 +209,30 @@
     </Compile>
     <Compile Include="SubPages\Departments\MainDepartments.Designer.cs">
       <DependentUpon>MainDepartments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Employees\AddEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Employees\AddEmployee.Designer.cs">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Employees\AddProgramToEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Employees\AddProgramToEmployee.Designer.cs">
+      <DependentUpon>AddProgramToEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Employees\EditEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Employees\EditEmployee.Designer.cs">
+      <DependentUpon>EditEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Employees\EmployeeData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Employees\EmployeeData.Designer.cs">
+      <DependentUpon>EmployeeData.cs</DependentUpon>
     </Compile>
     <Compile Include="SubPages\Employees\MainEmployee.cs">
       <SubType>UserControl</SubType>
@@ -261,6 +284,18 @@
     </Compile>
     <EmbeddedResource Include="SubPages\Departments\MainDepartments.resx">
       <DependentUpon>MainDepartments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Employees\AddEmployee.resx">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Employees\AddProgramToEmployee.resx">
+      <DependentUpon>AddProgramToEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Employees\EditEmployee.resx">
+      <DependentUpon>EditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Employees\EmployeeData.resx">
+      <DependentUpon>EmployeeData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubPages\Employees\MainEmployee.resx">
       <DependentUpon>MainEmployee.cs</DependentUpon>

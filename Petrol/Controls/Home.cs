@@ -18,33 +18,34 @@ namespace Petrol.Controls
             InitializeComponent();
         }
 
-        private void usersPage_Click(object sender, EventArgs e)
+        public void usersPage_Click(object sender, EventArgs e)
         {
             mainUsers1.BringToFront();
         }
 
-        private void EmployeesBtn_Click(object sender, EventArgs e)
+        public void EmployeesBtn_Click(object sender, EventArgs e)
         {
             var btn = (Guna2GradientButton)sender;
             ChangeColor(btn);
             mainEmployee1.BringToFront();
+            mainEmployee1.LoadData();
         }
 
-        private void DepartmentsBtn_Click(object sender, EventArgs e)
+        public void DepartmentsBtn_Click(object sender, EventArgs e)
         {
             var btn = (Guna2GradientButton)sender;
             ChangeColor(btn);
             mainDepartments1.BringToFront();
         }
 
-        private void ProgramsBtn_Click(object sender, EventArgs e)
+        public void ProgramsBtn_Click(object sender, EventArgs e)
         {
             var btn = (Guna2GradientButton)sender;
             ChangeColor(btn);
             mainPrograms1.BringToFront();
         }
 
-        private void PlacesBtn_Click(object sender, EventArgs e)
+        public void PlacesBtn_Click(object sender, EventArgs e)
         {
             var btn = (Guna2GradientButton)sender;
             ChangeColor(btn);
@@ -74,5 +75,32 @@ namespace Petrol.Controls
             btn.FillColor = Color.Navy;
            
         }
+        public void EmployeeNavigation(string target,int id=0) 
+        {
+            switch (target) 
+            {
+                case "Add":
+                    addEmployee1.BringToFront();
+                    break;
+                case "Edit":
+                    editEmployee1.BringToFront();
+                    // editEmployee1.SetEmployeeId(id);
+                    break;
+                case "Programs":
+                    employeeData1.BringToFront();
+                    // employeeData1.SetEmployeeId(id);
+                    break;
+                case "Main":
+                     mainEmployee1.BringToFront();
+                    break;
+                case "AddProgram":
+                    addProgramToEmployee1.BringToFront();
+                    // addProgramToEmployee1.SetEmployeeId(id);
+                    break;
+                default:
+                    break;
+            }
+        }
+        
     }
 }
