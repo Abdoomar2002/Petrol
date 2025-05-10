@@ -66,12 +66,12 @@
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Header = new Guna.UI2.WinForms.Guna2Panel();
+            this.AddProgramBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ShowProgramsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.BackBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.EmployeesBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.ShowProgramsBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.AddProgramBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.Header.SuspendLayout();
             this.SuspendLayout();
@@ -776,6 +776,40 @@
             this.Header.Size = new System.Drawing.Size(1157, 159);
             this.Header.TabIndex = 2;
             // 
+            // AddProgramBtn
+            // 
+            this.AddProgramBtn.BorderRadius = 10;
+            this.AddProgramBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.AddProgramBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.AddProgramBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.AddProgramBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.AddProgramBtn.FillColor = System.Drawing.Color.Navy;
+            this.AddProgramBtn.Font = new System.Drawing.Font("Cairo", 12F);
+            this.AddProgramBtn.ForeColor = System.Drawing.Color.White;
+            this.AddProgramBtn.Location = new System.Drawing.Point(711, 55);
+            this.AddProgramBtn.Name = "AddProgramBtn";
+            this.AddProgramBtn.Size = new System.Drawing.Size(153, 58);
+            this.AddProgramBtn.TabIndex = 15;
+            this.AddProgramBtn.Text = "اضافة تدريب";
+            this.AddProgramBtn.Click += new System.EventHandler(this.AddProgramBtn_Click);
+            // 
+            // ShowProgramsBtn
+            // 
+            this.ShowProgramsBtn.BorderRadius = 10;
+            this.ShowProgramsBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ShowProgramsBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ShowProgramsBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ShowProgramsBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ShowProgramsBtn.FillColor = System.Drawing.Color.Navy;
+            this.ShowProgramsBtn.Font = new System.Drawing.Font("Cairo", 12F);
+            this.ShowProgramsBtn.ForeColor = System.Drawing.Color.White;
+            this.ShowProgramsBtn.Location = new System.Drawing.Point(527, 55);
+            this.ShowProgramsBtn.Name = "ShowProgramsBtn";
+            this.ShowProgramsBtn.Size = new System.Drawing.Size(153, 58);
+            this.ShowProgramsBtn.TabIndex = 14;
+            this.ShowProgramsBtn.Text = "عرض التدريبات";
+            this.ShowProgramsBtn.Click += new System.EventHandler(this.ShowProgramsBtn_Click);
+            // 
             // BackBtn
             // 
             this.BackBtn.BackColor = System.Drawing.Color.Transparent;
@@ -841,40 +875,6 @@
             this.label19.Size = new System.Drawing.Size(158, 50);
             this.label19.TabIndex = 0;
             this.label19.Text = "تعديل بيانات";
-            // 
-            // ShowProgramsBtn
-            // 
-            this.ShowProgramsBtn.BorderRadius = 10;
-            this.ShowProgramsBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ShowProgramsBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ShowProgramsBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ShowProgramsBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ShowProgramsBtn.FillColor = System.Drawing.Color.Navy;
-            this.ShowProgramsBtn.Font = new System.Drawing.Font("Cairo", 12F);
-            this.ShowProgramsBtn.ForeColor = System.Drawing.Color.White;
-            this.ShowProgramsBtn.Location = new System.Drawing.Point(527, 55);
-            this.ShowProgramsBtn.Name = "ShowProgramsBtn";
-            this.ShowProgramsBtn.Size = new System.Drawing.Size(153, 58);
-            this.ShowProgramsBtn.TabIndex = 14;
-            this.ShowProgramsBtn.Text = "عرض التدريبات";
-            this.ShowProgramsBtn.Click += new System.EventHandler(this.ShowProgramsBtn_Click);
-            // 
-            // AddProgramBtn
-            // 
-            this.AddProgramBtn.BorderRadius = 10;
-            this.AddProgramBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.AddProgramBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.AddProgramBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.AddProgramBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.AddProgramBtn.FillColor = System.Drawing.Color.Navy;
-            this.AddProgramBtn.Font = new System.Drawing.Font("Cairo", 12F);
-            this.AddProgramBtn.ForeColor = System.Drawing.Color.White;
-            this.AddProgramBtn.Location = new System.Drawing.Point(711, 55);
-            this.AddProgramBtn.Name = "AddProgramBtn";
-            this.AddProgramBtn.Size = new System.Drawing.Size(153, 58);
-            this.AddProgramBtn.TabIndex = 15;
-            this.AddProgramBtn.Text = "اضافة تدريب";
-            this.AddProgramBtn.Click += new System.EventHandler(this.AddProgramBtn_Click);
             // 
             // EditEmployee
             // 

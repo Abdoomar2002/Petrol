@@ -240,17 +240,47 @@
     <Compile Include="SubPages\Employees\MainEmployee.Designer.cs">
       <DependentUpon>MainEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubPages\Places\AddPlace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Places\AddPlace.Designer.cs">
+      <DependentUpon>AddPlace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Places\EditPlace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Places\EditPlace.Designer.cs">
+      <DependentUpon>EditPlace.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubPages\Places\MainPlaces.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SubPages\Places\MainPlaces.Designer.cs">
       <DependentUpon>MainPlaces.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubPages\Places\PlaceData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Places\PlaceData.Designer.cs">
+      <DependentUpon>PlaceData.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubPages\Programs\MainPrograms.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SubPages\Programs\MainPrograms.Designer.cs">
       <DependentUpon>MainPrograms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Users\AddUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Users\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Users\EditUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Users\EditUser.Designer.cs">
+      <DependentUpon>EditUser.cs</DependentUpon>
     </Compile>
     <Compile Include="SubPages\Users\MainUsers.cs">
       <SubType>UserControl</SubType>
@@ -300,11 +330,26 @@
     <EmbeddedResource Include="SubPages\Employees\MainEmployee.resx">
       <DependentUpon>MainEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Places\AddPlace.resx">
+      <DependentUpon>AddPlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Places\EditPlace.resx">
+      <DependentUpon>EditPlace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubPages\Places\MainPlaces.resx">
       <DependentUpon>MainPlaces.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Places\PlaceData.resx">
+      <DependentUpon>PlaceData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubPages\Programs\MainPrograms.resx">
       <DependentUpon>MainPrograms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Users\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Users\EditUser.resx">
+      <DependentUpon>EditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubPages\Users\MainUsers.resx">
       <DependentUpon>MainUsers.cs</DependentUpon>
