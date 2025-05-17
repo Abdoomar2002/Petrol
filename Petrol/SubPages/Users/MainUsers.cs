@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Petrol.SubPages.Employees;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,23 @@ namespace Petrol.SubPages.Users
         public MainUsers()
         {
             InitializeComponent();
+        }
+
+        private void AddUserBtn_Click(object sender, EventArgs e)
+        {
+            var form = (Form1)this.ParentForm;
+            form.UsersNavigation("Add");
+        }
+        public void LoadData()
+        {
+            UsersData.Rows.Clear();
+            UsersData.RowCount = 2;
+        }
+
+        private void UsersData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var form = (Form1)this.ParentForm;
+            form.UsersNavigation("Edit");
         }
     }
 }

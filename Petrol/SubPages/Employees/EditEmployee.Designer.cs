@@ -803,9 +803,9 @@
             this.ShowProgramsBtn.FillColor = System.Drawing.Color.Navy;
             this.ShowProgramsBtn.Font = new System.Drawing.Font("Cairo", 12F);
             this.ShowProgramsBtn.ForeColor = System.Drawing.Color.White;
-            this.ShowProgramsBtn.Location = new System.Drawing.Point(527, 55);
+            this.ShowProgramsBtn.Location = new System.Drawing.Point(521, 55);
             this.ShowProgramsBtn.Name = "ShowProgramsBtn";
-            this.ShowProgramsBtn.Size = new System.Drawing.Size(153, 58);
+            this.ShowProgramsBtn.Size = new System.Drawing.Size(165, 58);
             this.ShowProgramsBtn.TabIndex = 14;
             this.ShowProgramsBtn.Text = "عرض التدريبات";
             this.ShowProgramsBtn.Click += new System.EventHandler(this.ShowProgramsBtn_Click);

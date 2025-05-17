@@ -32,6 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.BackBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,11 +49,6 @@
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -120,6 +120,40 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // Column6
+            // 
+            this.Column6.FillWeight = 32.08556F;
+            this.Column6.HeaderText = "م";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "كود البرنامج";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 113.5829F;
+            this.Column2.HeaderText = "اسم البرنامج";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 113.5829F;
+            this.Column1.HeaderText = "من";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 113.5829F;
+            this.Column3.HeaderText = "الي";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
@@ -158,6 +192,7 @@
             this.BackBtn.Size = new System.Drawing.Size(123, 58);
             this.BackBtn.TabIndex = 43;
             this.BackBtn.Text = "رجوع";
+            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
             // label2
             // 
@@ -320,40 +355,6 @@
             this.guna2TextBox1.Size = new System.Drawing.Size(302, 58);
             this.guna2TextBox1.TabIndex = 0;
             this.guna2TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // Column6
-            // 
-            this.Column6.FillWeight = 32.08556F;
-            this.Column6.HeaderText = "م";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "كود البرنامج";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 113.5829F;
-            this.Column2.HeaderText = "اسم البرنامج";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 113.5829F;
-            this.Column1.HeaderText = "من";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column3
-            // 
-            this.Column3.FillWeight = 113.5829F;
-            this.Column3.HeaderText = "الي";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
             // 
             // PlaceData
             // 

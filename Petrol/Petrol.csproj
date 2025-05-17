@@ -193,17 +193,43 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\CoursePlace.cs" />
+    <Compile Include="Models\EmployeeTraining.cs" />
+    <Compile Include="Models\FinanceDepartment.cs" />
+    <Compile Include="Models\FinanceProgramType.cs" />
+    <Compile Include="Models\ProgramType.cs" />
+    <Compile Include="Models\Reports.cs" />
+    <Compile Include="Models\Training.cs" />
+    <Compile Include="Models\Place.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Finance.cs" />
+    <Compile Include="Models\Program.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositry\IRepository.cs" />
+    <Compile Include="Repositry\Repository.cs" />
     <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="SubPages\Departments\AddDepartment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Departments\AddDepartment.Designer.cs">
+      <DependentUpon>AddDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Departments\DepartmentData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Departments\DepartmentData.Designer.cs">
+      <DependentUpon>DepartmentData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Departments\EditDepartment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Departments\EditDepartment.Designer.cs">
+      <DependentUpon>EditDepartment.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubPages\Departments\MainDepartments.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -240,6 +266,30 @@
     <Compile Include="SubPages\Employees\MainEmployee.Designer.cs">
       <DependentUpon>MainEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubPages\Finances\EmployeeCost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Finances\EmployeeCost.Designer.cs">
+      <DependentUpon>EmployeeCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Finances\GeneralCost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Finances\GeneralCost.Designer.cs">
+      <DependentUpon>GeneralCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Finances\MainFinances.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Finances\MainFinances.Designer.cs">
+      <DependentUpon>MainFinances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Finances\ProgramCost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Finances\ProgramCost.Designer.cs">
+      <DependentUpon>ProgramCost.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubPages\Places\AddPlace.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -264,11 +314,71 @@
     <Compile Include="SubPages\Places\PlaceData.Designer.cs">
       <DependentUpon>PlaceData.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubPages\Programs\AddProgram.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Programs\AddProgram.Designer.cs">
+      <DependentUpon>AddProgram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Programs\AddTraining.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Programs\AddTraining.Designer.cs">
+      <DependentUpon>AddTraining.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Programs\EditProgram.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Programs\EditProgram.Designer.cs">
+      <DependentUpon>EditProgram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Programs\EditTrainigData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Programs\EditTrainigData.Designer.cs">
+      <DependentUpon>EditTrainigData.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubPages\Programs\MainPrograms.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SubPages\Programs\MainPrograms.Designer.cs">
       <DependentUpon>MainPrograms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Programs\TraningData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Programs\TraningData.Designer.cs">
+      <DependentUpon>TraningData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Reports\EmployeeReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Reports\EmployeeReport.Designer.cs">
+      <DependentUpon>EmployeeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Reports\FinanceReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Reports\FinanceReport.Designer.cs">
+      <DependentUpon>FinanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Reports\FollowingReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Reports\FollowingReport.Designer.cs">
+      <DependentUpon>FollowingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Reports\MainReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Reports\MainReports.Designer.cs">
+      <DependentUpon>MainReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubPages\Reports\MangmentReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubPages\Reports\MangmentReport.Designer.cs">
+      <DependentUpon>MangmentReport.cs</DependentUpon>
     </Compile>
     <Compile Include="SubPages\Users\AddUser.cs">
       <SubType>UserControl</SubType>
@@ -312,6 +422,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SubPages\Departments\AddDepartment.resx">
+      <DependentUpon>AddDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Departments\DepartmentData.resx">
+      <DependentUpon>DepartmentData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Departments\EditDepartment.resx">
+      <DependentUpon>EditDepartment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubPages\Departments\MainDepartments.resx">
       <DependentUpon>MainDepartments.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +449,18 @@
     <EmbeddedResource Include="SubPages\Employees\MainEmployee.resx">
       <DependentUpon>MainEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Finances\EmployeeCost.resx">
+      <DependentUpon>EmployeeCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Finances\GeneralCost.resx">
+      <DependentUpon>GeneralCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Finances\MainFinances.resx">
+      <DependentUpon>MainFinances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Finances\ProgramCost.resx">
+      <DependentUpon>ProgramCost.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubPages\Places\AddPlace.resx">
       <DependentUpon>AddPlace.cs</DependentUpon>
     </EmbeddedResource>
@@ -342,8 +473,38 @@
     <EmbeddedResource Include="SubPages\Places\PlaceData.resx">
       <DependentUpon>PlaceData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Programs\AddProgram.resx">
+      <DependentUpon>AddProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Programs\AddTraining.resx">
+      <DependentUpon>AddTraining.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Programs\EditProgram.resx">
+      <DependentUpon>EditProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Programs\EditTrainigData.resx">
+      <DependentUpon>EditTrainigData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubPages\Programs\MainPrograms.resx">
       <DependentUpon>MainPrograms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Programs\TraningData.resx">
+      <DependentUpon>TraningData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Reports\EmployeeReport.resx">
+      <DependentUpon>EmployeeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Reports\FinanceReport.resx">
+      <DependentUpon>FinanceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Reports\FollowingReport.resx">
+      <DependentUpon>FollowingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Reports\MainReports.resx">
+      <DependentUpon>MainReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubPages\Reports\MangmentReport.resx">
+      <DependentUpon>MangmentReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubPages\Users\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
@@ -375,8 +536,6 @@
   <ItemGroup>
     <Folder Include="bin\Debug\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="SubPages\Finances\" />
-    <Folder Include="SubPages\Reports\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Corporate-Training.jpg" />

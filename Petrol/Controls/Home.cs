@@ -21,6 +21,7 @@ namespace Petrol.Controls
         public void usersPage_Click(object sender, EventArgs e)
         {
             mainUsers1.BringToFront();
+            mainUsers1.LoadData();
         }
 
         public void EmployeesBtn_Click(object sender, EventArgs e)
@@ -36,6 +37,7 @@ namespace Petrol.Controls
             var btn = (Guna2GradientButton)sender;
             ChangeColor(btn);
             mainDepartments1.BringToFront();
+            mainDepartments1.LoadData();
         }
 
         public void ProgramsBtn_Click(object sender, EventArgs e)
@@ -43,6 +45,7 @@ namespace Petrol.Controls
             var btn = (Guna2GradientButton)sender;
             ChangeColor(btn);
             mainPrograms1.BringToFront();
+            mainPrograms1.LoadData();
         }
 
         public void PlacesBtn_Click(object sender, EventArgs e)
@@ -50,6 +53,7 @@ namespace Petrol.Controls
             var btn = (Guna2GradientButton)sender;
             ChangeColor(btn);
             mainPlaces1.BringToFront();
+            mainPlaces1.LoadData();
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
@@ -65,6 +69,8 @@ namespace Petrol.Controls
                 DepartmentsBtn,
                 ProgramsBtn,
                 PlacesBtn,
+                FinanceBtn,
+                ReportBtn,
                 
             };
             foreach (var button in buttons)
@@ -75,7 +81,7 @@ namespace Petrol.Controls
             btn.FillColor = Color.Navy;
            
         }
-        public void EmployeeNavigation(string target,int id=0) 
+        public void EmployeeNavigation(string target="",int id=0) 
         {
             switch (target) 
             {
@@ -98,9 +104,175 @@ namespace Petrol.Controls
                     // addProgramToEmployee1.SetEmployeeId(id);
                     break;
                 default:
+                    mainEmployee1.BringToFront();
                     break;
             }
         }
-        
+        public void DepartmentsNavigation(string target="", int id = 0)
+        {
+            switch (target)
+            {
+                case "Add":
+                    addDepartment1.BringToFront();
+                    break;
+                case "Edit":
+                    editDepartment1.BringToFront();
+                    // editEmployee1.SetEmployeeId(id);
+                    break;
+                case "Programs":
+                    departmentData1.BringToFront();
+                    // employeeData1.SetEmployeeId(id);
+                    break;
+                case "Main":
+                    mainDepartments1.BringToFront();
+                    mainDepartments1.LoadData();
+                    break;
+             
+                default:
+                    mainDepartments1.BringToFront();
+                    break;
+            }
+        }
+        public void FinancesNavigation(string target="", int id = 0)
+        {
+            switch (target)
+            {
+                case "General":
+                    generalCost1.BringToFront();
+                    break;
+                case "Employee":
+                    employeeCost1.BringToFront();
+                    // editEmployee1.SetEmployeeId(id);
+                    break;
+                case "Program":
+                    programCost1.BringToFront();
+                    // employeeData1.SetEmployeeId(id);
+                    break;
+                case "Main":
+                    mainFinances1.BringToFront();
+                    break;
+                default:
+                    mainFinances1.BringToFront();
+                    break;
+            }
+        }
+        public void PlacesNavigation(string target="", int id = 0)
+        {
+            switch (target)
+            {
+                case "Add":
+                    addPlace1.BringToFront();
+                    break;
+                case "Edit":
+                    editPlace1.BringToFront();
+                    // editEmployee1.SetEmployeeId(id);
+                    break;
+                case "Programs":
+                    placeData1.BringToFront();
+                    // employeeData1.SetEmployeeId(id);
+                    break;
+                case "Main":
+                    mainPlaces1.BringToFront();
+                    mainPlaces1.LoadData();
+                    break;
+                
+                default:
+                    mainPlaces1.BringToFront();
+                    break;
+            }
+        }
+        public void ProgramsNavigation(string target = "", int id = 0)
+        {
+            switch (target)
+            {
+                case "Add":
+                    addProgram1.BringToFront();
+                    break;
+                case "Edit":
+                    editProgram1.BringToFront();
+                    // editEmployee1.SetEmployeeId(id);
+                    break;
+                case "Add Training":
+                    addTraining1.BringToFront();
+                    // employeeData1.SetEmployeeId(id);
+                    break;
+                case "Main":
+                    mainPrograms1.BringToFront();
+                    mainPrograms1.LoadData();
+                    break;
+                case "Edit Training":
+                    editTrainigData1.BringToFront();
+                    // addProgramToEmployee1.SetEmployeeId(id);
+                    break;
+                case "Training":
+                    traningData1.BringToFront();
+                    // addProgramToEmployee1.SetEmployeeId(id);
+                    break;
+                default:
+                    mainPrograms1.BringToFront();
+                    break;
+            }
+        }
+        public void ReportsNavigation(string target = "", int id = 0)
+        {
+            switch (target)
+            {
+                case "Employee":
+                    employeeReport1.BringToFront();
+                    break;
+                case "Finance":
+                    financeReport1.BringToFront();
+                    // editEmployee1.SetEmployeeId(id);
+                    break;
+                case "Following":
+                    followingReport1.BringToFront();
+                    // employeeData1.SetEmployeeId(id);
+                    break;
+                case "Main":
+                    mainReports1.BringToFront();
+                    break;
+                case "Mangment":
+                    mangmentReport1.BringToFront();
+                    // addProgramToEmployee1.SetEmployeeId(id);
+                    break;
+                default:
+                    mainReports1.BringToFront();
+                    break;
+            }
+        }
+        public void UsersNavigation(string target = "", int id = 0)
+        {
+            switch (target)
+            {
+                case "Add":
+                    addUser1.BringToFront();
+                    break;
+                case "Edit":
+                    editUser1.BringToFront();
+                    // editEmployee1.SetEmployeeId(id);
+                    break;
+                case "Main":
+                    mainUsers1.BringToFront();
+                    mainUsers1.LoadData();
+                    break;
+                default:
+                    mainUsers1.BringToFront();
+                    break;
+            }
+        }
+
+        private void FinanceBtn_Click(object sender, EventArgs e)
+        {
+            var btn = (Guna2GradientButton)sender;
+            ChangeColor(btn);
+            mainFinances1.BringToFront();
+        }
+
+        private void ReportBtn_Click(object sender, EventArgs e)
+        {
+            var btn = (Guna2GradientButton)sender;
+            ChangeColor(btn);
+            mainReports1.BringToFront();
+        }
     }
 }

@@ -29,11 +29,33 @@
         private void InitializeComponent()
         {
             this.Main = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.dummy1 = new Petrol.Controls.DUMMY();
+            this.addTraining1 = new Petrol.SubPages.Programs.AddTraining();
+            this.employeeReport1 = new Petrol.SubPages.Reports.EmployeeReport();
+            this.programCost1 = new Petrol.SubPages.Finances.ProgramCost();
+            this.mainFinances1 = new Petrol.SubPages.Finances.MainFinances();
+            this.generalCost1 = new Petrol.SubPages.Finances.GeneralCost();
+            this.employeeCost1 = new Petrol.SubPages.Finances.EmployeeCost();
+            this.editUser1 = new Petrol.SubPages.Users.EditUser();
+            this.addUser1 = new Petrol.SubPages.Users.AddUser();
+            this.mangmentReport1 = new Petrol.SubPages.Reports.MangmentReport();
+            this.mainReports1 = new Petrol.SubPages.Reports.MainReports();
+            this.followingReport1 = new Petrol.SubPages.Reports.FollowingReport();
+            this.financeReport1 = new Petrol.SubPages.Reports.FinanceReport();
+            this.traningData1 = new Petrol.SubPages.Programs.TraningData();
+            this.editTrainigData1 = new Petrol.SubPages.Programs.EditTrainigData();
+            this.editProgram1 = new Petrol.SubPages.Programs.EditProgram();
+            this.addProgram1 = new Petrol.SubPages.Programs.AddProgram();
+            this.placeData1 = new Petrol.SubPages.Places.PlaceData();
+            this.editPlace1 = new Petrol.SubPages.Places.EditPlace();
+            this.addPlace1 = new Petrol.SubPages.Places.AddPlace();
+            this.editDepartment1 = new Petrol.SubPages.Departments.EditDepartment();
+            this.departmentData1 = new Petrol.SubPages.Departments.DepartmentData();
+            this.addDepartment1 = new Petrol.SubPages.Departments.AddDepartment();
             this.addProgramToEmployee1 = new Petrol.SubPages.Employees.AddProgramToEmployee();
             this.employeeData1 = new Petrol.SubPages.Employees.EmployeeData();
             this.editEmployee1 = new Petrol.SubPages.Employees.EditEmployee();
             this.addEmployee1 = new Petrol.SubPages.Employees.AddEmployee();
-            this.dummy1 = new Petrol.Controls.DUMMY();
             this.mainUsers1 = new Petrol.SubPages.Users.MainUsers();
             this.mainPrograms1 = new Petrol.SubPages.Programs.MainPrograms();
             this.mainPlaces1 = new Petrol.SubPages.Places.MainPlaces();
@@ -43,10 +65,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.EmployeesBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.DepartmentsBtn = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.FinanceBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.PlacesBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.ProgramsBtn = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.ReportBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.usersPage = new System.Windows.Forms.Label();
             this.LogoutBtn = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -60,7 +82,30 @@
             // 
             // Main
             // 
+            this.Main.AutoScroll = true;
             this.Main.Controls.Add(this.dummy1);
+            this.Main.Controls.Add(this.addTraining1);
+            this.Main.Controls.Add(this.employeeReport1);
+            this.Main.Controls.Add(this.programCost1);
+            this.Main.Controls.Add(this.mainFinances1);
+            this.Main.Controls.Add(this.generalCost1);
+            this.Main.Controls.Add(this.employeeCost1);
+            this.Main.Controls.Add(this.editUser1);
+            this.Main.Controls.Add(this.addUser1);
+            this.Main.Controls.Add(this.mangmentReport1);
+            this.Main.Controls.Add(this.mainReports1);
+            this.Main.Controls.Add(this.followingReport1);
+            this.Main.Controls.Add(this.financeReport1);
+            this.Main.Controls.Add(this.traningData1);
+            this.Main.Controls.Add(this.editTrainigData1);
+            this.Main.Controls.Add(this.editProgram1);
+            this.Main.Controls.Add(this.addProgram1);
+            this.Main.Controls.Add(this.placeData1);
+            this.Main.Controls.Add(this.editPlace1);
+            this.Main.Controls.Add(this.addPlace1);
+            this.Main.Controls.Add(this.editDepartment1);
+            this.Main.Controls.Add(this.departmentData1);
+            this.Main.Controls.Add(this.addDepartment1);
             this.Main.Controls.Add(this.addProgramToEmployee1);
             this.Main.Controls.Add(this.employeeData1);
             this.Main.Controls.Add(this.editEmployee1);
@@ -75,6 +120,196 @@
             this.Main.Name = "Main";
             this.Main.Size = new System.Drawing.Size(1090, 662);
             this.Main.TabIndex = 0;
+            // 
+            // dummy1
+            // 
+            this.dummy1.BackColor = System.Drawing.Color.White;
+            this.dummy1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dummy1.Location = new System.Drawing.Point(0, 0);
+            this.dummy1.Name = "dummy1";
+            this.dummy1.Size = new System.Drawing.Size(1090, 662);
+            this.dummy1.TabIndex = 5;
+            // 
+            // addTraining1
+            // 
+            this.addTraining1.AutoScroll = true;
+            this.addTraining1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addTraining1.Location = new System.Drawing.Point(0, 0);
+            this.addTraining1.Name = "addTraining1";
+            this.addTraining1.Size = new System.Drawing.Size(1090, 662);
+            this.addTraining1.TabIndex = 31;
+            // 
+            // employeeReport1
+            // 
+            this.employeeReport1.AutoScroll = true;
+            this.employeeReport1.AutoSize = true;
+            this.employeeReport1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.employeeReport1.Location = new System.Drawing.Point(0, 0);
+            this.employeeReport1.Name = "employeeReport1";
+            this.employeeReport1.Size = new System.Drawing.Size(1090, 662);
+            this.employeeReport1.TabIndex = 30;
+            // 
+            // programCost1
+            // 
+            this.programCost1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.programCost1.Location = new System.Drawing.Point(0, 0);
+            this.programCost1.Name = "programCost1";
+            this.programCost1.Size = new System.Drawing.Size(1090, 662);
+            this.programCost1.TabIndex = 29;
+            // 
+            // mainFinances1
+            // 
+            this.mainFinances1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainFinances1.Location = new System.Drawing.Point(0, 0);
+            this.mainFinances1.Name = "mainFinances1";
+            this.mainFinances1.Size = new System.Drawing.Size(1090, 662);
+            this.mainFinances1.TabIndex = 28;
+            // 
+            // generalCost1
+            // 
+            this.generalCost1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.generalCost1.Location = new System.Drawing.Point(0, 0);
+            this.generalCost1.Name = "generalCost1";
+            this.generalCost1.Size = new System.Drawing.Size(1090, 662);
+            this.generalCost1.TabIndex = 27;
+            // 
+            // employeeCost1
+            // 
+            this.employeeCost1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.employeeCost1.Location = new System.Drawing.Point(0, 0);
+            this.employeeCost1.Name = "employeeCost1";
+            this.employeeCost1.Size = new System.Drawing.Size(1090, 662);
+            this.employeeCost1.TabIndex = 26;
+            // 
+            // editUser1
+            // 
+            this.editUser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editUser1.Location = new System.Drawing.Point(0, 0);
+            this.editUser1.Name = "editUser1";
+            this.editUser1.Size = new System.Drawing.Size(1090, 662);
+            this.editUser1.TabIndex = 25;
+            // 
+            // addUser1
+            // 
+            this.addUser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addUser1.Location = new System.Drawing.Point(0, 0);
+            this.addUser1.Name = "addUser1";
+            this.addUser1.Size = new System.Drawing.Size(1090, 662);
+            this.addUser1.TabIndex = 24;
+            // 
+            // mangmentReport1
+            // 
+            this.mangmentReport1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mangmentReport1.Location = new System.Drawing.Point(0, 0);
+            this.mangmentReport1.Name = "mangmentReport1";
+            this.mangmentReport1.Size = new System.Drawing.Size(1090, 662);
+            this.mangmentReport1.TabIndex = 23;
+            // 
+            // mainReports1
+            // 
+            this.mainReports1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainReports1.Location = new System.Drawing.Point(0, 0);
+            this.mainReports1.Name = "mainReports1";
+            this.mainReports1.Size = new System.Drawing.Size(1090, 662);
+            this.mainReports1.TabIndex = 22;
+            // 
+            // followingReport1
+            // 
+            this.followingReport1.AutoScroll = true;
+            this.followingReport1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.followingReport1.Location = new System.Drawing.Point(0, 0);
+            this.followingReport1.Name = "followingReport1";
+            this.followingReport1.Size = new System.Drawing.Size(1090, 662);
+            this.followingReport1.TabIndex = 21;
+            // 
+            // financeReport1
+            // 
+            this.financeReport1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.financeReport1.Location = new System.Drawing.Point(0, 0);
+            this.financeReport1.Name = "financeReport1";
+            this.financeReport1.Size = new System.Drawing.Size(1090, 662);
+            this.financeReport1.TabIndex = 20;
+            // 
+            // traningData1
+            // 
+            this.traningData1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.traningData1.Location = new System.Drawing.Point(0, 0);
+            this.traningData1.Name = "traningData1";
+            this.traningData1.Size = new System.Drawing.Size(1090, 662);
+            this.traningData1.TabIndex = 19;
+            // 
+            // editTrainigData1
+            // 
+            this.editTrainigData1.AutoScroll = true;
+            this.editTrainigData1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editTrainigData1.Location = new System.Drawing.Point(0, 0);
+            this.editTrainigData1.Name = "editTrainigData1";
+            this.editTrainigData1.Size = new System.Drawing.Size(1090, 662);
+            this.editTrainigData1.TabIndex = 18;
+            // 
+            // editProgram1
+            // 
+            this.editProgram1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editProgram1.Location = new System.Drawing.Point(0, 0);
+            this.editProgram1.Name = "editProgram1";
+            this.editProgram1.Size = new System.Drawing.Size(1090, 662);
+            this.editProgram1.TabIndex = 17;
+            // 
+            // addProgram1
+            // 
+            this.addProgram1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addProgram1.Location = new System.Drawing.Point(0, 0);
+            this.addProgram1.Name = "addProgram1";
+            this.addProgram1.Size = new System.Drawing.Size(1090, 662);
+            this.addProgram1.TabIndex = 16;
+            // 
+            // placeData1
+            // 
+            this.placeData1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.placeData1.Location = new System.Drawing.Point(0, 0);
+            this.placeData1.Name = "placeData1";
+            this.placeData1.Size = new System.Drawing.Size(1090, 662);
+            this.placeData1.TabIndex = 15;
+            // 
+            // editPlace1
+            // 
+            this.editPlace1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editPlace1.Location = new System.Drawing.Point(0, 0);
+            this.editPlace1.Name = "editPlace1";
+            this.editPlace1.Size = new System.Drawing.Size(1090, 662);
+            this.editPlace1.TabIndex = 14;
+            // 
+            // addPlace1
+            // 
+            this.addPlace1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addPlace1.Location = new System.Drawing.Point(0, 0);
+            this.addPlace1.Name = "addPlace1";
+            this.addPlace1.Size = new System.Drawing.Size(1090, 662);
+            this.addPlace1.TabIndex = 13;
+            // 
+            // editDepartment1
+            // 
+            this.editDepartment1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editDepartment1.Location = new System.Drawing.Point(0, 0);
+            this.editDepartment1.Name = "editDepartment1";
+            this.editDepartment1.Size = new System.Drawing.Size(1090, 662);
+            this.editDepartment1.TabIndex = 12;
+            // 
+            // departmentData1
+            // 
+            this.departmentData1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.departmentData1.Location = new System.Drawing.Point(0, 0);
+            this.departmentData1.Name = "departmentData1";
+            this.departmentData1.Size = new System.Drawing.Size(1090, 662);
+            this.departmentData1.TabIndex = 11;
+            // 
+            // addDepartment1
+            // 
+            this.addDepartment1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addDepartment1.Location = new System.Drawing.Point(0, 0);
+            this.addDepartment1.Name = "addDepartment1";
+            this.addDepartment1.Size = new System.Drawing.Size(1090, 662);
+            this.addDepartment1.TabIndex = 10;
             // 
             // addProgramToEmployee1
             // 
@@ -108,15 +343,6 @@
             this.addEmployee1.Name = "addEmployee1";
             this.addEmployee1.Size = new System.Drawing.Size(1090, 662);
             this.addEmployee1.TabIndex = 6;
-            // 
-            // dummy1
-            // 
-            this.dummy1.BackColor = System.Drawing.Color.White;
-            this.dummy1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dummy1.Location = new System.Drawing.Point(0, 0);
-            this.dummy1.Name = "dummy1";
-            this.dummy1.Size = new System.Drawing.Size(1090, 662);
-            this.dummy1.TabIndex = 5;
             // 
             // mainUsers1
             // 
@@ -163,10 +389,10 @@
             this.guna2GradientPanel2.Controls.Add(this.label1);
             this.guna2GradientPanel2.Controls.Add(this.EmployeesBtn);
             this.guna2GradientPanel2.Controls.Add(this.DepartmentsBtn);
-            this.guna2GradientPanel2.Controls.Add(this.guna2GradientButton4);
+            this.guna2GradientPanel2.Controls.Add(this.FinanceBtn);
             this.guna2GradientPanel2.Controls.Add(this.PlacesBtn);
             this.guna2GradientPanel2.Controls.Add(this.ProgramsBtn);
-            this.guna2GradientPanel2.Controls.Add(this.guna2GradientButton1);
+            this.guna2GradientPanel2.Controls.Add(this.ReportBtn);
             this.guna2GradientPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.guna2GradientPanel2.FillColor = System.Drawing.Color.Maroon;
             this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.Navy;
@@ -228,24 +454,25 @@
             this.DepartmentsBtn.Text = "الإدارات";
             this.DepartmentsBtn.Click += new System.EventHandler(this.DepartmentsBtn_Click);
             // 
-            // guna2GradientButton4
+            // FinanceBtn
             // 
-            this.guna2GradientButton4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton4.BorderRadius = 8;
-            this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton4.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton4.FillColor = System.Drawing.Color.Black;
-            this.guna2GradientButton4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.guna2GradientButton4.Font = new System.Drawing.Font("Cairo", 12F);
-            this.guna2GradientButton4.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton4.Location = new System.Drawing.Point(6, 460);
-            this.guna2GradientButton4.Name = "guna2GradientButton4";
-            this.guna2GradientButton4.Size = new System.Drawing.Size(222, 64);
-            this.guna2GradientButton4.TabIndex = 9;
-            this.guna2GradientButton4.Text = "الماليات";
+            this.FinanceBtn.BackColor = System.Drawing.Color.Transparent;
+            this.FinanceBtn.BorderRadius = 8;
+            this.FinanceBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.FinanceBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.FinanceBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.FinanceBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.FinanceBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.FinanceBtn.FillColor = System.Drawing.Color.Black;
+            this.FinanceBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.FinanceBtn.Font = new System.Drawing.Font("Cairo", 12F);
+            this.FinanceBtn.ForeColor = System.Drawing.Color.White;
+            this.FinanceBtn.Location = new System.Drawing.Point(6, 460);
+            this.FinanceBtn.Name = "FinanceBtn";
+            this.FinanceBtn.Size = new System.Drawing.Size(222, 64);
+            this.FinanceBtn.TabIndex = 9;
+            this.FinanceBtn.Text = "الماليات";
+            this.FinanceBtn.Click += new System.EventHandler(this.FinanceBtn_Click);
             // 
             // PlacesBtn
             // 
@@ -287,24 +514,25 @@
             this.ProgramsBtn.Text = "البرامج";
             this.ProgramsBtn.Click += new System.EventHandler(this.ProgramsBtn_Click);
             // 
-            // guna2GradientButton1
+            // ReportBtn
             // 
-            this.guna2GradientButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton1.BorderRadius = 8;
-            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton1.FillColor = System.Drawing.Color.Black;
-            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.guna2GradientButton1.Font = new System.Drawing.Font("Cairo", 12F);
-            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(6, 553);
-            this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.Size = new System.Drawing.Size(222, 64);
-            this.guna2GradientButton1.TabIndex = 6;
-            this.guna2GradientButton1.Text = "التقارير";
+            this.ReportBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ReportBtn.BorderRadius = 8;
+            this.ReportBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ReportBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ReportBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ReportBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ReportBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ReportBtn.FillColor = System.Drawing.Color.Black;
+            this.ReportBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ReportBtn.Font = new System.Drawing.Font("Cairo", 12F);
+            this.ReportBtn.ForeColor = System.Drawing.Color.White;
+            this.ReportBtn.Location = new System.Drawing.Point(6, 553);
+            this.ReportBtn.Name = "ReportBtn";
+            this.ReportBtn.Size = new System.Drawing.Size(222, 64);
+            this.ReportBtn.TabIndex = 6;
+            this.ReportBtn.Text = "التقارير";
+            this.ReportBtn.Click += new System.EventHandler(this.ReportBtn_Click);
             // 
             // guna2GradientPanel3
             // 
@@ -390,6 +618,7 @@
             this.Name = "Home";
             this.Size = new System.Drawing.Size(1321, 795);
             this.Main.ResumeLayout(false);
+            this.Main.PerformLayout();
             this.guna2GradientPanel2.ResumeLayout(false);
             this.guna2GradientPanel2.PerformLayout();
             this.guna2GradientPanel3.ResumeLayout(false);
@@ -406,10 +635,10 @@
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2GradientButton ReportBtn;
         private Guna.UI2.WinForms.Guna2GradientButton EmployeesBtn;
         private Guna.UI2.WinForms.Guna2GradientButton DepartmentsBtn;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
+        private Guna.UI2.WinForms.Guna2GradientButton FinanceBtn;
         private Guna.UI2.WinForms.Guna2GradientButton PlacesBtn;
         private Guna.UI2.WinForms.Guna2GradientButton ProgramsBtn;
         private System.Windows.Forms.Label label1;
@@ -425,5 +654,27 @@
         public SubPages.Employees.AddProgramToEmployee addProgramToEmployee1;
         public SubPages.Employees.EmployeeData employeeData1;
         public SubPages.Employees.EditEmployee editEmployee1;
+        private SubPages.Departments.AddDepartment addDepartment1;
+        private SubPages.Reports.FollowingReport followingReport1;
+        private SubPages.Reports.FinanceReport financeReport1;
+        private SubPages.Programs.TraningData traningData1;
+        private SubPages.Programs.EditTrainigData editTrainigData1;
+        private SubPages.Programs.EditProgram editProgram1;
+        private SubPages.Programs.AddProgram addProgram1;
+        private SubPages.Places.PlaceData placeData1;
+        private SubPages.Places.EditPlace editPlace1;
+        private SubPages.Places.AddPlace addPlace1;
+        private SubPages.Departments.EditDepartment editDepartment1;
+        private SubPages.Departments.DepartmentData departmentData1;
+        private SubPages.Reports.EmployeeReport employeeReport1;
+        private SubPages.Finances.ProgramCost programCost1;
+        private SubPages.Finances.MainFinances mainFinances1;
+        private SubPages.Finances.GeneralCost generalCost1;
+        private SubPages.Finances.EmployeeCost employeeCost1;
+        private SubPages.Users.EditUser editUser1;
+        private SubPages.Users.AddUser addUser1;
+        private SubPages.Reports.MangmentReport mangmentReport1;
+        private SubPages.Reports.MainReports mainReports1;
+        private SubPages.Programs.AddTraining addTraining1;
     }
 }

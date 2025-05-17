@@ -327,6 +327,7 @@
             this.BackBtn.Size = new System.Drawing.Size(123, 58);
             this.BackBtn.TabIndex = 13;
             this.BackBtn.Text = "رجوع";
+            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
             // EmployeesBtn
             // 

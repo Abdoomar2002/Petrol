@@ -113,6 +113,7 @@
             this.BackBtn.Size = new System.Drawing.Size(123, 58);
             this.BackBtn.TabIndex = 13;
             this.BackBtn.Text = "رجوع";
+            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
             // ShowProgramsBtn
             // 
@@ -126,9 +127,10 @@
             this.ShowProgramsBtn.ForeColor = System.Drawing.Color.White;
             this.ShowProgramsBtn.Location = new System.Drawing.Point(527, 55);
             this.ShowProgramsBtn.Name = "ShowProgramsBtn";
-            this.ShowProgramsBtn.Size = new System.Drawing.Size(153, 58);
+            this.ShowProgramsBtn.Size = new System.Drawing.Size(180, 58);
             this.ShowProgramsBtn.TabIndex = 14;
             this.ShowProgramsBtn.Text = "عرض التدريبات";
+            this.ShowProgramsBtn.Click += new System.EventHandler(this.ShowProgramsBtn_Click);
             // 
             // Header
             // 

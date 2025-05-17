@@ -16,5 +16,11 @@ namespace Petrol.SubPages.Users
         {
             InitializeComponent();
         }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            var form = (Form1)this.ParentForm;
+            form.UsersNavigation("Main");
+        }
     }
 }

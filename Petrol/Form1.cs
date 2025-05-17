@@ -37,7 +37,30 @@ namespace Petrol
         {
             home1.EmployeeNavigation("Main");
         }
-
+        public void DeparmentNavigation(string target) 
+        {
+           home1.DepartmentsNavigation(target);
+        }
+        public void FinanceNavigation(string target)
+        {
+           home1.FinancesNavigation(target);
+        }
+        public void PlacesNavigation(string target)
+        {
+            home1.PlacesNavigation(target);
+        }
+        public void ProgramNavigation(string target)
+        {
+            home1.ProgramsNavigation(target);
+        }
+        public void ReportsNavigation(string target)
+        {
+            home1.ReportsNavigation(target);
+        }
+        public void UsersNavigation(string target)
+        {
+            home1.UsersNavigation(target);
+        }
 
     }
 }
