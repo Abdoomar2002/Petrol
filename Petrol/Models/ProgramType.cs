@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Petrol.Models
 {
-    internal class ProgramType
+    public class ProgramType
     {
+        public int Id { get; set; }
+
+        public string Type { get; set; }
+        public string Total { get; set; }
+        public List<Training> Trainings { get; set; }
+        public List<Program> Programs { get; set; }
     }
 }

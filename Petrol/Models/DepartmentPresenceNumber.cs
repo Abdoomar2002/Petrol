@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace Petrol.Models
 {
-    public class EmployeeTraining
+    public class DepartmentPresenceNumber
     {
         public int Id { get; set; }
-        [ForeignKey("EmployeeId")]
-        public int EmployeeId { get; set; }
-        [ForeignKey("TrainingId")]
-        public int TrainingId { get; set; }
+        [ForeignKey("DepartmentId")]
+        public int DepartmentId { get; set; }
+        public Department Department { get; set; }
+        public int PresenceNumber { get; set; }
+
     }
 }

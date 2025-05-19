@@ -22,5 +22,10 @@ namespace Petrol.SubPages.Programs
             var form = (Form1)this.ParentForm;
             form.ProgramNavigation("Edit");
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

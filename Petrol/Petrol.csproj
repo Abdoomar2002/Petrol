@@ -193,16 +193,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20250519012844_Initial.cs" />
+    <Compile Include="Migrations\20250519012844_Initial.Designer.cs">
+      <DependentUpon>20250519012844_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20250519021626_ProgramId.cs" />
+    <Compile Include="Migrations\20250519021626_ProgramId.Designer.cs">
+      <DependentUpon>20250519021626_ProgramId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\AppDbContextModelSnapshot.cs" />
+    <Compile Include="Models\DepartmentPresenceNumber.cs" />
     <Compile Include="Models\EmployeeTraining.cs" />
-    <Compile Include="Models\FinanceDepartment.cs" />
-    <Compile Include="Models\FinanceProgramType.cs" />
+    <Compile Include="Models\FollowingReport.cs" />
     <Compile Include="Models\ProgramType.cs" />
-    <Compile Include="Models\Reports.cs" />
     <Compile Include="Models\Training.cs" />
     <Compile Include="Models\Place.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\Finance.cs" />
     <Compile Include="Models\Program.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
