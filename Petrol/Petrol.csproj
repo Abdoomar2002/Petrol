@@ -217,8 +217,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositry\IRepository.cs" />
     <Compile Include="Repositry\Repository.cs" />
-    <Compile Include="Services\CourseService.cs" />
+    <Compile Include="Services\PlaceService.cs" />
+    <Compile Include="Services\DepartmentPresenceNumberService.cs" />
+    <Compile Include="Services\DepartmentService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="Services\EmployeeTrainingService.cs" />
+    <Compile Include="Services\FollowingReportService.cs" />
+    <Compile Include="Services\ProgramService.cs" />
+    <Compile Include="Services\ProgramTypeService.cs" />
+    <Compile Include="Services\TrainingService.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="SubPages\Departments\AddDepartment.cs">
       <SubType>UserControl</SubType>
     </Compile>
