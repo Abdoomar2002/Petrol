@@ -37,9 +37,9 @@ namespace Petrol
         {
             home1.EmployeeNavigation("Main");
         }
-        public void DeparmentNavigation(string target) 
+        public void DeparmentNavigation(string target,int id=0) 
         {
-           home1.DepartmentsNavigation(target);
+           home1.DepartmentsNavigation(target,id);
         }
         public void FinanceNavigation(string target)
         {

@@ -119,11 +119,11 @@ namespace Petrol.Controls
                     break;
                 case "Edit":
                     editDepartment1.BringToFront();
-                    // editEmployee1.SetEmployeeId(id);
+                     editDepartment1.SetDepartmentID(id);
                     break;
                 case "Programs":
                     departmentData1.BringToFront();
-                    // employeeData1.SetEmployeeId(id);
+                    departmentData1.SetDepartmentID(id);
                     break;
                 case "Main":
                     mainDepartments1.BringToFront();

@@ -3,6 +3,7 @@ using Petrol.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,10 +12,12 @@ namespace Petrol.Repositry
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly AppDbContext _context;
+        private readonly DbSet<T> _dbSet;
 
         public Repository()
         {
             _context = new AppDbContext();
+            _dbSet = _context.Set<T>();
         }
 
         public void Add<T>(T entity) where T : class
@@ -38,6 +41,17 @@ namespace Petrol.Repositry
         public IEnumerable<T> GetAll<T>() where T : class
         {
             return _context.Set<T>().ToList();
+        }
+        public virtual IQueryable<T> GetAllWithInclude(params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = _dbSet;
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return query;
         }
 
         public T GetById<T>(int id) where T : class
