@@ -16,5 +16,10 @@ namespace Petrol.Services
             var All = GetAll<Place>().ToList();
             return All.Any(e => e.Name == name);
         }
+        public bool IsPlaceNameExists(string name, int id)
+        {
+            var All = GetAll<Place>().ToList();
+            return All.Any(e => e.Name == name && e.Id != id);
+        }
     }
 }

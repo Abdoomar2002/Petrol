@@ -36,7 +36,12 @@ namespace Petrol.Repositry
         }
         public int GetTheLastId<T>() where T : class
         {
-            return _context.Set<T>().ToList().LastOrDefault()?.GetType().GetProperty("Id").GetValue(null) as int? ?? 1;
+            var list = _context.Set<T>().ToList();
+            var last = list.LastOrDefault();
+            var type = last.GetType();
+            var prop = type.GetProperty("Id");
+            var val=(prop.GetValue(last) as int?)+1  ?? 1;
+            return val;
         }
         public IEnumerable<T> GetAll<T>() where T : class
         {
@@ -50,6 +55,20 @@ namespace Petrol.Repositry
             {
                 query = query.Include(include);
             }
+
+            return query;
+        }
+        public virtual IQueryable<T> GetAllWithNestedInclude(
+            Func<IQueryable<T>, IQueryable<T>> includeFunc,
+            Expression<Func<T, bool>> filter = null)
+        {
+            IQueryable<T> query = _dbSet;
+
+            if (filter != null)
+                query = query.Where(filter);
+
+            if (includeFunc != null)
+                query = includeFunc(query);
 
             return query;
         }

@@ -132,6 +132,7 @@ namespace Petrol.Controls
              
                 default:
                     mainDepartments1.BringToFront();
+                    mainDepartments1.LoadData();
                     break;
             }
         }
@@ -168,11 +169,11 @@ namespace Petrol.Controls
                     break;
                 case "Edit":
                     editPlace1.BringToFront();
-                    // editEmployee1.SetEmployeeId(id);
+                    editPlace1.SetPlaceId(id);
                     break;
                 case "Programs":
                     placeData1.BringToFront();
-                    // employeeData1.SetEmployeeId(id);
+                    placeData1.SetPlaceId(id);
                     break;
                 case "Main":
                     mainPlaces1.BringToFront();
@@ -181,6 +182,7 @@ namespace Petrol.Controls
                 
                 default:
                     mainPlaces1.BringToFront();
+                    mainPlaces1.LoadData();
                     break;
             }
         }
@@ -260,6 +262,7 @@ namespace Petrol.Controls
                     break;
                 default:
                     mainUsers1.BringToFront();
+                    mainUsers1.LoadData();
                     break;
             }
         }

@@ -45,9 +45,9 @@ namespace Petrol
         {
            home1.FinancesNavigation(target);
         }
-        public void PlacesNavigation(string target)
+        public void PlacesNavigation(string target,int id=0)
         {
-            home1.PlacesNavigation(target);
+            home1.PlacesNavigation(target,id);
         }
         public void ProgramNavigation(string target)
         {
