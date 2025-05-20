@@ -87,6 +87,7 @@ namespace Petrol.Controls
             {
                 case "Add":
                     addEmployee1.BringToFront();
+                    addEmployee1.LoadData();
                     break;
                 case "Edit":
                     editEmployee1.BringToFront();
@@ -114,6 +115,7 @@ namespace Petrol.Controls
             {
                 case "Add":
                     addDepartment1.BringToFront();
+                    addDepartment1.LoadData();
                     break;
                 case "Edit":
                     editDepartment1.BringToFront();
@@ -162,6 +164,7 @@ namespace Petrol.Controls
             {
                 case "Add":
                     addPlace1.BringToFront();
+                    addPlace1.LoadData();
                     break;
                 case "Edit":
                     editPlace1.BringToFront();
@@ -249,7 +252,7 @@ namespace Petrol.Controls
                     break;
                 case "Edit":
                     editUser1.BringToFront();
-                    // editEmployee1.SetEmployeeId(id);
+                    editUser1.SetEmployeeId(id);
                     break;
                 case "Main":
                     mainUsers1.BringToFront();

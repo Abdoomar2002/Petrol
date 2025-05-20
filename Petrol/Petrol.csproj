@@ -415,6 +415,7 @@
     </Compile>
     <Compile Include="Utils\Constants.cs" />
     <Compile Include="Utils\ExcelExporter.cs" />
+    <Compile Include="Utils\UserMessages.cs" />
     <EmbeddedResource Include="Controls\DUMMY.resx">
       <DependentUpon>DUMMY.cs</DependentUpon>
     </EmbeddedResource>

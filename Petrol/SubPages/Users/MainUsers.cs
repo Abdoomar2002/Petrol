@@ -1,4 +1,6 @@
-﻿using Petrol.SubPages.Employees;
+﻿using Petrol.Models;
+using Petrol.Services;
+using Petrol.SubPages.Employees;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +15,11 @@ namespace Petrol.SubPages.Users
 {
     public partial class MainUsers : UserControl
     {
+        private UserService service;
         public MainUsers()
         {
             InitializeComponent();
+            service = new UserService();
         }
 
         private void AddUserBtn_Click(object sender, EventArgs e)
@@ -26,13 +30,36 @@ namespace Petrol.SubPages.Users
         public void LoadData()
         {
             UsersData.Rows.Clear();
-            UsersData.RowCount = 2;
+          
+            var users = service.GetAll<User>();
+            var i = 1;
+            foreach (var user in users) {
+                UsersData.Rows.Add(user.Id,i++, user.FinanceNumber, user.Name, user.Username, user.Role);
+            }
+           
         }
 
         private void UsersData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
+            var id = int.Parse(UsersData.Rows[e.RowIndex].Cells[0].Value?.ToString()??"0");
+            if (id == 0)
+                return;
+           
             var form = (Form1)this.ParentForm;
-            form.UsersNavigation("Edit");
+            form.UsersNavigation("Edit",id);
+        }
+
+        private void SearchBtn_Click(object sender, EventArgs e)
+        {
+            var results=service.Search(SearchTxt.Text);
+            UsersData.Rows.Clear();
+            var i = 1;
+            foreach (var user in results)
+            {
+                UsersData.Rows.Add(user.Id, i++, user.FinanceNumber, user.Name, user.Username, user.Role);
+            }
+
         }
     }
 }

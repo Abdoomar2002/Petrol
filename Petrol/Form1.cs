@@ -57,9 +57,9 @@ namespace Petrol
         {
             home1.ReportsNavigation(target);
         }
-        public void UsersNavigation(string target)
+        public void UsersNavigation(string target,int id=0)
         {
-            home1.UsersNavigation(target);
+            home1.UsersNavigation(target,id);
         }
 
     }

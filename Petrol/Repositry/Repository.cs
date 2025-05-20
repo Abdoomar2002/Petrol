@@ -29,9 +29,12 @@ namespace Petrol.Repositry
 
         public IEnumerable<T> Find<T>(Func<T, bool> predicate) where T : class
         {
-            return _context.Set<T>().Where(predicate).ToList();
+            return _context.Set<T>().AsNoTracking().Where(predicate).ToList();
         }
-
+        public int GetTheLastId<T>() where T : class
+        {
+            return _context.Set<T>().ToList().LastOrDefault()?.GetType().GetProperty("Id").GetValue(null) as int? ?? 1;
+        }
         public IEnumerable<T> GetAll<T>() where T : class
         {
             return _context.Set<T>().ToList();
@@ -42,20 +45,41 @@ namespace Petrol.Repositry
             // Assumes entity has an "Id" property of type int
             return _context.Set<T>().Find(id);
         }
-
         public void SaveChanges()
         {
             _context.SaveChanges();
         }
-
         public void Update<T>(T entity) where T : class
         {
             _context.Entry(entity).State = EntityState.Modified;
         }
-
+        public void Attach<T>(T entity) where T : class
+        {
+            _context.Set<T>().Attach(entity);
+        }
         public void Dispose()
         {
             _context.Dispose();
+        }
+        public  IEnumerable<T> Search(string term)
+        {
+            if (string.IsNullOrWhiteSpace(term))
+                return _context.Set<T>().ToList();
+
+            var properties = typeof(T).GetProperties()
+                .Where(p => p.CanRead && p.GetMethod.IsPublic);
+
+            var list = _context.Set<T>()
+                .AsEnumerable() // Bring data into memory to use reflection (note: may be costly!)
+                .Where(entity =>
+                    properties.Any(prop =>
+                    {
+                        var value = prop.GetValue(entity);
+                        return value != null && value.ToString().Contains(term);
+                    }))
+                .ToList();
+
+            return list;
         }
     }
     
