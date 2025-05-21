@@ -12,7 +12,10 @@ namespace Petrol.Models
         public int Id { get; set; }
         [ForeignKey("EmployeeId")]
         public int EmployeeId { get; set; }
+        public Employee Employee { get; set; }
         [ForeignKey("TrainingId")]
         public int TrainingId { get; set; }
+        public Training Training { get; set; }
+
     }
 }

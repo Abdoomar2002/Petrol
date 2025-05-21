@@ -13,6 +13,12 @@ namespace Petrol.Services
             return All.Any(e => e.FinanceNumber == financeNumber);
 
         }
+        public bool IsFinanceNumberExists(string financeNumber,string existing)
+        {
+            var All = GetAll<Employee>().ToList();
+            return All.Any(e => e.FinanceNumber == financeNumber&&e.FinanceNumber!=existing);
+
+        }
         public EmployeeService() : base()
         {
         }
@@ -35,15 +41,6 @@ namespace Petrol.Services
             
         }
 
-        public void UpdateEmployee(Employee employee)
-        {
-            Update(employee);
-            SaveChanges();
-        }
-        public void DeleteEmployee(Employee employee)
-        {
-            Delete(employee);
-            SaveChanges();
-        }
+      
        }
     }

@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.TrainingType = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Location = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ToDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.TrainingName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.TrainingId = new Guna.UI2.WinForms.Guna2TextBox();
+            this.FromDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.Header = new Guna.UI2.WinForms.Guna2Panel();
-            this.BackBtn = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.EmployeesBtn = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.label19 = new System.Windows.Forms.Label();
             this.ContainerName = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ComboBox3 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.BackBtn = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.DeleteBtn = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.SaveBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.Header.SuspendLayout();
             this.ContainerName.SuspendLayout();
@@ -59,18 +59,18 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.guna2ComboBox3, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.TrainingType, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.guna2TextBox4, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.Location, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.guna2DateTimePicker2, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.ToDate, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.guna2TextBox3, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.TrainingName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.guna2TextBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.guna2DateTimePicker1, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.TrainingId, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.FromDate, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 159);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -82,6 +82,114 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1249, 611);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // TrainingType
+            // 
+            this.TrainingType.BackColor = System.Drawing.Color.Transparent;
+            this.TrainingType.BorderColor = System.Drawing.Color.Black;
+            this.TrainingType.BorderRadius = 10;
+            this.TrainingType.BorderThickness = 2;
+            this.TrainingType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TrainingType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.TrainingType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TrainingType.Enabled = false;
+            this.TrainingType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TrainingType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TrainingType.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold);
+            this.TrainingType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.TrainingType.ItemHeight = 40;
+            this.TrainingType.Items.AddRange(new object[] {
+            "مركزي",
+            "لا مركزي",
+            "خارج البلاد"});
+            this.TrainingType.Location = new System.Drawing.Point(630, 165);
+            this.TrainingType.Margin = new System.Windows.Forms.Padding(5);
+            this.TrainingType.Name = "TrainingType";
+            this.TrainingType.Size = new System.Drawing.Size(414, 46);
+            this.TrainingType.TabIndex = 43;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Cairo Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(428, 160);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(194, 80);
+            this.label6.TabIndex = 41;
+            this.label6.Text = "مكان الانعقاد";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Location
+            // 
+            this.Location.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.Location.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.Location.BorderColor = System.Drawing.Color.Black;
+            this.Location.BorderRadius = 10;
+            this.Location.BorderThickness = 2;
+            this.Location.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Location.DefaultText = "";
+            this.Location.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Location.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.Location.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Location.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Location.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Location.Enabled = false;
+            this.Location.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Location.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Location.ForeColor = System.Drawing.Color.Black;
+            this.Location.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Location.Location = new System.Drawing.Point(5, 165);
+            this.Location.Margin = new System.Windows.Forms.Padding(5);
+            this.Location.Name = "Location";
+            this.Location.PlaceholderText = "";
+            this.Location.SelectedText = "";
+            this.Location.Size = new System.Drawing.Size(415, 70);
+            this.Location.TabIndex = 42;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Cairo Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(1052, 160);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(194, 80);
+            this.label5.TabIndex = 39;
+            this.label5.Text = "نوع البرنامج";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Cairo Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(428, 80);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(194, 80);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "الي";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ToDate
+            // 
+            this.ToDate.BorderRadius = 10;
+            this.ToDate.BorderThickness = 2;
+            this.ToDate.Checked = true;
+            this.ToDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ToDate.Enabled = false;
+            this.ToDate.FillColor = System.Drawing.Color.White;
+            this.ToDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToDate.ForeColor = System.Drawing.Color.Black;
+            this.ToDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.ToDate.Location = new System.Drawing.Point(5, 85);
+            this.ToDate.Margin = new System.Windows.Forms.Padding(5);
+            this.ToDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.ToDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.ToDate.Name = "ToDate";
+            this.ToDate.Size = new System.Drawing.Size(415, 70);
+            this.ToDate.TabIndex = 38;
+            this.ToDate.Value = new System.DateTime(2025, 5, 7, 18, 12, 49, 120);
             // 
             // label3
             // 
@@ -95,29 +203,32 @@
             this.label3.Text = "اسم البرنامج";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2TextBox3
+            // TrainingName
             // 
-            this.guna2TextBox3.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.BorderRadius = 10;
-            this.guna2TextBox3.BorderThickness = 2;
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox3.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Location = new System.Drawing.Point(630, 85);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(5);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.Size = new System.Drawing.Size(414, 70);
-            this.guna2TextBox3.TabIndex = 5;
+            this.TrainingName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TrainingName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TrainingName.BorderColor = System.Drawing.Color.Black;
+            this.TrainingName.BorderRadius = 10;
+            this.TrainingName.BorderThickness = 2;
+            this.TrainingName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TrainingName.DefaultText = "";
+            this.TrainingName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TrainingName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TrainingName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TrainingName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TrainingName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TrainingName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TrainingName.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrainingName.ForeColor = System.Drawing.Color.Black;
+            this.TrainingName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TrainingName.Location = new System.Drawing.Point(630, 85);
+            this.TrainingName.Margin = new System.Windows.Forms.Padding(5);
+            this.TrainingName.Name = "TrainingName";
+            this.TrainingName.PlaceholderText = "";
+            this.TrainingName.SelectedText = "";
+            this.TrainingName.Size = new System.Drawing.Size(414, 70);
+            this.TrainingName.TabIndex = 5;
+            this.TrainingName.TextChanged += new System.EventHandler(this.TrainingName_TextChanged);
             // 
             // label2
             // 
@@ -143,61 +254,87 @@
             this.label1.Text = "كود البرنامج";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2TextBox1
+            // TrainingId
             // 
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.BorderRadius = 10;
-            this.guna2TextBox1.BorderThickness = 2;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(630, 5);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(414, 70);
-            this.guna2TextBox1.TabIndex = 1;
+            this.TrainingId.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TrainingId.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TrainingId.BorderColor = System.Drawing.Color.Black;
+            this.TrainingId.BorderRadius = 10;
+            this.TrainingId.BorderThickness = 2;
+            this.TrainingId.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TrainingId.DefaultText = "";
+            this.TrainingId.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TrainingId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TrainingId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TrainingId.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TrainingId.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TrainingId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TrainingId.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrainingId.ForeColor = System.Drawing.Color.Black;
+            this.TrainingId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TrainingId.Location = new System.Drawing.Point(630, 5);
+            this.TrainingId.Margin = new System.Windows.Forms.Padding(5);
+            this.TrainingId.Name = "TrainingId";
+            this.TrainingId.PlaceholderText = "";
+            this.TrainingId.SelectedText = "";
+            this.TrainingId.Size = new System.Drawing.Size(414, 70);
+            this.TrainingId.TabIndex = 1;
+            this.TrainingId.TextChanged += new System.EventHandler(this.TrainingId_TextChanged);
             // 
-            // guna2DateTimePicker1
+            // FromDate
             // 
-            this.guna2DateTimePicker1.BorderRadius = 10;
-            this.guna2DateTimePicker1.BorderThickness = 2;
-            this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DateTimePicker1.ForeColor = System.Drawing.Color.Black;
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(5, 5);
-            this.guna2DateTimePicker1.Margin = new System.Windows.Forms.Padding(5);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(415, 70);
-            this.guna2DateTimePicker1.TabIndex = 36;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2025, 5, 7, 18, 12, 49, 120);
+            this.FromDate.BorderRadius = 10;
+            this.FromDate.BorderThickness = 2;
+            this.FromDate.Checked = true;
+            this.FromDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FromDate.Enabled = false;
+            this.FromDate.FillColor = System.Drawing.Color.White;
+            this.FromDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FromDate.ForeColor = System.Drawing.Color.Black;
+            this.FromDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.FromDate.Location = new System.Drawing.Point(5, 5);
+            this.FromDate.Margin = new System.Windows.Forms.Padding(5);
+            this.FromDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.FromDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.FromDate.Name = "FromDate";
+            this.FromDate.Size = new System.Drawing.Size(415, 70);
+            this.FromDate.TabIndex = 36;
+            this.FromDate.Value = new System.DateTime(2025, 5, 7, 18, 12, 49, 120);
             // 
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.White;
             this.Header.Controls.Add(this.ContainerName);
             this.Header.Controls.Add(this.BackBtn);
-            this.Header.Controls.Add(this.EmployeesBtn);
-            this.Header.Controls.Add(this.guna2Button5);
+            this.Header.Controls.Add(this.DeleteBtn);
+            this.Header.Controls.Add(this.SaveBtn);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Name = "Header";
             this.Header.Size = new System.Drawing.Size(1249, 159);
             this.Header.TabIndex = 2;
+            // 
+            // ContainerName
+            // 
+            this.ContainerName.Controls.Add(this.label19);
+            this.ContainerName.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ContainerName.Location = new System.Drawing.Point(733, 0);
+            this.ContainerName.Margin = new System.Windows.Forms.Padding(10);
+            this.ContainerName.Name = "ContainerName";
+            this.ContainerName.Padding = new System.Windows.Forms.Padding(10);
+            this.ContainerName.Size = new System.Drawing.Size(516, 159);
+            this.ContainerName.TabIndex = 14;
+            // 
+            // label19
+            // 
+            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label19.Font = new System.Drawing.Font("Cairo", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(10, 10);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(496, 139);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "أضافة تدريب الي محمود احمد محمد";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // BackBtn
             // 
@@ -219,168 +356,42 @@
             this.BackBtn.Text = "رجوع";
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
-            // EmployeesBtn
+            // DeleteBtn
             // 
-            this.EmployeesBtn.BackColor = System.Drawing.Color.Transparent;
-            this.EmployeesBtn.BorderRadius = 8;
-            this.EmployeesBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.EmployeesBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.EmployeesBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.EmployeesBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.EmployeesBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.EmployeesBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.EmployeesBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.EmployeesBtn.Font = new System.Drawing.Font("Cairo", 12F);
-            this.EmployeesBtn.ForeColor = System.Drawing.Color.White;
-            this.EmployeesBtn.Location = new System.Drawing.Point(166, 55);
-            this.EmployeesBtn.Name = "EmployeesBtn";
-            this.EmployeesBtn.Size = new System.Drawing.Size(153, 58);
-            this.EmployeesBtn.TabIndex = 12;
-            this.EmployeesBtn.Text = "تفريغ";
+            this.DeleteBtn.BackColor = System.Drawing.Color.Transparent;
+            this.DeleteBtn.BorderRadius = 8;
+            this.DeleteBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.DeleteBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.DeleteBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.DeleteBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.DeleteBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.DeleteBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.DeleteBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.DeleteBtn.Font = new System.Drawing.Font("Cairo", 12F);
+            this.DeleteBtn.ForeColor = System.Drawing.Color.White;
+            this.DeleteBtn.Location = new System.Drawing.Point(166, 55);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(153, 58);
+            this.DeleteBtn.TabIndex = 12;
+            this.DeleteBtn.Text = "تفريغ";
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
-            // guna2Button5
+            // SaveBtn
             // 
-            this.guna2Button5.BorderRadius = 10;
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.Navy;
-            this.guna2Button5.Font = new System.Drawing.Font("Cairo", 12F);
-            this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.Location = new System.Drawing.Point(355, 55);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(153, 58);
-            this.guna2Button5.TabIndex = 2;
-            this.guna2Button5.Text = "حفظ";
-            // 
-            // label19
-            // 
-            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label19.Font = new System.Drawing.Font("Cairo", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(10, 10);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(496, 139);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "أضافة تدريب الي محمود احمد محمد";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // ContainerName
-            // 
-            this.ContainerName.Controls.Add(this.label19);
-            this.ContainerName.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ContainerName.Location = new System.Drawing.Point(733, 0);
-            this.ContainerName.Margin = new System.Windows.Forms.Padding(10);
-            this.ContainerName.Name = "ContainerName";
-            this.ContainerName.Padding = new System.Windows.Forms.Padding(10);
-            this.ContainerName.Size = new System.Drawing.Size(516, 159);
-            this.ContainerName.TabIndex = 14;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Cairo Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(428, 80);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(194, 80);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "الي";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2DateTimePicker2
-            // 
-            this.guna2DateTimePicker2.BorderRadius = 10;
-            this.guna2DateTimePicker2.BorderThickness = 2;
-            this.guna2DateTimePicker2.Checked = true;
-            this.guna2DateTimePicker2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2DateTimePicker2.FillColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker2.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DateTimePicker2.ForeColor = System.Drawing.Color.Black;
-            this.guna2DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker2.Location = new System.Drawing.Point(5, 85);
-            this.guna2DateTimePicker2.Margin = new System.Windows.Forms.Padding(5);
-            this.guna2DateTimePicker2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.Name = "guna2DateTimePicker2";
-            this.guna2DateTimePicker2.Size = new System.Drawing.Size(415, 70);
-            this.guna2DateTimePicker2.TabIndex = 38;
-            this.guna2DateTimePicker2.Value = new System.DateTime(2025, 5, 7, 18, 12, 49, 120);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Cairo Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1052, 160);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(194, 80);
-            this.label5.TabIndex = 39;
-            this.label5.Text = "نوع البرنامج";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Cairo Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(428, 160);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(194, 80);
-            this.label6.TabIndex = 41;
-            this.label6.Text = "مكان الانعقاد";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2TextBox4
-            // 
-            this.guna2TextBox4.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.BorderRadius = 10;
-            this.guna2TextBox4.BorderThickness = 2;
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox4.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.Location = new System.Drawing.Point(5, 165);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(5);
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PlaceholderText = "";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.Size = new System.Drawing.Size(415, 70);
-            this.guna2TextBox4.TabIndex = 42;
-            // 
-            // guna2ComboBox3
-            // 
-            this.guna2ComboBox3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox3.BorderColor = System.Drawing.Color.Black;
-            this.guna2ComboBox3.BorderRadius = 10;
-            this.guna2ComboBox3.BorderThickness = 2;
-            this.guna2ComboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2ComboBox3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox3.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox3.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold);
-            this.guna2ComboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox3.ItemHeight = 40;
-            this.guna2ComboBox3.Items.AddRange(new object[] {
-            "بدون مؤهل",
-            "متوسط",
-            "فوق متوسط",
-            "عالي",
-            "رخصة مهنيه",
-            "محو أميه"});
-            this.guna2ComboBox3.Location = new System.Drawing.Point(630, 165);
-            this.guna2ComboBox3.Margin = new System.Windows.Forms.Padding(5);
-            this.guna2ComboBox3.Name = "guna2ComboBox3";
-            this.guna2ComboBox3.Size = new System.Drawing.Size(414, 46);
-            this.guna2ComboBox3.TabIndex = 43;
+            this.SaveBtn.BorderRadius = 10;
+            this.SaveBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SaveBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SaveBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SaveBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SaveBtn.FillColor = System.Drawing.Color.Navy;
+            this.SaveBtn.Font = new System.Drawing.Font("Cairo", 12F);
+            this.SaveBtn.ForeColor = System.Drawing.Color.White;
+            this.SaveBtn.Location = new System.Drawing.Point(355, 55);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(153, 58);
+            this.SaveBtn.TabIndex = 2;
+            this.SaveBtn.Text = "حفظ";
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // AddProgramToEmployee
             // 
@@ -403,22 +414,22 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
+        private Guna.UI2.WinForms.Guna2TextBox TrainingName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2TextBox TrainingId;
+        private Guna.UI2.WinForms.Guna2DateTimePicker FromDate;
         private Guna.UI2.WinForms.Guna2Panel Header;
         private System.Windows.Forms.Panel ContainerName;
         private System.Windows.Forms.Label label19;
         private Guna.UI2.WinForms.Guna2GradientButton BackBtn;
-        private Guna.UI2.WinForms.Guna2GradientButton EmployeesBtn;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
+        private Guna.UI2.WinForms.Guna2GradientButton DeleteBtn;
+        private Guna.UI2.WinForms.Guna2Button SaveBtn;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
+        private Guna.UI2.WinForms.Guna2TextBox Location;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker2;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox3;
+        private Guna.UI2.WinForms.Guna2DateTimePicker ToDate;
+        private Guna.UI2.WinForms.Guna2ComboBox TrainingType;
     }
 }

@@ -91,18 +91,18 @@ namespace Petrol.Controls
                     break;
                 case "Edit":
                     editEmployee1.BringToFront();
-                    // editEmployee1.SetEmployeeId(id);
+                    editEmployee1.SetEmployeeId(id);
                     break;
                 case "Programs":
                     employeeData1.BringToFront();
-                    // employeeData1.SetEmployeeId(id);
+                    employeeData1.SetEmployeeId(id);
                     break;
                 case "Main":
                      mainEmployee1.BringToFront();
                     break;
                 case "AddProgram":
                     addProgramToEmployee1.BringToFront();
-                    // addProgramToEmployee1.SetEmployeeId(id);
+                    addProgramToEmployee1.SetEmployeeId(id);
                     break;
                 default:
                     mainEmployee1.BringToFront();

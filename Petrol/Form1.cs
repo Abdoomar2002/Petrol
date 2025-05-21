@@ -17,25 +17,9 @@ namespace Petrol
         {
             home1.BringToFront();
         }
-        public void ShowEmployeeData()
+        public void EmployeeNavigation(string target, int id = 0)
         {
-            home1.EmployeeNavigation("Programs");
-        }
-        public void ShowEmployeeAdd() 
-        {
-            home1.EmployeeNavigation("Add");
-        }
-        public void ShowEmployeeEdit()
-        {
-            home1.EmployeeNavigation("Edit");
-        }
-        public void ShowEmployeeAddProgram()
-        {
-            home1.EmployeeNavigation("AddProgram");
-        }
-        public void ShowEmployeeMain()
-        {
-            home1.EmployeeNavigation("Main");
+            home1.EmployeeNavigation(target, id);
         }
         public void DeparmentNavigation(string target,int id=0) 
         {

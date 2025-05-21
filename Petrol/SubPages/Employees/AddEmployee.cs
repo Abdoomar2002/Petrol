@@ -25,7 +25,7 @@ namespace Petrol.SubPages.Employees
         private void BackBtn_Click(object sender, EventArgs e)
         {
             var form = (Form1)this.ParentForm;
-            form.ShowEmployeeMain();
+            form.EmployeeNavigation("Main");
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
