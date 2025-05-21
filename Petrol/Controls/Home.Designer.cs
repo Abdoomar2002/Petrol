@@ -43,7 +43,7 @@
             this.followingReport1 = new Petrol.SubPages.Reports.FollowingReport();
             this.financeReport1 = new Petrol.SubPages.Reports.FinanceReport();
             this.traningData1 = new Petrol.SubPages.Programs.TraningData();
-            this.editTrainigData1 = new Petrol.SubPages.Programs.EditTrainigData();
+            this.editTrainigData1 = new Petrol.SubPages.Programs.EditTrainingData();
             this.editProgram1 = new Petrol.SubPages.Programs.EditProgram();
             this.addProgram1 = new Petrol.SubPages.Programs.AddProgram();
             this.placeData1 = new Petrol.SubPages.Places.PlaceData();
@@ -658,7 +658,7 @@
         private SubPages.Reports.FollowingReport followingReport1;
         private SubPages.Reports.FinanceReport financeReport1;
         private SubPages.Programs.TraningData traningData1;
-        private SubPages.Programs.EditTrainigData editTrainigData1;
+        private SubPages.Programs.EditTrainingData editTrainigData1;
         private SubPages.Programs.EditProgram editProgram1;
         private SubPages.Programs.AddProgram addProgram1;
         private SubPages.Places.PlaceData placeData1;

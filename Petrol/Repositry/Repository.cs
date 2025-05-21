@@ -38,9 +38,9 @@ namespace Petrol.Repositry
         {
             var list = _context.Set<T>().ToList();
             var last = list.LastOrDefault();
-            var type = last.GetType();
-            var prop = type.GetProperty("Id");
-            var val=(prop.GetValue(last) as int?)+1  ?? 1;
+            var type = last?.GetType();
+            var prop = type?.GetProperty("Id");
+            var val=(prop?.GetValue(last) as int?)+1  ?? 1;
             return val;
         }
         public IEnumerable<T> GetAll<T>() where T : class
@@ -53,7 +53,7 @@ namespace Petrol.Repositry
 
             foreach (var include in includes)
             {
-                query = query.Include(include);
+                query = query.AsNoTracking().Include(include);
             }
 
             return query;
@@ -65,7 +65,7 @@ namespace Petrol.Repositry
             IQueryable<T> query = _dbSet;
 
             if (filter != null)
-                query = query.Where(filter);
+                query = query.AsNoTracking().Where(filter);
 
             if (includeFunc != null)
                 query = includeFunc(query);
@@ -102,7 +102,7 @@ namespace Petrol.Repositry
             var properties = typeof(T).GetProperties()
                 .Where(p => p.CanRead && p.GetMethod.IsPublic);
 
-            var list = _context.Set<T>()
+            var list = _context.Set<T>().AsNoTracking()
                 .AsEnumerable() // Bring data into memory to use reflection (note: may be costly!)
                 .Where(entity =>
                     properties.Any(prop =>

@@ -10,6 +10,7 @@ namespace Petrol.Models
         public string Name { get; set; }
         public DateTime From { get; set; }
         public DateTime To { get; set; }
+        public string DepartmentName { get; set; }
         [ForeignKey("ProgramId")]
         public int ProgramId { get; set; } 
         public Program Program { get; set; }

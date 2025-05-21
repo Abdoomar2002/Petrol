@@ -33,9 +33,9 @@ namespace Petrol
         {
             home1.PlacesNavigation(target,id);
         }
-        public void ProgramNavigation(string target)
+        public void ProgramNavigation(string target,int id=0,int id2=0)
         {
-            home1.ProgramsNavigation(target);
+            home1.ProgramsNavigation(target,id,id2);
         }
         public void ReportsNavigation(string target)
         {

@@ -186,20 +186,21 @@ namespace Petrol.Controls
                     break;
             }
         }
-        public void ProgramsNavigation(string target = "", int id = 0)
+        public void ProgramsNavigation(string target = "", int id = 0,int id2=0)
         {
             switch (target)
             {
                 case "Add":
                     addProgram1.BringToFront();
+                    addProgram1.LoadData();
                     break;
                 case "Edit":
                     editProgram1.BringToFront();
-                    // editEmployee1.SetEmployeeId(id);
+                    editProgram1.SetProgramId(id);
                     break;
                 case "Add Training":
                     addTraining1.BringToFront();
-                    // employeeData1.SetEmployeeId(id);
+                    addTraining1.SetProgramId(id);
                     break;
                 case "Main":
                     mainPrograms1.BringToFront();
@@ -207,14 +208,15 @@ namespace Petrol.Controls
                     break;
                 case "Edit Training":
                     editTrainigData1.BringToFront();
-                    // addProgramToEmployee1.SetEmployeeId(id);
+                    editTrainigData1.SetTrainingId(id,id2);
                     break;
                 case "Training":
                     traningData1.BringToFront();
-                    // addProgramToEmployee1.SetEmployeeId(id);
+                   traningData1.SetProgramId(id);
                     break;
                 default:
                     mainPrograms1.BringToFront();
+                    mainPrograms1.LoadData();
                     break;
             }
         }
