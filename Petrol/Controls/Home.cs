@@ -142,14 +142,15 @@ namespace Petrol.Controls
             {
                 case "General":
                     generalCost1.BringToFront();
+                    generalCost1.LoadData();
                     break;
                 case "Employee":
                     employeeCost1.BringToFront();
-                    // editEmployee1.SetEmployeeId(id);
+                    employeeCost1.LoadData();
                     break;
                 case "Program":
                     programCost1.BringToFront();
-                    // employeeData1.SetEmployeeId(id);
+                    programCost1.LoadData();
                     break;
                 case "Main":
                     mainFinances1.BringToFront();
@@ -226,6 +227,7 @@ namespace Petrol.Controls
             {
                 case "Employee":
                     employeeReport1.BringToFront();
+                    employeeReport1.LoadData();
                     break;
                 case "Finance":
                     financeReport1.BringToFront();
@@ -233,14 +235,14 @@ namespace Petrol.Controls
                     break;
                 case "Following":
                     followingReport1.BringToFront();
-                    // employeeData1.SetEmployeeId(id);
+                    followingReport1.LoadData();
                     break;
                 case "Main":
                     mainReports1.BringToFront();
                     break;
                 case "Mangment":
                     mangmentReport1.BringToFront();
-                    // addProgramToEmployee1.SetEmployeeId(id);
+                    mangmentReport1.LoadData();
                     break;
                 default:
                     mainReports1.BringToFront();

@@ -1,6 +1,5 @@
 ﻿using Petrol.Models;
 using Petrol.Services;
-using Petrol.SubPages.Employees;
 using Petrol.Utils;
 using System;
 using System.Collections.Generic;
@@ -41,7 +40,7 @@ namespace Petrol.SubPages.Programs
             var departments = new DepartmentService().GetAll<Department>();
             DepartmentBox.Items.Clear();
             DepartmentBox.Items.Add("كل الشركة");
-            DepartmentBox.Items.AddRange(departments.Select(x=>x.Name).ToArray());
+            DepartmentBox.Items.AddRange(departments.Select(x => x.Name).ToArray());
 
             var places = placeService.GetAll<Place>();
             PlaceTxt.AutoCompleteCustomSource.AddRange(places.Select(x => x.Name).ToArray());
@@ -59,7 +58,7 @@ namespace Petrol.SubPages.Programs
 
             StartDate.Value = EditedTraining.From;
             EndDate.Value = EditedTraining.To;
-           
+
 
             var employeeTrainings = service.GetAll<EmployeeTraining>().Where(x => x.TrainingId == trainingId).ToList();
             foreach (var empTraining in employeeTrainings)
@@ -76,7 +75,7 @@ namespace Petrol.SubPages.Programs
         private void BackBtn_Click(object sender, EventArgs e)
         {
             var form = (Form1)this.ParentForm;
-            form.ProgramNavigation("Training",EditedProgram.Id);
+            form.ProgramNavigation("Training", EditedProgram.Id);
         }
 
         private void AddEmployeeBtn_Click(object sender, EventArgs e)
@@ -92,7 +91,7 @@ namespace Petrol.SubPages.Programs
                 UserMessages.Error("هذا الموظف غير موجود");
                 return;
             }
-            if (EmployeeData.Rows.Cast<DataGridViewRow>().Any(x =>x.Cells[0].Value!=null&& x.Cells[1].Value.ToString() == employee.FinanceNumber))
+            if (EmployeeData.Rows.Cast<DataGridViewRow>().Any(x => x.Cells[0].Value != null && x.Cells[1].Value.ToString() == employee.FinanceNumber))
             {
                 UserMessages.Error("هذا الموظف موجود بالفعل");
                 return;
@@ -120,11 +119,21 @@ namespace Petrol.SubPages.Programs
                     UserMessages.Error("هذا المكان غير موجود");
                     return;
                 }
+                var f = false;
                 var department = new DepartmentService().FindDepartmentByName(DepartmentBox.Text);
                 if (department == null)
                 {
-                    UserMessages.Error("هذه الادارة غير موجوده");
-                    return;
+                    if (DepartmentBox.Text == "كل الشركة")
+                    {
+                        f = true;
+                    }
+                    else
+                    {
+
+
+                        UserMessages.Error("هذه الادارة غير موجوده");
+                        return;
+                    }
                 }
                 if (StartDate.Value.Date > EndDate.Value.Date)
                 {
@@ -138,6 +147,7 @@ namespace Petrol.SubPages.Programs
                 EditedTraining.From = StartDate.Value;
                 EditedTraining.To = EndDate.Value;
                 EditedTraining.ProgramTypeId = trainingType.Id;
+                EditedTraining.DepartmentName = f ? "كل الشركة" : department.Name;
 
                 service.Update(EditedTraining);
 
@@ -149,7 +159,7 @@ namespace Petrol.SubPages.Programs
 
                 foreach (DataGridViewRow row in EmployeeData.Rows)
                 {
-                    var employeeFinanceNumber = row.Cells[1].Value?.ToString()??"";
+                    var employeeFinanceNumber = row.Cells[1].Value?.ToString() ?? "";
                     var employee = employeeService.GetAll<Employee>().FirstOrDefault(x => x.FinanceNumber == employeeFinanceNumber);
                     if (employee != null)
                     {
@@ -230,7 +240,7 @@ namespace Petrol.SubPages.Programs
                 service.SaveChanges();
                 UserMessages.Info("تم الحذف بنجاح");
                 var form = (Form1)this.ParentForm;
-                form.ProgramNavigation("Training",EditedProgram.Id);
+                form.ProgramNavigation("Training", EditedProgram.Id);
             }
             catch (Exception ex)
             {
@@ -254,6 +264,9 @@ namespace Petrol.SubPages.Programs
 
         private string ConvertDateToSentence(DateTime date)
         {
+            date = date.AddYears(DateTime.Now.Year * -1);
+            date = date.AddMonths(DateTime.Now.Month * -1);
+            date = date.AddDays(DateTime.Now.Day * -1);
             string FormatNumber(int number, string singular, string dual, string plural, string accusative)
             {
                 if (number == 1)

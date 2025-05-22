@@ -31,8 +31,8 @@ namespace Petrol.SubPages.Programs
             CodeTxt.Text = lastId.ToString();
             var departments = new DepartmentService().GetAll<Department>();
             DepartmentBox.Items.Clear();
-            TrainingTypeBox.Items.Add("كل الشركة");
-            DepartmentBox.Items.AddRange(departments.Select(x=>x.Name).ToArray());
+            DepartmentBox.Items.Add("كل الشركة");
+            DepartmentBox.Items.AddRange(departments.Select(x => x.Name).ToArray());
             DepartmentBox.SelectedIndex = -1;
             var Places = new PlaceService().GetAll<Place>();
             PlaceTxt.AutoCompleteCustomSource.AddRange(Places.Select(x => x.Name).ToArray());
@@ -60,7 +60,7 @@ namespace Petrol.SubPages.Programs
                 UserMessages.Error("هذا الموظف غير موجود");
                 return;
             }
-            if (EmployeeData.Rows.Cast<DataGridViewRow>().Any(x => x.Cells[1].Value.ToString() == employee.FinanceNumber))
+            if (EmployeeData.Rows.Cast<DataGridViewRow>().Any(x => x.Cells[1].Value?.ToString() == employee.FinanceNumber))
             {
                 UserMessages.Error("هذا الموظف موجود بالفعل");
                 return;
@@ -89,11 +89,21 @@ namespace Petrol.SubPages.Programs
                     UserMessages.Error("هذا المكان غير موجود");
                     return;
                 }
+                bool f = false;
                 var department = new DepartmentService().FindDepartmentByName(DepartmentBox.Text);
                 if (department == null)
                 {
-                    UserMessages.Error("هذه الادارة غير موجوده");
-                    return;
+                    if (DepartmentBox.Text == "كل الشركة")
+                    {
+                        f = true;
+                    }
+                    else
+                    {
+
+
+                        UserMessages.Error("هذه الادارة غير موجوده");
+                        return;
+                    }
                 }
                 if (StartDate.Value.Date > EndDate.Value.Date)
                 {
@@ -109,6 +119,7 @@ namespace Petrol.SubPages.Programs
                     From = StartDate.Value,
                     To = EndDate.Value,
                     ProgramTypeId = trainingType.Id,
+                    DepartmentName = f ? "كل الشركة" : department.Name,
 
                 };
                 service.Add(training);
@@ -116,7 +127,7 @@ namespace Petrol.SubPages.Programs
 
                 foreach (DataGridViewRow row in EmployeeData.Rows)
                 {
-                    var employeeFinanceNumber = row.Cells[1].Value?.ToString()??"";
+                    var employeeFinanceNumber = row.Cells[1].Value?.ToString() ?? "";
                     var employee = employeeService.GetAll<Employee>().FirstOrDefault(x => x.FinanceNumber == employeeFinanceNumber);
                     if (employee != null)
                     {
@@ -144,13 +155,13 @@ namespace Petrol.SubPages.Programs
             if (employee != null)
             {
                 EmployeeFinanceNumberTxt.Text = employee.FinanceNumber;
-                DepartmentBox.SelectedItem = employee.DepartmentName;
+                EmployeeDepartmentTxt.Text = employee.DepartmentName;
                 RemainTxt.Text = ConvertDateToSentence(employee.RetireDate);
             }
             else
             {
                 EmployeeFinanceNumberTxt.Text = string.Empty;
-                DepartmentBox.SelectedIndex = -1;
+                EmployeeDepartmentTxt.Text = string.Empty;
                 RemainTxt.Text = string.Empty;
             }
         }
@@ -204,6 +215,9 @@ namespace Petrol.SubPages.Programs
         }
         private string ConvertDateToSentence(DateTime date)
         {
+            date = date.AddYears(DateTime.Now.Year * -1);
+            date = date.AddMonths(DateTime.Now.Month * -1);
+            date = date.AddDays(DateTime.Now.Day * -1);
             string FormatNumber(int number, string singular, string dual, string plural, string accusative)
             {
                 if (number == 1)
@@ -229,7 +243,7 @@ namespace Petrol.SubPages.Programs
             {
                 EmployeeNameTxt.AutoCompleteCustomSource.Clear();
                 EmployeeFinanceNumberTxt.AutoCompleteCustomSource.Clear();
-                EmployeeNameTxt.AutoCompleteCustomSource.AddRange(Employees.Where(x=>x.DepartmentName==DepartmentBox.Text).Select(x => x.Name).ToArray());
+                EmployeeNameTxt.AutoCompleteCustomSource.AddRange(Employees.Where(x => x.DepartmentName == DepartmentBox.Text).Select(x => x.Name).ToArray());
                 EmployeeFinanceNumberTxt.AutoCompleteCustomSource.AddRange(Employees.Where(x => x.DepartmentName == DepartmentBox.Text).Select(x => x.FinanceNumber).ToArray());
 
             }

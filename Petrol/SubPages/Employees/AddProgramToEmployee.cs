@@ -52,8 +52,8 @@ namespace Petrol.SubPages.Employees
             }
             var trainId = 0; int.TryParse(TrainingId.Text, out trainId);
             var training = Trainings.FirstOrDefault(x => x.Id == trainId);
-            // check if the training id is already in the db
-            if (training != null)
+            // check if the training id is not in the db
+            if (training == null)
             {
                 UserMessages.Error("كود التدريب غير موجود مسبقا");
                 return;
@@ -70,13 +70,12 @@ namespace Petrol.SubPages.Employees
             {
                 EmployeeId = EditedEmployee.Id,
                 TrainingId = training.Id,
-                Employee = EditedEmployee,
-                Training = training,
+               
             };
             var employeeTrainingService = new EmployeeTrainingService();
             try
             {
-
+                employeeService.Attach(EditedEmployee);
                 employeeTrainingService.Add(employeeTraining);
                 employeeTrainingService.SaveChanges();
                 UserMessages.Info("تم اضافة التدريب بنجاح");
