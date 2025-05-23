@@ -10,10 +10,12 @@ namespace Petrol.SubPages.Reports
     public partial class FinanceReport : UserControl
     {
         private FollowingReportService service;
+        ExcelExporter excelExporter;
         public FinanceReport()
         {
             InitializeComponent();
             service = new FollowingReportService();
+            excelExporter = new ExcelExporter();
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
@@ -31,7 +33,7 @@ namespace Petrol.SubPages.Reports
                 UserMessages.Error("يجب أن يكون تاريخ البداية اصغر من تاريخ النهاية");
                 return;
             }
-            var reports = service.GetAllWithNestedInclude(x=>x.Include(y=>y.Training).ThenInclude(t=>t.ProgramType)).Where(x=>x.Training.From.Date>=startDate&&x.Training.To<=endDate.Date).ToList();
+            var reports = service.GetAllWithNestedInclude(x=>x.Include(y=>y.Training).ThenInclude(t=>t.ProgramType)).Where(x=>x.Training.From.Date>=startDate.Date&&x.Training.To.Date<=endDate.Date).ToList();
             if (ProgramTypeBox.SelectedIndex>0)
             {
                 var programType = ProgramTypeBox.SelectedItem.ToString();
@@ -55,6 +57,11 @@ namespace Petrol.SubPages.Reports
             {
                 UserMessages.Error("لا يوجد تدريبات مطابقة لعناصر البحث");
             }
+        }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            excelExporter.GenerateFinanceReport(StartDate.Value,EndDate.Value,ProgramTypeBox.SelectedItem?.ToString()??"");
         }
     }
 }

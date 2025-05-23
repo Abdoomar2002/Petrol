@@ -322,6 +322,7 @@
             this.PrintBtn.Size = new System.Drawing.Size(123, 58);
             this.PrintBtn.TabIndex = 13;
             this.PrintBtn.Text = "طباعة";
+            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
             // 
             // label1
             // 

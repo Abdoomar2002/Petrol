@@ -61,7 +61,7 @@ namespace Petrol.SubPages.Finances
                 {
                     if(training.From.Date>=StartDate.Value.Date&&training.To.Date<=EndDate.Value.Date)
                     TrainingData.Rows.Add(i++,training.Id,training.Name,training.ProgramType.Type,training.From.ToString("yyyy/MM/dd"),training.To.ToString("yyyy/MM/dd")
-                        , training.Place.Name, training.DepartmentName, Costs?[training.Id]??0);
+                        , training.Place.Name, training.DepartmentName,Costs.Count>0? Costs?[training.Id]??0:0);
                 }
             }
         }

@@ -11,10 +11,12 @@ namespace Petrol.SubPages.Reports
     public partial class MangmentReport : UserControl
     {
         private FollowingReportService service;
+        private ExcelExporter excelExporter;
         public MangmentReport()
         {
             InitializeComponent();
             service = new FollowingReportService();
+            excelExporter = new ExcelExporter();
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
@@ -46,7 +48,7 @@ namespace Petrol.SubPages.Reports
                 UserMessages.Error("يجب أن يكون تاريخ البداية اصغر من تاريخ النهاية");
                 return;
             }
-            var reports = service.GetAllWithNestedInclude(x => x.Include(y => y.Training).ThenInclude(t => t.ProgramType).Include(d=>d.DepartmentsPresenceNumber).ThenInclude(r=>r.Department)).Where(x => x.Training.From.Date >= startDate && x.Training.To <= endDate.Date).ToList();
+            var reports = service.GetAllWithNestedInclude(x => x.Include(y => y.Training).ThenInclude(t => t.ProgramType).Include(d=>d.DepartmentsPresenceNumber).ThenInclude(r=>r.Department)).Where(x => x.Training.From.Date >= startDate.Date && x.Training.To.Date <= endDate.Date).ToList();
             if (ProgramTypeBox.SelectedIndex > 0)
             {
                 var programType = ProgramTypeBox.SelectedItem.ToString();
@@ -79,6 +81,19 @@ namespace Petrol.SubPages.Reports
             {
                 UserMessages.Error("لا يوجد تدريبات مطابقة لعناصر البحث");
             }
+        }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+
+            var startDate = StartDate.Value.Date;
+            var endDate = EndDate.Value.Date;
+            if (startDate > endDate)
+            {
+                UserMessages.Error("يجب أن يكون تاريخ البداية اصغر من تاريخ النهاية");
+                return;
+            }
+            excelExporter.GenerateManagementReport(StartDate.Value.Date,EndDate.Value.Date,ProgramTypeBox?.SelectedItem?.ToString()??"");
         }
     }
 }
