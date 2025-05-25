@@ -29,6 +29,9 @@ namespace Petrol.SubPages.Users
         }
         public void LoadData()
         {
+       
+     
+        
             UsersData.Rows.Clear();
           
             var users = service.GetAll<User>();

@@ -1,4 +1,7 @@
-﻿namespace Petrol.SubPages.Departments
+﻿using Petrol.Data;
+using System.Windows.Forms;
+
+namespace Petrol.SubPages.Departments
 {
     partial class AddDepartment
     {
@@ -13,6 +16,14 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+        if (string.IsNullOrWhiteSpace(NameTxt.Text))
+        {
+            MessageBox.Show("Name is required.");
+            return;
+        }
+
+        dbContext.SaveChanges();
+        
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -248,5 +259,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton DeleteBtn;
         private Guna.UI2.WinForms.Guna2Button SaveBtn;
         private System.Windows.Forms.Label label19;
+        private AppDbContext dbContext;
     }
 }

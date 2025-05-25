@@ -13,6 +13,8 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+       
+        
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -294,7 +296,8 @@
             this.StatusBox.ItemHeight = 40;
             this.StatusBox.Items.AddRange(new object[] {
             "يعمل",
-            "لا يعمل"});
+            "لا يعمل",
+            "اجازة"});
             this.StatusBox.Location = new System.Drawing.Point(5, 573);
             this.StatusBox.Margin = new System.Windows.Forms.Padding(5);
             this.StatusBox.Name = "StatusBox";

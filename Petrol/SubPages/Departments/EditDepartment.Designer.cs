@@ -1,4 +1,6 @@
-﻿namespace Petrol.SubPages.Departments
+﻿using Petrol.Data;
+
+namespace Petrol.SubPages.Departments
 {
     partial class EditDepartment
     {

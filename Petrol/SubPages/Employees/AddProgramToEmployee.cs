@@ -29,7 +29,7 @@ namespace Petrol.SubPages.Employees
             if (employee == null) return;
             EditedEmployee = employee;
             places = new PlaceService().GetAll<Place>().ToList();
-            Trainings = trainingService.GetAllWithInclude(x => x.Place, y => y.ProgramType).ToList();
+            Trainings = trainingService.GetAllWithInclude(x => x.Place, y => y.TrainingType).ToList();
             // load the trainings
             label19.Text = $"اضافة تدريب الي {EditedEmployee.Name}";
             TrainingId.AutoCompleteCustomSource.AddRange(Trainings.Select(x => x.Id.ToString()).ToArray());
@@ -50,7 +50,7 @@ namespace Petrol.SubPages.Employees
                 UserMessages.Error("من فضلك املئ البيانات بالكامل");
                 return;
             }
-            var trainId = 0; int.TryParse(TrainingId.Text, out trainId);
+            var trainId = 0; int.TryParse(TrainingId.Text.Trim(), out trainId);
             var training = Trainings.FirstOrDefault(x => x.Id == trainId);
             // check if the training id is not in the db
             if (training == null)
@@ -102,7 +102,7 @@ namespace Petrol.SubPages.Employees
         private void TrainingId_TextChanged(object sender, EventArgs e)
         {
             int test = 0;
-            if (int.TryParse(TrainingId.Text, out test))
+            if (int.TryParse(TrainingId.Text.Trim(), out test))
             {
                 var training = Trainings.FirstOrDefault(x => x.Id == test);
                 if (training != null)
@@ -111,26 +111,26 @@ namespace Petrol.SubPages.Employees
                     FromDate.Value = training.From;
                     ToDate.Value = training.To;
                     Location.Text = training.Place.Name;
-                    TrainingType.Text = training.ProgramType.Type;
+                    TrainingType.Text = training.TrainingType.Name;
                 }
             }
         }
 
         private void TrainingName_TextChanged(object sender, EventArgs e)
         {
-            var training = Trainings.FirstOrDefault(x => x.Name == TrainingName.Text);
+            var training = Trainings.FirstOrDefault(x => x.Name == TrainingName.Text.Trim());
             if (training != null)
             {
                 TrainingId.Text = training.Id.ToString();
                 FromDate.Value = training.From;
                 ToDate.Value = training.To;
                 Location.Text = training.Place.Name;
-                TrainingType.Text = training.ProgramType.Type;
+                TrainingType.Text = training.TrainingType.Name;
             }
         }
         private bool IsAnyBoxEmpty()
         {
-            if (string.IsNullOrEmpty(TrainingId.Text) || string.IsNullOrEmpty(TrainingName.Text) || string.IsNullOrEmpty(Location.Text) || string.IsNullOrEmpty(TrainingType.Text))
+            if (string.IsNullOrEmpty(TrainingId.Text.Trim()) || string.IsNullOrEmpty(TrainingName.Text.Trim()) || string.IsNullOrEmpty(Location.Text.Trim()) || string.IsNullOrEmpty(TrainingType.Text.Trim()))
             {
                 return true;
             }

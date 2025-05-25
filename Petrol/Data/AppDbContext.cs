@@ -15,10 +15,12 @@ namespace Petrol.Data
         public DbSet<FollowingReport> FollowingReports { get; set; }
         public DbSet<DepartmentPresenceNumber> DepartmentPresenceNumbers { get; set; }
         public DbSet<ProgramType> ProgramTypes { get; set; }
+        public DbSet<TrainingType> TrainingType { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer("Data Source=DESKTOP-COOAS6G;Initial Catalog=PetrolTraining;User Id=sa;Password=12345678");
+           // optionsBuilder.UseSqlServer("Data Source=DESKTOP-COOAS6G;Initial Catalog=PetrolTrainingTest;User Id=sa;Password=12345678");
         }
 
     }

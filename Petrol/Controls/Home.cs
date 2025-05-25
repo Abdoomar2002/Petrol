@@ -231,7 +231,7 @@ namespace Petrol.Controls
                     break;
                 case "Finance":
                     financeReport1.BringToFront();
-                    // editEmployee1.SetEmployeeId(id);
+                    financeReport1.LoadData();
                     break;
                 case "Following":
                     followingReport1.BringToFront();

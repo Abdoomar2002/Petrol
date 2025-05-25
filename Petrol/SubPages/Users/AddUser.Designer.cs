@@ -13,6 +13,8 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+
+        
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -48,7 +50,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.Header.SuspendLayout();
-            this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
@@ -379,20 +380,7 @@
             this.label19.Size = new System.Drawing.Size(262, 50);
             this.label19.TabIndex = 0;
             this.label19.Text = "أضافة مستخدم جديد";
-            // 
-            // AddUser
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.Header);
-            this.Name = "AddUser";
-            this.Size = new System.Drawing.Size(1374, 764);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.Header.ResumeLayout(false);
-            this.Header.PerformLayout();
-            this.ResumeLayout(false);
+           
 
         }
 

@@ -23,6 +23,8 @@ namespace Petrol.SubPages.Departments
         }
         public void LoadData() 
         {
+           
+        
             var lastId= service.GetTheLastId<Department>();
             CodeTxt.Text = lastId.ToString();
         }
@@ -35,19 +37,19 @@ namespace Petrol.SubPages.Departments
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (NameTxt.Text.Trim().Length > 0) 
+            if (NameTxt.Text.Trim().Trim().Length > 0) 
             {
                 try
                 {
 
                     // check there is no deparment has same Name
-                    var checkDepartmentName = service.FindDepartmentByName(NameTxt.Text.Trim());
+                    var checkDepartmentName = service.FindDepartmentByName(NameTxt.Text.Trim().Trim());
                     if (checkDepartmentName == null)
                     {
 
                         Department department = new Department()
                         {
-                            Name = NameTxt.Text,
+                            Name = NameTxt.Text.Trim(),
                         };
                         service.Add(department);
                         service.SaveChanges();

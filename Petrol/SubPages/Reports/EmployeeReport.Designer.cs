@@ -82,7 +82,7 @@
             // ProgramNameTxt
             // 
             this.ProgramNameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProgramNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ProgramNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.ProgramNameTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.ProgramNameTxt.BorderColor = System.Drawing.Color.Black;
             this.ProgramNameTxt.BorderRadius = 10;
@@ -264,7 +264,7 @@
             // ProgramIdTxt
             // 
             this.ProgramIdTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProgramIdTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ProgramIdTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.ProgramIdTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.ProgramIdTxt.BorderColor = System.Drawing.Color.Black;
             this.ProgramIdTxt.BorderRadius = 10;

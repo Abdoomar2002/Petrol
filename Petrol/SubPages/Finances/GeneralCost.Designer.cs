@@ -42,6 +42,7 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.RangeBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.StartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -51,7 +52,8 @@
             this.SearchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.RangeBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.TrainingTypeBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TrainingData)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -188,6 +190,8 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.TrainingTypeBox);
+            this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.RangeBox);
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.label3);
@@ -203,6 +207,26 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1353, 200);
             this.guna2Panel1.TabIndex = 15;
+            // 
+            // RangeBox
+            // 
+            this.RangeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RangeBox.BackColor = System.Drawing.Color.Transparent;
+            this.RangeBox.BorderColor = System.Drawing.Color.Black;
+            this.RangeBox.BorderRadius = 10;
+            this.RangeBox.BorderThickness = 2;
+            this.RangeBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.RangeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RangeBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.RangeBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.RangeBox.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RangeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.RangeBox.ItemHeight = 40;
+            this.RangeBox.Location = new System.Drawing.Point(475, 59);
+            this.RangeBox.Margin = new System.Windows.Forms.Padding(5);
+            this.RangeBox.Name = "RangeBox";
+            this.RangeBox.Size = new System.Drawing.Size(251, 46);
+            this.RangeBox.TabIndex = 65;
             // 
             // label2
             // 
@@ -275,7 +299,7 @@
             "مركزي",
             "لا مركزي",
             "خارج البلاد"});
-            this.ProgramTypeBox.Location = new System.Drawing.Point(961, 62);
+            this.ProgramTypeBox.Location = new System.Drawing.Point(1075, 62);
             this.ProgramTypeBox.Margin = new System.Windows.Forms.Padding(5);
             this.ProgramTypeBox.Name = "ProgramTypeBox";
             this.ProgramTypeBox.Size = new System.Drawing.Size(251, 46);
@@ -312,7 +336,7 @@
             this.SearchBtn.FillColor = System.Drawing.Color.Navy;
             this.SearchBtn.Font = new System.Drawing.Font("Cairo", 12F);
             this.SearchBtn.ForeColor = System.Drawing.Color.White;
-            this.SearchBtn.Location = new System.Drawing.Point(202, 62);
+            this.SearchBtn.Location = new System.Drawing.Point(145, 59);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(153, 58);
             this.SearchBtn.TabIndex = 53;
@@ -324,7 +348,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cairo", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(855, 62);
+            this.label1.Location = new System.Drawing.Point(661, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 32);
             this.label1.TabIndex = 42;
@@ -335,31 +359,48 @@
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Cairo", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(1232, 62);
+            this.label19.Location = new System.Drawing.Point(1232, 15);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(94, 32);
+            this.label19.Size = new System.Drawing.Size(99, 32);
             this.label19.TabIndex = 5;
-            this.label19.Text = "نوع التدريب";
+            this.label19.Text = "نوع البرنامج";
             // 
-            // RangeBox
+            // TrainingTypeBox
             // 
-            this.RangeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RangeBox.BackColor = System.Drawing.Color.Transparent;
-            this.RangeBox.BorderColor = System.Drawing.Color.Black;
-            this.RangeBox.BorderRadius = 10;
-            this.RangeBox.BorderThickness = 2;
-            this.RangeBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.RangeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.RangeBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RangeBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RangeBox.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RangeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.RangeBox.ItemHeight = 40;
-            this.RangeBox.Location = new System.Drawing.Point(584, 62);
-            this.RangeBox.Margin = new System.Windows.Forms.Padding(5);
-            this.RangeBox.Name = "RangeBox";
-            this.RangeBox.Size = new System.Drawing.Size(251, 46);
-            this.RangeBox.TabIndex = 65;
+            this.TrainingTypeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TrainingTypeBox.BackColor = System.Drawing.Color.Transparent;
+            this.TrainingTypeBox.BorderColor = System.Drawing.Color.Black;
+            this.TrainingTypeBox.BorderRadius = 10;
+            this.TrainingTypeBox.BorderThickness = 2;
+            this.TrainingTypeBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.TrainingTypeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TrainingTypeBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TrainingTypeBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TrainingTypeBox.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold);
+            this.TrainingTypeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.TrainingTypeBox.ItemHeight = 40;
+            this.TrainingTypeBox.Items.AddRange(new object[] {
+            "",
+            "مركزي",
+            "لا مركزي",
+            "خارج البلاد"});
+            this.TrainingTypeBox.Location = new System.Drawing.Point(775, 59);
+            this.TrainingTypeBox.Margin = new System.Windows.Forms.Padding(5);
+            this.TrainingTypeBox.Name = "TrainingTypeBox";
+            this.TrainingTypeBox.Size = new System.Drawing.Size(251, 46);
+            this.TrainingTypeBox.StartIndex = 0;
+            this.TrainingTypeBox.TabIndex = 67;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cairo", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(932, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 32);
+            this.label4.TabIndex = 66;
+            this.label4.Text = "نوع التدريب";
             // 
             // GeneralCost
             // 
@@ -399,5 +440,7 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker StartDate;
         private Guna.UI2.WinForms.Guna2DateTimePicker EndDate;
         private Guna.UI2.WinForms.Guna2ComboBox RangeBox;
+        private Guna.UI2.WinForms.Guna2ComboBox TrainingTypeBox;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -17,13 +17,15 @@ namespace Petrol.SubPages.Places
         }
         public void SetPlaceId(int placeId)
         {
+    
+        
             var Place = service.GetById<Place>(placeId);
             if (Place == null) return;
-            CodeTxt.Text = Place.Id.ToString();
-            NameTxt.Text = Place.Name;
-            PhoneTxt.Text = Place.PhoneNumber;
-            AddressTxt.Text = Place.Address;
-            ManagerTxt.Text = Place.ManagerName;
+            CodeTxt.Text= Place.Id.ToString();
+            NameTxt.Text= Place.Name;
+            PhoneTxt.Text= Place.PhoneNumber;
+            AddressTxt.Text= Place.Address;
+            ManagerTxt.Text= Place.ManagerName;
             EditedPlace = Place;
         }
 
@@ -48,16 +50,16 @@ namespace Petrol.SubPages.Places
             try
             {
                 // check if the place name is already in the db
-                if (service.IsPlaceNameExists(NameTxt.Text, EditedPlace.Id))
+                if (service.IsPlaceNameExists(NameTxt.Text.Trim(), EditedPlace.Id))
                 {
                     UserMessages.Error("اسم المكان موجود مسبقا");
                     return;
                 }
                 // copy the data from the boxes to place object to save in the db
-                EditedPlace.Name = NameTxt.Text;
-                EditedPlace.PhoneNumber = PhoneTxt.Text;
-                EditedPlace.Address = AddressTxt.Text;
-                EditedPlace.ManagerName = ManagerTxt.Text;
+                EditedPlace.Name = NameTxt.Text.Trim();
+                EditedPlace.PhoneNumber = PhoneTxt.Text.Trim();
+                EditedPlace.Address = AddressTxt.Text.Trim();
+                EditedPlace.ManagerName = ManagerTxt.Text.Trim();
                 service.Update(EditedPlace);
                 service.SaveChanges();
                 UserMessages.Info($"تم حفظ البيانات بنجاح\nبكود {EditedPlace.Id}");
@@ -69,11 +71,11 @@ namespace Petrol.SubPages.Places
         }
         public bool IsAnyBoxEmpty()
         {
-            if (string.IsNullOrEmpty(NameTxt.Text.Trim()) ||
-                string.IsNullOrEmpty(CodeTxt.Text.Trim()) ||
-                string.IsNullOrEmpty(PhoneTxt.Text.Trim()) ||
-                string.IsNullOrEmpty(AddressTxt.Text.Trim()) ||
-                string.IsNullOrEmpty(ManagerTxt.Text.Trim()))
+            if (string.IsNullOrEmpty(NameTxt.Text.Trim().Trim()) ||
+                string.IsNullOrEmpty(CodeTxt.Text.Trim().Trim()) ||
+                string.IsNullOrEmpty(PhoneTxt.Text.Trim().Trim()) ||
+                string.IsNullOrEmpty(AddressTxt.Text.Trim().Trim()) ||
+                string.IsNullOrEmpty(ManagerTxt.Text.Trim().Trim()))
             {
                 return true;
             }

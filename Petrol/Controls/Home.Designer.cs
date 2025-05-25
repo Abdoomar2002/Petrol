@@ -117,6 +117,7 @@
             this.Main.Controls.Add(this.mainDepartments1);
             this.Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Main.Location = new System.Drawing.Point(0, 133);
+            this.Main.AutoScroll=true;
             this.Main.Name = "Main";
             this.Main.Size = new System.Drawing.Size(1090, 662);
             this.Main.TabIndex = 0;
@@ -241,6 +242,7 @@
             // editTrainigData1
             // 
             this.editTrainigData1.AutoScroll = true;
+            this.editTrainigData1.AutoSize = true;
             this.editTrainigData1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editTrainigData1.Location = new System.Drawing.Point(0, 0);
             this.editTrainigData1.Name = "editTrainigData1";

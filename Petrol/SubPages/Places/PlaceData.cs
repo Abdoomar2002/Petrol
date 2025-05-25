@@ -19,7 +19,7 @@ namespace Petrol.SubPages.Places
         }
         public void SetPlaceId(int id) 
         {
-            var place = service.GetAllWithNestedInclude(x=>x.Include(y=>y.Trainings).ThenInclude(t=>t.ProgramType)).FirstOrDefault(x => x.Id == id);
+            var place = service.GetAllWithNestedInclude(x=>x.Include(y=>y.Trainings).ThenInclude(t=>t.TrainingType)).FirstOrDefault(x => x.Id == id);
             if (place != null) 
             {
                 EditedPlace = place;
@@ -65,7 +65,7 @@ namespace Petrol.SubPages.Places
                 UserMessages.Error("لا توجد نتائج");
                 return;
             }
-            var result = Searchresult.Where(x => x.From.Date >= StartDate.Value.Date && x.To <= EndDate.Value.Date).Where(z => z.ProgramType.Type == ProgramTypeBox.Text);
+            var result = Searchresult.Where(x => x.From.Date >= StartDate.Value.Date && x.To <= EndDate.Value.Date).Where(z => z.TrainingType.Name == ProgramTypeBox.Text);
             foreach (var training in result)
             {
                 Data.Rows.Add(i++, training.Id, training.Name, training.From.ToString("yyyy/MM/dd"), training.To.ToString("yyyy/MM/dd"));

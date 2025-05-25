@@ -28,6 +28,9 @@ namespace Petrol.SubPages.Programs
         }
         public void LoadData()
         {
+       
+     
+        
             ProgramsData.Rows.Clear();
             var programs = service.GetAllWithInclude(x=>x.ProgramType);
             int i=1;

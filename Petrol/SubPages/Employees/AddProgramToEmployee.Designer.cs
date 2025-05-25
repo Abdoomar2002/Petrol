@@ -13,6 +13,7 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+      
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -29,7 +30,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.TrainingType = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.TrainingType = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Location = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -85,27 +86,29 @@
             // 
             // TrainingType
             // 
-            this.TrainingType.BackColor = System.Drawing.Color.Transparent;
+            this.TrainingType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.TrainingType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.TrainingType.BorderColor = System.Drawing.Color.Black;
             this.TrainingType.BorderRadius = 10;
             this.TrainingType.BorderThickness = 2;
+            this.TrainingType.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TrainingType.DefaultText = "";
+            this.TrainingType.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TrainingType.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TrainingType.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TrainingType.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TrainingType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TrainingType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.TrainingType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TrainingType.Enabled = false;
-            this.TrainingType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TrainingType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TrainingType.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold);
-            this.TrainingType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.TrainingType.ItemHeight = 40;
-            this.TrainingType.Items.AddRange(new object[] {
-            "مركزي",
-            "لا مركزي",
-            "خارج البلاد"});
+            this.TrainingType.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrainingType.ForeColor = System.Drawing.Color.Black;
+            this.TrainingType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TrainingType.Location = new System.Drawing.Point(630, 165);
             this.TrainingType.Margin = new System.Windows.Forms.Padding(5);
             this.TrainingType.Name = "TrainingType";
-            this.TrainingType.Size = new System.Drawing.Size(414, 46);
+            this.TrainingType.PlaceholderText = "";
+            this.TrainingType.SelectedText = "";
+            this.TrainingType.Size = new System.Drawing.Size(414, 70);
             this.TrainingType.TabIndex = 43;
             // 
             // label6
@@ -122,7 +125,7 @@
             // 
             // Location
             // 
-            this.Location.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.Location.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.Location.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.Location.BorderColor = System.Drawing.Color.Black;
             this.Location.BorderRadius = 10;
@@ -156,7 +159,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(194, 80);
             this.label5.TabIndex = 39;
-            this.label5.Text = "نوع البرنامج";
+            this.label5.Text = "نوع التدريب";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -200,12 +203,12 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(194, 80);
             this.label3.TabIndex = 4;
-            this.label3.Text = "اسم البرنامج";
+            this.label3.Text = "اسم التدريب";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TrainingName
             // 
-            this.TrainingName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TrainingName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.TrainingName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.TrainingName.BorderColor = System.Drawing.Color.Black;
             this.TrainingName.BorderRadius = 10;
@@ -251,12 +254,12 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(194, 80);
             this.label1.TabIndex = 0;
-            this.label1.Text = "كود البرنامج";
+            this.label1.Text = "كود التدريب";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TrainingId
             // 
-            this.TrainingId.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TrainingId.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.TrainingId.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.TrainingId.BorderColor = System.Drawing.Color.Black;
             this.TrainingId.BorderRadius = 10;
@@ -430,6 +433,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2DateTimePicker ToDate;
-        private Guna.UI2.WinForms.Guna2ComboBox TrainingType;
+        private Guna.UI2.WinForms.Guna2TextBox TrainingType;
     }
 }

@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Microsoft.EntityFrameworkCore;
 using Petrol.Models;
 using Petrol.Services;
 using Petrol.Utils;
@@ -134,5 +137,39 @@ namespace Petrol.SubPages.Reports
                 }
             }
         }
+public void PrintReport(List<dynamic> data, string searchTerm, string filterInfo) 
+        {
+    Document document = new Document(PageSize.A4, 25, 25, 30, 30);
+    string filename = "Report_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".pdf";
+    PdfWriter.GetInstance(document, new FileStream(filename, FileMode.Create));
+    document.Open();
+
+    // Title and filter info
+    Paragraph header = new Paragraph("Report Page - " + this.Name + "\n"
+        + "Search: " + searchTerm + "\n"
+        + "Filter: " + filterInfo + "\n"
+        + "Generated: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm"));
+    header.SpacingAfter = 10f;
+    document.Add(header);
+
+    PdfPTable table = new PdfPTable(3); // adjust number of columns
+    table.AddCell("Column1");
+    table.AddCell("Column2");
+    table.AddCell("Column3");
+
+    foreach (var item in data)
+    {
+        table.AddCell(item.Prop1);
+        table.AddCell(item.Prop2);
+        table.AddCell(item.Prop3.ToString());
+    }
+
+    document.Add(table);
+    document.Close();
+
+    MessageBox.Show("Report saved to PDF: " + filename);
+}
     }
 }
+
+

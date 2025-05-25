@@ -20,10 +20,14 @@ namespace Petrol.SubPages.Employees
         }
         public void SetEmployeeId(int id)
         {
-            var employee = service.GetAllWithNestedInclude(x => x.Include(y => y.Trainings).ThenInclude(u => u.Training).ThenInclude(t =>  t.Place).Include(y=>y.Trainings).ThenInclude(u => u.Training).ThenInclude(t => t.Program)).FirstOrDefault(x => x.Id == id);
+            var employee = service.GetAllWithNestedInclude(x => x.Include(y => y.Trainings).ThenInclude(u => u.Training).ThenInclude(t =>  t.Place).Include(y=>y.Trainings).ThenInclude(u => u.Training).ThenInclude(t => t.TrainingType)).FirstOrDefault(x => x.Id == id);
             if (employee == null) return;
             EditedEmployee = employee;
             Data.Rows.Clear();
+            var types = service.GetAll<TrainingType>().Select(x => x.Name).ToArray();
+            TrainingTypeBox.Items.Clear();
+            TrainingTypeBox.Items.Add("كل الأنواع");
+            TrainingTypeBox.Items.AddRange(types);
             var i = 1;
             foreach (var training in employee.Trainings)
             {
@@ -54,7 +58,9 @@ namespace Petrol.SubPages.Employees
             }
         }
 
-        private void ProgramTypeBox_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void Filter_Click(object sender, EventArgs e)
         {
             var searchText = SearchTxt.Text;
             Data.Rows.Clear();
@@ -65,7 +71,7 @@ namespace Petrol.SubPages.Employees
                 UserMessages.Error("لا توجد نتائج");
                 return;
             }
-            var result = Searchresult.Where(x => x.Training.From.Date >= StartDate.Value.Date && x.Training.To <= EndDate.Value.Date).Where(z => z.Training.ProgramType.Type == ProgramTypeBox.Text);
+            var result = Searchresult.Where(x => x.Training.From.Date >= StartDate.Value.Date && x.Training.To.Date <= EndDate.Value.Date).Where(z => TrainingTypeBox.SelectedIndex < 1 || z.Training.TrainingType.Name == TrainingTypeBox.Text);
             foreach (var training in result)
             {
                 Data.Rows.Add(i++, training.Training.Id, training.Training.Name, training.Training.From.ToString("dd/MM/yyyy"), training.Training.To.ToString("dd/MM/yyyy"), training.Training.Place.Name, Properties.Resources.delete);

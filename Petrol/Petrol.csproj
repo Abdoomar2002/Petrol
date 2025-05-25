@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
     <Reference Include="EPPlus, Version=8.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.8.0.5\lib\net462\EPPlus.dll</HintPath>
     </Reference>
@@ -44,6 +47,9 @@
     </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -220,6 +226,10 @@
     <Compile Include="Migrations\20250521225322_AddDepartmentNameToTraining.Designer.cs">
       <DependentUpon>20250521225322_AddDepartmentNameToTraining.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20250524003310_test.cs" />
+    <Compile Include="Migrations\20250524003310_test.Designer.cs">
+      <DependentUpon>20250524003310_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AppDbContextModelSnapshot.cs" />
     <Compile Include="Models\DepartmentPresenceNumber.cs" />
     <Compile Include="Models\EmployeeTraining.cs" />
@@ -230,6 +240,7 @@
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Program.cs" />
+    <Compile Include="Models\TrainingType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
@@ -433,7 +444,10 @@
       <DependentUpon>MainUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Constants.cs" />
+    <Compile Include="Utils\ExcelImporter.cs" />
+    <Compile Include="Utils\ExcelReader.cs" />
     <Compile Include="Utils\ExcelExporter.cs" />
+    <Compile Include="Utils\PdfGenerator.cs" />
     <Compile Include="Utils\UserMessages.cs" />
     <EmbeddedResource Include="Controls\DUMMY.resx">
       <DependentUpon>DUMMY.cs</DependentUpon>

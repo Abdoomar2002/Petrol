@@ -30,6 +30,9 @@ namespace Petrol.SubPages.Places
         }
         public void LoadData()
         {
+       
+     
+        
             // load the data from the db to the datagridview
             var places = service.GetAll<Place>();
             PlacesData.Rows.Clear();

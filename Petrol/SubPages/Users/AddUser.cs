@@ -78,11 +78,11 @@ namespace Petrol.SubPages.Users
         }
         private bool IsAnyBoxesEmpty() 
         {
-            return string.IsNullOrEmpty(UserNameTxt.Text.Trim()) ||
-                   string.IsNullOrEmpty(PasswordTxt.Text.Trim()) ||
-                   string.IsNullOrEmpty(NameTxt.Text.Trim()) ||
-                   string.IsNullOrEmpty(FinanceNumTxt.Text.Trim()) ||
-                   string.IsNullOrEmpty(RePasswordTxt.Text.Trim()) ||
+            return string.IsNullOrEmpty(UserNameTxt.Text) ||
+                   string.IsNullOrEmpty(PasswordTxt.Text) ||
+                   string.IsNullOrEmpty(NameTxt.Text) ||
+                   string.IsNullOrEmpty(FinanceNumTxt.Text) ||
+                   string.IsNullOrEmpty(RePasswordTxt.Text) ||
                    RoleBox.SelectedIndex==-1;
         }
 

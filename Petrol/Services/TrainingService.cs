@@ -9,7 +9,7 @@ namespace Petrol.Services
     {
         public IEnumerable<Training> GetTrainingsByProgramType(int programTypeId)
         {
-            return GetAll<Training>().Where(t => t.ProgramTypeId == programTypeId);
+            return GetAll<Training>().Where(t => t.TrainingTypeId == programTypeId);
         }
         
       

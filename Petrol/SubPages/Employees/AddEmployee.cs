@@ -17,6 +17,8 @@ namespace Petrol.SubPages.Employees
             EmployeeService = new EmployeeService();
         }
         public void LoadData() {
+       
+        
             // add deparments to departments box 
             var departments = new DepartmentService().GetAll<Department>().Select(x=>x.Name).ToArray();
             DepartmentBox.DataSource = departments;
@@ -36,35 +38,35 @@ namespace Petrol.SubPages.Employees
                 return;
             }
             // check if the finance number is already in the db
-            if (EmployeeService.IsFinanceNumberExists(FinanceNumTxt.Text))
+            if (EmployeeService.IsFinanceNumberExists(FinanceNumTxt.Text.Trim()))
             {
                 UserMessages.Error("رقم الموظف موجود مسبقا");
                 return;
             }
             //get the department
-            var department = new DepartmentService().FindDepartmentByName(DepartmentBox.Text);
+            var department = new DepartmentService().FindDepartmentByName(DepartmentBox.Text.Trim());
 
             // copy the data from the boxes to employee object to save in the db
             Employee employee = new Employee()
             {
-                FinanceNumber = FinanceNumTxt.Text,
-                Name = NameTxt.Text,
+                FinanceNumber = FinanceNumTxt.Text.Trim(),
+                Name = NameTxt.Text.Trim(),
                 HireDate = HireDate.Value,
                 BirthDate = BirthDate.Value,
                 RetireDate = RetireDate.Value,
                 EmplymentDate = EmploymentDate.Value,
-                Level = LevelBox.Text,
-                CurrentJob = CurrentJobTxt.Text,
-                Section = SectionTxt.Text,
-                AcademicQualification = QualificationTxt.Text,
-                DepartmentName = DepartmentBox.Text,
-                HasMaster = MasterBox.Text,
-                JobStatus = StatusBox.Text,
-                JobType = JobTypeTxt.Text,
-                Sex = SexBox.Text,
-                SSN = SSNTxt.Text,
-                Religon = ReligonBox.Text,
-                QualificationType = QualTypeBox.Text,
+                Level = LevelBox.Text.Trim(),
+                CurrentJob = CurrentJobTxt.Text.Trim(),
+                Section = SectionTxt.Text.Trim(),
+                AcademicQualification = QualificationTxt.Text.Trim(),
+                DepartmentName = DepartmentBox.Text.Trim(),
+                HasMaster = MasterBox.Text.Trim(),
+                JobStatus = StatusBox.Text.Trim(),
+                JobType = JobTypeTxt.Text.Trim(),
+                Sex = SexBox.Text.Trim(),
+                SSN = SSNTxt.Text.Trim(),
+                Religon = ReligonBox.Text.Trim(),
+                QualificationType = QualTypeBox.Text.Trim(),
                 Department = department,
             };
             try
@@ -82,18 +84,18 @@ namespace Petrol.SubPages.Employees
         }
         private bool IsAnyBoxEmpty ()
         {
-            return FinanceNumTxt.Text.Trim().Length == 0 ||
-                NameTxt.Text.Trim().Length == 0 ||
+            return FinanceNumTxt.Text.Trim().Trim().Length == 0 ||
+                NameTxt.Text.Trim().Trim().Length == 0 ||
                 LevelBox.SelectedIndex == -1 ||
-                CurrentJobTxt.Text.Trim().Length == 0 ||
-                SectionTxt.Text.Trim().Length == 0 ||
-                SSNTxt.Text.Trim().Length == 0 ||
+                CurrentJobTxt.Text.Trim().Trim().Length == 0 ||
+                SectionTxt.Text.Trim().Trim().Length == 0 ||
+                SSNTxt.Text.Trim().Trim().Length == 0 ||
                 DepartmentBox.SelectedIndex == -1 ||
                 SexBox.SelectedIndex == -1 ||
-                QualificationTxt.Text.Trim().Length == 0 ||
+                QualificationTxt.Text.Trim().Trim().Length == 0 ||
                 QualTypeBox.SelectedIndex == -1 ||
                 ReligonBox.SelectedIndex == -1 ||
-                JobTypeTxt.Text.Trim().Length == 0 ||
+                JobTypeTxt.Text.Trim().Trim().Length == 0 ||
                 MasterBox.SelectedIndex == -1 ||
                 StatusBox.SelectedIndex == -1
                 ;
@@ -101,18 +103,18 @@ namespace Petrol.SubPages.Employees
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            FinanceNumTxt.Text = "";
-            NameTxt.Text = "";
+            FinanceNumTxt.Text= "";
+            NameTxt.Text= "";
             LevelBox.SelectedIndex = -1;
-            CurrentJobTxt.Text = "";
-            SectionTxt.Text = "";
-            SSNTxt.Text = "";
+            CurrentJobTxt.Text= "";
+            SectionTxt.Text= "";
+            SSNTxt.Text= "";
             DepartmentBox.SelectedIndex = -1;
             SexBox.SelectedIndex = -1;
-            QualificationTxt.Text = "";
+            QualificationTxt.Text= "";
             QualTypeBox.SelectedIndex = -1;
             ReligonBox.SelectedIndex = -1;
-            JobTypeTxt.Text = "";
+            JobTypeTxt.Text= "";
             MasterBox.SelectedIndex = -1;
             StatusBox.SelectedIndex = -1;
             HireDate.Value = DateTime.Now;

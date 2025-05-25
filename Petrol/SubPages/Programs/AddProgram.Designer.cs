@@ -13,6 +13,8 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+       
+        
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -29,7 +31,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ProgramTypeTxt = new Guna.UI2.WinForms.Guna2ComboBox();
             this.CodeTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.DeleteBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SaveBtn = new Guna.UI2.WinForms.Guna2Button();
             this.label19 = new System.Windows.Forms.Label();
+            this.ProgramTypeTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.Header.SuspendLayout();
             this.SuspendLayout();
@@ -70,30 +72,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1353, 583);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // ProgramTypeTxt
-            // 
-            this.ProgramTypeTxt.BackColor = System.Drawing.Color.Transparent;
-            this.ProgramTypeTxt.BorderColor = System.Drawing.Color.Black;
-            this.ProgramTypeTxt.BorderRadius = 10;
-            this.ProgramTypeTxt.BorderThickness = 2;
-            this.ProgramTypeTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProgramTypeTxt.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ProgramTypeTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ProgramTypeTxt.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ProgramTypeTxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ProgramTypeTxt.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold);
-            this.ProgramTypeTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.ProgramTypeTxt.ItemHeight = 40;
-            this.ProgramTypeTxt.Items.AddRange(new object[] {
-            "مركزي",
-            "لا مركزي",
-            "خارج البلاد"});
-            this.ProgramTypeTxt.Location = new System.Drawing.Point(682, 105);
-            this.ProgramTypeTxt.Margin = new System.Windows.Forms.Padding(5);
-            this.ProgramTypeTxt.Name = "ProgramTypeTxt";
-            this.ProgramTypeTxt.Size = new System.Drawing.Size(466, 46);
-            this.ProgramTypeTxt.TabIndex = 67;
             // 
             // CodeTxt
             // 
@@ -260,6 +238,32 @@
             this.label19.TabIndex = 0;
             this.label19.Text = "أضافة برنامج جديد";
             // 
+            // ProgramTypeTxt
+            // 
+            this.ProgramTypeTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.ProgramTypeTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.ProgramTypeTxt.BorderColor = System.Drawing.Color.Black;
+            this.ProgramTypeTxt.BorderRadius = 10;
+            this.ProgramTypeTxt.BorderThickness = 2;
+            this.ProgramTypeTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ProgramTypeTxt.DefaultText = "";
+            this.ProgramTypeTxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ProgramTypeTxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ProgramTypeTxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ProgramTypeTxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ProgramTypeTxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProgramTypeTxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProgramTypeTxt.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProgramTypeTxt.ForeColor = System.Drawing.Color.Black;
+            this.ProgramTypeTxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProgramTypeTxt.Location = new System.Drawing.Point(682, 105);
+            this.ProgramTypeTxt.Margin = new System.Windows.Forms.Padding(5);
+            this.ProgramTypeTxt.Name = "ProgramTypeTxt";
+            this.ProgramTypeTxt.PlaceholderText = "";
+            this.ProgramTypeTxt.SelectedText = "";
+            this.ProgramTypeTxt.Size = new System.Drawing.Size(466, 90);
+            this.ProgramTypeTxt.TabIndex = 58;
+            // 
             // AddProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -289,6 +293,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton DeleteBtn;
         private Guna.UI2.WinForms.Guna2Button SaveBtn;
         private System.Windows.Forms.Label label19;
-        private Guna.UI2.WinForms.Guna2ComboBox ProgramTypeTxt;
+        private Guna.UI2.WinForms.Guna2TextBox ProgramTypeTxt;
     }
 }

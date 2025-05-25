@@ -17,6 +17,7 @@ namespace Petrol.SubPages.Departments
         }
         public void SetDepartmentID(int id)
         {
+       
             var department = service.GetById<Department>(id);
             if (department != null)
             {
@@ -40,15 +41,15 @@ namespace Petrol.SubPages.Departments
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (NameTxt.Text.Trim().Length > 0)
+            if (NameTxt.Text.Trim().Trim().Length > 0)
             {
                 try
                 {
                     // check there is no deparment has same Name
-                    var checkDepartmentName = service.FindDepartmentByName(NameTxt.Text.Trim());
-                    if (checkDepartmentName == null || EditedDepartment.Name == NameTxt.Text.Trim())
+                    var checkDepartmentName = service.FindDepartmentByName(NameTxt.Text.Trim().Trim());
+                    if (checkDepartmentName == null || EditedDepartment.Name == NameTxt.Text.Trim().Trim())
                     {
-                        EditedDepartment.Name = NameTxt.Text;
+                        EditedDepartment.Name = NameTxt.Text.Trim();
                         service.Update(EditedDepartment);
                         service.SaveChanges();
                         UserMessages.Info($"تم تعديل الادارة بنجاح\nبكود {EditedDepartment.Id}");

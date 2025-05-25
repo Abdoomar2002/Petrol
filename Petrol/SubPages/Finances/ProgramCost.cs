@@ -22,7 +22,7 @@ namespace Petrol.SubPages.Finances
         {  
             programService = new ProgramService();
             followingReportService = new FollowingReportService();
-            Programs = programService.GetAllWithNestedInclude(x => x.Include(y => y.Trainings).ThenInclude(t => t.ProgramType).Include(y => y.Trainings).ThenInclude(t => t.Place).Include(r=>r.ProgramType));
+            Programs = programService.GetAllWithNestedInclude(x => x.Include(y => y.Trainings).ThenInclude(t => t.TrainingType).Include(y => y.Trainings).ThenInclude(t => t.Place).Include(r=>r.ProgramType));
             ProgramIdTxt.AutoCompleteCustomSource.AddRange(Programs.Select(x=>x.Id.ToString()).ToArray());
             ProgramNameTxt.AutoCompleteCustomSource.AddRange(Programs.Select(x=>x.Name).ToArray());
             var Departments = new DepartmentService().GetAll<Department>();
@@ -90,8 +90,8 @@ namespace Petrol.SubPages.Finances
             foreach (var training in program.Trainings)
             {
 
-                TrainingData.Rows.Add(i++, training.Id, training.Name, training.ProgramType.Type,
-                training.From.ToString("yyyy/MM/dd"), training.To.ToString("yyyy/MM/dd"), training.Place.Name, trainingCost?[training.Id] ?? 0);
+                TrainingData.Rows.Add(i++, training.Id, training.Name, training.TrainingType.Name,
+                training.From.ToString("yyyy/MM/dd"), training.To.ToString("yyyy/MM/dd"), training.Place.Name,trainingCost.ContainsKey(training.Id)? trainingCost?[training.Id] ?? 0:0);
             }
         }
     }

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Petrol.Utils;
+using System;
 using System.Windows.Forms;
 
 namespace Petrol.Controls
@@ -59,9 +53,35 @@ namespace Petrol.Controls
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             Form1 mainForm = (Form1)this.ParentForm;
-          
-                mainForm.ShowHome();
-            
+            ExcelImporter excelImporter = new ExcelImporter(new Data.AppDbContext());
+            //users
+            // excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\asorc.xlsx bakr3.xlsx", 1);
+            // excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\san misr.xlsxلbakr.xlsx", 2);
+            // excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\ابسكو .xlsx", 3);
+            // excelImporter.ImportTrainingsWithEmployees(@"C:\Users\Abdo\Downloads\New Microsoft Excel Worksheet.xlsx");
+            /*var files =
+               System.IO.Directory.GetFiles(@"D:\Work\Petrol\تدريب البترول\التسجيل\results", "*.xlsx");
+             foreach(var file in files)
+                if (file.Contains("مالي")||file.Contains("مالى"))
+                {
+                    if( file.Contains("لامركز"))
+                    excelImporter.ImportFinanceReport(file, "لا مركزي", 0);
+                    else if (file.Contains("خارج"))
+                        excelImporter.ImportFinanceReport(file, "خارجي", 1);
+                    else if (file.Contains("مركز")&&!file.Contains("لامركز"))
+                        excelImporter.ImportFinanceReport(file, "مركزي", 2);
+                }
+            /* else if (file.Contains("دار"))
+                {
+                    if (file.Contains("لامركز"))
+                        excelImporter.ImportAdminReport(file, "لا مركزي", 0);
+                    else if (file.Contains("خارج"))
+                        excelImporter.ImportAdminReport(file, "خارجي", 1);
+                    else if (file.Contains("مركز") && !file.Contains("لامركز"))
+                        excelImporter.ImportAdminReport(file, "مركزي", 2);
+                }*/
+          mainForm.ShowHome();
+
         }
     }
 }

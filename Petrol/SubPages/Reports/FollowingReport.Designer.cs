@@ -297,7 +297,7 @@
             // TrainingIdTxt
             // 
             this.TrainingIdTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TrainingIdTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TrainingIdTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.TrainingIdTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.TrainingIdTxt.BorderColor = System.Drawing.Color.Black;
             this.TrainingIdTxt.BorderRadius = 10;
@@ -737,7 +737,7 @@
             // TrainingNameTxt
             // 
             this.TrainingNameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TrainingNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TrainingNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.TrainingNameTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.TrainingNameTxt.BorderColor = System.Drawing.Color.Black;
             this.TrainingNameTxt.BorderRadius = 10;

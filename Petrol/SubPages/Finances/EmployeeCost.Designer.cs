@@ -192,7 +192,7 @@
             // EmployeeNameTxt
             // 
             this.EmployeeNameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.EmployeeNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.EmployeeNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.EmployeeNameTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.EmployeeNameTxt.BorderColor = System.Drawing.Color.Black;
             this.EmployeeNameTxt.BorderRadius = 10;
@@ -256,7 +256,7 @@
             // EmployeeFinanceNumberTxt
             // 
             this.EmployeeFinanceNumberTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.EmployeeFinanceNumberTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.EmployeeFinanceNumberTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.EmployeeFinanceNumberTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.EmployeeFinanceNumberTxt.BorderColor = System.Drawing.Color.Black;
             this.EmployeeFinanceNumberTxt.BorderRadius = 10;

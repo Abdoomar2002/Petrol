@@ -13,6 +13,8 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+      
+        
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -32,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.TrainingTypeTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.PlaceTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.DepartmentBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -40,7 +43,6 @@
             this.StartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TrainingTypeBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.CodeTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -84,6 +86,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.TrainingTypeTxt, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.PlaceTxt, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.DepartmentBox, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 2);
@@ -92,7 +95,6 @@
             this.tableLayoutPanel1.Controls.Add(this.StartDate, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.TrainingTypeBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.CodeTxt, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label13, 0, 1);
@@ -110,9 +112,35 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1356, 300);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
+            // TrainingTypeTxt
+            // 
+            this.TrainingTypeTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.TrainingTypeTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TrainingTypeTxt.BorderColor = System.Drawing.Color.Black;
+            this.TrainingTypeTxt.BorderRadius = 10;
+            this.TrainingTypeTxt.BorderThickness = 2;
+            this.TrainingTypeTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TrainingTypeTxt.DefaultText = "";
+            this.TrainingTypeTxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TrainingTypeTxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TrainingTypeTxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TrainingTypeTxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TrainingTypeTxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TrainingTypeTxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TrainingTypeTxt.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrainingTypeTxt.ForeColor = System.Drawing.Color.Black;
+            this.TrainingTypeTxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TrainingTypeTxt.Location = new System.Drawing.Point(679, 80);
+            this.TrainingTypeTxt.Margin = new System.Windows.Forms.Padding(5);
+            this.TrainingTypeTxt.Name = "TrainingTypeTxt";
+            this.TrainingTypeTxt.PlaceholderText = "";
+            this.TrainingTypeTxt.SelectedText = "";
+            this.TrainingTypeTxt.Size = new System.Drawing.Size(472, 65);
+            this.TrainingTypeTxt.TabIndex = 77;
+            // 
             // PlaceTxt
             // 
-            this.PlaceTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.PlaceTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.PlaceTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.PlaceTxt.BorderColor = System.Drawing.Color.Black;
             this.PlaceTxt.BorderRadius = 10;
@@ -243,30 +271,6 @@
             this.label2.Text = "مكان الانعقاد";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TrainingTypeBox
-            // 
-            this.TrainingTypeBox.BackColor = System.Drawing.Color.Transparent;
-            this.TrainingTypeBox.BorderColor = System.Drawing.Color.Black;
-            this.TrainingTypeBox.BorderRadius = 10;
-            this.TrainingTypeBox.BorderThickness = 2;
-            this.TrainingTypeBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TrainingTypeBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.TrainingTypeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TrainingTypeBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TrainingTypeBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TrainingTypeBox.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold);
-            this.TrainingTypeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.TrainingTypeBox.ItemHeight = 40;
-            this.TrainingTypeBox.Items.AddRange(new object[] {
-            "مركزي",
-            "لا مركزي",
-            "خارج البلاد"});
-            this.TrainingTypeBox.Location = new System.Drawing.Point(679, 80);
-            this.TrainingTypeBox.Margin = new System.Windows.Forms.Padding(5);
-            this.TrainingTypeBox.Name = "TrainingTypeBox";
-            this.TrainingTypeBox.Size = new System.Drawing.Size(472, 46);
-            this.TrainingTypeBox.TabIndex = 67;
-            // 
             // CodeTxt
             // 
             this.CodeTxt.BorderColor = System.Drawing.Color.Black;
@@ -312,7 +316,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(194, 75);
             this.label13.TabIndex = 24;
-            this.label13.Text = "نوع البرنامج";
+            this.label13.Text = "نوع التدريب";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -468,7 +472,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.EmployeeData.DefaultCellStyle = dataGridViewCellStyle3;
-            this.EmployeeData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EmployeeData.Dock = System.Windows.Forms.DockStyle.Top;
             this.EmployeeData.GridColor = System.Drawing.Color.White;
             this.EmployeeData.Location = new System.Drawing.Point(0, 759);
             this.EmployeeData.Name = "EmployeeData";
@@ -651,7 +655,7 @@
             // 
             // EmployeeFinanceNumberTxt
             // 
-            this.EmployeeFinanceNumberTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.EmployeeFinanceNumberTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.EmployeeFinanceNumberTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.EmployeeFinanceNumberTxt.BorderColor = System.Drawing.Color.Black;
             this.EmployeeFinanceNumberTxt.BorderRadius = 10;
@@ -714,7 +718,7 @@
             // 
             // EmployeeNameTxt
             // 
-            this.EmployeeNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.EmployeeNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.EmployeeNameTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.EmployeeNameTxt.BorderColor = System.Drawing.Color.Black;
             this.EmployeeNameTxt.BorderRadius = 10;
@@ -785,7 +789,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2ComboBox TrainingTypeBox;
         private Guna.UI2.WinForms.Guna2TextBox CodeTxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label13;
@@ -820,5 +823,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewImageColumn Column5;
         private Guna.UI2.WinForms.Guna2TextBox EmployeeDepartmentTxt;
+        private Guna.UI2.WinForms.Guna2TextBox TrainingTypeTxt;
     }
 }

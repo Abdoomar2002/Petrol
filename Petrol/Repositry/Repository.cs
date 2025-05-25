@@ -11,14 +11,15 @@ namespace Petrol.Repositry
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly AppDbContext _context;
+        private readonly AppDbContext _context=new AppDbContext();
         private readonly DbSet<T> _dbSet;
 
         public Repository()
         {
-            _context = new AppDbContext();
+            
             _dbSet = _context.Set<T>();
         }
+     
 
         public void Add<T>(T entity) where T : class
         {

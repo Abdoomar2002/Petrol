@@ -264,45 +264,6 @@ namespace Petrol.Migrations
                     b.ToTable("ProgramTypes");
                 });
 
-            modelBuilder.Entity("Petrol.Models.Training", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("DepartmentName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("From")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PlaceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProgramId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProgramTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("To")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PlaceId");
-
-                    b.HasIndex("ProgramId");
-
-                    b.HasIndex("ProgramTypeId");
-
-                    b.ToTable("Training");
-                });
-
             modelBuilder.Entity("Petrol.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -328,6 +289,65 @@ namespace Petrol.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Training", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DepartmentName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("From")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PlaceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProgramId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProgramTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("To")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TrainingTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlaceId");
+
+                    b.HasIndex("ProgramId");
+
+                    b.HasIndex("ProgramTypeId");
+
+                    b.HasIndex("TrainingTypeId");
+
+                    b.ToTable("Training");
+                });
+
+            modelBuilder.Entity("TrainingType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TrainingType");
                 });
 
             modelBuilder.Entity("Petrol.Models.DepartmentPresenceNumber", b =>
@@ -360,7 +380,7 @@ namespace Petrol.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Petrol.Models.Training", "Training")
+                    b.HasOne("Training", "Training")
                         .WithMany("Trainers")
                         .HasForeignKey("TrainingId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -369,7 +389,7 @@ namespace Petrol.Migrations
 
             modelBuilder.Entity("Petrol.Models.FollowingReport", b =>
                 {
-                    b.HasOne("Petrol.Models.Training", "Training")
+                    b.HasOne("Training", "Training")
                         .WithMany()
                         .HasForeignKey("TrainingId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -385,7 +405,7 @@ namespace Petrol.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Petrol.Models.Training", b =>
+            modelBuilder.Entity("Training", b =>
                 {
                     b.HasOne("Petrol.Models.Place", "Place")
                         .WithMany("Trainings")
@@ -399,9 +419,13 @@ namespace Petrol.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Petrol.Models.ProgramType", "ProgramType")
+                    b.HasOne("Petrol.Models.ProgramType", null)
                         .WithMany("Trainings")
-                        .HasForeignKey("ProgramTypeId")
+                        .HasForeignKey("ProgramTypeId");
+
+                    b.HasOne("TrainingType", "TrainingType")
+                        .WithMany("Trainings")
+                        .HasForeignKey("TrainingTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

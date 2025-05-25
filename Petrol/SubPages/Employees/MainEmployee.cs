@@ -29,6 +29,9 @@ namespace Petrol.SubPages.Employees
         }
         public void LoadData() 
         {
+       
+     
+        
             EmployeesData.Rows.Clear();
             var employees = service.GetAllEmployees();
             var i = 0;
@@ -43,7 +46,7 @@ namespace Petrol.SubPages.Employees
             var search = SearchTxt.Text;
             EmployeesData.Rows.Clear();
             var employees = service.Search(search);
-            var i = 0;
+            var i = 1;
             foreach (var employee in employees)
             {
                     EmployeesData.Rows.Add(employee.Id, i++, employee.FinanceNumber, employee.Name, employee.DepartmentName, employee.CurrentJob, employee.JobType);

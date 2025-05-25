@@ -19,28 +19,30 @@ namespace Petrol.SubPages.Employees
         }
         public void SetEmployeeId(int id)
         {
+       
+        
             var departments = new DepartmentService().GetAll<Department>().Select(x => x.Name).ToArray();
             DepartmentBox.DataSource = departments;
             var employee = service.GetEmployee(id);
             if (employee == null) return;
-            FinanceNumTxt.Text = employee.FinanceNumber.ToString();
-            NameTxt.Text = employee.Name;
-            DepartmentBox.Text = employee.DepartmentName;
-            CurrentJobTxt.Text = employee.CurrentJob;
-            JobTypeTxt.Text = employee.JobType;
-            StatusBox.Text = employee.JobStatus;
-            LevelBox.Text = employee.Level;
-            SectionTxt.Text = employee.Section;
-            SSNTxt.Text = employee.SSN;
+            FinanceNumTxt.Text= employee.FinanceNumber.ToString();
+            NameTxt.Text= employee.Name;
+            DepartmentBox.Text= employee.DepartmentName;
+            CurrentJobTxt.Text= employee.CurrentJob;
+            JobTypeTxt.Text= employee.JobType;
+            StatusBox.Text= employee.JobStatus;
+            LevelBox.Text= employee.Level;
+            SectionTxt.Text= employee.Section;
+            SSNTxt.Text= employee.SSN;
             BirthDate.Value = employee.BirthDate;
             HireDate.Value = employee.HireDate;
             RetireDate.Value = employee.RetireDate;
             EmploymentDate.Value = employee.EmplymentDate;
-            ReligonBox.Text = employee.Religon;
-            QualificationTxt.Text = employee.AcademicQualification;
-            QualTypeBox.Text = employee.QualificationType;
-            MasterBox.Text = employee.HasMaster;
-            SexBox.Text = employee.Sex;
+            ReligonBox.Text= employee.Religon;
+            QualificationTxt.Text= employee.AcademicQualification;
+            QualTypeBox.Text= employee.QualificationType;
+            MasterBox.Text= employee.HasMaster;
+            SexBox.Text= employee.Sex;
             EditedEmployee = employee;
 
 
@@ -73,37 +75,37 @@ namespace Petrol.SubPages.Employees
             try 
             {
             // check the finance number dose not exists in the db
-            if (service.IsFinanceNumberExists(FinanceNumTxt.Text, EditedEmployee.FinanceNumber))
+            if (service.IsFinanceNumberExists(FinanceNumTxt.Text.Trim(), EditedEmployee.FinanceNumber))
             {
                 UserMessages.Error("رقم الموظف موجود مسبقا");
                 return;
             }
             //get the department
-            var department = new DepartmentService().FindDepartmentByName(DepartmentBox.Text);
+            var department = new DepartmentService().FindDepartmentByName(DepartmentBox.Text.Trim());
             if (department == null)
             {
                 UserMessages.Error("القسم غير موجود");
                 return;
             }
             // copy the data from the boxes to employee object to save in the db
-            EditedEmployee.FinanceNumber = FinanceNumTxt.Text;
-            EditedEmployee.Name = NameTxt.Text;
-            EditedEmployee.DepartmentName = DepartmentBox.Text;
-            EditedEmployee.CurrentJob = CurrentJobTxt.Text;
-            EditedEmployee.JobType = JobTypeTxt.Text;
-            EditedEmployee.JobStatus = StatusBox.Text;
-            EditedEmployee.Level = LevelBox.Text;
-            EditedEmployee.Section = SectionTxt.Text;
-            EditedEmployee.SSN = SSNTxt.Text;
+            EditedEmployee.FinanceNumber = FinanceNumTxt.Text.Trim();
+            EditedEmployee.Name = NameTxt.Text.Trim();
+            EditedEmployee.DepartmentName = DepartmentBox.Text.Trim();
+            EditedEmployee.CurrentJob = CurrentJobTxt.Text.Trim();
+            EditedEmployee.JobType = JobTypeTxt.Text.Trim();
+            EditedEmployee.JobStatus = StatusBox.Text.Trim();
+            EditedEmployee.Level = LevelBox.Text.Trim();
+            EditedEmployee.Section = SectionTxt.Text.Trim();
+            EditedEmployee.SSN = SSNTxt.Text.Trim();
             EditedEmployee.BirthDate = BirthDate.Value;
             EditedEmployee.HireDate = HireDate.Value;
             EditedEmployee.RetireDate = RetireDate.Value;
             EditedEmployee.EmplymentDate = EmploymentDate.Value;
-            EditedEmployee.Religon = ReligonBox.Text;
-            EditedEmployee.AcademicQualification = QualificationTxt.Text;
-            EditedEmployee.QualificationType = QualTypeBox.Text;
-            EditedEmployee.HasMaster = MasterBox.Text;
-            EditedEmployee.Sex = SexBox.Text;
+            EditedEmployee.Religon = ReligonBox.Text.Trim();
+            EditedEmployee.AcademicQualification = QualificationTxt.Text.Trim();
+            EditedEmployee.QualificationType = QualTypeBox.Text.Trim();
+            EditedEmployee.HasMaster = MasterBox.Text.Trim();
+            EditedEmployee.Sex = SexBox.Text.Trim();
             EditedEmployee.Department = department;
             EditedEmployee.DepartmentId = department.Id;
             // save the employee in the db
@@ -139,18 +141,18 @@ namespace Petrol.SubPages.Employees
         }
         private bool IsAnyBoxEmpty()
         {
-            return FinanceNumTxt.Text.Trim().Length == 0 ||
-                NameTxt.Text.Trim().Length == 0 ||
+            return FinanceNumTxt.Text.Trim().Trim().Length == 0 ||
+                NameTxt.Text.Trim().Trim().Length == 0 ||
                 LevelBox.SelectedIndex == -1 ||
-                CurrentJobTxt.Text.Trim().Length == 0 ||
-                SectionTxt.Text.Trim().Length == 0 ||
-                SSNTxt.Text.Trim().Length == 0 ||
+                CurrentJobTxt.Text.Trim().Trim().Length == 0 ||
+                SectionTxt.Text.Trim().Trim().Length == 0 ||
+                SSNTxt.Text.Trim().Trim().Length == 0 ||
                 DepartmentBox.SelectedIndex == -1 ||
                 SexBox.SelectedIndex == -1 ||
-                QualificationTxt.Text.Trim().Length == 0 ||
+                QualificationTxt.Text.Trim().Trim().Length == 0 ||
                 QualTypeBox.SelectedIndex == -1 ||
                 ReligonBox.SelectedIndex == -1 ||
-                JobTypeTxt.Text.Trim().Length == 0 ||
+                JobTypeTxt.Text.Trim().Trim().Length == 0 ||
                 MasterBox.SelectedIndex == -1 ||
                 StatusBox.SelectedIndex == -1
                 ;

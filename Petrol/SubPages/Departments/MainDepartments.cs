@@ -54,7 +54,7 @@ namespace Petrol.SubPages.Departments
         private void SearchBtn_Click(object sender, EventArgs e)
         {
             DepartmentData.Rows.Clear();
-            var departments = service.Search(SearchTxt.Text);
+            var departments = service.GetAllWithInclude(t=>t.Employees).Where(x=>x.Name.Contains(SearchTxt.Text)||x.Id.ToString().Contains(SearchTxt.Text));
             if (departments == null || departments.Count() == 0)
             {
                 UserMessages.Error("لا يوجد إدارات بنفس الاسم");
@@ -63,7 +63,7 @@ namespace Petrol.SubPages.Departments
             var i = 1;
             foreach (var department in departments)
             {
-                DepartmentData.Rows.Add(i++, department.Id, department.Name, department.Employees.Count);
+                DepartmentData.Rows.Add(i++, department.Id, department.Name, department?.Employees?.Count??0);
             }
 
         }

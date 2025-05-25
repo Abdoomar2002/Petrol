@@ -25,7 +25,7 @@ namespace Petrol.SubPages.Finances
              employeeService = new EmployeeService();
             followingReportService = new FollowingReportService();
             Employees = employeeService.GetAllWithNestedInclude(x => x.Include(y => y.Trainings).ThenInclude(t => t.Training).ThenInclude(p => p.Place)
-            .Include(y => y.Trainings).ThenInclude(t => t.Training).ThenInclude(u => u.ProgramType)
+            .Include(y => y.Trainings).ThenInclude(t => t.Training).ThenInclude(u => u.TrainingType)
             );
             EmployeeNameTxt.AutoCompleteCustomSource.AddRange(Employees.Select(x=>x.Name).ToArray());
             EmployeeFinanceNumberTxt.AutoCompleteCustomSource.AddRange(Employees.Select(x=>x.Id.ToString()).ToArray());
@@ -52,8 +52,8 @@ namespace Petrol.SubPages.Finances
             foreach (var training in employee.Trainings)
             {
 
-                TrainingData.Rows.Add(i++, training.TrainingId, training.Training.Name, training.Training.ProgramType.Type,
-                    training.Training.From.ToString("yyyy/MM/dd"), training.Training.To.ToString("yyyy/MM/dd"), training.Training.Place.Name, trainingCost?[training.TrainingId]??0);
+                TrainingData.Rows.Add(i++, training.TrainingId, training.Training.Name, training.Training.TrainingType.Name,
+                    training.Training.From.ToString("yyyy/MM/dd"), training.Training.To.ToString("yyyy/MM/dd"), training.Training.Place.Name,trainingCost.ContainsKey(training.Id) ? trainingCost?[training.TrainingId]??0:0);
             }
 
         }

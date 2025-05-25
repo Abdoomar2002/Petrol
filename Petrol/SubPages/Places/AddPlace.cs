@@ -16,8 +16,11 @@ namespace Petrol.SubPages.Places
         }
         public void LoadData() 
         {
+       
+     
+        
             var lastId = service.GetTheLastId<Place>();
-            CodeTxt.Text = lastId.ToString();
+            CodeTxt.Text= lastId.ToString();
         }
         private void BackBtn_Click(object sender, EventArgs e)
         {
@@ -35,7 +38,7 @@ namespace Petrol.SubPages.Places
             try
             {
                 // check if the place name is already in the db
-                if (service.IsPlaceNameExists(NameTxt.Text))
+                if (service.IsPlaceNameExists(NameTxt.Text.Trim()))
                 {
                     UserMessages.Error("اسم المكان موجود مسبقا");
                     return;
@@ -44,10 +47,10 @@ namespace Petrol.SubPages.Places
 
                 Place place = new Place()
                 {
-                    Name = NameTxt.Text,
-                    PhoneNumber = PhoneTxt.Text,
-                    Address = AddressTxt.Text,
-                    ManagerName = ManagerTxt.Text
+                    Name = NameTxt.Text.Trim(),
+                    PhoneNumber = PhoneTxt.Text.Trim(),
+                    Address = AddressTxt.Text.Trim(),
+                    ManagerName = ManagerTxt.Text.Trim()
                 };
                 service.Add(place);
                 service.SaveChanges();
@@ -63,11 +66,11 @@ namespace Petrol.SubPages.Places
         }
         public bool IsAnyBoxEmpty()
         {
-            if (string.IsNullOrEmpty(NameTxt.Text.Trim()) ||
-                string.IsNullOrEmpty(CodeTxt.Text.Trim()) ||
-                string.IsNullOrEmpty(PhoneTxt.Text.Trim()) ||
-                string.IsNullOrEmpty(AddressTxt.Text.Trim())||
-                string.IsNullOrEmpty(ManagerTxt.Text.Trim()))
+            if (string.IsNullOrEmpty(NameTxt.Text.Trim().Trim()) ||
+                string.IsNullOrEmpty(CodeTxt.Text.Trim().Trim()) ||
+                string.IsNullOrEmpty(PhoneTxt.Text.Trim().Trim()) ||
+                string.IsNullOrEmpty(AddressTxt.Text.Trim().Trim())||
+                string.IsNullOrEmpty(ManagerTxt.Text.Trim().Trim()))
             {
                 return true;
             }
@@ -76,11 +79,11 @@ namespace Petrol.SubPages.Places
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            NameTxt.Text = "";
-            CodeTxt.Text = "";
-            PhoneTxt.Text = "";
-            AddressTxt.Text = "";
-            ManagerTxt.Text = "";
+            NameTxt.Text= "";
+            CodeTxt.Text= "";
+            PhoneTxt.Text= "";
+            AddressTxt.Text= "";
+            ManagerTxt.Text= "";
             LoadData();
         }
     }
