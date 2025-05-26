@@ -11,17 +11,19 @@ namespace Petrol.SubPages.Employees
     public partial class AddEmployee : UserControl
     {
         private EmployeeService EmployeeService;
+        private Department[] Departments; 
         public AddEmployee()
         {
             InitializeComponent();
             EmployeeService = new EmployeeService();
         }
         public void LoadData() {
-       
-        
+
+
             // add deparments to departments box 
-            var departments = new DepartmentService().GetAll<Department>().Select(x=>x.Name).ToArray();
-            DepartmentBox.DataSource = departments;
+            Departments = new DepartmentService().GetAll<Department>().ToArray();
+            var depanmes=Departments.Select(x=>x.Name).ToArray();
+            DepartmentBox.DataSource = depanmes;
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace Petrol.SubPages.Employees
                 return;
             }
             //get the department
-            var department = new DepartmentService().FindDepartmentByName(DepartmentBox.Text.Trim());
+            var department =Departments.FirstOrDefault(x=>x.Name== DepartmentBox.Text.Trim());
 
             // copy the data from the boxes to employee object to save in the db
             Employee employee = new Employee()

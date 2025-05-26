@@ -144,7 +144,7 @@ namespace Petrol.Migrations
                         column: x => x.PlaceId,
                         principalTable: "Places",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Training_ProgramTypes_ProgramTypeId",
                         column: x => x.ProgramTypeId,
@@ -206,7 +206,7 @@ namespace Petrol.Migrations
                         column: x => x.TrainingId,
                         principalTable: "Training",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -233,7 +233,7 @@ namespace Petrol.Migrations
                         column: x => x.FollowingReportId,
                         principalTable: "FollowingReports",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

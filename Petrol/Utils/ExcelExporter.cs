@@ -69,15 +69,12 @@ namespace Petrol.Utils
                 worksheet.Cells[1, Departments.Count + 3].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
                 worksheet.Cells[1, Departments.Count + 3].Style.Fill.BackgroundColor.SetColor(Color.LightGray);
 
-                var reports = _followingReportService
-                    .GetAllWithNestedInclude(x => x.Include(y => y.Training).ThenInclude(t => t.TrainingType)
-                                                  .Include(d => d.DepartmentsPresenceNumber).ThenInclude(r => r.Department))
-                    .Where(x => x.Training.From.Date >= startDate.Date && x.Training.To.Date <= endDate.Date)
-                    .ToList();
+                var reports = _followingReportService.GetAllWithNestedInclude(x => x.Include(y => y.Training).ThenInclude(t => t.TrainingType).Include(r => r.Training).ThenInclude(y => y.Program).ThenInclude(o => o.ProgramType).Include(d => d.DepartmentsPresenceNumber).ThenInclude(r => r.Department)).Where(x => x.Training.From.Date >= startDate.Date && x.Training.To.Date <= endDate.Date).ToList();
 
-                if (programType != "كل الشركة" && !string.IsNullOrWhiteSpace(programType))
+
+                if (programType != "كل الأنواع" && !string.IsNullOrWhiteSpace(programType))
                 {
-                    reports = reports.Where(x => x.Training.TrainingType.Name == programType).ToList();
+                    reports = reports.Where(x => x.Training.Program.ProgramType.Type == programType).ToList();
                 }
 
                 if (reports.Count > 0)
@@ -181,13 +178,16 @@ namespace Petrol.Utils
                     worksheet.Cells[1, col + 1].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
                 }
 
-                var reports = _followingReportService.GetAllWithNestedInclude(x => x.Include(y => y.Training).ThenInclude(t => t.TrainingType))
-                    .Where(x => x.Training.From.Date >= startDate.Date && x.Training.To.Date <= endDate.Date)
-                    .ToList();
+                var reports = _followingReportService.GetAllWithNestedInclude(
+                    x => x.Include(y => y.Training)
+                    .ThenInclude(t => t.TrainingType)
+                    .Include(y => y.Training)
+                    .ThenInclude(z => z.Program)
+                    .ThenInclude(u => u.ProgramType)).Where(x => x.Training.From.Date >= startDate.Date && x.Training.To.Date <= endDate.Date).ToList();
 
-                if (!string.IsNullOrEmpty(programType) && programType != "كل الشركة")
+                if (!string.IsNullOrEmpty(programType) && programType != "كل الأنواع")
                 {
-                    reports = reports.Where(x => x.Training.TrainingType.Name == programType).ToList();
+                    reports = reports.Where(x => x.Training?.Program?.ProgramType?.Type == programType).ToList();
                 }
 
                 if (reports.Count > 0)

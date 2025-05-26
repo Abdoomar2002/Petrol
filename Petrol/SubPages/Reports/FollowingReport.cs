@@ -1,8 +1,8 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Microsoft.EntityFrameworkCore;
 using Petrol.Models;
 using Petrol.Services;
-using Petrol.SubPages.Finances;
 using Petrol.Utils;
 using System;
 using System.Collections.Generic;
@@ -31,7 +31,7 @@ namespace Petrol.SubPages.Reports
         }
         public void LoadData()
         {
-    
+
             Departments = DepartmentService.GetAll<Department>().ToList();
             DepartmentData.Columns.Clear();
             foreach (var department in Departments)
@@ -102,8 +102,8 @@ namespace Petrol.SubPages.Reports
                 var CheckfollowingReport = _followingReportService.GetAll<Models.FollowingReport>().FirstOrDefault(x => x.TrainingId == trainingId);
                 if (CheckfollowingReport != null)
                 {
-                    var result=UserMessages.Warning("التقرير موجود بالفعل في قاعدة البيانات\nهل تريد تحديثه");
-                    if (result == DialogResult.Yes) 
+                    var result = UserMessages.Warning("التقرير موجود بالفعل في قاعدة البيانات\nهل تريد تحديثه");
+                    if (result == DialogResult.Yes)
                     {
                         CheckfollowingReport.ProgramCost = double.TryParse(FinanceData.Rows[0].Cells[0].Value?.ToString() ?? "0", out double CprogramCost) ? CprogramCost : 0;
                         CheckfollowingReport.FoodCost = double.TryParse(FinanceData.Rows[0].Cells[1].Value?.ToString() ?? "0", out double CfoodCost) ? CfoodCost : 0;
@@ -116,9 +116,9 @@ namespace Petrol.SubPages.Reports
                         CheckfollowingReport.ProgramOrganizer = OrganizerTxt.Text;
                         CheckfollowingReport.Men = MenTxt.Text == "" ? 0 : int.Parse(MenTxt.Text);
                         CheckfollowingReport.Women = WomenTxt.Text == "" ? 0 : int.Parse(WomenTxt.Text);
-                   
+
                     }
-                   
+
                 }
 
                 // add the data to the database
@@ -165,8 +165,17 @@ namespace Petrol.SubPages.Reports
                 }
                 _followingReportService.SaveChanges();
                 UserMessages.Info("تم حفظ البيانات بنجاح");
-               
+                var report = CheckfollowingReport == null ? followingReport : CheckfollowingReport;
                 // print it
+               
+
+                report = _followingReportService.GetAllWithNestedInclude(x =>x.Include(t=> t.DepartmentsPresenceNumber).Include(y => y.Training).ThenInclude(y=>y.Place)).FirstOrDefault(x => x.Id == report.Id);
+             
+
+            PdfGenerator. GenerateFilledFollowingReportDoc(report, "temp.docx", "FilledReport.docx");
+
+
+
             }
             catch (Exception ex)
             {
@@ -176,12 +185,14 @@ namespace Petrol.SubPages.Reports
 
         }
 
+
+
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            if (DeleteBtn.Text == "مسح") 
+            if (DeleteBtn.Text == "مسح")
             {
                 var result = UserMessages.Warning("هل انت متاكد من انك تريد مسح التقرير");
-                if (result == DialogResult.Yes) 
+                if (result == DialogResult.Yes)
                 {
                     try
                     {
@@ -207,7 +218,8 @@ namespace Petrol.SubPages.Reports
                             return;
                         }
                     }
-                    catch (Exception ex) {
+                    catch (Exception ex)
+                    {
                         UserMessages.Error("خطأ اثناء مسح البيانات");
                         return;
                     }
@@ -232,64 +244,67 @@ namespace Petrol.SubPages.Reports
 
         private void TrainingNameTxt_TextChanged(object sender, EventArgs e)
         {
-            if(!isProgramming)
-            { 
-            var training = Trainings.FirstOrDefault(x => x.Name == TrainingNameTxt.Text);
-            if (training != null)
+            if (!isProgramming)
             {
+                var training = Trainings.FirstOrDefault(x => x.Name == TrainingNameTxt.Text);
+                if (training != null)
+                {
                     isProgramming = true;
-                TrainingIdTxt.Text = training.Id.ToString();
-                PlaceTxt.Text = training.Place.Name;
-                TrainingTypeBox.Text = training.TrainingType.Name;
-                StartDate.Value = training.From;
-                EndDate.Value = training.To;
-                DeleteBtn.Text = "مسح";
+                    TrainingIdTxt.Text = training.Id.ToString();
+                    PlaceTxt.Text = training.Place.Name;
+                    TrainingTypeBox.Text = training.TrainingType.Name;
+                    StartDate.Value = training.From;
+                    EndDate.Value = training.To;
+                    DeleteBtn.Text = "مسح";
+                    CheckAndFillReport(training);
+
                     isProgramming = false;
 
-            }
-            else
-            {
+                }
+                else
+                {
                     isProgramming = true;
-                TrainingIdTxt.Text = string.Empty;
-                PlaceTxt.Text = string.Empty;
-                TrainingTypeBox.Text = string.Empty;
-                StartDate.Value = DateTime.Now;
-                EndDate.Value = DateTime.Now;
-                DeleteBtn.Text = "تفريغ";
+                    TrainingIdTxt.Text = string.Empty;
+                    PlaceTxt.Text = string.Empty;
+                    TrainingTypeBox.Text = string.Empty;
+                    StartDate.Value = DateTime.Now;
+                    EndDate.Value = DateTime.Now;
+                    DeleteBtn.Text = "تفريغ";
                     isProgramming = false;
-            }
+                }
 
             }
         }
 
         private void TrainingIdTxt_TextChanged(object sender, EventArgs e)
         {
-            if(!isProgramming)
+            if (!isProgramming)
             {
 
-            var training = Trainings.FirstOrDefault(x => x.Id.ToString() == TrainingIdTxt.Text);
-            if (training != null)
-            {
+                var training = Trainings.FirstOrDefault(x => x.Id.ToString() == TrainingIdTxt.Text);
+                if (training != null)
+                {
                     isProgramming = true;
-                TrainingNameTxt.Text = training.Name;
-                PlaceTxt.Text = training.Place.Name;
-                TrainingTypeBox.Text = training.TrainingType.Name;
-                StartDate.Value = training.From;
-                EndDate.Value = training.To;
-                DeleteBtn.Text = "مسح";
+                    TrainingNameTxt.Text = training.Name;
+                    PlaceTxt.Text = training.Place.Name;
+                    TrainingTypeBox.Text = training.TrainingType.Name;
+                    StartDate.Value = training.From;
+                    EndDate.Value = training.To;
+                    DeleteBtn.Text = "مسح";
+                    CheckAndFillReport(training);
                     isProgramming = false;
-            }
-            else
-            {
+                }
+                else
+                {
                     isProgramming = true;
-                TrainingNameTxt.Text = string.Empty;
-                PlaceTxt.Text = string.Empty;
-                TrainingTypeBox.Text = string.Empty;
-                StartDate.Value = DateTime.Now;
-                EndDate.Value = DateTime.Now;
-                DeleteBtn.Text = "تفريغ";
+                    TrainingNameTxt.Text = string.Empty;
+                    PlaceTxt.Text = string.Empty;
+                    TrainingTypeBox.Text = string.Empty;
+                    StartDate.Value = DateTime.Now;
+                    EndDate.Value = DateTime.Now;
+                    DeleteBtn.Text = "تفريغ";
                     isProgramming = false;
-            }
+                }
             }
         }
 
@@ -330,38 +345,66 @@ namespace Petrol.SubPages.Reports
             row.Cells["Total"].Value = total.ToString();
 
         }
-public void PrintReport(List<dynamic> data, string searchTerm, string filterInfo)
-{
-    Document document = new Document(PageSize.A4, 25, 25, 30, 30);
-    string filename = "Report_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".pdf";
-    PdfWriter.GetInstance(document, new FileStream(filename, FileMode.Create));
-    document.Open();
+        public void CheckAndFillReport(Training training)
+        {
+            var following = _followingReportService.GetAllWithInclude(x=>x.DepartmentsPresenceNumber).FirstOrDefault(x => x.TrainingId == training.Id);
+            if (following != null)
+            {
+                // fill finance data with following report data 
+                FinanceData.Rows[0].Cells[0].Value = following.ProgramCost;
+                FinanceData.Rows[0].Cells[1].Value = following.FoodCost;
+                FinanceData.Rows[0].Cells[2].Value = following.HotelCost;
+                FinanceData.Rows[0].Cells[3].Value = following.TransitionsCost;
+                FinanceData.Rows[0].Cells[4].Value = following.TicketsCost;
+                FinanceData.Rows[0].Cells[5].Value = following.LastNightCost;
+                FinanceData.Rows[0].Cells[6].Value = following.OthersCost;
+                FinanceData.Rows[0].Cells[7].Value = following.TotalCost;
+                OrganizerTxt.Text = following.ProgramOrganizer;
+                MenTxt.Text = following.Men.ToString();
+                WomenTxt.Text = following.Women.ToString();
+                for (int i = 0; i < DepartmentData.Columns.Count - 1; i++)
+                {
+                    var departmentName = DepartmentData.Columns[i].HeaderText;
+                    var department = Departments.FirstOrDefault(x => x.Name == departmentName);
+                    DepartmentData.Rows[0].Cells[departmentName].Value= following.DepartmentsPresenceNumber.FirstOrDefault(x => x.DepartmentId == department.Id)?.PresenceNumber.ToString() ?? "0";
+                }
 
-    // Title and filter info
-    Paragraph header = new Paragraph("Report Page - " + this.Name + "\n"
-        + "Search: " + searchTerm + "\n"
-        + "Filter: " + filterInfo + "\n"
-        + "Generated: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm"));
-    header.SpacingAfter = 10f;
-    document.Add(header);
 
-    PdfPTable table = new PdfPTable(3); // adjust number of columns
-    table.AddCell("Column1");
-    table.AddCell("Column2");
-    table.AddCell("Column3");
 
-    foreach (var item in data)
-    {
-        table.AddCell(item.Prop1);
-        table.AddCell(item.Prop2);
-        table.AddCell(item.Prop3.ToString());
-    }
+            }
+        }
+        public void PrintReport(List<dynamic> data, string searchTerm, string filterInfo)
+        {
+            Document document = new Document(PageSize.A4, 25, 25, 30, 30);
+            string filename = "Report_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".pdf";
+            PdfWriter.GetInstance(document, new FileStream(filename, FileMode.Create));
+            document.Open();
 
-    document.Add(table);
-    document.Close();
+            // Title and filter info
+            Paragraph header = new Paragraph("Report Page - " + this.Name + "\n"
+                + "Search: " + searchTerm + "\n"
+                + "Filter: " + filterInfo + "\n"
+                + "Generated: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm"));
+            header.SpacingAfter = 10f;
+            document.Add(header);
 
-    MessageBox.Show("Report saved to PDF: " + filename);
-}
+            PdfPTable table = new PdfPTable(3); // adjust number of columns
+            table.AddCell("Column1");
+            table.AddCell("Column2");
+            table.AddCell("Column3");
+
+            foreach (var item in data)
+            {
+                table.AddCell(item.Prop1);
+                table.AddCell(item.Prop2);
+                table.AddCell(item.Prop3.ToString());
+            }
+
+            document.Add(table);
+            document.Close();
+
+            MessageBox.Show("Report saved to PDF: " + filename);
+        }
     }
 }
 

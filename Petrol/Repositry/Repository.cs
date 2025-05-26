@@ -4,14 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Petrol.Repositry
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly AppDbContext _context=new AppDbContext();
+        private static  AppDbContext _context=new AppDbContext();
         private readonly DbSet<T> _dbSet;
 
         public Repository()
@@ -23,20 +22,24 @@ namespace Petrol.Repositry
 
         public void Add<T>(T entity) where T : class
         {
+            _context=new AppDbContext(); // Ensure a fresh context for each operation
             _context.Set<T>().Add(entity);
         }
 
         public void Delete<T>(T entity) where T : class
         {
+            _context=new AppDbContext(); // Ensure a fresh context for each operation
             _context.Set<T>().Remove(entity);
         }
 
         public IEnumerable<T> Find<T>(Func<T, bool> predicate) where T : class
         {
+            _context=new AppDbContext(); // Ensure a fresh context for each operation
             return _context.Set<T>().AsNoTracking().Where(predicate).ToList();
         }
         public int GetTheLastId<T>() where T : class
         {
+            _context=new AppDbContext();
             var list = _context.Set<T>().ToList();
             var last = list.LastOrDefault();
             var type = last?.GetType();
@@ -46,10 +49,12 @@ namespace Petrol.Repositry
         }
         public IEnumerable<T> GetAll<T>() where T : class
         {
+            _context=new AppDbContext(); // Ensure a fresh context for each operation
             return _context.Set<T>().ToList();
         }
         public virtual IQueryable<T> GetAllWithInclude(params Expression<Func<T, object>>[] includes)
         {
+            _context=new AppDbContext(); // Ensure a fresh context for each operation
             IQueryable<T> query = _dbSet;
 
             foreach (var include in includes)
@@ -63,6 +68,7 @@ namespace Petrol.Repositry
             Func<IQueryable<T>, IQueryable<T>> includeFunc,
             Expression<Func<T, bool>> filter = null)
         {
+            _context=new AppDbContext(); // Ensure a fresh context for each operation
             IQueryable<T> query = _dbSet;
 
             if (filter != null)
@@ -76,19 +82,22 @@ namespace Petrol.Repositry
 
         public T GetById<T>(int id) where T : class
         {
+            _context=new AppDbContext(); // Ensure a fresh context for each operation
             // Assumes entity has an "Id" property of type int
             return _context.Set<T>().Find(id);
         }
         public void SaveChanges()
         {
+            _context=new AppDbContext(); // Ensure a fresh context for each operation
             _context.SaveChanges();
         }
         public void Update<T>(T entity) where T : class
         {
+            _context=new AppDbContext(); // Ensure a fresh context for each operation
             _context.Entry(entity).State = EntityState.Modified;
         }
         public void Attach<T>(T entity) where T : class
-        {
+        {_context = new AppDbContext();
             _context.Set<T>().Attach(entity);
         }
         public void Dispose()
@@ -97,6 +106,7 @@ namespace Petrol.Repositry
         }
         public  IEnumerable<T> Search(string term)
         {
+            _context = new AppDbContext(); // Ensure a fresh context for each operation
             if (string.IsNullOrWhiteSpace(term))
                 return _context.Set<T>().ToList();
 

@@ -43,6 +43,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrintBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesData)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +51,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.PrintBtn);
             this.guna2Panel1.Controls.Add(this.AddEmployeeBtn);
             this.guna2Panel1.Controls.Add(this.SearchBtn);
             this.guna2Panel1.Controls.Add(this.SearchTxt);
@@ -240,6 +242,26 @@
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
+            // PrintBtn
+            // 
+            this.PrintBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PrintBtn.BorderRadius = 8;
+            this.PrintBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.PrintBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.PrintBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.PrintBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.PrintBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.PrintBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PrintBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PrintBtn.Font = new System.Drawing.Font("Cairo", 12F);
+            this.PrintBtn.ForeColor = System.Drawing.Color.White;
+            this.PrintBtn.Location = new System.Drawing.Point(25, 56);
+            this.PrintBtn.Name = "PrintBtn";
+            this.PrintBtn.Size = new System.Drawing.Size(153, 58);
+            this.PrintBtn.TabIndex = 13;
+            this.PrintBtn.Text = "طباعة";
+            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
+            // 
             // MainEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -267,5 +289,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private Guna.UI2.WinForms.Guna2GradientButton PrintBtn;
     }
 }

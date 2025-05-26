@@ -61,11 +61,11 @@ namespace Petrol.SubPages.Reports
                 UserMessages.Error("يجب أن يكون تاريخ البداية اصغر من تاريخ النهاية");
                 return;
             }
-            var reports = service.GetAllWithNestedInclude(x => x.Include(y => y.Training).ThenInclude(t => t.TrainingType).Include(d=>d.DepartmentsPresenceNumber).ThenInclude(r=>r.Department)).Where(x => x.Training.From.Date >= startDate.Date && x.Training.To.Date <= endDate.Date).ToList();
+            var reports = service.GetAllWithNestedInclude(x => x.Include(y => y.Training).ThenInclude(t => t.TrainingType).Include(r=>r.Training).ThenInclude(y=>y.Program).ThenInclude(o=>o.ProgramType).Include(d=>d.DepartmentsPresenceNumber).ThenInclude(r=>r.Department)).Where(x => x.Training.From.Date >= startDate.Date && x.Training.To.Date <= endDate.Date).ToList();
             if (ProgramTypeBox.SelectedIndex > 0)
             {
                 var programType = ProgramTypeBox.SelectedItem.ToString();
-                reports = reports.Where(x => x.Training.TrainingType.Name == programType).ToList();
+                reports = reports.Where(x => x.Training.Program.ProgramType.Type == programType).ToList();
             }
             if (reports.Count > 0)
             {

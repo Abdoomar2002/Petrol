@@ -218,6 +218,12 @@ public class ExcelImporter
                     var programType = dbContext.ProgramTypes.FirstOrDefault();
                     if (program == null && !string.IsNullOrWhiteSpace(programName))
                     {
+                        if(programType==null)
+                        {
+                        programType = new ProgramType() { Type = "لا مركزي" };
+                            dbContext.ProgramTypes.Add(programType);
+                            dbContext.SaveChanges();
+                        }
                         program = new Models.Program { Name = programName ,ProgramTypeId=programType.Id};
                         dbContext.Programs.Add(program);
                         dbContext.SaveChanges();
@@ -238,6 +244,18 @@ public class ExcelImporter
 
                     if (training == null)
                     {
+                        if(trainingType==null)
+                        {
+                            trainingType = new TrainingType() { Name = "مهني" };
+                            dbContext.Add(trainingType);
+                            dbContext.SaveChanges();
+                        }
+                        if (place == null) 
+                        {
+                            place = new Place() { Name = "غير محدد" };
+                            dbContext.Add(place);
+                            dbContext.SaveChanges();
+                        }
                         training = new Training
                         {
                             Name = programName,

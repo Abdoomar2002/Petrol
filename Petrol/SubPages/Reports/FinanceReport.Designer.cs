@@ -107,9 +107,9 @@
             this.label2.Font = new System.Drawing.Font("Cairo", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(614, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 32);
+            this.label2.Size = new System.Drawing.Size(99, 32);
             this.label2.TabIndex = 42;
-            this.label2.Text = "نوع التدريب";
+            this.label2.Text = "نوع البرنامج";
             // 
             // ProgramTypeBox
             // 

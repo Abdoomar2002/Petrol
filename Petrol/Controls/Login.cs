@@ -8,6 +8,15 @@ namespace Petrol.Controls
     {
         private Timer timer;
         private double opacityStep;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handle = base.CreateParams;
+                handle.ExStyle |= 0x02000000;
+                return handle;
+            }
+        }
         public Login()
         {
             InitializeComponent();
@@ -55,11 +64,11 @@ namespace Petrol.Controls
             Form1 mainForm = (Form1)this.ParentForm;
             ExcelImporter excelImporter = new ExcelImporter(new Data.AppDbContext());
             //users
-            // excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\asorc.xlsx bakr3.xlsx", 1);
-            // excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\san misr.xlsxلbakr.xlsx", 2);
-            // excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\ابسكو .xlsx", 3);
-            // excelImporter.ImportTrainingsWithEmployees(@"C:\Users\Abdo\Downloads\New Microsoft Excel Worksheet.xlsx");
-            /*var files =
+            /* excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\asorc.xlsx bakr3.xlsx", 1);
+             excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\san misr.xlsxلbakr.xlsx", 2);
+             excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\ابسكو .xlsx", 3);
+             excelImporter.ImportTrainingsWithEmployees(@"C:\Users\Abdo\Downloads\New Microsoft Excel Worksheet.xlsx");
+            var files =
                System.IO.Directory.GetFiles(@"D:\Work\Petrol\تدريب البترول\التسجيل\results", "*.xlsx");
              foreach(var file in files)
                 if (file.Contains("مالي")||file.Contains("مالى"))
@@ -71,17 +80,17 @@ namespace Petrol.Controls
                     else if (file.Contains("مركز")&&!file.Contains("لامركز"))
                         excelImporter.ImportFinanceReport(file, "مركزي", 2);
                 }
-            /* else if (file.Contains("دار"))
-                {
-                    if (file.Contains("لامركز"))
-                        excelImporter.ImportAdminReport(file, "لا مركزي", 0);
-                    else if (file.Contains("خارج"))
-                        excelImporter.ImportAdminReport(file, "خارجي", 1);
-                    else if (file.Contains("مركز") && !file.Contains("لامركز"))
-                        excelImporter.ImportAdminReport(file, "مركزي", 2);
-                }*/
-          mainForm.ShowHome();
-
+            foreach (var file in files)
+                 if (file.Contains("دار"))
+                    {
+                        if (file.Contains("لامركز"))
+                            excelImporter.ImportAdminReport(file, "لا مركزي", 0);
+                        else if (file.Contains("خارج"))
+                            excelImporter.ImportAdminReport(file, "خارجي", 1);
+                        else if (file.Contains("مركز") && !file.Contains("لامركز"))
+                            excelImporter.ImportAdminReport(file, "مركزي", 2);
+                    }*/
+                mainForm.ShowHome();
         }
     }
 }

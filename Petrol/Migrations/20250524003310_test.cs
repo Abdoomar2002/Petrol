@@ -47,7 +47,7 @@ namespace Petrol.Migrations
                 column: "ProgramTypeId",
                 principalTable: "ProgramTypes",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Training_TrainingType_TrainingTypeId",

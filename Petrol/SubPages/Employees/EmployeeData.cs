@@ -77,5 +77,51 @@ namespace Petrol.SubPages.Employees
                 Data.Rows.Add(i++, training.Training.Id, training.Training.Name, training.Training.From.ToString("dd/MM/yyyy"), training.Training.To.ToString("dd/MM/yyyy"), training.Training.Place.Name, Properties.Resources.delete);
             }
         }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            if (Data.Rows.Count == 0)
+            {
+                UserMessages.Error("لا يوجد بيانات للطباعة");
+                return;
+            }
+
+            // Create a new DataGridView with only visible columns
+            var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            foreach (DataGridViewColumn col in Data.Columns)
+            {
+                if (col.Visible|| !(col.ValueType  is  DataGridViewImageCell))
+                    filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
+            }
+
+            // Copy rows
+            foreach (DataGridViewRow row in Data.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    var newRowIndex = filteredGrid.Rows.Add();
+                    for (int i = 0; i < Data.Columns.Count; i++)
+                    {
+                        if (Data.Columns[i].Visible)
+                        {
+                            var targetIndex = filteredGrid.Columns
+                                .Cast<DataGridViewColumn>()
+                                .ToList()
+                                .FindIndex(c => c.HeaderText ==     Data.Columns[i].HeaderText);
+
+                            filteredGrid.Rows[newRowIndex].Cells[targetIndex].Value = row.Cells[i].Value;
+                        }
+                    }
+                }
+            }
+
+            // Titles
+            var Main = $"تقرير تدريبات الموظف / {EditedEmployee.Name}";
+            var sub = Data.Rows.Count - 1 != EditedEmployee.Trainings.Count ? $"نتيجة البحث عن {SearchTxt.Text}" : "جميع التدريبات";
+            var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Value.ToString("dd/MM/yyyy")} إلى {EndDate.Value.ToString("dd/MM/yyyy")}";
+            // Pass filtered grid
+            PdfGenerator.GeneratePdf(Main, sub, filteredGridTitle, filteredGrid);
+
+        }
     }
 }

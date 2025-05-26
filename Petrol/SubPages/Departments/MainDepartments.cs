@@ -8,9 +8,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Xceed.Document.NET;
 
 namespace Petrol.SubPages.Departments
 {
@@ -65,6 +67,52 @@ namespace Petrol.SubPages.Departments
             {
                 DepartmentData.Rows.Add(i++, department.Id, department.Name, department?.Employees?.Count??0);
             }
+
+        }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            if (DepartmentData.Rows.Count == 0)
+            {
+                UserMessages.Error("لا يوجد بيانات للطباعة");
+                return;
+            }
+
+            // Create a new DataGridView with only visible columns
+            var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            foreach (DataGridViewColumn col in DepartmentData.Columns)
+            {
+                if (col.Visible || !(col.ValueType is DataGridViewImageCell))
+                    filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
+            }
+
+            // Copy rows
+            foreach (DataGridViewRow row in DepartmentData.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    var newRowIndex = filteredGrid.Rows.Add();
+                    for (int i = 0; i < DepartmentData.Columns.Count; i++)
+                    {
+                        if (DepartmentData.Columns[i].Visible)
+                        {
+                            var targetIndex = filteredGrid.Columns
+                                .Cast<DataGridViewColumn>()
+                                .ToList()
+                                .FindIndex(c => c.HeaderText == DepartmentData.Columns[i].HeaderText);
+
+                            filteredGrid.Rows[newRowIndex].Cells[targetIndex].Value = row.Cells[i].Value;
+                        }
+                    }
+                }
+            }
+
+            // Titles
+            var Main = $"تقرير عن الادارات";
+            var sub = DepartmentData.Rows.Count - 1 != service.GetAll<Department>().Count() ? $"نتيجة البحث عن {SearchTxt.Text}" : "جميع الادارات";
+         //   var filteredGridTitle = $ ذات نوع {TrainingTypeBox.Text} من {StartDate.Value.ToString("dd/MM/yyyy")} إلى {EndDate.Value.ToString("dd/MM/yyyy")}";
+            // Pass filtered grid
+            PdfGenerator.GeneratePdf(Main, sub, "", filteredGrid);
 
         }
     }
