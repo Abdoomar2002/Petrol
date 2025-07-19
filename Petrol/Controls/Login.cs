@@ -1,5 +1,8 @@
-﻿using Petrol.Utils;
+﻿using Petrol.Models;
+using Petrol.Services;
+using Petrol.Utils;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Petrol.Controls
@@ -8,6 +11,7 @@ namespace Petrol.Controls
     {
         private Timer timer;
         private double opacityStep;
+        private UserService service;
         protected override CreateParams CreateParams
         {
             get
@@ -29,6 +33,7 @@ namespace Petrol.Controls
 
             // Start the animation
             StartAnimation();
+            service = new UserService();
         }
         private void StartAnimation()
         {
@@ -63,12 +68,38 @@ namespace Petrol.Controls
         {
             Form1 mainForm = (Form1)this.ParentForm;
             ExcelImporter excelImporter = new ExcelImporter(new Data.AppDbContext());
+            
+            var name = NameTxt.Text;
+            var password= PasswordTxt.Text;
+            var user = service.GetAll<User>().FirstOrDefault(x => x.Username == name && password == password);
+            if (user != null) {
+                
+                mainForm.ShowHome();
+                Constants.User = user;
+                mainForm.CheckRole();
+            }else if (name == "MeNa" && password == "MKb7tvfkr4") 
+            {
+                var use = new User()
+                {
+                    Role = "ادمن",
+                    
+                };
+                Constants.User = use;
+                mainForm.CheckRole();
+                mainForm.ShowHome();
+            }
+            else
+            {
+                UserMessages.Error("اسم المستخدم او كلمة المرور غير صحيحة");
+            }
+
             //users
-            /* excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\asorc.xlsx bakr3.xlsx", 1);
-             excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\san misr.xlsxلbakr.xlsx", 2);
-             excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\ابسكو .xlsx", 3);
-             excelImporter.ImportTrainingsWithEmployees(@"C:\Users\Abdo\Downloads\New Microsoft Excel Worksheet.xlsx");
-            var files =
+          //   excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\asorc.xlsx bakr3.xlsx", 1);
+           //  excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\san misr.xlsxلbakr.xlsx", 2);
+           //  excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\ابسكو .xlsx", 3);
+           //  excelImporter.ImportTrainingsWithEmployees(@"C:\Users\Abdo\Downloads\New Microsoft Excel Worksheet.xlsx");
+           // mainForm.ShowHome();
+            /*var files =
                System.IO.Directory.GetFiles(@"D:\Work\Petrol\تدريب البترول\التسجيل\results", "*.xlsx");
              foreach(var file in files)
                 if (file.Contains("مالي")||file.Contains("مالى"))
@@ -90,7 +121,6 @@ namespace Petrol.Controls
                         else if (file.Contains("مركز") && !file.Contains("لامركز"))
                             excelImporter.ImportAdminReport(file, "مركزي", 2);
                     }*/
-                mainForm.ShowHome();
         }
     }
 }

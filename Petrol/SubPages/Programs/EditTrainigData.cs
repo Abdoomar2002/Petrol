@@ -58,14 +58,15 @@ namespace Petrol.SubPages.Programs
             StartDate.Value = EditedTraining.From;
             EndDate.Value = EditedTraining.To;
 
-
+            EmployeeData.Rows.Clear();
             var employeeTrainings = service.GetAll<EmployeeTraining>().Where(x => x.TrainingId == trainingId).ToList();
+            var i = 1;
             foreach (var empTraining in employeeTrainings)
             {
                 var employee = Employees.FirstOrDefault(x => x.Id == empTraining.EmployeeId);
                 if (employee != null)
                 {
-                    EmployeeData.Rows.Add(EmployeeData.Rows.Count + 1, employee.FinanceNumber, employee.Name, employee.DepartmentName, employee.RetireDate);
+                    EmployeeData.Rows.Add(i++ , employee.FinanceNumber, employee.Name, employee.DepartmentName, employee.RetireDate);
                 }
             }
             DepartmentBox.SelectedItem = EditedTraining.DepartmentName;
@@ -95,7 +96,7 @@ namespace Petrol.SubPages.Programs
                 UserMessages.Error("هذا الموظف موجود بالفعل");
                 return;
             }
-            EmployeeData.Rows.Add(EmployeeData.Rows.Count + 1, employee.FinanceNumber, employee.Name, employee.DepartmentName, employee.RetireDate);
+            EmployeeData.Rows.Add(EmployeeData.Rows.Count , employee.FinanceNumber, employee.Name, employee.DepartmentName, employee.RetireDate);
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
@@ -156,11 +157,13 @@ namespace Petrol.SubPages.Programs
                 EditedTraining.DepartmentName = f ? "كل الشركة" : department.Name;
 
                 service.Update(EditedTraining);
+                service.SaveChanges();
 
                 var existingEmployeeTrainings = service.GetAll<EmployeeTraining>().Where(x => x.TrainingId == EditedTraining.Id).ToList();
                 foreach (var empTraining in existingEmployeeTrainings)
                 {
                     service.Delete(empTraining);
+                    service.SaveChanges();
                 }
 
                 foreach (DataGridViewRow row in EmployeeData.Rows)
@@ -175,6 +178,7 @@ namespace Petrol.SubPages.Programs
                             EmployeeId = employee.Id,
                         };
                         service.Add(employeeTraining);
+                        service.SaveChanges();
                     }
                 }
                 service.SaveChanges();

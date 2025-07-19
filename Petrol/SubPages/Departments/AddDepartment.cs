@@ -2,13 +2,6 @@
 using Petrol.Services;
 using Petrol.Utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Petrol.SubPages.Departments
@@ -21,29 +14,29 @@ namespace Petrol.SubPages.Departments
             InitializeComponent();
             service = new DepartmentService();
         }
-        public void LoadData() 
+        public void LoadData()
         {
-           
-        
-            var lastId= service.GetTheLastId<Department>();
+
+
+            var lastId = service.GetTheLastId<Department>();
             CodeTxt.Text = lastId.ToString();
         }
         private void BackBtn_Click(object sender, EventArgs e)
         {
-            var form = (Form1)this.ParentForm;  
+            var form = (Form1)this.ParentForm;
             form.DeparmentNavigation("Main");
 
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (NameTxt.Text.Trim().Trim().Length > 0) 
+            if (NameTxt.Text.Trim().Length > 0)
             {
                 try
                 {
 
                     // check there is no deparment has same Name
-                    var checkDepartmentName = service.FindDepartmentByName(NameTxt.Text.Trim().Trim());
+                    var checkDepartmentName = service.FindDepartmentByName(NameTxt.Text.Trim());
                     if (checkDepartmentName == null)
                     {
 
@@ -56,12 +49,12 @@ namespace Petrol.SubPages.Departments
                         UserMessages.Info($"تم حفظ الادارة بنجاح\nبكود {department.Id}");
                         LoadData();
                     }
-                    else 
+                    else
                     {
                         UserMessages.Error("يوجد إدارة بنفس الأسم");
                     }
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     UserMessages.Error("خطأ في حفظ البيانات");
                 }

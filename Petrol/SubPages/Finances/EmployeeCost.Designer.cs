@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TrainingData = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +41,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.PrintBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.EmployeeNameTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.BackBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SearchBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -53,23 +54,23 @@
             // 
             // TrainingData
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            this.TrainingData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.TrainingData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.TrainingData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TrainingData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cairo", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TrainingData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cairo", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TrainingData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.TrainingData.ColumnHeadersHeight = 48;
             this.TrainingData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.TrainingData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -81,14 +82,14 @@
             this.Column3,
             this.Column2,
             this.Column8});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TrainingData.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TrainingData.DefaultCellStyle = dataGridViewCellStyle3;
             this.TrainingData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TrainingData.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.TrainingData.GridColor = System.Drawing.Color.White;
@@ -177,6 +178,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.PrintBtn);
             this.guna2Panel1.Controls.Add(this.EmployeeNameTxt);
             this.guna2Panel1.Controls.Add(this.BackBtn);
             this.guna2Panel1.Controls.Add(this.SearchBtn);
@@ -188,6 +190,26 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1337, 149);
             this.guna2Panel1.TabIndex = 13;
+            // 
+            // PrintBtn
+            // 
+            this.PrintBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PrintBtn.BorderRadius = 8;
+            this.PrintBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.PrintBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.PrintBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.PrintBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.PrintBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.PrintBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PrintBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PrintBtn.Font = new System.Drawing.Font("Cairo", 12F);
+            this.PrintBtn.ForeColor = System.Drawing.Color.White;
+            this.PrintBtn.Location = new System.Drawing.Point(150, 59);
+            this.PrintBtn.Name = "PrintBtn";
+            this.PrintBtn.Size = new System.Drawing.Size(153, 58);
+            this.PrintBtn.TabIndex = 61;
+            this.PrintBtn.Text = "طباعة";
+            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
             // 
             // EmployeeNameTxt
             // 
@@ -214,6 +236,7 @@
             this.EmployeeNameTxt.SelectedText = "";
             this.EmployeeNameTxt.Size = new System.Drawing.Size(251, 46);
             this.EmployeeNameTxt.TabIndex = 60;
+            this.EmployeeNameTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.EmployeeNameTxt.TextChanged += new System.EventHandler(this.EmployeeNameTxt_TextChanged);
             // 
             // BackBtn
@@ -246,7 +269,7 @@
             this.SearchBtn.FillColor = System.Drawing.Color.Navy;
             this.SearchBtn.Font = new System.Drawing.Font("Cairo", 12F);
             this.SearchBtn.ForeColor = System.Drawing.Color.White;
-            this.SearchBtn.Location = new System.Drawing.Point(186, 62);
+            this.SearchBtn.Location = new System.Drawing.Point(314, 59);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(153, 58);
             this.SearchBtn.TabIndex = 53;
@@ -278,6 +301,7 @@
             this.EmployeeFinanceNumberTxt.SelectedText = "";
             this.EmployeeFinanceNumberTxt.Size = new System.Drawing.Size(251, 46);
             this.EmployeeFinanceNumberTxt.TabIndex = 43;
+            this.EmployeeFinanceNumberTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.EmployeeFinanceNumberTxt.TextChanged += new System.EventHandler(this.EmployeeFinanceNumberTxt_TextChanged);
             // 
             // label1
@@ -335,5 +359,6 @@
         private Guna.UI2.WinForms.Guna2TextBox EmployeeFinanceNumberTxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label19;
+        private Guna.UI2.WinForms.Guna2GradientButton PrintBtn;
     }
 }

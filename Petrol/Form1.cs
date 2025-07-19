@@ -15,7 +15,12 @@ namespace Petrol
         }
         public void ShowHome()
         {
+            home1.dummy1.BringToFront();
             home1.BringToFront();
+        }
+        public void CheckRole() 
+        {
+            home1.IsAdmin();
         }
         public void EmployeeNavigation(string target, int id = 0)
         {

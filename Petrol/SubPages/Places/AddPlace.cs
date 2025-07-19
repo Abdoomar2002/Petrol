@@ -14,13 +14,13 @@ namespace Petrol.SubPages.Places
             InitializeComponent();
             service = new PlaceService();
         }
-        public void LoadData() 
+        public void LoadData()
         {
-       
-     
-        
+
+
+
             var lastId = service.GetTheLastId<Place>();
-            CodeTxt.Text= lastId.ToString();
+            CodeTxt.Text = lastId.ToString();
         }
         private void BackBtn_Click(object sender, EventArgs e)
         {
@@ -57,19 +57,19 @@ namespace Petrol.SubPages.Places
                 UserMessages.Info($"تم حفظ البيانات بنجاح\nبكود {place.Id}");
                 LoadData();
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 UserMessages.Error("حدث خطأ أثناء حفظ البيانات");
-               
+
             }
-           
+
         }
         public bool IsAnyBoxEmpty()
         {
             if (string.IsNullOrEmpty(NameTxt.Text.Trim().Trim()) ||
                 string.IsNullOrEmpty(CodeTxt.Text.Trim().Trim()) ||
                 string.IsNullOrEmpty(PhoneTxt.Text.Trim().Trim()) ||
-                string.IsNullOrEmpty(AddressTxt.Text.Trim().Trim())||
+                string.IsNullOrEmpty(AddressTxt.Text.Trim().Trim()) ||
                 string.IsNullOrEmpty(ManagerTxt.Text.Trim().Trim()))
             {
                 return true;
@@ -79,11 +79,11 @@ namespace Petrol.SubPages.Places
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            NameTxt.Text= "";
-            CodeTxt.Text= "";
-            PhoneTxt.Text= "";
-            AddressTxt.Text= "";
-            ManagerTxt.Text= "";
+            NameTxt.Text = "";
+            CodeTxt.Text = "";
+            PhoneTxt.Text = "";
+            AddressTxt.Text = "";
+            ManagerTxt.Text = "";
             LoadData();
         }
     }

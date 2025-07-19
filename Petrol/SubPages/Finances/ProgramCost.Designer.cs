@@ -32,6 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.PrintBtn = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.ProgramNameTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.BackBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.RangeBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,7 +52,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProgramNameTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TrainingData)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +59,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.PrintBtn);
             this.guna2Panel1.Controls.Add(this.ProgramNameTxt);
             this.guna2Panel1.Controls.Add(this.BackBtn);
             this.guna2Panel1.Controls.Add(this.RangeBox);
@@ -73,6 +75,54 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1351, 241);
             this.guna2Panel1.TabIndex = 11;
+            // 
+            // PrintBtn
+            // 
+            this.PrintBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PrintBtn.BorderRadius = 8;
+            this.PrintBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.PrintBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.PrintBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.PrintBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.PrintBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.PrintBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PrintBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PrintBtn.Font = new System.Drawing.Font("Cairo", 12F);
+            this.PrintBtn.ForeColor = System.Drawing.Color.White;
+            this.PrintBtn.Location = new System.Drawing.Point(145, 152);
+            this.PrintBtn.Name = "PrintBtn";
+            this.PrintBtn.Size = new System.Drawing.Size(153, 58);
+            this.PrintBtn.TabIndex = 69;
+            this.PrintBtn.Text = "طباعة";
+            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
+            // 
+            // ProgramNameTxt
+            // 
+            this.ProgramNameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProgramNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.ProgramNameTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.ProgramNameTxt.BorderColor = System.Drawing.Color.Black;
+            this.ProgramNameTxt.BorderRadius = 10;
+            this.ProgramNameTxt.BorderThickness = 2;
+            this.ProgramNameTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ProgramNameTxt.DefaultText = "";
+            this.ProgramNameTxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ProgramNameTxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ProgramNameTxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ProgramNameTxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ProgramNameTxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProgramNameTxt.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProgramNameTxt.ForeColor = System.Drawing.Color.Black;
+            this.ProgramNameTxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProgramNameTxt.Location = new System.Drawing.Point(957, 62);
+            this.ProgramNameTxt.Margin = new System.Windows.Forms.Padding(5);
+            this.ProgramNameTxt.Name = "ProgramNameTxt";
+            this.ProgramNameTxt.PlaceholderText = "";
+            this.ProgramNameTxt.SelectedText = "";
+            this.ProgramNameTxt.Size = new System.Drawing.Size(251, 46);
+            this.ProgramNameTxt.TabIndex = 60;
+            this.ProgramNameTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ProgramNameTxt.TextChanged += new System.EventHandler(this.ProgramNameTxt_TextChanged);
             // 
             // BackBtn
             // 
@@ -135,7 +185,7 @@
             this.SearchBtn.FillColor = System.Drawing.Color.Navy;
             this.SearchBtn.Font = new System.Drawing.Font("Cairo", 12F);
             this.SearchBtn.ForeColor = System.Drawing.Color.White;
-            this.SearchBtn.Location = new System.Drawing.Point(200, 152);
+            this.SearchBtn.Location = new System.Drawing.Point(303, 152);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(153, 58);
             this.SearchBtn.TabIndex = 53;
@@ -202,6 +252,7 @@
             this.ProgramIdTxt.SelectedText = "";
             this.ProgramIdTxt.Size = new System.Drawing.Size(251, 46);
             this.ProgramIdTxt.TabIndex = 43;
+            this.ProgramIdTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ProgramIdTxt.TextChanged += new System.EventHandler(this.ProgramIdTxt_TextChanged);
             // 
             // label1
@@ -348,33 +399,6 @@
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             // 
-            // ProgramNameTxt
-            // 
-            this.ProgramNameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProgramNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.ProgramNameTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.ProgramNameTxt.BorderColor = System.Drawing.Color.Black;
-            this.ProgramNameTxt.BorderRadius = 10;
-            this.ProgramNameTxt.BorderThickness = 2;
-            this.ProgramNameTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ProgramNameTxt.DefaultText = "";
-            this.ProgramNameTxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.ProgramNameTxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.ProgramNameTxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ProgramNameTxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ProgramNameTxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ProgramNameTxt.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProgramNameTxt.ForeColor = System.Drawing.Color.Black;
-            this.ProgramNameTxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ProgramNameTxt.Location = new System.Drawing.Point(957, 62);
-            this.ProgramNameTxt.Margin = new System.Windows.Forms.Padding(5);
-            this.ProgramNameTxt.Name = "ProgramNameTxt";
-            this.ProgramNameTxt.PlaceholderText = "";
-            this.ProgramNameTxt.SelectedText = "";
-            this.ProgramNameTxt.Size = new System.Drawing.Size(251, 46);
-            this.ProgramNameTxt.TabIndex = 60;
-            this.ProgramNameTxt.TextChanged += new System.EventHandler(this.ProgramNameTxt_TextChanged);
-            // 
             // ProgramCost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -412,5 +436,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private Guna.UI2.WinForms.Guna2TextBox ProgramNameTxt;
+        private Guna.UI2.WinForms.Guna2GradientButton PrintBtn;
     }
 }

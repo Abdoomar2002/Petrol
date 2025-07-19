@@ -104,6 +104,7 @@
             this.ProgramNameTxt.SelectedText = "";
             this.ProgramNameTxt.Size = new System.Drawing.Size(251, 46);
             this.ProgramNameTxt.TabIndex = 60;
+            this.ProgramNameTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ProgramNameTxt.TextChanged += new System.EventHandler(this.ProgramNameTxt_TextChanged);
             // 
             // BackBtn
@@ -144,6 +145,7 @@
             this.PrintBtn.Size = new System.Drawing.Size(123, 58);
             this.PrintBtn.TabIndex = 58;
             this.PrintBtn.Text = "طباعة";
+            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
             // 
             // RangeBox
             // 
@@ -286,6 +288,7 @@
             this.ProgramIdTxt.SelectedText = "";
             this.ProgramIdTxt.Size = new System.Drawing.Size(251, 46);
             this.ProgramIdTxt.TabIndex = 43;
+            this.ProgramIdTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ProgramIdTxt.TextChanged += new System.EventHandler(this.ProgramIdTxt_TextChanged);
             // 
             // label1

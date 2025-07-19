@@ -172,7 +172,7 @@ namespace Petrol.SubPages.Reports
                 report = _followingReportService.GetAllWithNestedInclude(x =>x.Include(t=> t.DepartmentsPresenceNumber).Include(y => y.Training).ThenInclude(y=>y.Place)).FirstOrDefault(x => x.Id == report.Id);
              
 
-            PdfGenerator. GenerateFilledFollowingReportDoc(report, "temp.docx", "FilledReport.docx");
+            PdfGenerator. GenerateFilledFollowingReportDoc(report, "D:\\Training\\temp.docx", "FilledReport.docx");
 
 
 

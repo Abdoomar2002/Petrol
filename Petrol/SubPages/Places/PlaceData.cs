@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Petrol.Models;
 using Petrol.Services;
+using Petrol.SubPages.Programs;
 using Petrol.Utils;
 using System;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Petrol.SubPages.Places
         }
         public void SetPlaceId(int id) 
         {
-            var place = service.GetAllWithNestedInclude(x=>x.Include(y=>y.Trainings).ThenInclude(t=>t.TrainingType)).FirstOrDefault(x => x.Id == id);
+            var place = service.GetAllWithNestedInclude(x=>x.Include(y=>y.Trainings).ThenInclude(t=>t.TrainingType).Include(t=>t.Trainings)).FirstOrDefault(x => x.Id == id);
             if (place != null) 
             {
                 EditedPlace = place;
@@ -30,6 +31,10 @@ namespace Petrol.SubPages.Places
                     Data.Rows.Add(i++, training.Id, training.Name, training.From.ToString("yyyy/MM/dd"), training.To.ToString("yyyy/MM/dd"));
                 }
             }
+            var types = place.Trainings.Select(x => x.TrainingType.Name).Distinct().ToArray();
+            TrainingTypeBox.Items.Clear();
+            TrainingTypeBox.Items.Add("كل الأنواع");
+            TrainingTypeBox.Items.AddRange(types);
             
         }
         private void BackBtn_Click(object sender, EventArgs e)
@@ -65,11 +70,58 @@ namespace Petrol.SubPages.Places
                 UserMessages.Error("لا توجد نتائج");
                 return;
             }
-            var result = Searchresult.Where(x => x.From.Date >= StartDate.Value.Date && x.To <= EndDate.Value.Date).Where(z => z.TrainingType.Name == ProgramTypeBox.Text);
+            var result = Searchresult.Where(x => x.From.Date >= StartDate.Value.Date && x.To.Date <= EndDate.Value.Date).Where(z =>TrainingTypeBox.SelectedIndex>0&& z.TrainingType.Name == TrainingTypeBox.Text);
             foreach (var training in result)
             {
                 Data.Rows.Add(i++, training.Id, training.Name, training.From.ToString("yyyy/MM/dd"), training.To.ToString("yyyy/MM/dd"));
             }
         }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            if (Data.Rows.Count == 0)
+            {
+                UserMessages.Error("لا يوجد بيانات للطباعة");
+                return;
+            }
+
+            // Create a new DataGridView with only visible columns
+            var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            foreach (DataGridViewColumn col in Data.Columns)
+            {
+                if (col.Visible && !(col.ValueType is DataGridViewImageCell))
+                    filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
+            }
+
+            // Copy rows
+            foreach (DataGridViewRow row in Data.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    var newRowIndex = filteredGrid.Rows.Add();
+                    for (int i = 0; i < Data.Columns.Count; i++)
+                    {
+                        if (Data.Columns[i].Visible)
+                        {
+                            var targetIndex = filteredGrid.Columns
+                                .Cast<DataGridViewColumn>()
+                                .ToList()
+                                .FindIndex(c => c.HeaderText == Data.Columns[i].HeaderText);
+
+                            filteredGrid.Rows[newRowIndex].Cells[targetIndex].Value = row.Cells[i].Value;
+                        }
+                    }
+                }
+            }
+
+            // Titles
+            var Main = $"تقرير التدريبات داخل"+" "+ EditedPlace.Name;
+            var sub = $"نتيجة البحث عن {SearchTxt.Text}";
+            var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Value.ToString("dd/MM/yyyy")} إلى {EndDate.Value.ToString("dd/MM/yyyy")}";
+            // Pass filtered grid
+            PdfGenerator.GeneratePdf(Main, sub, filteredGridTitle, filteredGrid);
+
+        }
+
     }
 }

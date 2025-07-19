@@ -110,7 +110,7 @@ namespace Petrol.SubPages.Departments
             var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             foreach (DataGridViewColumn col in EmployeesList.Columns)
             {
-                if (col.Visible || !(col.ValueType is DataGridViewImageCell))
+                if (col.Visible && !(col.ValueType is DataGridViewImageCell))
                     filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
             }
 
@@ -137,7 +137,7 @@ namespace Petrol.SubPages.Departments
 
             // Titles
             var Main = $"تقرير موظفين ادارة / {Department.Name}";
-            var sub = EmployeesList.Rows.Count - 1 != Department.Employees.Count ? $"نتيجة البحث عن {SearchTxt.Text}" : "جميع التدريبات";
+            var sub = EmployeesList.Rows.Count - 1 != Department.Employees.Count ? $"نتيجة البحث عن {SearchTxt.Text}" : "جميع الموظفين";
             var filteredGridTitle = $" {JobBox.Text} ";
             // Pass filtered grid
             PdfGenerator.GeneratePdf(Main, sub, filteredGridTitle, filteredGrid);

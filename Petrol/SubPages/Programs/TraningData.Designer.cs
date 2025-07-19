@@ -43,7 +43,7 @@
             this.BackBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label2 = new System.Windows.Forms.Label();
             this.TrainingTypeBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.EmployeesBtn = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.PrintBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.FilterBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -178,7 +178,7 @@
             this.guna2Panel1.Controls.Add(this.BackBtn);
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.TrainingTypeBox);
-            this.guna2Panel1.Controls.Add(this.EmployeesBtn);
+            this.guna2Panel1.Controls.Add(this.PrintBtn);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.label19);
             this.guna2Panel1.Controls.Add(this.FilterBtn);
@@ -243,24 +243,25 @@
             this.TrainingTypeBox.Size = new System.Drawing.Size(146, 46);
             this.TrainingTypeBox.TabIndex = 41;
             // 
-            // EmployeesBtn
+            // PrintBtn
             // 
-            this.EmployeesBtn.BackColor = System.Drawing.Color.Transparent;
-            this.EmployeesBtn.BorderRadius = 8;
-            this.EmployeesBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.EmployeesBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.EmployeesBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.EmployeesBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.EmployeesBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.EmployeesBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.EmployeesBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.EmployeesBtn.Font = new System.Drawing.Font("Cairo", 12F);
-            this.EmployeesBtn.ForeColor = System.Drawing.Color.White;
-            this.EmployeesBtn.Location = new System.Drawing.Point(159, 66);
-            this.EmployeesBtn.Name = "EmployeesBtn";
-            this.EmployeesBtn.Size = new System.Drawing.Size(123, 58);
-            this.EmployeesBtn.TabIndex = 13;
-            this.EmployeesBtn.Text = "طباعة";
+            this.PrintBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PrintBtn.BorderRadius = 8;
+            this.PrintBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.PrintBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.PrintBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.PrintBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.PrintBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.PrintBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PrintBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PrintBtn.Font = new System.Drawing.Font("Cairo", 12F);
+            this.PrintBtn.ForeColor = System.Drawing.Color.White;
+            this.PrintBtn.Location = new System.Drawing.Point(159, 66);
+            this.PrintBtn.Name = "PrintBtn";
+            this.PrintBtn.Size = new System.Drawing.Size(123, 58);
+            this.PrintBtn.TabIndex = 13;
+            this.PrintBtn.Text = "طباعة";
+            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
             // 
             // label1
             // 
@@ -398,7 +399,7 @@
         private Guna.UI2.WinForms.Guna2GradientButton BackBtn;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2ComboBox TrainingTypeBox;
-        private Guna.UI2.WinForms.Guna2GradientButton EmployeesBtn;
+        private Guna.UI2.WinForms.Guna2GradientButton PrintBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label19;
         private Guna.UI2.WinForms.Guna2Button FilterBtn;

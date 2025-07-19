@@ -180,10 +180,12 @@ public class ExcelImporter
     private Department EnsureDepartmentExists(string departmentName)
     {
         if (string.IsNullOrWhiteSpace(departmentName)) return null;
-        var dept = dbContext.Departments.FirstOrDefault(d => d.Name == departmentName);
+
+            departmentName = Normalize(departmentName);
+        var dept = dbContext.Departments.AsEnumerable().FirstOrDefault(d =>d!=null&& Normalize(d.Name ) ==departmentName);
         if (dept == null)
         {
-            dept = new Department { Name = departmentName };
+            dept = new Department { Name =Normalize(departmentName) };
             dbContext.Departments.Add(dept);
             dbContext.SaveChanges();
         }
@@ -203,24 +205,28 @@ public class ExcelImporter
                     DateTime.TryParse(worksheet.Cells[row, 3].Text, out DateTime fromDate);
                     DateTime.TryParse(worksheet.Cells[row, 4].Text, out DateTime toDate);
                     string placeName = worksheet.Cells[row, 5].Text.Trim();
-
+                    string ProgramType = worksheet.Cells[row, 8].Text.Trim();
+                    ProgramType = string.IsNullOrEmpty(ProgramType) ? "لا مركزي" : "مركزي";
+                    placeName = Normalize(placeName);
+                    programName = Normalize(programName);
+                    ProgramType = Normalize(ProgramType);
                     // Ensure Place
-                    var place = dbContext.Places.FirstOrDefault(p => p.Name == placeName);
+                    var place = dbContext.Places.AsEnumerable().FirstOrDefault(p =>p.Name ==placeName);
                     if (place == null && !string.IsNullOrWhiteSpace(placeName))
                     {
-                        place = new Place { Name = placeName };
+                        place = new Place { Name =placeName };
                         dbContext.Places.Add(place);
                         dbContext.SaveChanges();
                     }
 
                     // Ensure Program
-                    var program = dbContext.Programs.FirstOrDefault(p => p.Name == programName);
-                    var programType = dbContext.ProgramTypes.FirstOrDefault();
+                    var program = dbContext.Programs.AsEnumerable().FirstOrDefault(p =>p.Name ==programName);
+                    var programType = dbContext.ProgramTypes.AsEnumerable().FirstOrDefault(z=>z.Type ==ProgramType);
                     if (program == null && !string.IsNullOrWhiteSpace(programName))
                     {
                         if(programType==null)
                         {
-                        programType = new ProgramType() { Type = "لا مركزي" };
+                        programType = new ProgramType() { Type = ProgramType };
                             dbContext.ProgramTypes.Add(programType);
                             dbContext.SaveChanges();
                         }
@@ -236,17 +242,17 @@ public class ExcelImporter
                     }
                     // Ensure Training
                     var training = dbContext.Training.FirstOrDefault(t =>
-                        t.Name == programName &&
+                        t.Name ==programName &&
                         t.From == fromDate &&
                         t.To == toDate &&place!=null&&
                         t.PlaceId == place.Id);
-                    var trainingType = dbContext.TrainingType.FirstOrDefault(x=>x.Id==4);
+                    var trainingType = dbContext.TrainingType.AsEnumerable().FirstOrDefault(x=>x.Name ==ProgramType);
 
                     if (training == null)
                     {
                         if(trainingType==null)
                         {
-                            trainingType = new TrainingType() { Name = "مهني" };
+                            trainingType = new TrainingType() { Name =ProgramType };
                             dbContext.Add(trainingType);
                             dbContext.SaveChanges();
                         }

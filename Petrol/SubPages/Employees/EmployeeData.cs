@@ -24,12 +24,12 @@ namespace Petrol.SubPages.Employees
             if (employee == null) return;
             EditedEmployee = employee;
             Data.Rows.Clear();
-            var types = service.GetAll<TrainingType>().Select(x => x.Name).ToArray();
+            var types = service.GetAll<TrainingType>().Select(x => x.Name).Distinct().ToArray();
             TrainingTypeBox.Items.Clear();
             TrainingTypeBox.Items.Add("كل الأنواع");
             TrainingTypeBox.Items.AddRange(types);
             var i = 1;
-            foreach (var training in employee.Trainings)
+            foreach (var training in employee.Trainings.OrderBy(x=>x.Training.From))
             {
                 Data.Rows.Add(i++, training.Training.Id, training.Training.Name, training.Training.From.ToString("dd/MM/yyyy"), training.Training.To.ToString("dd/MM/yyyy"), training.Training.Place.Name, Properties.Resources.delete);
             }
@@ -65,7 +65,7 @@ namespace Petrol.SubPages.Employees
             var searchText = SearchTxt.Text;
             Data.Rows.Clear();
             var i = 1;
-            var Searchresult = EditedEmployee.Trainings.Where(x => x.Training.Name.Contains(searchText) || x.Training.Id.ToString().Contains(searchText) || x.Training.Place.Name.Contains(searchText));
+            var Searchresult = EditedEmployee.Trainings.Where(x => x.Training.Name.Contains(searchText) || x.Training.Id.ToString().Contains(searchText) || x.Training.Place.Name.Contains(searchText)).OrderBy(x=>x.Training.From);
             if (Searchresult.Count() == 0)
             {
                 UserMessages.Error("لا توجد نتائج");
@@ -85,7 +85,7 @@ namespace Petrol.SubPages.Employees
                 UserMessages.Error("لا يوجد بيانات للطباعة");
                 return;
             }
-
+            Data.Columns[6].Visible = false;
             // Create a new DataGridView with only visible columns
             var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             foreach (DataGridViewColumn col in Data.Columns)
@@ -121,6 +121,7 @@ namespace Petrol.SubPages.Employees
             var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Value.ToString("dd/MM/yyyy")} إلى {EndDate.Value.ToString("dd/MM/yyyy")}";
             // Pass filtered grid
             PdfGenerator.GeneratePdf(Main, sub, filteredGridTitle, filteredGrid);
+            Data.Columns[6].Visible = true;
 
         }
     }

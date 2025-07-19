@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Petrol.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,13 @@ namespace Petrol.Controls
         {
             InitializeComponent();
         }
-
+        public void IsAdmin() 
+        {
+            if (Constants.User.Role == "ادمن") 
+                 usersPage.Visible = true;
+            else 
+                 usersPage.Visible = false;
+        }
         public void usersPage_Click(object sender, EventArgs e)
         {
             mainUsers1.BringToFront();

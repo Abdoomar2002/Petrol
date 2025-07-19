@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.TrainingNameTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.BackBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.DeleteBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SaveBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -70,8 +71,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinanceData = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.TrainingNameTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +79,7 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DepartmentData)).BeginInit();
@@ -110,6 +110,34 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1335, 241);
             this.guna2Panel1.TabIndex = 9;
+            // 
+            // TrainingNameTxt
+            // 
+            this.TrainingNameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TrainingNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.TrainingNameTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TrainingNameTxt.BorderColor = System.Drawing.Color.Black;
+            this.TrainingNameTxt.BorderRadius = 10;
+            this.TrainingNameTxt.BorderThickness = 2;
+            this.TrainingNameTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TrainingNameTxt.DefaultText = "";
+            this.TrainingNameTxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TrainingNameTxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TrainingNameTxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TrainingNameTxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TrainingNameTxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TrainingNameTxt.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrainingNameTxt.ForeColor = System.Drawing.Color.Black;
+            this.TrainingNameTxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TrainingNameTxt.Location = new System.Drawing.Point(940, 62);
+            this.TrainingNameTxt.Margin = new System.Windows.Forms.Padding(5);
+            this.TrainingNameTxt.Name = "TrainingNameTxt";
+            this.TrainingNameTxt.PlaceholderText = "";
+            this.TrainingNameTxt.SelectedText = "";
+            this.TrainingNameTxt.Size = new System.Drawing.Size(251, 46);
+            this.TrainingNameTxt.TabIndex = 56;
+            this.TrainingNameTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TrainingNameTxt.TextChanged += new System.EventHandler(this.TrainingNameTxt_TextChanged);
             // 
             // BackBtn
             // 
@@ -246,6 +274,7 @@
             this.PlaceTxt.SelectedText = "";
             this.PlaceTxt.Size = new System.Drawing.Size(251, 46);
             this.PlaceTxt.TabIndex = 47;
+            this.PlaceTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
             // 
@@ -282,6 +311,7 @@
             this.TrainingTypeBox.Name = "TrainingTypeBox";
             this.TrainingTypeBox.Size = new System.Drawing.Size(251, 46);
             this.TrainingTypeBox.TabIndex = 45;
+            this.TrainingTypeBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
@@ -319,6 +349,7 @@
             this.TrainingIdTxt.SelectedText = "";
             this.TrainingIdTxt.Size = new System.Drawing.Size(251, 46);
             this.TrainingIdTxt.TabIndex = 43;
+            this.TrainingIdTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TrainingIdTxt.TextChanged += new System.EventHandler(this.TrainingIdTxt_TextChanged);
             // 
             // label1
@@ -707,60 +738,6 @@
             this.FinanceData.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.FinanceData.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.FinanceData_CellValueChanged);
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.FinanceData, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.DepartmentData, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.OrganizerTxt, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.guna2Panel2, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 241);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1335, 556);
-            this.tableLayoutPanel1.TabIndex = 10;
-            // 
-            // TrainingNameTxt
-            // 
-            this.TrainingNameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TrainingNameTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.TrainingNameTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.TrainingNameTxt.BorderColor = System.Drawing.Color.Black;
-            this.TrainingNameTxt.BorderRadius = 10;
-            this.TrainingNameTxt.BorderThickness = 2;
-            this.TrainingNameTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TrainingNameTxt.DefaultText = "";
-            this.TrainingNameTxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TrainingNameTxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TrainingNameTxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TrainingNameTxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TrainingNameTxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TrainingNameTxt.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TrainingNameTxt.ForeColor = System.Drawing.Color.Black;
-            this.TrainingNameTxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TrainingNameTxt.Location = new System.Drawing.Point(940, 62);
-            this.TrainingNameTxt.Margin = new System.Windows.Forms.Padding(5);
-            this.TrainingNameTxt.Name = "TrainingNameTxt";
-            this.TrainingNameTxt.PlaceholderText = "";
-            this.TrainingNameTxt.SelectedText = "";
-            this.TrainingNameTxt.Size = new System.Drawing.Size(251, 46);
-            this.TrainingNameTxt.TabIndex = 56;
-            this.TrainingNameTxt.TextChanged += new System.EventHandler(this.TrainingNameTxt_TextChanged);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "رسوم البرنامج / مكافئة المحاضرين";
@@ -809,6 +786,33 @@
             this.Total.HeaderText = "الاجمالي";
             this.Total.MinimumWidth = 6;
             this.Total.Name = "Total";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.FinanceData, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.DepartmentData, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.OrganizerTxt, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.guna2Panel2, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 241);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1335, 556);
+            this.tableLayoutPanel1.TabIndex = 10;
             // 
             // FollowingReport
             // 

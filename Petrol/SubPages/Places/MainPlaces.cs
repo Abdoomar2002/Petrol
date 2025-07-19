@@ -1,6 +1,7 @@
 ﻿using Petrol.Models;
 using Petrol.Services;
 using Petrol.SubPages.Employees;
+using Petrol.SubPages.Programs;
 using Petrol.Utils;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Xceed.Document.NET;
 
 namespace Petrol.SubPages.Places
 {
@@ -74,5 +77,52 @@ namespace Petrol.SubPages.Places
               PlacesData.Rows.Add(i++, place.Id, place.Name, place.Address, place.PhoneNumber, place.ManagerName);
             }
         }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            if (PlacesData.Rows.Count == 0)
+            {
+                UserMessages.Error("لا يوجد بيانات للطباعة");
+                return;
+            }
+
+            // Create a new DataGridView with only visible columns
+            var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            foreach (DataGridViewColumn col in PlacesData.Columns)
+            {
+                if (col.Visible && !(col.ValueType is DataGridViewImageCell))
+                    filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
+            }
+
+            // Copy rows
+            foreach (DataGridViewRow row in PlacesData.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    var newRowIndex = filteredGrid.Rows.Add();
+                    for (int i = 0; i < PlacesData.Columns.Count; i++)
+                    {
+                        if (PlacesData.Columns[i].Visible)
+                        {
+                            var targetIndex = filteredGrid.Columns
+                                .Cast<DataGridViewColumn>()
+                                .ToList()
+                                .FindIndex(c => c.HeaderText == PlacesData.Columns[i].HeaderText);
+
+                            filteredGrid.Rows[newRowIndex].Cells[targetIndex].Value = row.Cells[i].Value;
+                        }
+                    }
+                }
+            }
+
+            // Titles
+            var Main = $"تقرير اماكن";
+            var sub = $"نتيجة البحث عن {SearchTxt.Text}";
+        //    var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Value.ToString("dd/MM/yyyy")} إلى {EndDate.Value.ToString("dd/MM/yyyy")}";
+            // Pass filtered grid
+            PdfGenerator.GeneratePdf(Main, sub, "", filteredGrid);
+
+        }
+
     }
 }

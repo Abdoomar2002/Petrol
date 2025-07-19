@@ -4,10 +4,10 @@ using iTextSharp.text.pdf;
 using Petrol.Models;
 using Petrol.Services;
 using System;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Xceed.Document.NET;
 using Xceed.Words.NET;
 using Document = iTextSharp.text.Document;
 using Font = iTextSharp.text.Font;
@@ -17,20 +17,10 @@ namespace Petrol.Utils
 {
     public class PdfGenerator
     {
-
-        public static void GeneratePdf(string mainTitle, string subtitle1="", string subtitle2 = "", Guna2DataGridView dataGridView=null)
+        public static void GeneratePdf(string mainTitle, string subtitle1 = "", string subtitle2 = "", Guna2DataGridView dataGridView = null)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog
-            {
-                Filter = "PDF files (*.pdf)|*.pdf",
-                FileName = "Report.pdf"
-            };
-
-            if (saveFileDialog.ShowDialog() != DialogResult.OK)
-                return;
-
             Document document = new Document(PageSize.A4, 50, 50, 50, 50);
-            using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
+            using (FileStream stream = new FileStream("Report.pdf", FileMode.Create))
             {
                 PdfWriter writer = PdfWriter.GetInstance(document, stream);
                 document.Open();
@@ -72,7 +62,7 @@ namespace Petrol.Utils
                     HorizontalAlignment = Element.ALIGN_LEFT,
                     VerticalAlignment = Element.ALIGN_MIDDLE,
                     RunDirection = PdfWriter.RUN_DIRECTION_RTL
-                    
+
                 };
                 headerTable.AddCell(brandCell);
 
@@ -80,7 +70,7 @@ namespace Petrol.Utils
                 document.Add(new Paragraph(" ")); // Spacer
 
                 // Main title and subtitles
-                Font mainFont =headerFont1;
+                Font mainFont = headerFont1;
                 PdfPTable title = new PdfPTable(1);
 
                 title.AddCell(new PdfPCell(new Paragraph(mainTitle, mainFont))
@@ -88,9 +78,9 @@ namespace Petrol.Utils
                     RunDirection = PdfWriter.RUN_DIRECTION_RTL,
                     HorizontalAlignment = Element.ALIGN_CENTER,
                     VerticalAlignment = Element.ALIGN_MIDDLE,
-                    Border=Rectangle.NO_BORDER
+                    Border = Rectangle.NO_BORDER
                 });
-              
+
 
                 Font subFont = headerFont3;
                 if (!string.IsNullOrWhiteSpace(subtitle1))
@@ -126,8 +116,8 @@ namespace Petrol.Utils
 
                 // Header row
                 foreach (DataGridViewColumn column in dataGridView.Columns)
-                { 
-                    
+                {
+
                     PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, subFont))
                     {
                         BackgroundColor = BaseColor.LIGHT_GRAY,
@@ -145,22 +135,38 @@ namespace Petrol.Utils
                     foreach (DataGridViewCell cell in row.Cells)
                     {
                         string cellText = cell.Value?.ToString() ?? "";
-                        table.AddCell(new PdfPCell(new Phrase(cellText, subFont)) {
+                        table.AddCell(new PdfPCell(new Phrase(cellText, subFont))
+                        {
                             RunDirection = PdfWriter.RUN_DIRECTION_RTL,
                             HorizontalAlignment = Element.ALIGN_CENTER,
                             VerticalAlignment = Element.ALIGN_MIDDLE,
-                          
+
                         });
                     }
                 }
-
                 document.Add(table);
 
                 document.Close();
                 writer.Close();
                 stream.Close();
-
-                MessageBox.Show("PDF generated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try
+                {
+                    using (var pdfDocument = PdfiumViewer.PdfDocument.Load(stream.Name))
+                    {
+                        using (PrintDocument printDocument = pdfDocument.CreatePrintDocument())
+                        {
+                            printDocument.PrinterSettings.PrinterName = new PrinterSettings().PrinterName;
+                            printDocument.PrintController = new StandardPrintController();
+                            printDocument.Print();
+                        }
+                    }
+                    File.Delete(stream.Name);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Print Error: " + ex.Message);
+                }
+                UserMessages.Info("تم تحميل الملف بنجاح");
             }
         }
 
@@ -180,9 +186,9 @@ namespace Petrol.Utils
                 doc.ReplaceText("wo", report.Women.ToString());
 
                 // Find the department section table
-                 // Find the department section table
+                // Find the department section table
                 var table = doc.Tables.FirstOrDefault(t => t.Rows.Any(r => r.Cells.Any(c => c.Paragraphs.Any(p => p.Text.Contains("الإدارة")))));
-                var sectable = doc.Tables.FirstOrDefault(t => t.Rows.Any(r => r.Cells.Any( c=> c.Paragraphs.Any(p => p.Text.Contains("الإدارة"))))&&t!=table);
+                var sectable = doc.Tables.FirstOrDefault(t => t.Rows.Any(r => r.Cells.Any(c => c.Paragraphs.Any(p => p.Text.Contains("الإدارة")))) && t != table);
                 doc.Tables[2].Remove();
                 if (table != null)
                 {
@@ -195,7 +201,7 @@ namespace Petrol.Utils
                         cell.Paragraphs[0].RemoveText(0);
 
                     // Remove extra header cells
-                    
+
 
                     // Departments list
                     var Departments = new DepartmentService().GetAll<Department>();
@@ -209,10 +215,10 @@ namespace Petrol.Utils
                     // Ensure second row exists
                     if (table.RowCount == 1)
                         table.InsertRow();
-                 
+
                     table.Rows[0].Cells[0].Paragraphs[0].Append("الادارات").Bold();
                     table.Rows[1].Cells[0].Paragraphs[0].Append("العدد").Bold();
-                   
+
                     foreach (var dp in report.DepartmentsPresenceNumber)
                     {
                         if (colCounter == maxCols)
@@ -225,24 +231,24 @@ namespace Petrol.Utils
                             table.Rows[headerRowIdx].Cells[0].Paragraphs[0].Append("الادارات").Bold();
                             table.Rows[dataRowIdx].Cells[0].Paragraphs[0].Append("العدد").Bold();
 
-                           
+
                             colCounter = 1;
                         }
 
-                            table.Rows[headerRowIdx].Cells.Add(null);
+                        table.Rows[headerRowIdx].Cells.Add(null);
                         var headerCell = table.Rows[headerRowIdx].Cells[colCounter];
                         // Add header cell
                         headerCell.Paragraphs[0].Append(Departments.FirstOrDefault(x => x.Id == dp.DepartmentId)?.Name ?? "Unknown").Bold();
 
                         // Add data cell
-                            table.Rows[dataRowIdx].Cells.Add(null);
+                        table.Rows[dataRowIdx].Cells.Add(null);
                         var dataCell = table.Rows[dataRowIdx].Cells[colCounter];
                         dataCell.Paragraphs[0].Append(dp.PresenceNumber.ToString());
-                        
+
                         colCounter++;
                     }
                     table.Rows[headerRowIdx].Cells[14].Paragraphs[0].Append("الاجمالي").Bold();
-                    table.Rows[dataRowIdx].Cells[14].Paragraphs[0].Append((report.Men+report.Women).ToString()).Bold();
+                    table.Rows[dataRowIdx].Cells[14].Paragraphs[0].Append((report.Men + report.Women).ToString()).Bold();
 
                 }
 
@@ -268,9 +274,9 @@ namespace Petrol.Utils
                     }
                 }
 
-              //  MessageBox.Show("Document generated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //  MessageBox.Show("Document generated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-}
+    }
 }

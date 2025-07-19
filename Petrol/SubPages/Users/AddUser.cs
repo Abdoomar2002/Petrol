@@ -2,13 +2,6 @@
 using Petrol.Services;
 using Petrol.Utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Petrol.SubPages.Users
@@ -76,14 +69,14 @@ namespace Petrol.SubPages.Users
                 UserMessages.Error($"حدث خطأ أثناء حفظ البيانات\n{ex.Message}");
             }
         }
-        private bool IsAnyBoxesEmpty() 
+        private bool IsAnyBoxesEmpty()
         {
             return string.IsNullOrEmpty(UserNameTxt.Text) ||
                    string.IsNullOrEmpty(PasswordTxt.Text) ||
                    string.IsNullOrEmpty(NameTxt.Text) ||
                    string.IsNullOrEmpty(FinanceNumTxt.Text) ||
                    string.IsNullOrEmpty(RePasswordTxt.Text) ||
-                   RoleBox.SelectedIndex==-1;
+                   RoleBox.SelectedIndex == -1;
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)

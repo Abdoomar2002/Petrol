@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Petrol.Data;
+using Petrol.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,23 +12,29 @@ namespace Petrol.Repositry
     public class Repository<T> : IRepository<T> where T : class
     {
         private static  AppDbContext _context=new AppDbContext();
-        private readonly DbSet<T> _dbSet;
+        private  DbSet<T> _dbSet;
 
         public Repository()
         {
             
             _dbSet = _context.Set<T>();
+           
         }
      
 
         public void Add<T>(T entity) where T : class
         {
-            _context=new AppDbContext(); // Ensure a fresh context for each operation
+            _context=new AppDbContext();
             _context.Set<T>().Add(entity);
         }
 
         public void Delete<T>(T entity) where T : class
         {
+            if(Constants.User.Role=="مستخدم")
+            {
+               
+                  throw new Exception("ليس لديك صلاحية للمسح");
+            }
             _context=new AppDbContext(); // Ensure a fresh context for each operation
             _context.Set<T>().Remove(entity);
         }
@@ -88,7 +95,7 @@ namespace Petrol.Repositry
         }
         public void SaveChanges()
         {
-            _context=new AppDbContext(); // Ensure a fresh context for each operation
+            //_context=new AppDbContext(); // Ensure a fresh context for each operation
             _context.SaveChanges();
         }
         public void Update<T>(T entity) where T : class

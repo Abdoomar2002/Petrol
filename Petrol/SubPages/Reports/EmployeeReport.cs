@@ -1,15 +1,18 @@
-﻿using System.IO;
-using iTextSharp.text;
+﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.EntityFrameworkCore;
 using Petrol.Models;
 using Petrol.Services;
+using Petrol.SubPages.Programs;
 using Petrol.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
+using Xceed.Document.NET;
 
 namespace Petrol.SubPages.Reports
 {
@@ -32,6 +35,10 @@ namespace Petrol.SubPages.Reports
             RangeBox.Items.Add("كل الشركة");
             RangeBox.Items.AddRange(Departments.Select(x => x.Name).ToArray());
             RangeBox.SelectedIndex = 0;
+            var names = Programs.Select(x => x.ProgramType.Type).Distinct().ToArray();
+            ProgramTypeBox.Items.Clear();
+            ProgramTypeBox.Items.Add("كل الأنواع");
+            ProgramTypeBox.Items.AddRange(names);
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
@@ -90,7 +97,7 @@ namespace Petrol.SubPages.Reports
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            
+
             if (NotTakers.Checked == Takers.Checked)
             {
                 UserMessages.Error("يجب ان تختار بين حاصلين وغير حاصلين أولا");
@@ -118,7 +125,7 @@ namespace Petrol.SubPages.Reports
                     EmployeeData.Rows.Add(row);
                 }
             }
-            else 
+            else
             {
                 var trainingsId = program.Trainings.Select(x => x.Id).ToList();
                 //get all employees those were not taking these training
@@ -137,38 +144,52 @@ namespace Petrol.SubPages.Reports
                 }
             }
         }
-public void PrintReport(List<dynamic> data, string searchTerm, string filterInfo) 
+        private void PrintBtn_Click(object sender, EventArgs e)
         {
-    Document document = new Document(PageSize.A4, 25, 25, 30, 30);
-    string filename = "Report_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".pdf";
-    PdfWriter.GetInstance(document, new FileStream(filename, FileMode.Create));
-    document.Open();
+            if (EmployeeData.Rows.Count == 0)
+            {
+                UserMessages.Error("لا يوجد بيانات للطباعة");
+                return;
+            }
 
-    // Title and filter info
-    Paragraph header = new Paragraph("Report Page - " + this.Name + "\n"
-        + "Search: " + searchTerm + "\n"
-        + "Filter: " + filterInfo + "\n"
-        + "Generated: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm"));
-    header.SpacingAfter = 10f;
-    document.Add(header);
+            // Create a new DataGridView with only visible columns
+            var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            foreach (DataGridViewColumn col in EmployeeData.Columns)
+            {
+                if (col.Visible && !(col.ValueType is DataGridViewImageCell))
+                    filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
+            }
 
-    PdfPTable table = new PdfPTable(3); // adjust number of columns
-    table.AddCell("Column1");
-    table.AddCell("Column2");
-    table.AddCell("Column3");
+            // Copy rows
+            foreach (DataGridViewRow row in EmployeeData.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    var newRowIndex = filteredGrid.Rows.Add();
+                    for (int i = 0; i < EmployeeData.Columns.Count; i++)
+                    {
+                        if (EmployeeData.Columns[i].Visible)
+                        {
+                            var targetIndex = filteredGrid.Columns
+                                .Cast<DataGridViewColumn>()
+                                .ToList()
+                                .FindIndex(c => c.HeaderText == EmployeeData.Columns[i].HeaderText);
 
-    foreach (var item in data)
-    {
-        table.AddCell(item.Prop1);
-        table.AddCell(item.Prop2);
-        table.AddCell(item.Prop3.ToString());
-    }
+                            filteredGrid.Rows[newRowIndex].Cells[targetIndex].Value = row.Cells[i].Value;
+                        }
+                    }
+                }
+            }
 
-    document.Add(table);
-    document.Close();
+            // Titles
+            var Main = Takers.Checked?Takers.Text.ToString():NotTakers.Text.ToString();
+            var sub = $"نتيجة البحث عن {ProgramNameTxt.Text}";
+            var filteredGridTitle = $"تدريبات ذات نوع {ProgramTypeBox.Text} ضمن {RangeBox.Text}";
+            // Pass filtered grid
+            PdfGenerator.GeneratePdf(Main, sub, filteredGridTitle, filteredGrid);
 
-    MessageBox.Show("Report saved to PDF: " + filename);
-}
+        }
+
     }
 }
 

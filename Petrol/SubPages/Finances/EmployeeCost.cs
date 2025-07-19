@@ -1,11 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Petrol.Models;
 using Petrol.Services;
+using Petrol.SubPages.Employees;
 using Petrol.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
+using Xceed.Document.NET;
 
 namespace Petrol.SubPages.Finances
 {
@@ -82,6 +85,52 @@ namespace Petrol.SubPages.Finances
             {
                 EmployeeNameTxt.Text=string.Empty;
             }
+        }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            if (TrainingData.Rows.Count == 0)
+            {
+                UserMessages.Error("لا يوجد بيانات للطباعة");
+                return;
+            }
+
+            // Create a new DataGridView with only visible columns
+            var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            foreach (DataGridViewColumn col in TrainingData.Columns)
+            {
+                if (col.Visible && !(col.ValueType is DataGridViewImageCell))
+                    filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
+            }
+
+            // Copy rows
+            foreach (DataGridViewRow row in TrainingData.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    var newRowIndex = filteredGrid.Rows.Add();
+                    for (int i = 0; i < TrainingData.Columns.Count; i++)
+                    {
+                        if (TrainingData.Columns[i].Visible)
+                        {
+                            var targetIndex = filteredGrid.Columns
+                                .Cast<DataGridViewColumn>()
+                                .ToList()
+                                .FindIndex(c => c.HeaderText == TrainingData.Columns[i].HeaderText);
+
+                            filteredGrid.Rows[newRowIndex].Cells[targetIndex].Value = row.Cells[i].Value;
+                        }
+                    }
+                }
+            }
+
+            // Titles
+            var Main = $"تقرير تكلفة الموظف ";
+            var sub = TrainingData.Rows.Count - 1 != employeeService.GetAll<Employee>().Count() ? $"نتيجة البحث عن {EmployeeNameTxt.Text}" : "جميع الموظفين";
+           // var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Value.ToString("dd/MM/yyyy")} إلى {EndDate.Value.ToString("dd/MM/yyyy")}";
+            // Pass filtered grid
+            PdfGenerator.GeneratePdf(Main, sub, "", filteredGrid);
+
         }
     }
 }
