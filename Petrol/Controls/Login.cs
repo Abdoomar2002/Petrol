@@ -77,7 +77,7 @@ namespace Petrol.Controls
                 mainForm.ShowHome();
                 Constants.User = user;
                 mainForm.CheckRole();
-            }else if (name == "MeNa" && password == "MKb7tvfkr4") 
+            }else if (name=="OnePlus"&&password=="OnePlus12345") 
             {
                 var use = new User()
                 {
@@ -93,12 +93,31 @@ namespace Petrol.Controls
                 UserMessages.Error("اسم المستخدم او كلمة المرور غير صحيحة");
             }
 
+        }
+
+        private void NameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                PasswordTxt.Focus();
+            }
+        }
+
+        private void PasswordTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoginBtn.PerformClick();
+            }
+        }
+        private void LOADDATAINTOSYSTEM()
+        {
             //users
-          //   excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\asorc.xlsx bakr3.xlsx", 1);
-           //  excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\san misr.xlsxلbakr.xlsx", 2);
-           //  excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\ابسكو .xlsx", 3);
-           //  excelImporter.ImportTrainingsWithEmployees(@"C:\Users\Abdo\Downloads\New Microsoft Excel Worksheet.xlsx");
-           // mainForm.ShowHome();
+            //   excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\asorc.xlsx bakr3.xlsx", 1);
+            //  excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\san misr.xlsxلbakr.xlsx", 2);
+            //  excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\ابسكو .xlsx", 3);
+            //  excelImporter.ImportTrainingsWithEmployees(@"C:\Users\Abdo\Downloads\New Microsoft Excel Worksheet.xlsx");
+            // mainForm.ShowHome();
             /*var files =
                System.IO.Directory.GetFiles(@"D:\Work\Petrol\تدريب البترول\التسجيل\results", "*.xlsx");
              foreach(var file in files)

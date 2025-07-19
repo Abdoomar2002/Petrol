@@ -211,6 +211,7 @@
             this.RePasswordTxt.SelectedText = "";
             this.RePasswordTxt.Size = new System.Drawing.Size(445, 90);
             this.RePasswordTxt.TabIndex = 65;
+            this.RePasswordTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RePasswordTxt_KeyDown);
             // 
             // label6
             // 
@@ -259,6 +260,7 @@
             this.PasswordTxt.SelectedText = "";
             this.PasswordTxt.Size = new System.Drawing.Size(445, 90);
             this.PasswordTxt.TabIndex = 55;
+            this.PasswordTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTxt_KeyDown);
             // 
             // UserNameTxt
             // 
@@ -283,6 +285,7 @@
             this.UserNameTxt.SelectedText = "";
             this.UserNameTxt.Size = new System.Drawing.Size(445, 90);
             this.UserNameTxt.TabIndex = 52;
+            this.UserNameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserNameTxt_KeyDown);
             // 
             // label17
             // 
@@ -343,6 +346,7 @@
             this.NameTxt.SelectedText = "";
             this.NameTxt.Size = new System.Drawing.Size(445, 90);
             this.NameTxt.TabIndex = 25;
+            this.NameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NameTxt_KeyDown);
             // 
             // label3
             // 
@@ -379,6 +383,7 @@
             this.FinanceNumTxt.SelectedText = "";
             this.FinanceNumTxt.Size = new System.Drawing.Size(445, 90);
             this.FinanceNumTxt.TabIndex = 5;
+            this.FinanceNumTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FinanceNumTxt_KeyDown);
             // 
             // EditUser
             // 

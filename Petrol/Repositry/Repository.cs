@@ -118,7 +118,7 @@ namespace Petrol.Repositry
                 return _context.Set<T>().ToList();
 
             var properties = typeof(T).GetProperties()
-                .Where(p => p.CanRead && p.GetMethod.IsPublic);
+                .Where(p => p.CanRead && p.GetMethod.IsPublic&&p.Name!="Password");
 
             var list = _context.Set<T>().AsNoTracking()
                 .AsEnumerable() // Bring data into memory to use reflection (note: may be costly!)

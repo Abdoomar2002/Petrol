@@ -63,6 +63,7 @@ namespace Petrol.SubPages.Users
                 service.Add(user);
                 service.SaveChanges();
                 UserMessages.Info("تم حفظ المستخدم بنجاح");
+                DeleteBtn.PerformClick(); // Clear the input fields after saving
             }
             catch (Exception ex)
             {
@@ -87,6 +88,46 @@ namespace Petrol.SubPages.Users
             FinanceNumTxt.Text = "";
             RePasswordTxt.Text = "";
             RoleBox.SelectedIndex = -1;
+        }
+
+        private void FinanceNumTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                NameTxt.Focus();
+            }
+        }
+
+        private void NameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UserNameTxt.Focus();
+            }
+        }
+
+        private void UserNameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                PasswordTxt.Focus();
+            }
+        }
+
+        private void PasswordTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                RePasswordTxt.Focus();
+            }
+        }
+
+        private void RePasswordTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                RoleBox.Focus();
+            }
         }
     }
 }

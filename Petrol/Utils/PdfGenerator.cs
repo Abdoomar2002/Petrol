@@ -30,18 +30,18 @@ namespace Petrol.Utils
                 var headerFont2 = new Font(cairoFont, 14f, Font.BOLD);
                 var headerFont3 = new Font(cairoFont, 12f, Font.BOLD);
                 // Add header (logo + brand title)
-                PdfPTable headerTable = new PdfPTable(2)
+                PdfPTable headerTable = new PdfPTable(3)
                 {
                     WidthPercentage = 100
                 };
-                headerTable.SetWidths(new float[] { 1f, 3f }); // Adjust logo and brand title width
+                headerTable.SetWidths(new float[] { 3f,2, 4f }); // Adjust logo and brand title width
 
                 // Logo
                 string logoPath = "logo.jpg"; // Path to your logo file
                 if (File.Exists(logoPath))
                 {
                     Image logo = Image.GetInstance(logoPath);
-                    logo.ScaleAbsolute(50f, 50f);
+                    logo.ScaleAbsolute(100f, 100f);
                     PdfPCell logoCell = new PdfPCell(logo)
                     {
                         Border = Rectangle.NO_BORDER,
@@ -56,14 +56,27 @@ namespace Petrol.Utils
 
                 // Brand title
                 Font brandFont = headerFont2;
-                PdfPCell brandCell = new PdfPCell(new Phrase("وحدة التدريب", brandFont))
+                Phrase brandName = new Phrase("شركة اسيوط لتكرير البترول\nالادارة العامة لاعداد وتنمية الموارد البشرية", brandFont);
+                
+                PdfPCell brandCell = new PdfPCell(brandName)
                 {
                     Border = Rectangle.NO_BORDER,
-                    HorizontalAlignment = Element.ALIGN_LEFT,
+                    HorizontalAlignment = Element.ALIGN_CENTER,
                     VerticalAlignment = Element.ALIGN_MIDDLE,
-                    RunDirection = PdfWriter.RUN_DIRECTION_RTL
+                    RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+                   
 
                 };
+                PdfPCell space = new PdfPCell()
+                {
+                    Border = Rectangle.NO_BORDER,
+                    HorizontalAlignment = Element.ALIGN_CENTER,
+                    VerticalAlignment = Element.ALIGN_MIDDLE,
+                    RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+                   
+
+                };
+                headerTable.AddCell(space); // Spacer cell
                 headerTable.AddCell(brandCell);
 
                 document.Add(headerTable);

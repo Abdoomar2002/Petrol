@@ -84,6 +84,8 @@ namespace Petrol.SubPages.Users
                 service.Update(EditedUser);
                 service.SaveChanges();
                 UserMessages.Info($"تم تعديل بيانات المستخدم بنجاح");
+                var form = (Form1)this.ParentForm;
+                form.UsersNavigation("Main");
             }
             catch (Exception ex) 
             {
@@ -112,6 +114,42 @@ namespace Petrol.SubPages.Users
                     UserMessages.Error("حدث خطأ أثناء حذف المستخدم");
                     Console.WriteLine(ex.Message);
                 }
+            }
+        }
+
+        private void FinanceNumTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                NameTxt.Focus(); // Move focus to the NameTxt TextBox when Enter is pressed
+            }
+        }
+        private void NameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                UserNameTxt.Focus(); // Move focus to the UserNameTxt TextBox when Enter is pressed
+            }
+        }
+        private void UserNameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                PasswordTxt.Focus(); // Move focus to the PasswordTxt TextBox when Enter is pressed
+            }
+        }
+        private void PasswordTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                RePasswordTxt.Focus(); // Move focus to the RePasswordTxt TextBox when Enter is pressed
+            }
+        }
+        private void RePasswordTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                RoleBox.Focus(); // Move focus to the RoleBox ComboBox when Enter is pressed
             }
         }
     }

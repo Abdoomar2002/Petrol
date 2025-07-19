@@ -100,6 +100,7 @@
             this.PasswordTxt.TabIndex = 4;
             this.PasswordTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.PasswordTxt.UseSystemPasswordChar = true;
+            this.PasswordTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTxt_KeyDown);
             // 
             // NameTxt
             // 
@@ -124,6 +125,7 @@
             this.NameTxt.Size = new System.Drawing.Size(335, 63);
             this.NameTxt.TabIndex = 3;
             this.NameTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.NameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NameTxt_KeyDown);
             // 
             // label3
             // 
