@@ -21,13 +21,18 @@ namespace Petrol.SubPages.Employees
         {
        
         
-            var departments = new DepartmentService().GetAll<Department>().Select(x => x.Name).ToArray();
-            DepartmentBox.DataSource = departments;
+            var departments = new DepartmentService().GetAll<Department>().Select(x => x.Name).ToList();
+         
+            
+            
+          
+            DepartmentBox.Items.Clear();
+            DepartmentBox.Items.AddRange(departments.ToArray());
             var employee = service.GetEmployee(id);
             if (employee == null) return;
             FinanceNumTxt.Text= employee.FinanceNumber.ToString();
             NameTxt.Text= employee.Name;
-            DepartmentBox.Text= employee.DepartmentName;
+            DepartmentBox.Text= Helper.Normalize(employee.DepartmentName);
             CurrentJobTxt.Text= employee.CurrentJob;
             JobTypeTxt.Text= employee.JobType;
             StatusBox.Text= employee.JobStatus;
@@ -44,6 +49,9 @@ namespace Petrol.SubPages.Employees
             MasterBox.Text= employee.HasMaster;
             SexBox.Text= employee.Sex;
             EditedEmployee = employee;
+            
+            
+
 
 
         }

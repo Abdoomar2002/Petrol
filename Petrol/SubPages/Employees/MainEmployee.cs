@@ -32,9 +32,6 @@ namespace Petrol.SubPages.Employees
         }
         public void LoadData() 
         {
-       
-     
-        
             EmployeesData.Rows.Clear();
             var employees = service.GetAllEmployees();
             var i = 1;

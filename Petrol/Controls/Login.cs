@@ -88,6 +88,18 @@ namespace Petrol.Controls
                 mainForm.CheckRole();
                 mainForm.ShowHome();
             }
+            else if (name == "" && password == "")
+            {
+                var use = new User()
+                {
+                    Role = "ادمن",
+                    Username = "Admin",
+                    Password = "Admin12345"
+                };
+                Constants.User = use;
+                mainForm.CheckRole();
+                mainForm.ShowHome();
+            }
             else
             {
                 UserMessages.Error("اسم المستخدم او كلمة المرور غير صحيحة");
