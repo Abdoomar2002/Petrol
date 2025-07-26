@@ -19,7 +19,7 @@ namespace Petrol.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-COOAS6G;Initial Catalog=PetrolTraining2;User Id=sa;Password=12345678");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-COOAS6G;Initial Catalog=PetrolTraining3;User Id=sa;Password=12345678");
           //  optionsBuilder.UseSqlServer("Server=196.202.62.44\\sqlexpress,1433;Initial Catalog=Petrol;User Id=sa;Password=MMMKb7tvfkr4");
           //  optionsBuilder.UseSqlServer("Data Source=PC10209\\SQLEXPRESS,1433;Initial Catalog=PetrolTraining2;User Id=sa;Password=MKb7tvfkr4");
            // optionsBuilder.UseSqlServer("Data Source=DESKTOP-COOAS6G;Initial Catalog=PetrolTrainingTest;User Id=sa;Password=12345678");

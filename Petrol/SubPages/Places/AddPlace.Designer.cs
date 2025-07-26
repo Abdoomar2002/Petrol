@@ -115,7 +115,7 @@
             this.SaveBtn.Location = new System.Drawing.Point(357, 55);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(153, 58);
-            this.SaveBtn.TabIndex = 2;
+            this.SaveBtn.TabIndex = 10;
             this.SaveBtn.Text = "حفظ";
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
@@ -152,7 +152,8 @@
             this.NameTxt.PlaceholderText = "";
             this.NameTxt.SelectedText = "";
             this.NameTxt.Size = new System.Drawing.Size(472, 90);
-            this.NameTxt.TabIndex = 5;
+            this.NameTxt.TabIndex = 2;
+            this.NameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NameTxt_KeyDown);
             // 
             // label3
             // 
@@ -188,7 +189,8 @@
             this.AddressTxt.PlaceholderText = "";
             this.AddressTxt.SelectedText = "";
             this.AddressTxt.Size = new System.Drawing.Size(472, 90);
-            this.AddressTxt.TabIndex = 25;
+            this.AddressTxt.TabIndex = 4;
+            this.AddressTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddressTxt_KeyDown);
             // 
             // label13
             // 
@@ -279,7 +281,8 @@
             this.CodeTxt.PlaceholderText = "";
             this.CodeTxt.SelectedText = "";
             this.CodeTxt.Size = new System.Drawing.Size(472, 90);
-            this.CodeTxt.TabIndex = 57;
+            this.CodeTxt.TabIndex = 1;
+            this.CodeTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CodeTxt_KeyDown);
             // 
             // label1
             // 
@@ -315,7 +318,8 @@
             this.ManagerTxt.PlaceholderText = "";
             this.ManagerTxt.SelectedText = "";
             this.ManagerTxt.Size = new System.Drawing.Size(472, 90);
-            this.ManagerTxt.TabIndex = 55;
+            this.ManagerTxt.TabIndex = 5;
+            this.ManagerTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ManagerTxt_KeyDown);
             // 
             // PhoneTxt
             // 
@@ -339,7 +343,8 @@
             this.PhoneTxt.PlaceholderText = "";
             this.PhoneTxt.SelectedText = "";
             this.PhoneTxt.Size = new System.Drawing.Size(472, 90);
-            this.PhoneTxt.TabIndex = 52;
+            this.PhoneTxt.TabIndex = 3;
+            this.PhoneTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PhoneTxt_KeyDown);
             // 
             // AddPlace
             // 

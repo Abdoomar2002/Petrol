@@ -130,5 +130,151 @@ namespace Petrol.SubPages.Employees
         {
             RetireDate.Value=BirthDate.Value.AddYears(60);
         }
+
+        // KeyDown navigation methods
+        private void FinanceNumTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                NameTxt.Focus();
+            }
+        }
+
+        private void NameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LevelBox.Focus();
+            }
+        }
+
+        private void LevelBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CurrentJobTxt.Focus();
+            }
+        }
+
+        private void CurrentJobTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SectionTxt.Focus();
+            }
+        }
+
+        private void SectionTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SSNTxt.Focus();
+            }
+        }
+
+        private void SSNTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DepartmentBox.Focus();
+            }
+        }
+
+        private void DepartmentBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SexBox.Focus();
+            }
+        }
+
+        private void SexBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                QualificationTxt.Focus();
+            }
+        }
+
+        private void QualificationTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                QualTypeBox.Focus();
+            }
+        }
+
+        private void QualTypeBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ReligonBox.Focus();
+            }
+        }
+
+        private void ReligonBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                JobTypeTxt.Focus();
+            }
+        }
+
+        private void JobTypeTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                MasterBox.Focus();
+            }
+        }
+
+        private void MasterBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                StatusBox.Focus();
+            }
+        }
+
+        private void StatusBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                EmploymentDate.Focus();
+            }
+        }
+
+        private void HireDate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BirthDate.Focus();
+            }
+        }
+
+        private void BirthDate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                RetireDate.Focus();
+            }
+        }
+
+        private void RetireDate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                EmploymentDate.Focus();
+            }
+        }
+
+        private void EmploymentDate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // End of form - no further navigation
+            }
+        }
+
     }
 }

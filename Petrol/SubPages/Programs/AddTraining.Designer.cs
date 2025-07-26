@@ -136,7 +136,8 @@
             this.TrainingTypeTxt.PlaceholderText = "";
             this.TrainingTypeTxt.SelectedText = "";
             this.TrainingTypeTxt.Size = new System.Drawing.Size(472, 65);
-            this.TrainingTypeTxt.TabIndex = 77;
+            this.TrainingTypeTxt.TabIndex = 7;
+            this.TrainingTypeTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingTypeTxt_KeyDown);
             // 
             // PlaceTxt
             // 
@@ -162,7 +163,8 @@
             this.PlaceTxt.PlaceholderText = "";
             this.PlaceTxt.SelectedText = "";
             this.PlaceTxt.Size = new System.Drawing.Size(472, 65);
-            this.PlaceTxt.TabIndex = 76;
+            this.PlaceTxt.TabIndex = 3;
+            this.PlaceTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlaceTxt_KeyDown);
             // 
             // DepartmentBox
             // 
@@ -182,8 +184,9 @@
             this.DepartmentBox.Margin = new System.Windows.Forms.Padding(5);
             this.DepartmentBox.Name = "DepartmentBox";
             this.DepartmentBox.Size = new System.Drawing.Size(472, 46);
-            this.DepartmentBox.TabIndex = 75;
+            this.DepartmentBox.TabIndex = 6;
             this.DepartmentBox.SelectedIndexChanged += new System.EventHandler(this.DepartmentBox_SelectedIndexChanged);
+            this.DepartmentBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DepartmentBox_KeyDown);
             // 
             // label7
             // 
@@ -213,8 +216,9 @@
             this.EndDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.EndDate.Name = "EndDate";
             this.EndDate.Size = new System.Drawing.Size(472, 65);
-            this.EndDate.TabIndex = 73;
+            this.EndDate.TabIndex = 5;
             this.EndDate.Value = new System.DateTime(2025, 5, 7, 18, 12, 49, 120);
+            this.EndDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EndDate_KeyDown);
             // 
             // label5
             // 
@@ -244,8 +248,9 @@
             this.StartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.StartDate.Name = "StartDate";
             this.StartDate.Size = new System.Drawing.Size(472, 65);
-            this.StartDate.TabIndex = 71;
+            this.StartDate.TabIndex = 4;
             this.StartDate.Value = new System.DateTime(2025, 5, 7, 18, 12, 49, 120);
+            this.StartDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StartDate_KeyDown);
             // 
             // label4
             // 
@@ -293,7 +298,8 @@
             this.CodeTxt.PlaceholderText = "";
             this.CodeTxt.SelectedText = "";
             this.CodeTxt.Size = new System.Drawing.Size(472, 65);
-            this.CodeTxt.TabIndex = 57;
+            this.CodeTxt.TabIndex = 1;
+            this.CodeTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CodeTxt_KeyDown);
             // 
             // label1
             // 
@@ -353,7 +359,8 @@
             this.TrainingNameTxt.PlaceholderText = "";
             this.TrainingNameTxt.SelectedText = "";
             this.TrainingNameTxt.Size = new System.Drawing.Size(472, 65);
-            this.TrainingNameTxt.TabIndex = 5;
+            this.TrainingNameTxt.TabIndex = 2;
+            this.TrainingNameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingNameTxt_KeyDown);
             // 
             // Header
             // 
@@ -421,7 +428,7 @@
             this.SaveBtn.Location = new System.Drawing.Point(357, 55);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(153, 58);
-            this.SaveBtn.TabIndex = 2;
+            this.SaveBtn.TabIndex = 10;
             this.SaveBtn.Text = "حفظ";
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
@@ -677,8 +684,9 @@
             this.EmployeeFinanceNumberTxt.PlaceholderText = "";
             this.EmployeeFinanceNumberTxt.SelectedText = "";
             this.EmployeeFinanceNumberTxt.Size = new System.Drawing.Size(472, 90);
-            this.EmployeeFinanceNumberTxt.TabIndex = 57;
+            this.EmployeeFinanceNumberTxt.TabIndex = 9;
             this.EmployeeFinanceNumberTxt.TextChanged += new System.EventHandler(this.EmployeeFinanceNumberTxt_TextChanged);
+            this.EmployeeFinanceNumberTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmployeeFinanceNumberTxt_KeyDown);
             // 
             // label9
             // 
@@ -740,8 +748,9 @@
             this.EmployeeNameTxt.PlaceholderText = "";
             this.EmployeeNameTxt.SelectedText = "";
             this.EmployeeNameTxt.Size = new System.Drawing.Size(472, 90);
-            this.EmployeeNameTxt.TabIndex = 5;
+            this.EmployeeNameTxt.TabIndex = 8;
             this.EmployeeNameTxt.TextChanged += new System.EventHandler(this.EmployeeNameTxt_TextChanged);
+            this.EmployeeNameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmployeeNameTxt_KeyDown);
             // 
             // AddEmployeeBtn
             // 

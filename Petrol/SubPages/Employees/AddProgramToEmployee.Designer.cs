@@ -109,7 +109,8 @@
             this.TrainingType.PlaceholderText = "";
             this.TrainingType.SelectedText = "";
             this.TrainingType.Size = new System.Drawing.Size(414, 70);
-            this.TrainingType.TabIndex = 43;
+            this.TrainingType.TabIndex = 6;
+            this.TrainingType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingType_KeyDown);
             // 
             // label6
             // 
@@ -148,7 +149,8 @@
             this.Location.PlaceholderText = "";
             this.Location.SelectedText = "";
             this.Location.Size = new System.Drawing.Size(415, 70);
-            this.Location.TabIndex = 42;
+            this.Location.TabIndex = 5;
+            this.Location.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Location_KeyDown);
             // 
             // label5
             // 
@@ -191,7 +193,8 @@
             this.ToDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.ToDate.Name = "ToDate";
             this.ToDate.Size = new System.Drawing.Size(415, 70);
-            this.ToDate.TabIndex = 38;
+            this.ToDate.TabIndex = 4;
+            this.ToDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ToDate_KeyDown);
             this.ToDate.Value = new System.DateTime(2025, 5, 7, 18, 12, 49, 120);
             // 
             // label3
@@ -230,7 +233,8 @@
             this.TrainingName.PlaceholderText = "";
             this.TrainingName.SelectedText = "";
             this.TrainingName.Size = new System.Drawing.Size(414, 70);
-            this.TrainingName.TabIndex = 5;
+            this.TrainingName.TabIndex = 2;
+            this.TrainingName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingName_KeyDown);
             this.TrainingName.TextChanged += new System.EventHandler(this.TrainingName_TextChanged);
             // 
             // label2
@@ -282,6 +286,7 @@
             this.TrainingId.SelectedText = "";
             this.TrainingId.Size = new System.Drawing.Size(414, 70);
             this.TrainingId.TabIndex = 1;
+            this.TrainingId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingId_KeyDown);
             this.TrainingId.TextChanged += new System.EventHandler(this.TrainingId_TextChanged);
             // 
             // FromDate
@@ -301,7 +306,8 @@
             this.FromDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.FromDate.Name = "FromDate";
             this.FromDate.Size = new System.Drawing.Size(415, 70);
-            this.FromDate.TabIndex = 36;
+            this.FromDate.TabIndex = 3;
+            this.FromDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FromDate_KeyDown);
             this.FromDate.Value = new System.DateTime(2025, 5, 7, 18, 12, 49, 120);
             // 
             // Header
@@ -392,7 +398,7 @@
             this.SaveBtn.Location = new System.Drawing.Point(355, 55);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(153, 58);
-            this.SaveBtn.TabIndex = 2;
+            this.SaveBtn.TabIndex = 10;
             this.SaveBtn.Text = "حفظ";
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 

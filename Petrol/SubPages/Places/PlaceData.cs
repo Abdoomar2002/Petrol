@@ -123,5 +123,13 @@ namespace Petrol.SubPages.Places
 
         }
 
+        private void SearchTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchBtn.PerformClick();
+            }
+        }
+
     }
 }

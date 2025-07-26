@@ -17,6 +17,7 @@ namespace Petrol.SubPages.Programs
         private EmployeeService employeeService;
         private Department ActiveDepartment;
         private List<Employee> Employees;
+        private bool isProgramming = false;
         public AddTraining()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace Petrol.SubPages.Programs
         }
         public void SetProgramId(int id)
         {
+            ClearInputs(false);
             EditedProgram = programService.GetById<Models.Program>(id);
             var lastId = service.GetTheLastId<Training>();
             CodeTxt.Text= lastId.ToString();
@@ -41,6 +43,7 @@ namespace Petrol.SubPages.Programs
             EmployeeFinanceNumberTxt.AutoCompleteCustomSource.AddRange(Employees.Select(x => x.FinanceNumber).ToArray());
             var trainingTypes = new ProgramTypeService().GetAll<TrainingType>().Select(x=>x.Name).ToArray();
             TrainingTypeTxt.AutoCompleteCustomSource.AddRange(trainingTypes);
+            
 
         }
         private void BackBtn_Click(object sender, EventArgs e)
@@ -68,6 +71,8 @@ namespace Petrol.SubPages.Programs
                 return;
             }
             EmployeeData.Rows.Add(EmployeeData.Rows.Count + 1, employee.FinanceNumber, employee.Name, employee.DepartmentName, employee.RetireDate);
+            EmployeeNameTxt.Text = string.Empty;
+            EmployeeFinanceNumberTxt.Focus();
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
@@ -162,56 +167,75 @@ namespace Petrol.SubPages.Programs
 
         private void EmployeeNameTxt_TextChanged(object sender, EventArgs e)
         {
+            if (!isProgramming) 
+            {
             var employee = employeeService.GetAll<Employee>().FirstOrDefault(x => x.Name == EmployeeNameTxt.Text.Trim());
             if (employee != null)
             {
+                    isProgramming = true;
                 EmployeeFinanceNumberTxt.Text= employee.FinanceNumber;
                 EmployeeDepartmentTxt.Text= employee.DepartmentName;
-                RemainTxt.Text= ConvertDateToSentence(employee.RetireDate);
-            }
+                RemainTxt.Text= ConvertDateToSentence(employee?.RetireDate??new DateTime());
+                    isProgramming = false;
+                }
             else
             {
+                    isProgramming = true;
                 EmployeeFinanceNumberTxt.Text= string.Empty;
                 EmployeeDepartmentTxt.Text= string.Empty;
                 RemainTxt.Text= string.Empty;
+                    isProgramming=false;
+                }
             }
         }
 
         private void EmployeeFinanceNumberTxt_TextChanged(object sender, EventArgs e)
         {
+            if(!isProgramming)
+            {
+
             var employee = employeeService.GetAll<Employee>().FirstOrDefault(x => x.FinanceNumber == EmployeeFinanceNumberTxt.Text.Trim());
             if (employee != null)
             {
+                    isProgramming = true;
                 EmployeeNameTxt.Text= employee.Name;
                 EmployeeDepartmentTxt.Text= employee.DepartmentName;
-                RemainTxt.Text= ConvertDateToSentence(employee.RetireDate);
+                RemainTxt.Text= ConvertDateToSentence(employee?.RetireDate??new DateTime());
+                    isProgramming = false;
             }
             else
             {
+                    isProgramming = true;
                 EmployeeNameTxt.Text= string.Empty;
                 EmployeeDepartmentTxt.Text= string.Empty;
                 RemainTxt.Text= string.Empty;
+                    isProgramming = false;
+            }
             }
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            EmployeeData.Rows.Clear();
-            EmployeeNameTxt.Text= string.Empty;
-            EmployeeFinanceNumberTxt.Text= string.Empty;
-            EmployeeDepartmentTxt.Text= string.Empty;
-            DepartmentBox.SelectedIndex = -1;
-            RemainTxt.Text= string.Empty;
-            CodeTxt.Text= "";
-            TrainingNameTxt.Text= string.Empty;
-            PlaceTxt.Text= string.Empty;
-            StartDate.Value = DateTime.Now;
-            EndDate.Value = DateTime.Now;
-            TrainingTypeTxt.Text =string.Empty;
-            SetProgramId(EditedProgram.Id);
+            ClearInputs(true);
 
         }
-
+        private void ClearInputs(bool Clicked)
+        {
+            EmployeeData.Rows.Clear();
+            EmployeeNameTxt.Text = string.Empty;
+            EmployeeFinanceNumberTxt.Text = string.Empty;
+            EmployeeDepartmentTxt.Text = string.Empty;
+            DepartmentBox.SelectedIndex = -1;
+            RemainTxt.Text = string.Empty;
+            CodeTxt.Text = "";
+            TrainingNameTxt.Text = string.Empty;
+            PlaceTxt.Text = string.Empty;
+            StartDate.Value = DateTime.Now;
+            EndDate.Value = DateTime.Now;
+            TrainingTypeTxt.Text = string.Empty;
+           if(Clicked)
+            SetProgramId(EditedProgram.Id);
+        }
         private void EmployeeData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -226,9 +250,12 @@ namespace Petrol.SubPages.Programs
         }
         private string ConvertDateToSentence(DateTime date)
         {
-            date = date.AddYears(DateTime.Now.Year * -1);
-            date = date.AddMonths(DateTime.Now.Month * -1);
-            date = date.AddDays(DateTime.Now.Day * -1);
+            if (date == DateTime.MinValue || date == DateTime.MaxValue)
+            {
+                return "لا يوجد تاريخ تقاعد";
+            }
+            var timestamp=date-DateTime.Now;
+
             string FormatNumber(int number, string singular, string dual, string plural, string accusative)
             {
                 if (number == 1)
@@ -241,9 +268,9 @@ namespace Petrol.SubPages.Programs
                     return $"{number} {accusative}";
             }
 
-            var day = FormatNumber(date.Day, "يوم", "يومان", "أيام", "يومًا");
-            var month = FormatNumber(date.Month, "شهر", "شهران", "أشهر", "شهرًا");
-            var year = FormatNumber(date.Year, "سنة", "سنتان", "سنوات", "سنةً");
+            var day = FormatNumber(((int) timestamp.TotalDays%365)%30, "يوم", "يومان", "أيام", "يومًا");
+            var month = FormatNumber((int)timestamp.TotalDays%365/30, "شهر", "شهران", "أشهر", "شهرًا");
+            var year = FormatNumber((int)timestamp.TotalDays/365, "سنة", "سنتان", "سنوات", "سنةً");
 
             return $"المدة: {year}، {month}، {day}";
         }
@@ -264,6 +291,76 @@ namespace Petrol.SubPages.Programs
                 EmployeeFinanceNumberTxt.AutoCompleteCustomSource.Clear();
                 EmployeeNameTxt.AutoCompleteCustomSource.AddRange(Employees.Select(x => x.Name).ToArray());
                 EmployeeFinanceNumberTxt.AutoCompleteCustomSource.AddRange(Employees.Select(x => x.FinanceNumber).ToArray());
+            }
+        }
+
+        // KeyDown navigation methods
+        private void CodeTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TrainingNameTxt.Focus();
+            }
+        }
+
+        private void TrainingNameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                PlaceTxt.Focus();
+            }
+        }
+
+        private void PlaceTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                StartDate.Focus();
+            }
+        }
+
+        private void StartDate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                EndDate.Focus();
+            }
+        }
+
+        private void EndDate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DepartmentBox.Focus();
+            }
+        }
+
+        private void DepartmentBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TrainingTypeTxt.Focus();
+            }
+        }
+
+        private void TrainingTypeTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // End of form - no further navigation
+            }
+        }
+
+        private void EmployeeNameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+        }
+
+        private void EmployeeFinanceNumberTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+               AddEmployeeBtn.PerformClick();
             }
         }
     }

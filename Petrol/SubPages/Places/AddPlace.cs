@@ -86,5 +86,46 @@ namespace Petrol.SubPages.Places
             ManagerTxt.Text = "";
             LoadData();
         }
+
+        // KeyDown navigation methods
+        private void CodeTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                NameTxt.Focus();
+            }
+        }
+
+        private void NameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                PhoneTxt.Focus();
+            }
+        }
+
+        private void PhoneTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                AddressTxt.Focus();
+            }
+        }
+
+        private void AddressTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ManagerTxt.Focus();
+            }
+        }
+
+        private void ManagerTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // End of form - no further navigation
+            }
+        }
     }
 }

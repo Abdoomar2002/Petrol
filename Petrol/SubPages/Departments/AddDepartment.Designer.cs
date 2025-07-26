@@ -100,7 +100,8 @@ namespace Petrol.SubPages.Departments
             this.CodeTxt.PlaceholderText = "";
             this.CodeTxt.SelectedText = "";
             this.CodeTxt.Size = new System.Drawing.Size(472, 90);
-            this.CodeTxt.TabIndex = 57;
+            this.CodeTxt.TabIndex = 1;
+            this.CodeTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CodeTxt_KeyDown);
             // 
             // label1
             // 
@@ -148,7 +149,8 @@ namespace Petrol.SubPages.Departments
             this.NameTxt.PlaceholderText = "";
             this.NameTxt.SelectedText = "";
             this.NameTxt.Size = new System.Drawing.Size(472, 90);
-            this.NameTxt.TabIndex = 5;
+            this.NameTxt.TabIndex = 2;
+            this.NameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NameTxt_KeyDown);
             // 
             // Header
             // 
@@ -216,7 +218,7 @@ namespace Petrol.SubPages.Departments
             this.SaveBtn.Location = new System.Drawing.Point(357, 55);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(153, 58);
-            this.SaveBtn.TabIndex = 2;
+            this.SaveBtn.TabIndex = 10;
             this.SaveBtn.Text = "حفظ";
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 

@@ -14,6 +14,10 @@ namespace Petrol.SubPages.Employees
         {
             InitializeComponent();
             service = new EmployeeService();
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+            ControlStyles.UserPaint |
+            ControlStyles.DoubleBuffer |
+            ControlStyles.ResizeRedraw, true);
         }
 
         private void AddEmployeeBtn_Click(object sender, EventArgs e)
@@ -43,7 +47,8 @@ namespace Petrol.SubPages.Employees
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            var search = SearchTxt.Text;
+            var search = Helper.Normalize(SearchTxt.Text);
+
             EmployeesData.Rows.Clear();
             var employees = service.Search(search);
             var i = 1;
@@ -96,6 +101,14 @@ namespace Petrol.SubPages.Employees
 
             // Pass filtered grid
             PdfGenerator.GeneratePdf(Main, sub, "", filteredGrid);
+        }
+
+        private void SearchTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchBtn.PerformClick();
+            }
         }
 
     }

@@ -16,9 +16,11 @@ namespace Petrol.SubPages.Programs
         private EmployeeService employeeService;
         private PlaceService placeService;
         private ProgramTypeService programTypeService;
+        private EmployeeTrainingService trainingService;
         private Training EditedTraining;
         private Models.Program EditedProgram;
         private List<Employee> Employees;
+        private bool isProgramming = false;
 
         public EditTrainingData()
         {
@@ -28,6 +30,7 @@ namespace Petrol.SubPages.Programs
             employeeService = new EmployeeService();
             placeService = new PlaceService();
             programTypeService = new ProgramTypeService();
+            trainingService = new EmployeeTrainingService();
         }
 
         public void SetTrainingId(int trainingId, int programId)
@@ -59,7 +62,7 @@ namespace Petrol.SubPages.Programs
             EndDate.Value = EditedTraining.To;
 
             EmployeeData.Rows.Clear();
-            var employeeTrainings = service.GetAll<EmployeeTraining>().Where(x => x.TrainingId == trainingId).ToList();
+            var employeeTrainings = trainingService.GetAll<EmployeeTraining>().Where(x => x.TrainingId == trainingId).ToList();
             var i = 1;
             foreach (var empTraining in employeeTrainings)
             {
@@ -192,35 +195,49 @@ namespace Petrol.SubPages.Programs
 
         private void EmployeeNameTxt_TextChanged(object sender, EventArgs e)
         {
-            var employee = employeeService.GetAll<Employee>().FirstOrDefault(x => x.Name == EmployeeNameTxt.Text.Trim());
-            if (employee != null)
+            if (!isProgramming)
             {
-                EmployeeFinanceNumberTxt.Text= employee.FinanceNumber;
-                DepartmentBox.SelectedItem = employee.DepartmentName;
-                RemainTxt.Text= ConvertDateToSentence(employee.RetireDate);
-            }
-            else
-            {
-                EmployeeFinanceNumberTxt.Text= string.Empty;
-                DepartmentBox.SelectedIndex = -1;
-                RemainTxt.Text= string.Empty;
+                var employee = employeeService.GetAll<Employee>().FirstOrDefault(x => x.Name == EmployeeNameTxt.Text.Trim());
+                if (employee != null)
+                {
+                    isProgramming = true;
+                    EmployeeFinanceNumberTxt.Text= employee.FinanceNumber;
+                    DepartmentBox.SelectedItem = employee.DepartmentName;
+                    RemainTxt.Text= ConvertDateToSentence(employee.RetireDate);
+                    isProgramming = false;
+                }
+                else
+                {
+                    isProgramming = true;
+                    EmployeeFinanceNumberTxt.Text= string.Empty;
+                    DepartmentBox.SelectedIndex = -1;
+                    RemainTxt.Text= string.Empty;
+                    isProgramming = false;
+                }
             }
         }
 
         private void EmployeeFinanceNumberTxt_TextChanged(object sender, EventArgs e)
         {
-            var employee = employeeService.GetAll<Employee>().FirstOrDefault(x => x.FinanceNumber == EmployeeFinanceNumberTxt.Text.Trim());
-            if (employee != null)
+            if (!isProgramming)
             {
-                EmployeeNameTxt.Text= employee.Name;
-                EmployeeDepartmentTxt.Text= employee.DepartmentName;
-                RemainTxt.Text= ConvertDateToSentence(employee.RetireDate);
-            }
-            else
-            {
-                EmployeeNameTxt.Text= string.Empty;
-                EmployeeDepartmentTxt.Text= string.Empty;
-                RemainTxt.Text= string.Empty;
+                var employee = employeeService.GetAll<Employee>().FirstOrDefault(x => x.FinanceNumber == EmployeeFinanceNumberTxt.Text.Trim());
+                if (employee != null)
+                {
+                    isProgramming = true;
+                    EmployeeNameTxt.Text= employee.Name;
+                    EmployeeDepartmentTxt.Text= employee.DepartmentName;
+                    RemainTxt.Text= ConvertDateToSentence(employee.RetireDate);
+                    isProgramming = false;
+                }
+                else
+                {
+                    isProgramming = true;
+                    EmployeeNameTxt.Text= string.Empty;
+                    EmployeeDepartmentTxt.Text= string.Empty;
+                    RemainTxt.Text= string.Empty;
+                    isProgramming = false;
+                }
             }
         }
 
@@ -279,9 +296,12 @@ namespace Petrol.SubPages.Programs
 
         private string ConvertDateToSentence(DateTime date)
         {
-            date = date.AddYears(DateTime.Now.Year * -1);
-            date = date.AddMonths(DateTime.Now.Month * -1);
-            date = date.AddDays(DateTime.Now.Day * -1);
+            if (date == DateTime.MinValue || date == DateTime.MaxValue)
+            {
+                return "لا يوجد تاريخ تقاعد";
+            }
+            var timestamp=date-DateTime.Now;
+
             string FormatNumber(int number, string singular, string dual, string plural, string accusative)
             {
                 if (number == 1)
@@ -294,9 +314,9 @@ namespace Petrol.SubPages.Programs
                     return $"{number} {accusative}";
             }
 
-            var day = FormatNumber(date.Day, "يوم", "يومان", "أيام", "يومًا");
-            var month = FormatNumber(date.Month, "شهر", "شهران", "أشهر", "شهرًا");
-            var year = FormatNumber(date.Year, "سنة", "سنتان", "سنوات", "سنةً");
+            var day = FormatNumber(((int) timestamp.TotalDays%365)%30, "يوم", "يومان", "أيام", "يومًا");
+            var month = FormatNumber((int)timestamp.TotalDays%365/30, "شهر", "شهران", "أشهر", "شهرًا");
+            var year = FormatNumber((int)timestamp.TotalDays/365, "سنة", "سنتان", "سنوات", "سنةً");
 
             return $"المدة: {year}، {month}، {day}";
         }

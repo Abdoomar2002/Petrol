@@ -143,5 +143,13 @@ namespace Petrol.SubPages.Departments
             PdfGenerator.GeneratePdf(Main, sub, filteredGridTitle, filteredGrid);
 
         }
+
+        private void SearchTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchBtn.PerformClick();
+            }
+        }
     }
 }

@@ -251,7 +251,8 @@
             this.JobTypeTxt.PlaceholderText = "";
             this.JobTypeTxt.SelectedText = "";
             this.JobTypeTxt.Size = new System.Drawing.Size(417, 59);
-            this.JobTypeTxt.TabIndex = 48;
+            this.JobTypeTxt.TabIndex = 12;
+            this.JobTypeTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.JobTypeTxt_KeyDown);
             // 
             // StatusBox
             // 
@@ -275,7 +276,8 @@
             this.StatusBox.Margin = new System.Windows.Forms.Padding(5);
             this.StatusBox.Name = "StatusBox";
             this.StatusBox.Size = new System.Drawing.Size(417, 46);
-            this.StatusBox.TabIndex = 47;
+            this.StatusBox.TabIndex = 14;
+            this.StatusBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StatusBox_KeyDown);
             // 
             // MasterBox
             // 
@@ -298,7 +300,8 @@
             this.MasterBox.Margin = new System.Windows.Forms.Padding(5);
             this.MasterBox.Name = "MasterBox";
             this.MasterBox.Size = new System.Drawing.Size(417, 46);
-            this.MasterBox.TabIndex = 46;
+            this.MasterBox.TabIndex = 13;
+            this.MasterBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MasterBox_KeyDown);
             // 
             // ReligonBox
             // 
@@ -321,7 +324,8 @@
             this.ReligonBox.Margin = new System.Windows.Forms.Padding(5);
             this.ReligonBox.Name = "ReligonBox";
             this.ReligonBox.Size = new System.Drawing.Size(417, 46);
-            this.ReligonBox.TabIndex = 44;
+            this.ReligonBox.TabIndex = 11;
+            this.ReligonBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReligonBox_KeyDown);
             // 
             // LevelBox
             // 
@@ -346,7 +350,8 @@
             this.LevelBox.Margin = new System.Windows.Forms.Padding(5);
             this.LevelBox.Name = "LevelBox";
             this.LevelBox.Size = new System.Drawing.Size(416, 46);
-            this.LevelBox.TabIndex = 43;
+            this.LevelBox.TabIndex = 3;
+            this.LevelBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LevelBox_KeyDown);
             // 
             // QualTypeBox
             // 
@@ -373,7 +378,8 @@
             this.QualTypeBox.Margin = new System.Windows.Forms.Padding(5);
             this.QualTypeBox.Name = "QualTypeBox";
             this.QualTypeBox.Size = new System.Drawing.Size(417, 46);
-            this.QualTypeBox.TabIndex = 42;
+            this.QualTypeBox.TabIndex = 10;
+            this.QualTypeBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.QualTypeBox_KeyDown);
             // 
             // SexBox
             // 
@@ -396,7 +402,8 @@
             this.SexBox.Margin = new System.Windows.Forms.Padding(5);
             this.SexBox.Name = "SexBox";
             this.SexBox.Size = new System.Drawing.Size(417, 46);
-            this.SexBox.TabIndex = 41;
+            this.SexBox.TabIndex = 8;
+            this.SexBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SexBox_KeyDown);
             // 
             // RetireDate
             // 
@@ -414,7 +421,8 @@
             this.RetireDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.RetireDate.Name = "RetireDate";
             this.RetireDate.Size = new System.Drawing.Size(416, 59);
-            this.RetireDate.TabIndex = 39;
+            this.RetireDate.TabIndex = 18;
+            this.RetireDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RetireDate_KeyDown);
             this.RetireDate.Value = new System.DateTime(2025, 5, 20, 17, 43, 46, 864);
             // 
             // BirthDate
@@ -433,7 +441,8 @@
             this.BirthDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.BirthDate.Name = "BirthDate";
             this.BirthDate.Size = new System.Drawing.Size(416, 59);
-            this.BirthDate.TabIndex = 38;
+            this.BirthDate.TabIndex = 17;
+            this.BirthDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BirthDate_KeyDown);
             this.BirthDate.Value = new System.DateTime(2025, 5, 20, 17, 43, 46, 904);
             this.BirthDate.ValueChanged += new System.EventHandler(this.BirthDate_ValueChanged);
             // 
@@ -453,7 +462,8 @@
             this.HireDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.HireDate.Name = "HireDate";
             this.HireDate.Size = new System.Drawing.Size(416, 59);
-            this.HireDate.TabIndex = 37;
+            this.HireDate.TabIndex = 16;
+            this.HireDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HireDate_KeyDown);
             this.HireDate.Value = new System.DateTime(2025, 5, 20, 17, 43, 46, 943);
             // 
             // label18
@@ -502,7 +512,8 @@
             this.SSNTxt.PlaceholderText = "";
             this.SSNTxt.SelectedText = "";
             this.SSNTxt.Size = new System.Drawing.Size(416, 61);
-            this.SSNTxt.TabIndex = 33;
+            this.SSNTxt.TabIndex = 6;
+            this.SSNTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SSNTxt_KeyDown);
             // 
             // label16
             // 
@@ -550,7 +561,8 @@
             this.SectionTxt.PlaceholderText = "";
             this.SectionTxt.SelectedText = "";
             this.SectionTxt.Size = new System.Drawing.Size(416, 59);
-            this.SectionTxt.TabIndex = 29;
+            this.SectionTxt.TabIndex = 5;
+            this.SectionTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SectionTxt_KeyDown);
             // 
             // label14
             // 
@@ -598,7 +610,8 @@
             this.CurrentJobTxt.PlaceholderText = "";
             this.CurrentJobTxt.SelectedText = "";
             this.CurrentJobTxt.Size = new System.Drawing.Size(416, 59);
-            this.CurrentJobTxt.TabIndex = 25;
+            this.CurrentJobTxt.TabIndex = 4;
+            this.CurrentJobTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CurrentJobTxt_KeyDown);
             // 
             // label12
             // 
@@ -682,7 +695,8 @@
             this.QualificationTxt.PlaceholderText = "";
             this.QualificationTxt.SelectedText = "";
             this.QualificationTxt.Size = new System.Drawing.Size(417, 59);
-            this.QualificationTxt.TabIndex = 15;
+            this.QualificationTxt.TabIndex = 9;
+            this.QualificationTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.QualificationTxt_KeyDown);
             // 
             // label7
             // 
@@ -766,7 +780,8 @@
             this.NameTxt.PlaceholderText = "";
             this.NameTxt.SelectedText = "";
             this.NameTxt.Size = new System.Drawing.Size(416, 59);
-            this.NameTxt.TabIndex = 5;
+            this.NameTxt.TabIndex = 2;
+            this.NameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NameTxt_KeyDown);
             // 
             // label2
             // 
@@ -815,6 +830,7 @@
             this.FinanceNumTxt.SelectedText = "";
             this.FinanceNumTxt.Size = new System.Drawing.Size(416, 59);
             this.FinanceNumTxt.TabIndex = 1;
+            this.FinanceNumTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FinanceNumTxt_KeyDown);
             // 
             // EmploymentDate
             // 
@@ -832,7 +848,8 @@
             this.EmploymentDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.EmploymentDate.Name = "EmploymentDate";
             this.EmploymentDate.Size = new System.Drawing.Size(417, 59);
-            this.EmploymentDate.TabIndex = 36;
+            this.EmploymentDate.TabIndex = 15;
+            this.EmploymentDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmploymentDate_KeyDown);
             this.EmploymentDate.Value = new System.DateTime(2025, 5, 20, 17, 43, 47, 44);
             // 
             // DepartmentBox
@@ -853,7 +870,8 @@
             this.DepartmentBox.Margin = new System.Windows.Forms.Padding(5);
             this.DepartmentBox.Name = "DepartmentBox";
             this.DepartmentBox.Size = new System.Drawing.Size(417, 46);
-            this.DepartmentBox.TabIndex = 40;
+            this.DepartmentBox.TabIndex = 7;
+            this.DepartmentBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DepartmentBox_KeyDown);
             // 
             // AddEmployee
             // 

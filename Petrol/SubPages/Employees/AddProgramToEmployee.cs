@@ -17,6 +17,7 @@ namespace Petrol.SubPages.Employees
         private TrainingService trainingService;
         private List<Training> Trainings;
         private List<Place> places;
+        private bool isProgramming = false;
         public AddProgramToEmployee()
         {
             InitializeComponent();
@@ -101,31 +102,41 @@ namespace Petrol.SubPages.Employees
 
         private void TrainingId_TextChanged(object sender, EventArgs e)
         {
-            int test = 0;
-            if (int.TryParse(TrainingId.Text.Trim(), out test))
+            if (!isProgramming)
             {
-                var training = Trainings.FirstOrDefault(x => x.Id == test);
-                if (training != null)
+                int test = 0;
+                if (int.TryParse(TrainingId.Text.Trim(), out test))
                 {
-                    TrainingName.Text = training.Name;
-                    FromDate.Value = training.From;
-                    ToDate.Value = training.To;
-                    Location.Text = training.Place.Name;
-                    TrainingType.Text = training.TrainingType.Name;
+                    var training = Trainings.FirstOrDefault(x => x.Id == test);
+                    if (training != null)
+                    {
+                        isProgramming = true;
+                        TrainingName.Text = training.Name;
+                        FromDate.Value = training.From;
+                        ToDate.Value = training.To;
+                        Location.Text = training.Place.Name;
+                        TrainingType.Text = training.TrainingType.Name;
+                        isProgramming = false;
+                    }
                 }
             }
         }
 
         private void TrainingName_TextChanged(object sender, EventArgs e)
         {
-            var training = Trainings.FirstOrDefault(x => x.Name == TrainingName.Text.Trim());
-            if (training != null)
+            if (!isProgramming)
             {
-                TrainingId.Text = training.Id.ToString();
-                FromDate.Value = training.From;
-                ToDate.Value = training.To;
-                Location.Text = training.Place.Name;
-                TrainingType.Text = training.TrainingType.Name;
+                var training = Trainings.FirstOrDefault(x => x.Name == TrainingName.Text.Trim());
+                if (training != null)
+                {
+                    isProgramming = true;
+                    TrainingId.Text = training.Id.ToString();
+                    FromDate.Value = training.From;
+                    ToDate.Value = training.To;
+                    Location.Text = training.Place.Name;
+                    TrainingType.Text = training.TrainingType.Name;
+                    isProgramming = false;
+                }
             }
         }
         private bool IsAnyBoxEmpty()
@@ -136,6 +147,55 @@ namespace Petrol.SubPages.Employees
             }
             return false;
 
+        }
+
+        // KeyDown navigation methods
+        private void TrainingId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TrainingName.Focus();
+            }
+        }
+
+        private void TrainingName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                FromDate.Focus();
+            }
+        }
+
+        private void FromDate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ToDate.Focus();
+            }
+        }
+
+        private void ToDate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Location.Focus();
+            }
+        }
+
+        private void Location_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TrainingType.Focus();
+            }
+        }
+
+        private void TrainingType_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // End of form - no further navigation
+            }
         }
     }
 }

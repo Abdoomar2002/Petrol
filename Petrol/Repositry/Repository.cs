@@ -126,7 +126,7 @@ namespace Petrol.Repositry
                     properties.Any(prop =>
                     {
                         var value = prop.GetValue(entity);
-                        return value != null && value.ToString().Contains(term);
+                        return value != null && Helper.Normalize(value.ToString()).Contains(term);
                     }))
                 .ToList();
 

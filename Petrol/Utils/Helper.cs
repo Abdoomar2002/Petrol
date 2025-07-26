@@ -37,8 +37,8 @@ namespace Petrol.Utils
             // Add more replacements as needed
             // Example: Normalize variations of "ك" and "ک" (if needed)
             normalizedText.Replace("ک", "ك");
-
-            return normalizedText.ToString();
+            
+            return normalizedText.ToString().ToLower();
         }
 
     }

@@ -71,5 +71,22 @@ namespace Petrol.SubPages.Departments
             CodeTxt.Text = "";
             LoadData();
         }
+
+        // KeyDown navigation methods
+        private void CodeTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                NameTxt.Focus();
+            }
+        }
+
+        private void NameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // End of form - no further navigation
+            }
+        }
     }
 }

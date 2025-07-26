@@ -17,6 +17,7 @@ namespace Petrol.SubPages.Finances
         private FollowingReportService followingReportService;
         private EmployeeService employeeService;
         private IEnumerable<Employee> Employees;
+        private bool isProgramming = false;
         
         
         public EmployeeCost()
@@ -63,27 +64,41 @@ namespace Petrol.SubPages.Finances
 
         private void EmployeeNameTxt_TextChanged(object sender, EventArgs e)
         {
-            var employee = Employees.FirstOrDefault(x => x.Name == EmployeeNameTxt.Text);
-            if (employee != null) 
+            if (!isProgramming)
             {
-                EmployeeFinanceNumberTxt.Text = employee.FinanceNumber;
-            }
-            else 
-            {
-                EmployeeFinanceNumberTxt.Text=string.Empty;
+                var employee = Employees.FirstOrDefault(x => x.Name == EmployeeNameTxt.Text);
+                if (employee != null) 
+                {
+                    isProgramming = true;
+                    EmployeeFinanceNumberTxt.Text = employee.FinanceNumber;
+                    isProgramming = false;
+                }
+                else 
+                {
+                    isProgramming = true;
+                    EmployeeFinanceNumberTxt.Text=string.Empty;
+                    isProgramming = false;
+                }
             }
         }
 
         private void EmployeeFinanceNumberTxt_TextChanged(object sender, EventArgs e)
         {
-            var employee=Employees.FirstOrDefault(x=>x.FinanceNumber == EmployeeFinanceNumberTxt.Text);
-            if (employee != null)
+            if (!isProgramming)
             {
-                EmployeeNameTxt.Text = employee.Name;
-            }
-            else 
-            {
-                EmployeeNameTxt.Text=string.Empty;
+                var employee=Employees.FirstOrDefault(x=>x.FinanceNumber == EmployeeFinanceNumberTxt.Text);
+                if (employee != null)
+                {
+                    isProgramming = true;
+                    EmployeeNameTxt.Text = employee.Name;
+                    isProgramming = false;
+                }
+                else 
+                {
+                    isProgramming = true;
+                    EmployeeNameTxt.Text=string.Empty;
+                    isProgramming = false;
+                }
             }
         }
 

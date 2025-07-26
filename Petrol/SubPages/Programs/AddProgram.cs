@@ -80,5 +80,30 @@ namespace Petrol.SubPages.Programs
             NameTxt.Text= "";
             ProgramTypeTxt.Text ="";
         }
+
+        // KeyDown navigation methods
+        private void CodeTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                NameTxt.Focus();
+            }
+        }
+
+        private void NameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ProgramTypeTxt.Focus();
+            }
+        }
+
+        private void ProgramTypeTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // End of form - no further navigation
+            }
+        }
     }
 }

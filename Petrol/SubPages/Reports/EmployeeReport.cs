@@ -20,6 +20,7 @@ namespace Petrol.SubPages.Reports
     {
         private ProgramService service;
         List<Models.Program> Programs;
+        private bool isProgramming = false;
         public EmployeeReport()
         {
             InitializeComponent();
@@ -67,31 +68,45 @@ namespace Petrol.SubPages.Reports
 
         private void ProgramNameTxt_TextChanged(object sender, EventArgs e)
         {
-            var program = Programs.FirstOrDefault(x => x.Name == ProgramNameTxt.Text);
-            if (program != null)
+            if (!isProgramming)
             {
-                ProgramIdTxt.Text = program.Id.ToString();
-                ProgramTypeBox.SelectedItem = program.ProgramType.Type;
-            }
-            else
-            {
-                ProgramIdTxt.Text = string.Empty;
-                ProgramTypeBox.SelectedIndex = -1;
+                var program = Programs.FirstOrDefault(x => x.Name == ProgramNameTxt.Text);
+                if (program != null)
+                {
+                    isProgramming = true;
+                    ProgramIdTxt.Text = program.Id.ToString();
+                    ProgramTypeBox.SelectedItem = program.ProgramType.Type;
+                    isProgramming = false;
+                }
+                else
+                {
+                    isProgramming = true;
+                    ProgramIdTxt.Text = string.Empty;
+                    ProgramTypeBox.SelectedIndex = -1;
+                    isProgramming = false;
+                }
             }
         }
 
         private void ProgramIdTxt_TextChanged(object sender, EventArgs e)
         {
-            var program = Programs.FirstOrDefault(x => x.Id.ToString() == ProgramIdTxt.Text);
-            if (program != null)
+            if (!isProgramming)
             {
-                ProgramNameTxt.Text = program.Name;
-                ProgramTypeBox.SelectedItem = program.ProgramType.Type;
-            }
-            else
-            {
-                ProgramNameTxt.Text = string.Empty;
-                ProgramTypeBox.SelectedIndex = -1;
+                var program = Programs.FirstOrDefault(x => x.Id.ToString() == ProgramIdTxt.Text);
+                if (program != null)
+                {
+                    isProgramming = true;
+                    ProgramNameTxt.Text = program.Name;
+                    ProgramTypeBox.SelectedItem = program.ProgramType.Type;
+                    isProgramming = false;
+                }
+                else
+                {
+                    isProgramming = true;
+                    ProgramNameTxt.Text = string.Empty;
+                    ProgramTypeBox.SelectedIndex = -1;
+                    isProgramming = false;
+                }
             }
         }
 

@@ -345,6 +345,7 @@
             this.SearchTxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.SearchTxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.SearchTxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SearchTxt.FillColor = System.Drawing.Color.LightGray;
             this.SearchTxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SearchTxt.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchTxt.ForeColor = System.Drawing.Color.Black;
@@ -354,10 +355,12 @@
             this.SearchTxt.Name = "SearchTxt";
             this.SearchTxt.PlaceholderForeColor = System.Drawing.Color.Gray;
             this.SearchTxt.PlaceholderText = "بحث باسم التدريب ";
+            this.SearchTxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SearchTxt.SelectedText = "";
             this.SearchTxt.Size = new System.Drawing.Size(302, 58);
             this.SearchTxt.TabIndex = 0;
             this.SearchTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.SearchTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchTxt_KeyDown);
             // 
             // PlaceData
             // 
