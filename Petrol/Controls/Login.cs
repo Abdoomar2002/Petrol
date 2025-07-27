@@ -67,7 +67,6 @@ namespace Petrol.Controls
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             Form1 mainForm = (Form1)this.ParentForm;
-            ExcelImporter excelImporter = new ExcelImporter(new Data.AppDbContext());
             
             var name = NameTxt.Text;
             var password= PasswordTxt.Text;
@@ -96,6 +95,7 @@ namespace Petrol.Controls
                     Username = "Admin",
                     Password = "Admin12345"
                 };
+           //     LOADDATAINTOSYSTEM();
                 Constants.User = use;
                 mainForm.CheckRole();
                 mainForm.ShowHome();
@@ -124,13 +124,14 @@ namespace Petrol.Controls
         }
         private void LOADDATAINTOSYSTEM()
         {
+            ExcelImporter excelImporter = new ExcelImporter(new Data.AppDbContext());
             //users
-            //   excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\asorc.xlsx bakr3.xlsx", 1);
-            //  excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\san misr.xlsxلbakr.xlsx", 2);
-            //  excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\ابسكو .xlsx", 3);
-            //  excelImporter.ImportTrainingsWithEmployees(@"C:\Users\Abdo\Downloads\New Microsoft Excel Worksheet.xlsx");
+            excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\asorc.xlsx bakr3.xlsx", 1);
+              excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\san misr.xlsxلbakr.xlsx", 2);
+              excelImporter.ImportAuto(@"D:\Work\Petrol\تدريب البترول\السجل ( 4 )\ابسكو .xlsx", 3);
+              excelImporter.ImportTrainingsWithEmployees(@"C:\Users\Abdo\Downloads\New Microsoft Excel Worksheet.xlsx");
             // mainForm.ShowHome();
-            /*var files =
+            var files =
                System.IO.Directory.GetFiles(@"D:\Work\Petrol\تدريب البترول\التسجيل\results", "*.xlsx");
              foreach(var file in files)
                 if (file.Contains("مالي")||file.Contains("مالى"))
@@ -151,7 +152,7 @@ namespace Petrol.Controls
                             excelImporter.ImportAdminReport(file, "خارجي", 1);
                         else if (file.Contains("مركز") && !file.Contains("لامركز"))
                             excelImporter.ImportAdminReport(file, "مركزي", 2);
-                    }*/
+                    }
         }
     }
 }

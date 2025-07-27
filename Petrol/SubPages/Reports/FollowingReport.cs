@@ -99,7 +99,8 @@ namespace Petrol.SubPages.Reports
                     return;
                 }
                 // check the training has following report or not
-                var CheckfollowingReport = _followingReportService.GetAll<Models.FollowingReport>().FirstOrDefault(x => x.TrainingId == trainingId);
+                var CheckfollowingReport =  _followingReportService.GetAllWithNestedInclude(x => x.Include(t => t.DepartmentsPresenceNumber).Include(y => y.Training).ThenInclude(y => y.Place)).FirstOrDefault(x => x.TrainingId == trainingId);
+
                 if (CheckfollowingReport != null)
                 {
                     var result = UserMessages.Warning("التقرير موجود بالفعل في قاعدة البيانات\nهل تريد تحديثه");
@@ -118,6 +119,7 @@ namespace Petrol.SubPages.Reports
                         CheckfollowingReport.Women = WomenTxt.Text == "" ? 0 : int.Parse(WomenTxt.Text);
 
                     }
+                    if (result == DialogResult.No) return;
 
                 }
 
@@ -154,13 +156,18 @@ namespace Petrol.SubPages.Reports
                 }
                 if (CheckfollowingReport != null)
                 {
-                    CheckfollowingReport.DepartmentsPresenceNumber = departmentPresenceNumbers;
-                    _followingReportService.Update(CheckfollowingReport);
+                    CheckfollowingReport.DepartmentsPresenceNumber=new List<DepartmentPresenceNumber>();
+                    CheckfollowingReport.DepartmentsPresenceNumber.AddRange(
+                    departmentPresenceNumbers);
+                 //   _followingReportService.Update(CheckfollowingReport);
 
                 }
                 else
                 {
-                    followingReport.DepartmentsPresenceNumber = departmentPresenceNumbers;
+                    followingReport.DepartmentsPresenceNumber = new List<DepartmentPresenceNumber>();
+                    followingReport.DepartmentsPresenceNumber.AddRange(
+                        departmentPresenceNumbers);
+
                     _followingReportService.Add(followingReport);
                 }
                 _followingReportService.SaveChanges();

@@ -17,6 +17,7 @@ namespace Petrol.SubPages.Finances
         private ProgramService programService;
         private IEnumerable<Models.Program> Programs;
         private bool isProgramming = false;
+        private DepartmentService deptService;
         public ProgramCost()
         {
             InitializeComponent();
@@ -25,7 +26,8 @@ namespace Petrol.SubPages.Finances
         {  
             programService = new ProgramService();
             followingReportService = new FollowingReportService();
-            Programs = programService.GetAllWithNestedInclude(x => x.Include(y => y.Trainings).ThenInclude(t => t.TrainingType).Include(y => y.Trainings).ThenInclude(t => t.Place).Include(r=>r.ProgramType));
+            deptService = new DepartmentService();
+            Programs = programService.GetAllWithNestedInclude(x => x.Include(y => y.Trainings).ThenInclude(t => t.TrainingType).Include(y => y.Trainings).ThenInclude(t => t.Place).Include(r=>r.ProgramType).Include(a=>a.Trainings).ThenInclude(b=>b.Trainers).ThenInclude(c=>c.Employee));
             ProgramIdTxt.AutoCompleteCustomSource.AddRange(Programs.Select(x=>x.Id.ToString()).ToArray());
             ProgramNameTxt.AutoCompleteCustomSource.AddRange(Programs.Select(x=>x.Name).ToArray());
             var Departments = new DepartmentService().GetAll<Department>();
@@ -104,8 +106,13 @@ namespace Petrol.SubPages.Finances
             TrainingData.Rows.Clear();
             var trainingIds=program.Trainings.Select(x=>x.Id).ToList();
             if(RangeBox.SelectedIndex > 0)
-                trainingIds=program.Trainings.Where(x=>x.DepartmentName==RangeBox.SelectedItem).Select(x=>x.Id).ToList();
-            var reports=followingReportService.GetAll<Models.FollowingReport>().Where(r => trainingIds.Contains(r.TrainingId));
+            {
+                var dept = deptService.FindDepartmentByName(RangeBox.Text);
+                var allFollowingReports = followingReportService.GetAllWithInclude(z => z.DepartmentsPresenceNumber).ToList();
+                var realNumber=allFollowingReports.Where(x => x.DepartmentsPresenceNumber.Where(z => z.DepartmentId == dept.Id && z.PresenceNumber > 0).Any()).ToList(); 
+                trainingIds =realNumber.Select(x=>x.TrainingId).ToList();
+            }
+            var reports=followingReportService.GetAllWithInclude(z=>z.DepartmentsPresenceNumber).Where(r => trainingIds.Contains(r.TrainingId));
            
             var dic=reports.Select(z => new List<double> { z.TrainingId,z.TotalCost }).ToList();
             Dictionary<double,double>trainingCost=new Dictionary<double,double>();
@@ -113,11 +120,21 @@ namespace Petrol.SubPages.Finances
                 trainingCost[report[0]]= report[1];
             }
             var i = 1;
-            foreach (var training in program.Trainings)
+            var trainings = program.Trainings.Where(c => trainingCost.ContainsKey(c.Id)).ToList();
+            foreach (var training in trainings)
             {
+                var cost = trainingCost.ContainsKey(training.Id) ? trainingCost?[training.Id] ?? 0 : 0;
+                if(RangeBox.SelectedIndex>0)
+                {
+                    var dept = deptService.FindDepartmentByName(RangeBox.Text);
 
+                    var trainersNumbers = reports.Where(z => z.TrainingId == training.Id).FirstOrDefault();
+                    var totalNumber = trainersNumbers.Men + trainersNumbers.Women;
+                    var deptNumber=trainersNumbers.DepartmentsPresenceNumber.Where(z=>z.DepartmentId==dept.Id).FirstOrDefault();
+                    cost = cost*deptNumber?.PresenceNumber / totalNumber??0;
+                }
                 TrainingData.Rows.Add(i++, training.Id, training.Name, training.TrainingType.Name,
-                training.From.ToString("yyyy/MM/dd"), training.To.ToString("yyyy/MM/dd"), training.Place.Name,trainingCost.ContainsKey(training.Id)? trainingCost?[training.Id] ?? 0:0);
+                training.From.ToString("yyyy/MM/dd"), training.To.ToString("yyyy/MM/dd"), training.Place.Name,cost);
             }
         }
 

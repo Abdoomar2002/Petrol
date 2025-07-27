@@ -20,10 +20,12 @@ namespace Petrol.SubPages.Reports
     {
         private ProgramService service;
         List<Models.Program> Programs;
+        private DepartmentService deptService;
         private bool isProgramming = false;
         public EmployeeReport()
         {
             InitializeComponent();
+            deptService = new DepartmentService();
             service = new ProgramService();
         }
         public void LoadData()
@@ -130,7 +132,8 @@ namespace Petrol.SubPages.Reports
                 var trainings = new EmployeeTrainingService().GetAllWithNestedInclude(x => x.Include(t => t.Training).ThenInclude(p => p.Place).Include(l => l.Employee)).Where(x => x.Training.ProgramId == program.Id).ToList();
                 if (RangeBox.SelectedIndex > 0)
                 {
-                    trainings = trainings.Where(x => x.Training.DepartmentName == RangeBox.Text).ToList();
+                    var dept = deptService.FindDepartmentByName(RangeBox.Text);
+                    trainings = trainings.Where(x => x.Employee.DepartmentId == dept.Id).GroupBy(x => x.EmployeeId).Select(x => x.FirstOrDefault()).ToList();
                 }
                 var i = 1;
                 foreach (var training in trainings)
@@ -147,7 +150,9 @@ namespace Petrol.SubPages.Reports
                 var employees = new EmployeeService().GetAllWithInclude(x => x.Trainings).ToList();
                 if (RangeBox.SelectedIndex > 0)
                 {
-                    employees = employees.Where(x => x.DepartmentName == RangeBox.Text).ToList();
+                    // get the department 
+                    var dept = deptService.FindDepartmentByName(RangeBox.Text);
+                    employees = employees.Where(x => x.DepartmentId == dept.Id).ToList();
                 }
                 employees = employees.Where(r => !r.Trainings.Where(x => trainingsId.Contains(x.TrainingId)).Any()).ToList();
                 var i = 1;

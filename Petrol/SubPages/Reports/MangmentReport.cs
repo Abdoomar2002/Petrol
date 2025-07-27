@@ -35,7 +35,7 @@ namespace Petrol.SubPages.Reports
             var ProgramsTypes = programTypeService.GetAll<ProgramType>().Select(x => x.Type);
             ProgramTypeBox.Items.Clear();
             ProgramTypeBox.Items.Add("كل الأنواع");
-            ProgramTypeBox.Items.AddRange(ProgramsTypes.ToArray());
+            ProgramTypeBox.Items.AddRange(ProgramsTypes.Distinct().ToArray());
             ProgramTypeBox.SelectedIndex = 0;
           
 

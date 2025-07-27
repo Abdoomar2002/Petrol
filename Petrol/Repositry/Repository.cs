@@ -100,8 +100,8 @@ namespace Petrol.Repositry
         }
         public void Update<T>(T entity) where T : class
         {
-            _context=new AppDbContext(); // Ensure a fresh context for each operation
-            _context.Entry(entity).State = EntityState.Modified;
+            //_context=new AppDbContext(); // Ensure a fresh context for each operation
+          //  _context.Entry(entity).State = EntityState.Modified;
         }
         public void Attach<T>(T entity) where T : class
         {_context = new AppDbContext();

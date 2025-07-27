@@ -59,6 +59,7 @@ public class ExcelImporter
                 string qualificationType = worksheet.Cells[row, 12].Text.Trim();
                 string religion = worksheet.Cells[row, 13].Text.Trim();
                 string jobType = worksheet.Cells[row, 14].Text.Trim();
+                    departmentName =Normalize(departmentName);
 
                 var department = EnsureDepartmentExists(departmentName);
                 var employee = new Employee
@@ -109,7 +110,7 @@ public class ExcelImporter
                 string qualificationType = worksheet.Cells[row, 11].Text.Trim();
                 string religion = worksheet.Cells[row, 12].Text.Trim();
                 string jobType = worksheet.Cells[row, 13].Text.Trim();
-
+                
                 var department = EnsureDepartmentExists(departmentName);
                 var employee = new Employee
                 {

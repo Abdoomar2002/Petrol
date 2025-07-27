@@ -30,7 +30,7 @@ namespace Petrol.SubPages.Reports
         
             ProgramTypeBox.Items.Clear();
             ProgramTypeBox.Items.Add("كل الأنواع");
-            ProgramTypeBox.Items.AddRange(ProgramsTypes.ToArray());
+            ProgramTypeBox.Items.AddRange(ProgramsTypes.Distinct().ToArray());
             ProgramTypeBox.SelectedIndex = 0;
           
         }
