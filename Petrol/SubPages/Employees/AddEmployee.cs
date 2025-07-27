@@ -48,15 +48,44 @@ namespace Petrol.SubPages.Employees
             //get the department
             var department =Departments.FirstOrDefault(x=>x.Name== DepartmentBox.Text.Trim());
 
+            // Validate date fields
+            if (!DateValidator.IsValidDate(HireDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ التعيين بالصيغة الصحيحة dd/MM/yyyy");
+                HireDate.Focus();
+                return;
+            }
+
+            if (!DateValidator.IsValidDate(BirthDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ الميلاد بالصيغة الصحيحة dd/MM/yyyy");
+                BirthDate.Focus();
+                return;
+            }
+
+            if (!DateValidator.IsValidDate(RetireDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ التقاعد بالصيغة الصحيحة dd/MM/yyyy");
+                RetireDate.Focus();
+                return;
+            }
+
+            if (!DateValidator.IsValidDate(EmploymentDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ التوظيف بالصيغة الصحيحة dd/MM/yyyy");
+                EmploymentDate.Focus();
+                return;
+            }
+
             // copy the data from the boxes to employee object to save in the db
             Employee employee = new Employee()
             {
                 FinanceNumber = FinanceNumTxt.Text.Trim(),
                 Name = NameTxt.Text.Trim(),
-                HireDate = HireDate.Value,
-                BirthDate = BirthDate.Value,
-                RetireDate = RetireDate.Value,
-                EmplymentDate = EmploymentDate.Value,
+                HireDate = DateValidator.ParseDate(HireDate.Text).Value,
+                BirthDate = DateValidator.ParseDate(BirthDate.Text).Value,
+                RetireDate = DateValidator.ParseDate(RetireDate.Text).Value,
+                EmplymentDate = DateValidator.ParseDate(EmploymentDate.Text).Value,
                 Level = LevelBox.Text.Trim(),
                 CurrentJob = CurrentJobTxt.Text.Trim(),
                 Section = SectionTxt.Text.Trim(),
@@ -119,16 +148,21 @@ namespace Petrol.SubPages.Employees
             JobTypeTxt.Text= "";
             MasterBox.SelectedIndex = -1;
             StatusBox.SelectedIndex = -1;
-            HireDate.Value = DateTime.Now;
-            BirthDate.Value = DateTime.Now;
-            RetireDate.Value = DateTime.Now;
-            EmploymentDate.Value = DateTime.Now;
+            HireDate.Text = DateValidator.FormatDate(DateTime.Now);
+            BirthDate.Text = DateValidator.FormatDate(DateTime.Now);
+            RetireDate.Text = DateValidator.FormatDate(DateTime.Now);
+            EmploymentDate.Text = DateValidator.FormatDate(DateTime.Now);
 
         }
 
-        private void BirthDate_ValueChanged(object sender, EventArgs e)
+        private void BirthDate_TextChanged(object sender, EventArgs e)
         {
-            RetireDate.Value=BirthDate.Value.AddYears(60);
+            if (DateValidator.IsValidDate(BirthDate.Text))
+            {
+                var birthDate = DateValidator.ParseDate(BirthDate.Text).Value;
+                var retireDate = birthDate.AddYears(60);
+                RetireDate.Text = DateValidator.FormatDate(retireDate);
+            }
         }
 
         // KeyDown navigation methods

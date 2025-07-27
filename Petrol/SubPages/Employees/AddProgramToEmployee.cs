@@ -93,8 +93,8 @@ namespace Petrol.SubPages.Employees
         {
             TrainingId.Text = "";
             TrainingName.Text = "";
-            FromDate.Value = DateTime.Now;
-            ToDate.Value = DateTime.Now;
+            FromDate.Text = DateValidator.FormatDate(DateTime.Now);
+            ToDate.Text = DateValidator.FormatDate(DateTime.Now);
             Location.Text = "";
             TrainingType.Text = "";
 
@@ -112,8 +112,8 @@ namespace Petrol.SubPages.Employees
                     {
                         isProgramming = true;
                         TrainingName.Text = training.Name;
-                        FromDate.Value = training.From;
-                        ToDate.Value = training.To;
+                        FromDate.Text = DateValidator.FormatDate(training.From);
+                        ToDate.Text = DateValidator.FormatDate(training.To);
                         Location.Text = training.Place.Name;
                         TrainingType.Text = training.TrainingType.Name;
                         isProgramming = false;
@@ -131,8 +131,8 @@ namespace Petrol.SubPages.Employees
                 {
                     isProgramming = true;
                     TrainingId.Text = training.Id.ToString();
-                    FromDate.Value = training.From;
-                    ToDate.Value = training.To;
+                    FromDate.Text = DateValidator.FormatDate(training.From);
+                    ToDate.Text = DateValidator.FormatDate(training.To);
                     Location.Text = training.Place.Name;
                     TrainingType.Text = training.TrainingType.Name;
                     isProgramming = false;

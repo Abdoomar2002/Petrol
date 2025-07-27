@@ -238,8 +238,8 @@ namespace Petrol.SubPages.Reports
             TrainingNameTxt.Text = string.Empty;
             PlaceTxt.Text = string.Empty;
             TrainingTypeBox.Text = string.Empty;
-            StartDate.Value = DateTime.Now;
-            EndDate.Value = DateTime.Now;
+            StartDate.Text = DateValidator.FormatDate(DateTime.Now);
+            EndDate.Text = DateValidator.FormatDate(DateTime.Now);
             MenTxt.Text = string.Empty;
             WomenTxt.Text = string.Empty;
             OrganizerTxt.Text = string.Empty;
@@ -260,8 +260,8 @@ namespace Petrol.SubPages.Reports
                     TrainingIdTxt.Text = training.Id.ToString();
                     PlaceTxt.Text = training.Place.Name;
                     TrainingTypeBox.Text = training.TrainingType.Name;
-                    StartDate.Value = training.From;
-                    EndDate.Value = training.To;
+                    StartDate.Text = DateValidator.FormatDate(training.From);
+                    EndDate.Text = DateValidator.FormatDate(training.To);
                     DeleteBtn.Text = "مسح";
                     CheckAndFillReport(training);
 
@@ -274,8 +274,8 @@ namespace Petrol.SubPages.Reports
                     TrainingIdTxt.Text = string.Empty;
                     PlaceTxt.Text = string.Empty;
                     TrainingTypeBox.Text = string.Empty;
-                    StartDate.Value = DateTime.Now;
-                    EndDate.Value = DateTime.Now;
+                    StartDate.Text = DateValidator.FormatDate(DateTime.Now);
+                    EndDate.Text = DateValidator.FormatDate(DateTime.Now);
                     DeleteBtn.Text = "تفريغ";
                     isProgramming = false;
                 }
@@ -295,8 +295,8 @@ namespace Petrol.SubPages.Reports
                     TrainingNameTxt.Text = training.Name;
                     PlaceTxt.Text = training.Place.Name;
                     TrainingTypeBox.Text = training.TrainingType.Name;
-                    StartDate.Value = training.From;
-                    EndDate.Value = training.To;
+                    StartDate.Text = DateValidator.FormatDate(training.From);
+                    EndDate.Text = DateValidator.FormatDate(training.To);
                     DeleteBtn.Text = "مسح";
                     CheckAndFillReport(training);
                     isProgramming = false;
@@ -307,8 +307,8 @@ namespace Petrol.SubPages.Reports
                     TrainingNameTxt.Text = string.Empty;
                     PlaceTxt.Text = string.Empty;
                     TrainingTypeBox.Text = string.Empty;
-                    StartDate.Value = DateTime.Now;
-                    EndDate.Value = DateTime.Now;
+                    StartDate.Text = DateValidator.FormatDate(DateTime.Now);
+                    EndDate.Text = DateValidator.FormatDate(DateTime.Now);
                     DeleteBtn.Text = "تفريغ";
                     isProgramming = false;
                 }

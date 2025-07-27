@@ -63,8 +63,30 @@ namespace Petrol.SubPages.Programs
 
         private void FilterBtn_Click(object sender, EventArgs e)
         {
+            if (!DateValidator.IsValidDate(StartDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ البداية بالصيغة الصحيحة dd/MM/yyyy");
+                StartDate.Focus();
+                return;
+            }
+
+            if (!DateValidator.IsValidDate(EndDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ النهاية بالصيغة الصحيحة dd/MM/yyyy");
+                EndDate.Focus();
+                return;
+            }
+
+            var startDate = DateValidator.ParseDate(StartDate.Text).Value.Date;
+            var endDate = DateValidator.ParseDate(EndDate.Text).Value.Date;
+            if (startDate > endDate)
+            {
+                UserMessages.Error("يجب أن يكون تاريخ البداية اصغر من تاريخ النهاية");
+                return;
+            }
+
             data.Rows.Clear();
-            var trainings = service.GetAllWithNestedInclude(x => x.Include(y => y.TrainingType).Include(t => t.Place)).Where(x => x.Id.ToString().Contains(SearchTxt.Text) || x.Name.Contains(SearchTxt.Text) || x.TrainingType.Name.Contains(SearchTxt.Text) || x.Place.Name.Contains(SearchTxt.Text)).Where(p => p.ProgramId == EditedProgram.Id && p.From.Date >= StartDate.Value.Date && p.To.Date <= EndDate.Value.Date && (TrainingTypeBox.SelectedIndex < 1 || p.TrainingType.Name == TrainingTypeBox.Text));
+            var trainings = service.GetAllWithNestedInclude(x => x.Include(y => y.TrainingType).Include(t => t.Place)).Where(x => x.Id.ToString().Contains(SearchTxt.Text) || x.Name.Contains(SearchTxt.Text) || x.TrainingType.Name.Contains(SearchTxt.Text) || x.Place.Name.Contains(SearchTxt.Text)).Where(p => p.ProgramId == EditedProgram.Id && p.From.Date >= startDate && p.To.Date <= endDate && (TrainingTypeBox.SelectedIndex < 1 || p.TrainingType.Name == TrainingTypeBox.Text));
             int i = 1;
             foreach (var training in trainings)
             {
@@ -112,7 +134,7 @@ namespace Petrol.SubPages.Programs
             // Titles
             var Main = $"تقرير بالتدريبات الخاصة " + EditedProgram.Name;
             var sub = $"نتيجة البحث عن {SearchTxt.Text}";
-            var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Value.ToString("dd/MM/yyyy")} إلى {EndDate.Value.ToString("dd/MM/yyyy")}";
+            var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Text} إلى {EndDate.Text}";
             // Pass filtered grid
             PdfGenerator.GeneratePdf(Main, sub, filteredGridTitle, filteredGrid);
 

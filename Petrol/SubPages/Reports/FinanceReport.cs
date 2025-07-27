@@ -42,8 +42,22 @@ namespace Petrol.SubPages.Reports
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            var startDate = StartDate.Value.Date;
-            var endDate = EndDate.Value.Date;
+            if (!DateValidator.IsValidDate(StartDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ البداية بالصيغة الصحيحة dd/MM/yyyy");
+                StartDate.Focus();
+                return;
+            }
+
+            if (!DateValidator.IsValidDate(EndDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ النهاية بالصيغة الصحيحة dd/MM/yyyy");
+                EndDate.Focus();
+                return;
+            }
+
+            var startDate = DateValidator.ParseDate(StartDate.Text).Value.Date;
+            var endDate = DateValidator.ParseDate(EndDate.Text).Value.Date;
             if (startDate > endDate)
             {
                 UserMessages.Error("يجب أن يكون تاريخ البداية اصغر من تاريخ النهاية");
@@ -77,7 +91,28 @@ namespace Petrol.SubPages.Reports
 
         private void PrintBtn_Click(object sender, EventArgs e)
         {
-            excelExporter.GenerateFinanceReport(StartDate.Value,EndDate.Value,ProgramTypeBox.SelectedItem?.ToString()??"");
+            if (!DateValidator.IsValidDate(StartDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ البداية بالصيغة الصحيحة dd/MM/yyyy");
+                StartDate.Focus();
+                return;
+            }
+
+            if (!DateValidator.IsValidDate(EndDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ النهاية بالصيغة الصحيحة dd/MM/yyyy");
+                EndDate.Focus();
+                return;
+            }
+
+            var startDate = DateValidator.ParseDate(StartDate.Text).Value.Date;
+            var endDate = DateValidator.ParseDate(EndDate.Text).Value.Date;
+            if (startDate > endDate)
+            {
+                UserMessages.Error("يجب أن يكون تاريخ البداية اصغر من تاريخ النهاية");
+                return;
+            }
+            excelExporter.GenerateFinanceReport(startDate, endDate, ProgramTypeBox.SelectedItem?.ToString() ?? "");
         }
 public void PrintReport(List<dynamic> data, string searchTerm, string filterInfo)
 {

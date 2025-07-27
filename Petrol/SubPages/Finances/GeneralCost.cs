@@ -56,9 +56,25 @@ namespace Petrol.SubPages.Finances
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            if (StartDate.Value > EndDate.Value) 
+            if (!DateValidator.IsValidDate(StartDate.Text))
             {
-                UserMessages.Error("يجب ان يكون التاريخ صحيح"); 
+                UserMessages.Error("يرجى إدخال تاريخ البداية بالصيغة الصحيحة dd/MM/yyyy");
+                StartDate.Focus();
+                return;
+            }
+
+            if (!DateValidator.IsValidDate(EndDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ النهاية بالصيغة الصحيحة dd/MM/yyyy");
+                EndDate.Focus();
+                return;
+            }
+
+            var startDate = DateValidator.ParseDate(StartDate.Text).Value.Date;
+            var endDate = DateValidator.ParseDate(EndDate.Text).Value.Date;
+            if (startDate > endDate) 
+            {
+                UserMessages.Error("يجب أن يكون تاريخ البداية اصغر من تاريخ النهاية"); 
                 return;
             }
             TrainingData.Rows.Clear();
@@ -81,7 +97,7 @@ namespace Petrol.SubPages.Finances
             else
                 trainingIds = list.Select(a => a.Id).ToList();
 
-            var reports = fSeverices.GetAllWithInclude(x=>x.Training).Where(z => trainingIds.Contains(z.Id)&& z.Training.From.Date >= StartDate.Value.Date && z.Training.To.Date <= EndDate.Value.Date);
+            var reports = fSeverices.GetAllWithInclude(x=>x.Training).Where(z => trainingIds.Contains(z.Id)&& z.Training.From.Date >= startDate && z.Training.To.Date <= endDate);
             var dic = reports.Select(z => new List<double> { z.TrainingId, z.TotalCost }).ToList();
             Dictionary<double, double> Costs = new Dictionary<double, double>();
             foreach (var report in dic)
@@ -109,7 +125,7 @@ namespace Petrol.SubPages.Finances
                 {
                     if (Helper.Normalize(training.TrainingType.Name) != TrainingTypeBox.Text) continue;
                 }
-                if (!(training.From.Date >= StartDate.Value.Date && training.To.Date <= EndDate.Value.Date))
+                if (!(training.From.Date >= startDate && training.To.Date <= endDate))
                     continue;
 
                         TrainingData.Rows.Add(i++, training.Id, training.Name, training.TrainingType.Name, training.From.ToString("yyyy/MM/dd"), training.To.ToString("yyyy/MM/dd")
@@ -135,7 +151,7 @@ namespace Petrol.SubPages.Finances
                      }
 
                      foreach(var training in train.Trainings)
-                     if(training.From.Date>=StartDate.Value.Date&&training.To.Date<=EndDate.Value.Date)
+                     if(training.From.Date>=startDate&&training.To.Date<=endDate)
                      TrainingData.Rows.Add(i++,training.Id,training.Name,training.TrainingType.Name,training.From.ToString("yyyy/MM/dd"),training.To.ToString("yyyy/MM/dd")
                          ,placeSeverices.GetById<Place>(training.PlaceId)?.Name??"", training.DepartmentName,Costs.ContainsKey(training.Id)? Costs?[training.Id]??0:0);
                  */
@@ -185,7 +201,7 @@ namespace Petrol.SubPages.Finances
             // Titles
             var Main = $"تقرير تكلفة عامة";
             var sub = $"نتيجة البحث عن {ProgramTypeBox.Text}" ;
-            var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Value.ToString("dd/MM/yyyy")} إلى {EndDate.Value.ToString("dd/MM/yyyy")}";
+            var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Text} إلى {EndDate.Text}";
             // Pass filtered grid
             PdfGenerator.GeneratePdf(Main, sub, filteredGridTitle, filteredGrid);
 

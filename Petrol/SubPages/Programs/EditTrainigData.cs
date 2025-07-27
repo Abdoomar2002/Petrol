@@ -58,8 +58,8 @@ namespace Petrol.SubPages.Programs
             TrainingTypeTxt.AutoCompleteCustomSource.AddRange(trainingTypes);
 
 
-            StartDate.Value = EditedTraining.From;
-            EndDate.Value = EditedTraining.To;
+            StartDate.Text = DateValidator.FormatDate(EditedTraining.From);
+            EndDate.Text = DateValidator.FormatDate(EditedTraining.To);
 
             EmployeeData.Rows.Clear();
             var employeeTrainings = trainingService.GetAll<EmployeeTraining>().Where(x => x.TrainingId == trainingId).ToList();
@@ -106,8 +106,8 @@ namespace Petrol.SubPages.Programs
         {
             if (string.IsNullOrEmpty(TrainingNameTxt.Text.Trim()) ||
                 string.IsNullOrEmpty(PlaceTxt.Text.Trim()) ||
-                string.IsNullOrEmpty(StartDate.Value.ToString()) ||
-                string.IsNullOrEmpty(EndDate.Value.ToString()) ||
+                string.IsNullOrEmpty(StartDate.Text.Trim()) ||
+                string.IsNullOrEmpty(EndDate.Text.Trim()) ||
                 DepartmentBox.SelectedIndex == -1 ||
                 string.IsNullOrEmpty(TrainingTypeTxt.Text))
             {
@@ -138,7 +138,23 @@ namespace Petrol.SubPages.Programs
                         return;
                     }
                 }
-                if (StartDate.Value.Date > EndDate.Value.Date)
+                if (!DateValidator.IsValidDate(StartDate.Text))
+                {
+                    UserMessages.Error("يرجى إدخال تاريخ البداية بالصيغة الصحيحة dd/MM/yyyy");
+                    StartDate.Focus();
+                    return;
+                }
+
+                if (!DateValidator.IsValidDate(EndDate.Text))
+                {
+                    UserMessages.Error("يرجى إدخال تاريخ النهاية بالصيغة الصحيحة dd/MM/yyyy");
+                    EndDate.Focus();
+                    return;
+                }
+
+                var startDate = DateValidator.ParseDate(StartDate.Text).Value.Date;
+                var endDate = DateValidator.ParseDate(EndDate.Text).Value.Date;
+                if (startDate > endDate)
                 {
                     UserMessages.Error("تاريخ البداية يجب ان يكون قبل تاريخ النهاية");
                     return;
@@ -154,8 +170,8 @@ namespace Petrol.SubPages.Programs
                 EditedTraining.Name = TrainingNameTxt.Text.Trim();
                 EditedTraining.PlaceId = place.Id;
                 EditedTraining.ProgramId = EditedProgram.Id;
-                EditedTraining.From = StartDate.Value;
-                EditedTraining.To = EndDate.Value;
+                EditedTraining.From = startDate;
+                EditedTraining.To = endDate;
                 EditedTraining.TrainingTypeId = trainingType.Id;
                 EditedTraining.DepartmentName = f ? "كل الشركة" : department.Name;
 
@@ -288,8 +304,8 @@ namespace Petrol.SubPages.Programs
             CodeTxt.Text= "";
             TrainingNameTxt.Text= string.Empty;
             PlaceTxt.Text= string.Empty;
-            StartDate.Value = DateTime.Now;
-            EndDate.Value = DateTime.Now;
+            StartDate.Text = DateValidator.FormatDate(DateTime.Now);
+            EndDate.Text = DateValidator.FormatDate(DateTime.Now);
             TrainingTypeTxt.Text =string.Empty;
             SetTrainingId(EditedTraining.Id, EditedProgram.Id);
         }

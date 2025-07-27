@@ -79,8 +79,8 @@ namespace Petrol.SubPages.Programs
         {
             if (string.IsNullOrEmpty(TrainingNameTxt.Text.Trim()) ||
                 string.IsNullOrEmpty(PlaceTxt.Text.Trim()) ||
-                string.IsNullOrEmpty(StartDate.Value.ToString()) ||
-                string.IsNullOrEmpty(EndDate.Value.ToString()) ||
+                string.IsNullOrEmpty(StartDate.Text.Trim()) ||
+                string.IsNullOrEmpty(EndDate.Text.Trim()) ||
                 DepartmentBox.SelectedIndex == -1 ||
                 string.IsNullOrEmpty(TrainingTypeTxt.Text.Trim()))
             {
@@ -112,7 +112,23 @@ namespace Petrol.SubPages.Programs
                         return;
                     }
                 }
-                if (StartDate.Value.Date > EndDate.Value.Date)
+                if (!DateValidator.IsValidDate(StartDate.Text))
+                {
+                    UserMessages.Error("يرجى إدخال تاريخ البداية بالصيغة الصحيحة dd/MM/yyyy");
+                    StartDate.Focus();
+                    return;
+                }
+
+                if (!DateValidator.IsValidDate(EndDate.Text))
+                {
+                    UserMessages.Error("يرجى إدخال تاريخ النهاية بالصيغة الصحيحة dd/MM/yyyy");
+                    EndDate.Focus();
+                    return;
+                }
+
+                var startDate = DateValidator.ParseDate(StartDate.Text).Value.Date;
+                var endDate = DateValidator.ParseDate(EndDate.Text).Value.Date;
+                if (startDate > endDate)
                 {
                     UserMessages.Error("تاريخ البداية يجب ان يكون قبل تاريخ النهاية");
                     return;
@@ -131,8 +147,8 @@ namespace Petrol.SubPages.Programs
                     Name = TrainingNameTxt.Text.Trim(),
                     PlaceId = Place.Id,
                     ProgramId = EditedProgram.Id,
-                    From = StartDate.Value,
-                    To = EndDate.Value,
+                                    From = startDate,
+                To = endDate,
                     TrainingTypeId = trainingType.Id,
                     DepartmentName = f ? "كل الشركة" : department.Name,
 
@@ -230,8 +246,8 @@ namespace Petrol.SubPages.Programs
             CodeTxt.Text = "";
             TrainingNameTxt.Text = string.Empty;
             PlaceTxt.Text = string.Empty;
-            StartDate.Value = DateTime.Now;
-            EndDate.Value = DateTime.Now;
+            StartDate.Text = DateValidator.FormatDate(DateTime.Now);
+            EndDate.Text = DateValidator.FormatDate(DateTime.Now);
             TrainingTypeTxt.Text = string.Empty;
            if(Clicked)
             SetProgramId(EditedProgram.Id);

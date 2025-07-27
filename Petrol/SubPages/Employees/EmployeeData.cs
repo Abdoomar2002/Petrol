@@ -77,7 +77,29 @@ namespace Petrol.SubPages.Employees
                 UserMessages.Error("لا توجد نتائج");
                 return;
             }
-            var result = Searchresult.Where(x => x.Training.From.Date >= StartDate.Value.Date && x.Training.To.Date <= EndDate.Value.Date).Where(z => TrainingTypeBox.SelectedIndex < 1 || z.Training.TrainingType.Name == TrainingTypeBox.Text);
+            if (!DateValidator.IsValidDate(StartDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ البداية بالصيغة الصحيحة dd/MM/yyyy");
+                StartDate.Focus();
+                return;
+            }
+
+            if (!DateValidator.IsValidDate(EndDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ النهاية بالصيغة الصحيحة dd/MM/yyyy");
+                EndDate.Focus();
+                return;
+            }
+
+            var startDate = DateValidator.ParseDate(StartDate.Text).Value.Date;
+            var endDate = DateValidator.ParseDate(EndDate.Text).Value.Date;
+            if (startDate > endDate)
+            {
+                UserMessages.Error("يجب أن يكون تاريخ البداية اصغر من تاريخ النهاية");
+                return;
+            }
+
+            var result = Searchresult.Where(x => x.Training.From.Date >= startDate && x.Training.To.Date <= endDate).Where(z => TrainingTypeBox.SelectedIndex < 1 || z.Training.TrainingType.Name == TrainingTypeBox.Text);
             foreach (var training in result)
             {
                 Data.Rows.Add(i++, training.Training.Id, training.Training.Name, training.Training.From.ToString("dd/MM/yyyy"), training.Training.To.ToString("dd/MM/yyyy"), training.Training.Place.Name, Properties.Resources.delete);
@@ -124,7 +146,7 @@ namespace Petrol.SubPages.Employees
             // Titles
             var Main = $"تقرير تدريبات الموظف / {EditedEmployee.Name}";
             var sub = Data.Rows.Count - 1 != EditedEmployee.Trainings.Count ? $"نتيجة البحث عن {SearchTxt.Text}" : "جميع التدريبات";
-            var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Value.ToString("dd/MM/yyyy")} إلى {EndDate.Value.ToString("dd/MM/yyyy")}";
+            var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Text} إلى {EndDate.Text}";
             // Pass filtered grid
             PdfGenerator.GeneratePdf(Main, sub, filteredGridTitle, filteredGrid);
             Data.Columns[6].Visible = true;

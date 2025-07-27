@@ -39,10 +39,10 @@ namespace Petrol.SubPages.Employees
             LevelBox.Text= employee.Level;
             SectionTxt.Text= employee.Section;
             SSNTxt.Text= employee.SSN;
-            BirthDate.Value = employee.BirthDate;
-            HireDate.Value = employee.HireDate;
-            RetireDate.Value = employee.RetireDate;
-            EmploymentDate.Value = employee.EmplymentDate;
+            BirthDate.Text = DateValidator.FormatDate(employee.BirthDate);
+            HireDate.Text = DateValidator.FormatDate(employee.HireDate);
+            RetireDate.Text = DateValidator.FormatDate(employee.RetireDate);
+            EmploymentDate.Text = DateValidator.FormatDate(employee.EmplymentDate);
             ReligonBox.Text= employee.Religon;
             QualificationTxt.Text= employee.AcademicQualification;
             QualTypeBox.Text= employee.QualificationType;
@@ -105,10 +105,38 @@ namespace Petrol.SubPages.Employees
             EditedEmployee.Level = LevelBox.Text.Trim();
             EditedEmployee.Section = SectionTxt.Text.Trim();
             EditedEmployee.SSN = SSNTxt.Text.Trim();
-            EditedEmployee.BirthDate = BirthDate.Value;
-            EditedEmployee.HireDate = HireDate.Value;
-            EditedEmployee.RetireDate = RetireDate.Value;
-            EditedEmployee.EmplymentDate = EmploymentDate.Value;
+            if (!DateValidator.IsValidDate(BirthDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ الميلاد بالصيغة الصحيحة dd/MM/yyyy");
+                BirthDate.Focus();
+                return;
+            }
+
+            if (!DateValidator.IsValidDate(HireDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ التعيين بالصيغة الصحيحة dd/MM/yyyy");
+                HireDate.Focus();
+                return;
+            }
+
+            if (!DateValidator.IsValidDate(RetireDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ التقاعد بالصيغة الصحيحة dd/MM/yyyy");
+                RetireDate.Focus();
+                return;
+            }
+
+            if (!DateValidator.IsValidDate(EmploymentDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ التوظيف بالصيغة الصحيحة dd/MM/yyyy");
+                EmploymentDate.Focus();
+                return;
+            }
+
+            EditedEmployee.BirthDate = DateValidator.ParseDate(BirthDate.Text).Value;
+            EditedEmployee.HireDate = DateValidator.ParseDate(HireDate.Text).Value;
+            EditedEmployee.RetireDate = DateValidator.ParseDate(RetireDate.Text).Value;
+            EditedEmployee.EmplymentDate = DateValidator.ParseDate(EmploymentDate.Text).Value;
             EditedEmployee.Religon = ReligonBox.Text.Trim();
             EditedEmployee.AcademicQualification = QualificationTxt.Text.Trim();
             EditedEmployee.QualificationType = QualTypeBox.Text.Trim();

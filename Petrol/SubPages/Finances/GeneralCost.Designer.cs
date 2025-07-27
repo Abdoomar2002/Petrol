@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TrainingData = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,42 +42,42 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.PrintBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.TrainingTypeBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.RangeBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.StartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.EndDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.StartDate = new Guna.UI2.WinForms.Guna2TextBox();
+            this.EndDate = new Guna.UI2.WinForms.Guna2TextBox();
             this.ProgramTypeBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.BackBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SearchBtn = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.PrintBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             ((System.ComponentModel.ISupportInitialize)(this.TrainingData)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TrainingData
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.TrainingData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.TrainingData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.TrainingData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TrainingData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cairo", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TrainingData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cairo", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TrainingData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.TrainingData.ColumnHeadersHeight = 100;
             this.TrainingData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.TrainingData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -90,14 +90,14 @@
             this.Column2,
             this.Column9,
             this.Column8});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TrainingData.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TrainingData.DefaultCellStyle = dataGridViewCellStyle3;
             this.TrainingData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TrainingData.GridColor = System.Drawing.Color.White;
             this.TrainingData.Location = new System.Drawing.Point(0, 200);
@@ -210,6 +210,26 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1353, 200);
             this.guna2Panel1.TabIndex = 15;
             // 
+            // PrintBtn
+            // 
+            this.PrintBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PrintBtn.BorderRadius = 8;
+            this.PrintBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.PrintBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.PrintBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.PrintBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.PrintBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.PrintBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PrintBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PrintBtn.Font = new System.Drawing.Font("Cairo", 12F);
+            this.PrintBtn.ForeColor = System.Drawing.Color.White;
+            this.PrintBtn.Location = new System.Drawing.Point(145, 59);
+            this.PrintBtn.Name = "PrintBtn";
+            this.PrintBtn.Size = new System.Drawing.Size(153, 58);
+            this.PrintBtn.TabIndex = 68;
+            this.PrintBtn.Text = "طباعة";
+            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
+            // 
             // TrainingTypeBox
             // 
             this.TrainingTypeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -292,32 +312,56 @@
             // StartDate
             // 
             this.StartDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.StartDate.Checked = true;
-            this.StartDate.FillColor = System.Drawing.Color.White;
+            this.StartDate.BackColor = System.Drawing.Color.Transparent;
+            this.StartDate.BorderColor = System.Drawing.Color.Black;
+            this.StartDate.BorderRadius = 8;
+            this.StartDate.BorderThickness = 2;
+            this.StartDate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.StartDate.DefaultText = "";
+            this.StartDate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.StartDate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.StartDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.StartDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.StartDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StartDate.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.StartDate.Location = new System.Drawing.Point(961, 137);
-            this.StartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.StartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.StartDate.ForeColor = System.Drawing.Color.Black;
+            this.StartDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.StartDate.Location = new System.Drawing.Point(1031, 137);
+            this.StartDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.StartDate.Name = "StartDate";
+            this.StartDate.PlaceholderText = "dd/MM/yyyy";
+            this.StartDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.StartDate.SelectedText = "";
             this.StartDate.Size = new System.Drawing.Size(252, 36);
-            this.StartDate.TabIndex = 62;
-            this.StartDate.Value = new System.DateTime(2025, 5, 7, 18, 43, 58, 149);
+            this.StartDate.TabIndex = 3;
+            this.StartDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // EndDate
             // 
             this.EndDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.EndDate.Checked = true;
-            this.EndDate.FillColor = System.Drawing.Color.White;
+            this.EndDate.BackColor = System.Drawing.Color.Transparent;
+            this.EndDate.BorderColor = System.Drawing.Color.Black;
+            this.EndDate.BorderRadius = 8;
+            this.EndDate.BorderThickness = 2;
+            this.EndDate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.EndDate.DefaultText = "";
+            this.EndDate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.EndDate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.EndDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.EndDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.EndDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EndDate.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.EndDate.Location = new System.Drawing.Point(584, 137);
-            this.EndDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.EndDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.EndDate.ForeColor = System.Drawing.Color.Black;
+            this.EndDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.EndDate.Location = new System.Drawing.Point(626, 137);
+            this.EndDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EndDate.Name = "EndDate";
+            this.EndDate.PlaceholderText = "dd/MM/yyyy";
+            this.EndDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.EndDate.SelectedText = "";
             this.EndDate.Size = new System.Drawing.Size(252, 36);
-            this.EndDate.TabIndex = 61;
-            this.EndDate.Value = new System.DateTime(2025, 5, 7, 18, 43, 58, 149);
+            this.EndDate.TabIndex = 2;
+            this.EndDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ProgramTypeBox
             // 
@@ -404,26 +448,6 @@
             this.label19.TabIndex = 5;
             this.label19.Text = "نوع البرنامج";
             // 
-            // PrintBtn
-            // 
-            this.PrintBtn.BackColor = System.Drawing.Color.Transparent;
-            this.PrintBtn.BorderRadius = 8;
-            this.PrintBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.PrintBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.PrintBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.PrintBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.PrintBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.PrintBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.PrintBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.PrintBtn.Font = new System.Drawing.Font("Cairo", 12F);
-            this.PrintBtn.ForeColor = System.Drawing.Color.White;
-            this.PrintBtn.Location = new System.Drawing.Point(145, 59);
-            this.PrintBtn.Name = "PrintBtn";
-            this.PrintBtn.Size = new System.Drawing.Size(153, 58);
-            this.PrintBtn.TabIndex = 68;
-            this.PrintBtn.Text = "طباعة";
-            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
-            // 
             // GeneralCost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -459,8 +483,8 @@
         private Guna.UI2.WinForms.Guna2ComboBox ProgramTypeBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2DateTimePicker StartDate;
-        private Guna.UI2.WinForms.Guna2DateTimePicker EndDate;
+        private Guna.UI2.WinForms.Guna2TextBox StartDate;
+        private Guna.UI2.WinForms.Guna2TextBox EndDate;
         private Guna.UI2.WinForms.Guna2ComboBox RangeBox;
         private Guna.UI2.WinForms.Guna2ComboBox TrainingTypeBox;
         private System.Windows.Forms.Label label4;

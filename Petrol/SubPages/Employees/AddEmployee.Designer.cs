@@ -44,9 +44,9 @@
             this.LevelBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.QualTypeBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.SexBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.RetireDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.BirthDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.HireDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.RetireDate = new Guna.UI2.WinForms.Guna2TextBox();
+            this.BirthDate = new Guna.UI2.WinForms.Guna2TextBox();
+            this.HireDate = new Guna.UI2.WinForms.Guna2TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.SSNTxt = new Guna.UI2.WinForms.Guna2TextBox();
@@ -71,7 +71,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.FinanceNumTxt = new Guna.UI2.WinForms.Guna2TextBox();
-            this.EmploymentDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.EmploymentDate = new Guna.UI2.WinForms.Guna2TextBox();
             this.DepartmentBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Header.SuspendLayout();
             this.Body.SuspendLayout();
@@ -407,64 +407,91 @@
             // 
             // RetireDate
             // 
+            this.RetireDate.BackColor = System.Drawing.Color.Transparent;
+            this.RetireDate.BorderColor = System.Drawing.Color.Black;
             this.RetireDate.BorderRadius = 10;
             this.RetireDate.BorderThickness = 2;
-            this.RetireDate.Checked = true;
+            this.RetireDate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RetireDate.DefaultText = "";
+            this.RetireDate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.RetireDate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.RetireDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.RetireDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.RetireDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RetireDate.FillColor = System.Drawing.Color.White;
+            this.RetireDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RetireDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RetireDate.ForeColor = System.Drawing.Color.Black;
-            this.RetireDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.RetireDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RetireDate.Location = new System.Drawing.Point(632, 281);
             this.RetireDate.Margin = new System.Windows.Forms.Padding(5);
-            this.RetireDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.RetireDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.RetireDate.Name = "RetireDate";
+            this.RetireDate.PlaceholderText = "dd/MM/yyyy";
+            this.RetireDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RetireDate.SelectedText = "";
             this.RetireDate.Size = new System.Drawing.Size(416, 59);
             this.RetireDate.TabIndex = 18;
+            this.RetireDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.RetireDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RetireDate_KeyDown);
-            this.RetireDate.Value = new System.DateTime(2025, 5, 20, 17, 43, 46, 864);
             // 
             // BirthDate
             // 
+            this.BirthDate.BackColor = System.Drawing.Color.Transparent;
+            this.BirthDate.BorderColor = System.Drawing.Color.Black;
             this.BirthDate.BorderRadius = 10;
             this.BirthDate.BorderThickness = 2;
-            this.BirthDate.Checked = true;
+            this.BirthDate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.BirthDate.DefaultText = "";
+            this.BirthDate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.BirthDate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.BirthDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.BirthDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.BirthDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BirthDate.FillColor = System.Drawing.Color.White;
+            this.BirthDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.BirthDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BirthDate.ForeColor = System.Drawing.Color.Black;
-            this.BirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.BirthDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.BirthDate.Location = new System.Drawing.Point(632, 212);
             this.BirthDate.Margin = new System.Windows.Forms.Padding(5);
-            this.BirthDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.BirthDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.BirthDate.Name = "BirthDate";
+            this.BirthDate.PlaceholderText = "dd/MM/yyyy";
+            this.BirthDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.BirthDate.SelectedText = "";
             this.BirthDate.Size = new System.Drawing.Size(416, 59);
             this.BirthDate.TabIndex = 17;
+            this.BirthDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BirthDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BirthDate_KeyDown);
-            this.BirthDate.Value = new System.DateTime(2025, 5, 20, 17, 43, 46, 904);
-            this.BirthDate.ValueChanged += new System.EventHandler(this.BirthDate_ValueChanged);
+            this.BirthDate.TextChanged += new System.EventHandler(this.BirthDate_TextChanged);
             // 
             // HireDate
             // 
+            this.HireDate.BackColor = System.Drawing.Color.Transparent;
+            this.HireDate.BorderColor = System.Drawing.Color.Black;
             this.HireDate.BorderRadius = 10;
             this.HireDate.BorderThickness = 2;
-            this.HireDate.Checked = true;
+            this.HireDate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.HireDate.DefaultText = "";
+            this.HireDate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.HireDate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.HireDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.HireDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.HireDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HireDate.FillColor = System.Drawing.Color.White;
+            this.HireDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.HireDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HireDate.ForeColor = System.Drawing.Color.Black;
-            this.HireDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.HireDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.HireDate.Location = new System.Drawing.Point(632, 143);
             this.HireDate.Margin = new System.Windows.Forms.Padding(5);
-            this.HireDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.HireDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.HireDate.Name = "HireDate";
+            this.HireDate.PlaceholderText = "dd/MM/yyyy";
+            this.HireDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.HireDate.SelectedText = "";
             this.HireDate.Size = new System.Drawing.Size(416, 59);
             this.HireDate.TabIndex = 16;
+            this.HireDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.HireDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HireDate_KeyDown);
-            this.HireDate.Value = new System.DateTime(2025, 5, 20, 17, 43, 46, 943);
             // 
             // label18
             // 
@@ -834,23 +861,32 @@
             // 
             // EmploymentDate
             // 
+            this.EmploymentDate.BackColor = System.Drawing.Color.Transparent;
+            this.EmploymentDate.BorderColor = System.Drawing.Color.Black;
             this.EmploymentDate.BorderRadius = 10;
             this.EmploymentDate.BorderThickness = 2;
-            this.EmploymentDate.Checked = true;
+            this.EmploymentDate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.EmploymentDate.DefaultText = "";
+            this.EmploymentDate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.EmploymentDate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.EmploymentDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.EmploymentDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.EmploymentDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmploymentDate.FillColor = System.Drawing.Color.White;
+            this.EmploymentDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EmploymentDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmploymentDate.ForeColor = System.Drawing.Color.Black;
-            this.EmploymentDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.EmploymentDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EmploymentDate.Location = new System.Drawing.Point(5, 5);
             this.EmploymentDate.Margin = new System.Windows.Forms.Padding(5);
-            this.EmploymentDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.EmploymentDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.EmploymentDate.Name = "EmploymentDate";
+            this.EmploymentDate.PlaceholderText = "dd/MM/yyyy";
+            this.EmploymentDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.EmploymentDate.SelectedText = "";
             this.EmploymentDate.Size = new System.Drawing.Size(417, 59);
             this.EmploymentDate.TabIndex = 15;
+            this.EmploymentDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.EmploymentDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmploymentDate_KeyDown);
-            this.EmploymentDate.Value = new System.DateTime(2025, 5, 20, 17, 43, 47, 44);
             // 
             // DepartmentBox
             // 
@@ -919,10 +955,10 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private Guna.UI2.WinForms.Guna2TextBox SectionTxt;
-        private Guna.UI2.WinForms.Guna2DateTimePicker RetireDate;
-        private Guna.UI2.WinForms.Guna2DateTimePicker BirthDate;
-        private Guna.UI2.WinForms.Guna2DateTimePicker HireDate;
-        private Guna.UI2.WinForms.Guna2DateTimePicker EmploymentDate;
+        private Guna.UI2.WinForms.Guna2TextBox RetireDate;
+        private Guna.UI2.WinForms.Guna2TextBox BirthDate;
+        private Guna.UI2.WinForms.Guna2TextBox HireDate;
+        private Guna.UI2.WinForms.Guna2TextBox EmploymentDate;
         private Guna.UI2.WinForms.Guna2TextBox JobTypeTxt;
         private Guna.UI2.WinForms.Guna2ComboBox StatusBox;
         private Guna.UI2.WinForms.Guna2ComboBox MasterBox;

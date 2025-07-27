@@ -70,7 +70,29 @@ namespace Petrol.SubPages.Places
                 UserMessages.Error("لا توجد نتائج");
                 return;
             }
-            var result = Searchresult.Where(x => x.From.Date >= StartDate.Value.Date && x.To.Date <= EndDate.Value.Date).Where(z =>TrainingTypeBox.SelectedIndex>0&& z.TrainingType.Name == TrainingTypeBox.Text);
+            if (!DateValidator.IsValidDate(StartDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ البداية بالصيغة الصحيحة dd/MM/yyyy");
+                StartDate.Focus();
+                return;
+            }
+
+            if (!DateValidator.IsValidDate(EndDate.Text))
+            {
+                UserMessages.Error("يرجى إدخال تاريخ النهاية بالصيغة الصحيحة dd/MM/yyyy");
+                EndDate.Focus();
+                return;
+            }
+
+            var startDate = DateValidator.ParseDate(StartDate.Text).Value.Date;
+            var endDate = DateValidator.ParseDate(EndDate.Text).Value.Date;
+            if (startDate > endDate)
+            {
+                UserMessages.Error("يجب أن يكون تاريخ البداية اصغر من تاريخ النهاية");
+                return;
+            }
+
+            var result = Searchresult.Where(x => x.From.Date >= startDate && x.To.Date <= endDate).Where(z =>TrainingTypeBox.SelectedIndex>0&& z.TrainingType.Name == TrainingTypeBox.Text);
             foreach (var training in result)
             {
                 Data.Rows.Add(i++, training.Id, training.Name, training.From.ToString("yyyy/MM/dd"), training.To.ToString("yyyy/MM/dd"));
@@ -117,7 +139,7 @@ namespace Petrol.SubPages.Places
             // Titles
             var Main = $"تقرير التدريبات داخل"+" "+ EditedPlace.Name;
             var sub = $"نتيجة البحث عن {SearchTxt.Text}";
-            var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Value.ToString("dd/MM/yyyy")} إلى {EndDate.Value.ToString("dd/MM/yyyy")}";
+            var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Text} إلى {EndDate.Text}";
             // Pass filtered grid
             PdfGenerator.GeneratePdf(Main, sub, filteredGridTitle, filteredGrid);
 

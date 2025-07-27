@@ -38,9 +38,9 @@
             this.PlaceTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.DepartmentBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.EndDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.EndDate = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.StartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.StartDate = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CodeTxt = new Guna.UI2.WinForms.Guna2TextBox();
@@ -202,22 +202,31 @@
             // 
             // EndDate
             // 
+            this.EndDate.BackColor = System.Drawing.Color.Transparent;
+            this.EndDate.BorderColor = System.Drawing.Color.Black;
             this.EndDate.BorderRadius = 10;
             this.EndDate.BorderThickness = 2;
-            this.EndDate.Checked = true;
+            this.EndDate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.EndDate.DefaultText = "";
+            this.EndDate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.EndDate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.EndDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.EndDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.EndDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EndDate.FillColor = System.Drawing.Color.White;
+            this.EndDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EndDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EndDate.ForeColor = System.Drawing.Color.Black;
-            this.EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.EndDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EndDate.Location = new System.Drawing.Point(5, 230);
             this.EndDate.Margin = new System.Windows.Forms.Padding(5);
-            this.EndDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.EndDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.EndDate.Name = "EndDate";
+            this.EndDate.PlaceholderText = "dd/MM/yyyy";
+            this.EndDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.EndDate.SelectedText = "";
             this.EndDate.Size = new System.Drawing.Size(472, 65);
             this.EndDate.TabIndex = 5;
-            this.EndDate.Value = new System.DateTime(2025, 5, 7, 18, 12, 49, 120);
+            this.EndDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.EndDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EndDate_KeyDown);
             // 
             // label5
@@ -234,22 +243,31 @@
             // 
             // StartDate
             // 
+            this.StartDate.BackColor = System.Drawing.Color.Transparent;
+            this.StartDate.BorderColor = System.Drawing.Color.Black;
             this.StartDate.BorderRadius = 10;
             this.StartDate.BorderThickness = 2;
-            this.StartDate.Checked = true;
+            this.StartDate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.StartDate.DefaultText = "";
+            this.StartDate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.StartDate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.StartDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.StartDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StartDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StartDate.FillColor = System.Drawing.Color.White;
+            this.StartDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StartDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartDate.ForeColor = System.Drawing.Color.Black;
-            this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.StartDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StartDate.Location = new System.Drawing.Point(679, 230);
             this.StartDate.Margin = new System.Windows.Forms.Padding(5);
-            this.StartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.StartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.StartDate.Name = "StartDate";
+            this.StartDate.PlaceholderText = "dd/MM/yyyy";
+            this.StartDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.StartDate.SelectedText = "";
             this.StartDate.Size = new System.Drawing.Size(472, 65);
             this.StartDate.TabIndex = 4;
-            this.StartDate.Value = new System.DateTime(2025, 5, 7, 18, 12, 49, 120);
+            this.StartDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.StartDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StartDate_KeyDown);
             // 
             // label4
@@ -808,9 +826,9 @@
         private Guna.UI2.WinForms.Guna2GradientButton DeleteBtn;
         private Guna.UI2.WinForms.Guna2Button SaveBtn;
         private System.Windows.Forms.Label label19;
-        private Guna.UI2.WinForms.Guna2DateTimePicker EndDate;
+        private Guna.UI2.WinForms.Guna2TextBox EndDate;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2DateTimePicker StartDate;
+        private Guna.UI2.WinForms.Guna2TextBox StartDate;
         private Guna.UI2.WinForms.Guna2DataGridView EmployeeData;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label8;
