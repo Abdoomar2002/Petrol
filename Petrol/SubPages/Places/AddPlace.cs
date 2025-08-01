@@ -96,35 +96,17 @@ namespace Petrol.SubPages.Places
             }
         }
 
-        private void NameTxt_KeyDown(object sender, KeyEventArgs e)
+        private void EnterHandle(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter) 
             {
-                PhoneTxt.Focus();
-            }
-        }
+                e.SuppressKeyPress = true; // Prevent ding sound
 
-        private void PhoneTxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                AddressTxt.Focus();
-            }
-        }
-
-        private void AddressTxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ManagerTxt.Focus();
-            }
-        }
-
-        private void ManagerTxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                // End of form - no further navigation
+                Control current = sender as Control;
+                if (current != null)
+                {
+                    this.SelectNextControl(current, true, true, true, true);
+                }
             }
         }
     }

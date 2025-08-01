@@ -152,8 +152,8 @@
             this.NameTxt.PlaceholderText = "";
             this.NameTxt.SelectedText = "";
             this.NameTxt.Size = new System.Drawing.Size(472, 90);
-            this.NameTxt.TabIndex = 2;
-            this.NameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NameTxt_KeyDown);
+            this.NameTxt.TabIndex = 0;
+            this.NameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label3
             // 
@@ -189,8 +189,8 @@
             this.AddressTxt.PlaceholderText = "";
             this.AddressTxt.SelectedText = "";
             this.AddressTxt.Size = new System.Drawing.Size(472, 90);
-            this.AddressTxt.TabIndex = 4;
-            this.AddressTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddressTxt_KeyDown);
+            this.AddressTxt.TabIndex = 1;
+            this.AddressTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label13
             // 
@@ -318,8 +318,8 @@
             this.ManagerTxt.PlaceholderText = "";
             this.ManagerTxt.SelectedText = "";
             this.ManagerTxt.Size = new System.Drawing.Size(472, 90);
-            this.ManagerTxt.TabIndex = 5;
-            this.ManagerTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ManagerTxt_KeyDown);
+            this.ManagerTxt.TabIndex = 3;
+            this.ManagerTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // PhoneTxt
             // 
@@ -343,8 +343,8 @@
             this.PhoneTxt.PlaceholderText = "";
             this.PhoneTxt.SelectedText = "";
             this.PhoneTxt.Size = new System.Drawing.Size(472, 90);
-            this.PhoneTxt.TabIndex = 3;
-            this.PhoneTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PhoneTxt_KeyDown);
+            this.PhoneTxt.TabIndex = 2;
+            this.PhoneTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // AddPlace
             // 

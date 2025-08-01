@@ -90,19 +90,18 @@ namespace Petrol.SubPages.Programs
             }
         }
 
-        private void NameTxt_KeyDown(object sender, KeyEventArgs e)
+      
+        private void EnterHandle(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ProgramTypeTxt.Focus();
-            }
-        }
+                e.SuppressKeyPress = true; // Prevent ding sound
 
-        private void ProgramTypeTxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                // End of form - no further navigation
+                Control current = sender as Control;
+                if (current != null)
+                {
+                    this.SelectNextControl(current, true, true, true, true);
+                }
             }
         }
     }

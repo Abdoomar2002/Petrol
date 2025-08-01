@@ -319,57 +319,13 @@ namespace Petrol.SubPages.Programs
             }
         }
 
-        private void TrainingNameTxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                PlaceTxt.Focus();
-            }
-        }
-
-        private void PlaceTxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                StartDate.Focus();
-            }
-        }
-
-        private void StartDate_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                EndDate.Focus();
-            }
-        }
-
-        private void EndDate_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                DepartmentBox.Focus();
-            }
-        }
-
-        private void DepartmentBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                TrainingTypeTxt.Focus();
-            }
-        }
-
-        private void TrainingTypeTxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                // End of form - no further navigation
-            }
-        }
 
         private void EmployeeNameTxt_KeyDown(object sender, KeyEventArgs e)
         {
-           
+           if( e.KeyCode == Keys.Enter)
+            {
+                AddEmployeeBtn.PerformClick();
+            }
         }
 
         private void EmployeeFinanceNumberTxt_KeyDown(object sender, KeyEventArgs e)
@@ -377,6 +333,20 @@ namespace Petrol.SubPages.Programs
             if (e.KeyCode == Keys.Enter)
             {
                AddEmployeeBtn.PerformClick();
+            }
+        }
+
+        private void EnterHandle(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Prevent ding sound
+
+                Control current = sender as Control;
+                if (current != null)
+                {
+                    this.SelectNextControl(current, true, true, true, true);
+                }
             }
         }
     }

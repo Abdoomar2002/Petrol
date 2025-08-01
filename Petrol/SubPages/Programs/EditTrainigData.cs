@@ -355,5 +355,38 @@ namespace Petrol.SubPages.Programs
                 EmployeeFinanceNumberTxt.AutoCompleteCustomSource.AddRange(Employees.Select(x => x.FinanceNumber).ToArray());
             }
         }
+
+        private void EnterHandle(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Prevent ding sound
+
+                Control current = sender as Control;
+                if (current != null)
+                {
+                    this.SelectNextControl(current, true, true, true, true);
+                }
+            }
+        }
+
+        private void EmployeeFinanceNumberTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+              
+                    AddEmployeeBtn.Focus();
+                
+            }
+        }
+
+        private void EmployeeNameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {  
+                    AddEmployeeBtn.Focus();
+
+            }
+        }
     }
 }

@@ -239,7 +239,8 @@
             this.ManagerTxt.PlaceholderText = "";
             this.ManagerTxt.SelectedText = "";
             this.ManagerTxt.Size = new System.Drawing.Size(451, 90);
-            this.ManagerTxt.TabIndex = 55;
+            this.ManagerTxt.TabIndex = 3;
+            this.ManagerTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // PhoneTxt
             // 
@@ -263,7 +264,8 @@
             this.PhoneTxt.PlaceholderText = "";
             this.PhoneTxt.SelectedText = "";
             this.PhoneTxt.Size = new System.Drawing.Size(451, 90);
-            this.PhoneTxt.TabIndex = 52;
+            this.PhoneTxt.TabIndex = 2;
+            this.PhoneTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label17
             // 
@@ -323,7 +325,8 @@
             this.AddressTxt.PlaceholderText = "";
             this.AddressTxt.SelectedText = "";
             this.AddressTxt.Size = new System.Drawing.Size(451, 90);
-            this.AddressTxt.TabIndex = 25;
+            this.AddressTxt.TabIndex = 1;
+            this.AddressTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label3
             // 
@@ -359,7 +362,8 @@
             this.NameTxt.PlaceholderText = "";
             this.NameTxt.SelectedText = "";
             this.NameTxt.Size = new System.Drawing.Size(451, 90);
-            this.NameTxt.TabIndex = 5;
+            this.NameTxt.TabIndex = 0;
+            this.NameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // EditPlace
             // 

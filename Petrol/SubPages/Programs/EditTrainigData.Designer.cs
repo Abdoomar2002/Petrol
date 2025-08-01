@@ -30,9 +30,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Header = new Guna.UI2.WinForms.Guna2Panel();
             this.BackBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.DeleteBtn = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -160,23 +160,23 @@
             // 
             // EmployeeData
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.EmployeeData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.EmployeeData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.EmployeeData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EmployeeData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cairo", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.EmployeeData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cairo", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.EmployeeData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.EmployeeData.ColumnHeadersHeight = 48;
             this.EmployeeData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.EmployeeData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -186,14 +186,14 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.EmployeeData.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Cairo Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.EmployeeData.DefaultCellStyle = dataGridViewCellStyle9;
             this.EmployeeData.Dock = System.Windows.Forms.DockStyle.Top;
             this.EmployeeData.GridColor = System.Drawing.Color.White;
             this.EmployeeData.Location = new System.Drawing.Point(0, 759);
@@ -324,7 +324,8 @@
             this.EmployeeDepartmentTxt.PlaceholderText = "";
             this.EmployeeDepartmentTxt.SelectedText = "";
             this.EmployeeDepartmentTxt.Size = new System.Drawing.Size(456, 90);
-            this.EmployeeDepartmentTxt.TabIndex = 76;
+            this.EmployeeDepartmentTxt.TabIndex = 2;
+            this.EmployeeDepartmentTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // RemainTxt
             // 
@@ -348,7 +349,8 @@
             this.RemainTxt.PlaceholderText = "";
             this.RemainTxt.SelectedText = "";
             this.RemainTxt.Size = new System.Drawing.Size(456, 90);
-            this.RemainTxt.TabIndex = 74;
+            this.RemainTxt.TabIndex = 3;
+            this.RemainTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label6
             // 
@@ -399,8 +401,9 @@
             this.EmployeeFinanceNumberTxt.PlaceholderText = "";
             this.EmployeeFinanceNumberTxt.SelectedText = "";
             this.EmployeeFinanceNumberTxt.Size = new System.Drawing.Size(456, 90);
-            this.EmployeeFinanceNumberTxt.TabIndex = 57;
+            this.EmployeeFinanceNumberTxt.TabIndex = 1;
             this.EmployeeFinanceNumberTxt.TextChanged += new System.EventHandler(this.EmployeeFinanceNumberTxt_TextChanged);
+            this.EmployeeFinanceNumberTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmployeeFinanceNumberTxt_KeyDown);
             // 
             // label9
             // 
@@ -462,8 +465,9 @@
             this.EmployeeNameTxt.PlaceholderText = "";
             this.EmployeeNameTxt.SelectedText = "";
             this.EmployeeNameTxt.Size = new System.Drawing.Size(456, 90);
-            this.EmployeeNameTxt.TabIndex = 5;
+            this.EmployeeNameTxt.TabIndex = 0;
             this.EmployeeNameTxt.TextChanged += new System.EventHandler(this.EmployeeNameTxt_TextChanged);
+            this.EmployeeNameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmployeeNameTxt_KeyDown);
             // 
             // AddEmployeeBtn
             // 
@@ -542,7 +546,8 @@
             this.TrainingTypeTxt.PlaceholderText = "";
             this.TrainingTypeTxt.SelectedText = "";
             this.TrainingTypeTxt.Size = new System.Drawing.Size(456, 65);
-            this.TrainingTypeTxt.TabIndex = 77;
+            this.TrainingTypeTxt.TabIndex = 1;
+            this.TrainingTypeTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // PlaceTxt
             // 
@@ -568,7 +573,8 @@
             this.PlaceTxt.PlaceholderText = "";
             this.PlaceTxt.SelectedText = "";
             this.PlaceTxt.Size = new System.Drawing.Size(456, 65);
-            this.PlaceTxt.TabIndex = 76;
+            this.PlaceTxt.TabIndex = 2;
+            this.PlaceTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // DepartmentBox
             // 
@@ -588,8 +594,9 @@
             this.DepartmentBox.Margin = new System.Windows.Forms.Padding(5);
             this.DepartmentBox.Name = "DepartmentBox";
             this.DepartmentBox.Size = new System.Drawing.Size(456, 46);
-            this.DepartmentBox.TabIndex = 75;
+            this.DepartmentBox.TabIndex = 3;
             this.DepartmentBox.SelectedIndexChanged += new System.EventHandler(this.DepartmentBox_SelectedIndexChanged);
+            this.DepartmentBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label7
             // 
@@ -616,7 +623,6 @@
             this.EndDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.EndDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.EndDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EndDate.FillColor = System.Drawing.Color.White;
             this.EndDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EndDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EndDate.ForeColor = System.Drawing.Color.Black;
@@ -628,8 +634,9 @@
             this.EndDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.EndDate.SelectedText = "";
             this.EndDate.Size = new System.Drawing.Size(456, 65);
-            this.EndDate.TabIndex = 73;
+            this.EndDate.TabIndex = 5;
             this.EndDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.EndDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label5
             // 
@@ -656,7 +663,6 @@
             this.StartDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StartDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StartDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StartDate.FillColor = System.Drawing.Color.White;
             this.StartDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StartDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartDate.ForeColor = System.Drawing.Color.Black;
@@ -668,8 +674,9 @@
             this.StartDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartDate.SelectedText = "";
             this.StartDate.Size = new System.Drawing.Size(456, 65);
-            this.StartDate.TabIndex = 71;
+            this.StartDate.TabIndex = 4;
             this.StartDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.StartDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label4
             // 
@@ -777,7 +784,8 @@
             this.TrainingNameTxt.PlaceholderText = "";
             this.TrainingNameTxt.SelectedText = "";
             this.TrainingNameTxt.Size = new System.Drawing.Size(456, 65);
-            this.TrainingNameTxt.TabIndex = 5;
+            this.TrainingNameTxt.TabIndex = 0;
+            this.TrainingNameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // EditTrainingData
             // 

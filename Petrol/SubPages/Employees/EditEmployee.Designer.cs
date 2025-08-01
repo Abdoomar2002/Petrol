@@ -278,7 +278,8 @@
             this.JobTypeTxt.PlaceholderText = "";
             this.JobTypeTxt.SelectedText = "";
             this.JobTypeTxt.Size = new System.Drawing.Size(369, 61);
-            this.JobTypeTxt.TabIndex = 48;
+            this.JobTypeTxt.TabIndex = 15;
+            this.JobTypeTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // StatusBox
             // 
@@ -302,7 +303,8 @@
             this.StatusBox.Margin = new System.Windows.Forms.Padding(5);
             this.StatusBox.Name = "StatusBox";
             this.StatusBox.Size = new System.Drawing.Size(369, 46);
-            this.StatusBox.TabIndex = 47;
+            this.StatusBox.TabIndex = 17;
+            this.StatusBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // MasterBox
             // 
@@ -325,7 +327,8 @@
             this.MasterBox.Margin = new System.Windows.Forms.Padding(5);
             this.MasterBox.Name = "MasterBox";
             this.MasterBox.Size = new System.Drawing.Size(369, 46);
-            this.MasterBox.TabIndex = 46;
+            this.MasterBox.TabIndex = 16;
+            this.MasterBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // ReligonBox
             // 
@@ -348,7 +351,8 @@
             this.ReligonBox.Margin = new System.Windows.Forms.Padding(5);
             this.ReligonBox.Name = "ReligonBox";
             this.ReligonBox.Size = new System.Drawing.Size(369, 46);
-            this.ReligonBox.TabIndex = 44;
+            this.ReligonBox.TabIndex = 14;
+            this.ReligonBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // LevelBox
             // 
@@ -373,7 +377,8 @@
             this.LevelBox.Margin = new System.Windows.Forms.Padding(5);
             this.LevelBox.Name = "LevelBox";
             this.LevelBox.Size = new System.Drawing.Size(368, 46);
-            this.LevelBox.TabIndex = 43;
+            this.LevelBox.TabIndex = 5;
+            this.LevelBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // QualTypeBox
             // 
@@ -400,7 +405,8 @@
             this.QualTypeBox.Margin = new System.Windows.Forms.Padding(5);
             this.QualTypeBox.Name = "QualTypeBox";
             this.QualTypeBox.Size = new System.Drawing.Size(369, 46);
-            this.QualTypeBox.TabIndex = 42;
+            this.QualTypeBox.TabIndex = 13;
+            this.QualTypeBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // SexBox
             // 
@@ -423,7 +429,8 @@
             this.SexBox.Margin = new System.Windows.Forms.Padding(5);
             this.SexBox.Name = "SexBox";
             this.SexBox.Size = new System.Drawing.Size(369, 46);
-            this.SexBox.TabIndex = 41;
+            this.SexBox.TabIndex = 11;
+            this.SexBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // RetireDate
             // 
@@ -438,7 +445,6 @@
             this.RetireDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.RetireDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.RetireDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RetireDate.FillColor = System.Drawing.Color.White;
             this.RetireDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RetireDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RetireDate.ForeColor = System.Drawing.Color.Black;
@@ -450,8 +456,9 @@
             this.RetireDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RetireDate.SelectedText = "";
             this.RetireDate.Size = new System.Drawing.Size(368, 61);
-            this.RetireDate.TabIndex = 39;
+            this.RetireDate.TabIndex = 4;
             this.RetireDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.RetireDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // BirthDate
             // 
@@ -466,7 +473,6 @@
             this.BirthDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.BirthDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.BirthDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BirthDate.FillColor = System.Drawing.Color.White;
             this.BirthDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.BirthDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BirthDate.ForeColor = System.Drawing.Color.Black;
@@ -478,8 +484,9 @@
             this.BirthDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BirthDate.SelectedText = "";
             this.BirthDate.Size = new System.Drawing.Size(368, 61);
-            this.BirthDate.TabIndex = 38;
+            this.BirthDate.TabIndex = 3;
             this.BirthDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BirthDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // HireDate
             // 
@@ -494,7 +501,6 @@
             this.HireDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.HireDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.HireDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HireDate.FillColor = System.Drawing.Color.White;
             this.HireDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.HireDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HireDate.ForeColor = System.Drawing.Color.Black;
@@ -506,8 +512,9 @@
             this.HireDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.HireDate.SelectedText = "";
             this.HireDate.Size = new System.Drawing.Size(368, 61);
-            this.HireDate.TabIndex = 37;
+            this.HireDate.TabIndex = 2;
             this.HireDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.HireDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label18
             // 
@@ -555,7 +562,8 @@
             this.SSNTxt.PlaceholderText = "";
             this.SSNTxt.SelectedText = "";
             this.SSNTxt.Size = new System.Drawing.Size(368, 61);
-            this.SSNTxt.TabIndex = 33;
+            this.SSNTxt.TabIndex = 8;
+            this.SSNTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label16
             // 
@@ -603,7 +611,8 @@
             this.SectionTxt.PlaceholderText = "";
             this.SectionTxt.SelectedText = "";
             this.SectionTxt.Size = new System.Drawing.Size(368, 61);
-            this.SectionTxt.TabIndex = 29;
+            this.SectionTxt.TabIndex = 7;
+            this.SectionTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label14
             // 
@@ -651,7 +660,8 @@
             this.CurrentJobTxt.PlaceholderText = "";
             this.CurrentJobTxt.SelectedText = "";
             this.CurrentJobTxt.Size = new System.Drawing.Size(368, 61);
-            this.CurrentJobTxt.TabIndex = 25;
+            this.CurrentJobTxt.TabIndex = 6;
+            this.CurrentJobTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label12
             // 
@@ -735,7 +745,8 @@
             this.QualificationTxt.PlaceholderText = "";
             this.QualificationTxt.SelectedText = "";
             this.QualificationTxt.Size = new System.Drawing.Size(369, 61);
-            this.QualificationTxt.TabIndex = 15;
+            this.QualificationTxt.TabIndex = 12;
+            this.QualificationTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label7
             // 
@@ -819,7 +830,8 @@
             this.NameTxt.PlaceholderText = "";
             this.NameTxt.SelectedText = "";
             this.NameTxt.Size = new System.Drawing.Size(368, 61);
-            this.NameTxt.TabIndex = 5;
+            this.NameTxt.TabIndex = 1;
+            this.NameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label2
             // 
@@ -867,7 +879,8 @@
             this.FinanceNumTxt.PlaceholderText = "";
             this.FinanceNumTxt.SelectedText = "";
             this.FinanceNumTxt.Size = new System.Drawing.Size(368, 61);
-            this.FinanceNumTxt.TabIndex = 1;
+            this.FinanceNumTxt.TabIndex = 0;
+            this.FinanceNumTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // EmploymentDate
             // 
@@ -882,7 +895,6 @@
             this.EmploymentDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.EmploymentDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.EmploymentDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EmploymentDate.FillColor = System.Drawing.Color.White;
             this.EmploymentDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EmploymentDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmploymentDate.ForeColor = System.Drawing.Color.Black;
@@ -894,8 +906,9 @@
             this.EmploymentDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.EmploymentDate.SelectedText = "";
             this.EmploymentDate.Size = new System.Drawing.Size(369, 61);
-            this.EmploymentDate.TabIndex = 36;
+            this.EmploymentDate.TabIndex = 9;
             this.EmploymentDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.EmploymentDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // DepartmentBox
             // 
@@ -915,7 +928,8 @@
             this.DepartmentBox.Margin = new System.Windows.Forms.Padding(5);
             this.DepartmentBox.Name = "DepartmentBox";
             this.DepartmentBox.Size = new System.Drawing.Size(369, 46);
-            this.DepartmentBox.TabIndex = 40;
+            this.DepartmentBox.TabIndex = 10;
+            this.DepartmentBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // EditEmployee
             // 

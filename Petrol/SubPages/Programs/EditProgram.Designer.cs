@@ -38,12 +38,12 @@
             this.SaveBtn = new Guna.UI2.WinForms.Guna2Button();
             this.label19 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ProgramTypeTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.CodeTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.NameTxt = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ProgramTypeTxt = new Guna.UI2.WinForms.Guna2TextBox();
             this.Header.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -192,6 +192,33 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1339, 591);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
+            // ProgramTypeTxt
+            // 
+            this.ProgramTypeTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.ProgramTypeTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.ProgramTypeTxt.BorderColor = System.Drawing.Color.Black;
+            this.ProgramTypeTxt.BorderRadius = 10;
+            this.ProgramTypeTxt.BorderThickness = 2;
+            this.ProgramTypeTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ProgramTypeTxt.DefaultText = "";
+            this.ProgramTypeTxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ProgramTypeTxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ProgramTypeTxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ProgramTypeTxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ProgramTypeTxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProgramTypeTxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProgramTypeTxt.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProgramTypeTxt.ForeColor = System.Drawing.Color.Black;
+            this.ProgramTypeTxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProgramTypeTxt.Location = new System.Drawing.Point(675, 105);
+            this.ProgramTypeTxt.Margin = new System.Windows.Forms.Padding(5);
+            this.ProgramTypeTxt.Name = "ProgramTypeTxt";
+            this.ProgramTypeTxt.PlaceholderText = "";
+            this.ProgramTypeTxt.SelectedText = "";
+            this.ProgramTypeTxt.Size = new System.Drawing.Size(459, 90);
+            this.ProgramTypeTxt.TabIndex = 1;
+            this.ProgramTypeTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
+            // 
             // CodeTxt
             // 
             this.CodeTxt.BorderColor = System.Drawing.Color.Black;
@@ -274,33 +301,8 @@
             this.NameTxt.PlaceholderText = "";
             this.NameTxt.SelectedText = "";
             this.NameTxt.Size = new System.Drawing.Size(459, 90);
-            this.NameTxt.TabIndex = 5;
-            // 
-            // ProgramTypeTxt
-            // 
-            this.ProgramTypeTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.ProgramTypeTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.ProgramTypeTxt.BorderColor = System.Drawing.Color.Black;
-            this.ProgramTypeTxt.BorderRadius = 10;
-            this.ProgramTypeTxt.BorderThickness = 2;
-            this.ProgramTypeTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ProgramTypeTxt.DefaultText = "";
-            this.ProgramTypeTxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.ProgramTypeTxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.ProgramTypeTxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ProgramTypeTxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ProgramTypeTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProgramTypeTxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ProgramTypeTxt.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProgramTypeTxt.ForeColor = System.Drawing.Color.Black;
-            this.ProgramTypeTxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ProgramTypeTxt.Location = new System.Drawing.Point(675, 105);
-            this.ProgramTypeTxt.Margin = new System.Windows.Forms.Padding(5);
-            this.ProgramTypeTxt.Name = "ProgramTypeTxt";
-            this.ProgramTypeTxt.PlaceholderText = "";
-            this.ProgramTypeTxt.SelectedText = "";
-            this.ProgramTypeTxt.Size = new System.Drawing.Size(459, 90);
-            this.ProgramTypeTxt.TabIndex = 58;
+            this.NameTxt.TabIndex = 0;
+            this.NameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // EditProgram
             // 

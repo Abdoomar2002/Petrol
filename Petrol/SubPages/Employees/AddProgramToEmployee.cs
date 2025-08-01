@@ -154,17 +154,17 @@ namespace Petrol.SubPages.Employees
         {
             if (e.KeyCode == Keys.Enter)
             {
-                TrainingName.Focus();
+                e.SuppressKeyPress = true; // Prevent ding sound
+
+                Control current = sender as Control;
+                if (current != null)
+                {
+                    this.SelectNextControl(current, true, true, true, true);
+                }
             }
         }
 
-        private void TrainingName_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                FromDate.Focus();
-            }
-        }
+      
 
         private void FromDate_KeyDown(object sender, KeyEventArgs e)
         {
@@ -190,12 +190,6 @@ namespace Petrol.SubPages.Employees
             }
         }
 
-        private void TrainingType_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                // End of form - no further navigation
-            }
-        }
+     
     }
 }

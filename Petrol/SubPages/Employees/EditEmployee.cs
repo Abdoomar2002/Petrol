@@ -194,5 +194,18 @@ namespace Petrol.SubPages.Employees
                 ;
         }
 
+        private void EnterHandle(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Prevent ding sound
+
+                Control current = sender as Control;
+                if (current != null)
+                {
+                    this.SelectNextControl(current, true, true, true, true);
+                }
+            }
+        }
     }
 }

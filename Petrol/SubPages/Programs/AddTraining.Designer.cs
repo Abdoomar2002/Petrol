@@ -136,8 +136,8 @@
             this.TrainingTypeTxt.PlaceholderText = "";
             this.TrainingTypeTxt.SelectedText = "";
             this.TrainingTypeTxt.Size = new System.Drawing.Size(472, 65);
-            this.TrainingTypeTxt.TabIndex = 7;
-            this.TrainingTypeTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingTypeTxt_KeyDown);
+            this.TrainingTypeTxt.TabIndex = 1;
+            this.TrainingTypeTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // PlaceTxt
             // 
@@ -163,8 +163,8 @@
             this.PlaceTxt.PlaceholderText = "";
             this.PlaceTxt.SelectedText = "";
             this.PlaceTxt.Size = new System.Drawing.Size(472, 65);
-            this.PlaceTxt.TabIndex = 3;
-            this.PlaceTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlaceTxt_KeyDown);
+            this.PlaceTxt.TabIndex = 2;
+            this.PlaceTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // DepartmentBox
             // 
@@ -184,9 +184,9 @@
             this.DepartmentBox.Margin = new System.Windows.Forms.Padding(5);
             this.DepartmentBox.Name = "DepartmentBox";
             this.DepartmentBox.Size = new System.Drawing.Size(472, 46);
-            this.DepartmentBox.TabIndex = 6;
+            this.DepartmentBox.TabIndex = 3;
             this.DepartmentBox.SelectedIndexChanged += new System.EventHandler(this.DepartmentBox_SelectedIndexChanged);
-            this.DepartmentBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DepartmentBox_KeyDown);
+            this.DepartmentBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label7
             // 
@@ -213,7 +213,6 @@
             this.EndDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.EndDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.EndDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EndDate.FillColor = System.Drawing.Color.White;
             this.EndDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EndDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EndDate.ForeColor = System.Drawing.Color.Black;
@@ -227,7 +226,7 @@
             this.EndDate.Size = new System.Drawing.Size(472, 65);
             this.EndDate.TabIndex = 5;
             this.EndDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.EndDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EndDate_KeyDown);
+            this.EndDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label5
             // 
@@ -254,7 +253,6 @@
             this.StartDate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StartDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StartDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StartDate.FillColor = System.Drawing.Color.White;
             this.StartDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StartDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartDate.ForeColor = System.Drawing.Color.Black;
@@ -268,7 +266,7 @@
             this.StartDate.Size = new System.Drawing.Size(472, 65);
             this.StartDate.TabIndex = 4;
             this.StartDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.StartDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StartDate_KeyDown);
+            this.StartDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // label4
             // 
@@ -377,8 +375,8 @@
             this.TrainingNameTxt.PlaceholderText = "";
             this.TrainingNameTxt.SelectedText = "";
             this.TrainingNameTxt.Size = new System.Drawing.Size(472, 65);
-            this.TrainingNameTxt.TabIndex = 2;
-            this.TrainingNameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingNameTxt_KeyDown);
+            this.TrainingNameTxt.TabIndex = 0;
+            this.TrainingNameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnterHandle);
             // 
             // Header
             // 
@@ -627,7 +625,7 @@
             this.EmployeeDepartmentTxt.PlaceholderText = "";
             this.EmployeeDepartmentTxt.SelectedText = "";
             this.EmployeeDepartmentTxt.Size = new System.Drawing.Size(472, 90);
-            this.EmployeeDepartmentTxt.TabIndex = 76;
+            this.EmployeeDepartmentTxt.TabIndex = 2;
             // 
             // RemainTxt
             // 
@@ -651,7 +649,7 @@
             this.RemainTxt.PlaceholderText = "";
             this.RemainTxt.SelectedText = "";
             this.RemainTxt.Size = new System.Drawing.Size(472, 90);
-            this.RemainTxt.TabIndex = 74;
+            this.RemainTxt.TabIndex = 3;
             // 
             // label6
             // 
@@ -702,7 +700,7 @@
             this.EmployeeFinanceNumberTxt.PlaceholderText = "";
             this.EmployeeFinanceNumberTxt.SelectedText = "";
             this.EmployeeFinanceNumberTxt.Size = new System.Drawing.Size(472, 90);
-            this.EmployeeFinanceNumberTxt.TabIndex = 9;
+            this.EmployeeFinanceNumberTxt.TabIndex = 1;
             this.EmployeeFinanceNumberTxt.TextChanged += new System.EventHandler(this.EmployeeFinanceNumberTxt_TextChanged);
             this.EmployeeFinanceNumberTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmployeeFinanceNumberTxt_KeyDown);
             // 
@@ -766,7 +764,7 @@
             this.EmployeeNameTxt.PlaceholderText = "";
             this.EmployeeNameTxt.SelectedText = "";
             this.EmployeeNameTxt.Size = new System.Drawing.Size(472, 90);
-            this.EmployeeNameTxt.TabIndex = 8;
+            this.EmployeeNameTxt.TabIndex = 0;
             this.EmployeeNameTxt.TextChanged += new System.EventHandler(this.EmployeeNameTxt_TextChanged);
             this.EmployeeNameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EmployeeNameTxt_KeyDown);
             // 

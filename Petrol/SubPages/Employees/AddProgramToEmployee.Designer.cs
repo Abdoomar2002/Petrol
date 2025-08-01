@@ -109,8 +109,8 @@
             this.TrainingType.PlaceholderText = "";
             this.TrainingType.SelectedText = "";
             this.TrainingType.Size = new System.Drawing.Size(414, 70);
-            this.TrainingType.TabIndex = 6;
-            this.TrainingType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingType_KeyDown);
+            this.TrainingType.TabIndex = 2;
+            this.TrainingType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingId_KeyDown);
             // 
             // label6
             // 
@@ -149,7 +149,7 @@
             this.Location.PlaceholderText = "";
             this.Location.SelectedText = "";
             this.Location.Size = new System.Drawing.Size(415, 70);
-            this.Location.TabIndex = 5;
+            this.Location.TabIndex = 3;
             this.Location.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Location_KeyDown);
             // 
             // label5
@@ -190,7 +190,6 @@
             this.ToDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.ToDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ToDate.Enabled = false;
-            this.ToDate.FillColor = System.Drawing.Color.White;
             this.ToDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ToDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ToDate.ForeColor = System.Drawing.Color.Black;
@@ -242,9 +241,9 @@
             this.TrainingName.PlaceholderText = "";
             this.TrainingName.SelectedText = "";
             this.TrainingName.Size = new System.Drawing.Size(414, 70);
-            this.TrainingName.TabIndex = 2;
-            this.TrainingName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingName_KeyDown);
+            this.TrainingName.TabIndex = 1;
             this.TrainingName.TextChanged += new System.EventHandler(this.TrainingName_TextChanged);
+            this.TrainingName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingId_KeyDown);
             // 
             // label2
             // 
@@ -294,9 +293,9 @@
             this.TrainingId.PlaceholderText = "";
             this.TrainingId.SelectedText = "";
             this.TrainingId.Size = new System.Drawing.Size(414, 70);
-            this.TrainingId.TabIndex = 1;
-            this.TrainingId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingId_KeyDown);
+            this.TrainingId.TabIndex = 0;
             this.TrainingId.TextChanged += new System.EventHandler(this.TrainingId_TextChanged);
+            this.TrainingId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TrainingId_KeyDown);
             // 
             // FromDate
             // 
@@ -312,7 +311,6 @@
             this.FromDate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.FromDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FromDate.Enabled = false;
-            this.FromDate.FillColor = System.Drawing.Color.White;
             this.FromDate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.FromDate.Font = new System.Drawing.Font("Cairo Medium", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FromDate.ForeColor = System.Drawing.Color.Black;
