@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Petrol.Models;
 using Petrol.Services;
 using Petrol.Utils;
 using System;
@@ -19,6 +20,7 @@ namespace Petrol.SubPages.Programs
             InitializeComponent();
             programService = new ProgramService();
             service = new TrainingService();
+          
         }
         public void SetProgramId(int id)
         {
@@ -106,7 +108,7 @@ namespace Petrol.SubPages.Programs
             var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             foreach (DataGridViewColumn col in data.Columns)
             {
-                if (col.Visible && !(col.ValueType is DataGridViewImageCell))
+                if (col.Visible )
                     filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
             }
 

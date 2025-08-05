@@ -2,6 +2,7 @@
 using Petrol.Services;
 using Petrol.Utils;
 using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,6 +15,8 @@ namespace Petrol.SubPages.Employees
         {
             InitializeComponent();
             service = new EmployeeService();
+            LoadData();
+            DataGridViewHelper.FixIndexColumnSorting(EmployeesData);
             SetStyle(ControlStyles.AllPaintingInWmPaint |
             ControlStyles.UserPaint |
             ControlStyles.DoubleBuffer |

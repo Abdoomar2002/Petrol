@@ -19,11 +19,12 @@ namespace Petrol.SubPages.Employees
         {
             InitializeComponent();
             service = new EmployeeService();
+            DataGridViewHelper.FixIndexColumnSorting(Data);
         }
         public void SetEmployeeId(int id)
         {
             EditedEmployee = null;
-           EditedEmployee = service.GetAllWithInclude().FirstOrDefault(x => x.Id == id);
+           EditedEmployee = service.GetAllWithInclude(x=>x.Trainings).FirstOrDefault(x => x.Id == id);
             if (EditedEmployee == null) return;
             Data.Rows.Clear();
             trainings = new EmployeeTrainingService().GetAllWithNestedInclude(z=>z.Include(y=>y.Training).ThenInclude(t => t.Place).Include(u => u.Training).ThenInclude(t => t.TrainingType))
@@ -114,11 +115,12 @@ namespace Petrol.SubPages.Employees
                 return;
             }
             Data.Columns[6].Visible = false;
+            Data.Columns[1].Visible = false;
             // Create a new DataGridView with only visible columns
             var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             foreach (DataGridViewColumn col in Data.Columns)
             {
-                if (col.Visible|| !(col.ValueType  is  DataGridViewImageCell))
+                if (col.Visible)
                     filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
             }
 
@@ -148,8 +150,20 @@ namespace Petrol.SubPages.Employees
             var sub = Data.Rows.Count - 1 != EditedEmployee.Trainings.Count ? $"نتيجة البحث عن {SearchTxt.Text}" : "جميع التدريبات";
             var filteredGridTitle = $"تدريبات ذات نوع {TrainingTypeBox.Text} من {StartDate.Text} إلى {EndDate.Text}";
             // Pass filtered grid
-            PdfGenerator.GeneratePdf(Main, sub, filteredGridTitle, filteredGrid);
+
+            PdfGenerator.GenerateEmployeeTrainingPdf(
+    employeeName: EditedEmployee.Name,
+    hireDate: EditedEmployee.HireDate,
+    retireDate: EditedEmployee?.RetireDate, // or actual retire date
+    financeNumber: EditedEmployee.FinanceNumber,
+    level: EditedEmployee.Level,
+    departmentName: EditedEmployee.DepartmentName,
+    jobTitle: EditedEmployee.CurrentJob,
+    dataGridView: filteredGrid
+);
+          //  PdfGenerator.GeneratePdf(Main, sub, filteredGridTitle, filteredGrid);
             Data.Columns[6].Visible = true;
+            Data.Columns[1].Visible = true;
 
         }
 

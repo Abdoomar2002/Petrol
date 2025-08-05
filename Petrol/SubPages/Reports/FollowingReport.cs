@@ -28,6 +28,7 @@ namespace Petrol.SubPages.Reports
             DepartmentService = new DepartmentService();
             TrainingService = new TrainingService();
             DepartmentPresenceNumberService = new DepartmentPresenceNumberService();
+          
         }
         public void LoadData()
         {

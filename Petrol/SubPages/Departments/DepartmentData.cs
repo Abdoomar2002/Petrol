@@ -18,6 +18,7 @@ namespace Petrol.SubPages.Departments
         {
             InitializeComponent();
             service = new DepartmentService();
+            DataGridViewHelper.FixIndexColumnSorting(EmployeesList);
         }
         public void SetDepartmentID(int id)
         {
@@ -110,7 +111,7 @@ namespace Petrol.SubPages.Departments
             var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             foreach (DataGridViewColumn col in EmployeesList.Columns)
             {
-                if (col.Visible && !(col.ValueType is DataGridViewImageCell))
+                if (col.Visible )
                     filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
             }
 

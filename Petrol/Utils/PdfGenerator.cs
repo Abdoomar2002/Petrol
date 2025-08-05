@@ -120,12 +120,18 @@ namespace Petrol.Utils
 
                 document.Add(new Paragraph(" ")); // Spacer
 
-                // Create table from DataGridView
+                // Calculate column widths based on content
+                float[] columnWidths = CalculateColumnWidths(dataGridView, cairoFont, subFont);
+                columnWidths = columnWidths.Reverse().ToArray();
+                // Create table from DataGridView with auto-sized columns
                 PdfPTable table = new PdfPTable(dataGridView.Columns.Count)
                 {
                     WidthPercentage = 100,
                     RunDirection = PdfWriter.RUN_DIRECTION_RTL,
                 };
+                
+                // Set the calculated column widths
+                table.SetWidths(columnWidths);
 
                 // Header row
                 foreach (DataGridViewColumn column in dataGridView.Columns)
@@ -181,6 +187,251 @@ namespace Petrol.Utils
                 }
                 UserMessages.Info("تم تحميل الملف بنجاح");
             }
+        }
+
+        private static float[] CalculateColumnWidths(Guna2DataGridView dataGridView, BaseFont baseFont, Font font)
+        {
+            if (dataGridView == null || dataGridView.Columns.Count == 0)
+                return new float[] { 1f };
+
+            float[] columnWidths = new float[dataGridView.Columns.Count];
+            float totalWidth = 0f;
+
+            // Calculate width for each column based on header and data content
+            for (int i = 0; i < dataGridView.Columns.Count; i++)
+            {
+                float maxWidth = 0f;
+                
+                // Check header width
+                string headerText = dataGridView.Columns[i].HeaderText;
+                float headerWidth = baseFont.GetWidthPoint(headerText, font.Size);
+                maxWidth = Math.Max(maxWidth, headerWidth);
+
+                // Check data widths in this column
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    if (row.IsNewRow) continue;
+                    string cellText = row.Cells[i].Value?.ToString() ?? "";
+                    float cellWidth = baseFont.GetWidthPoint(cellText, font.Size);
+                    maxWidth = Math.Max(maxWidth, cellWidth);
+                }
+
+                // Add some padding (20 points)
+                columnWidths[i] = maxWidth + 20f;
+                totalWidth += columnWidths[i];
+            }
+
+            // Normalize widths to fit within 100% of page width
+            float scaleFactor = 500f / totalWidth; // 500 points is approximately page width minus margins
+            for (int i = 0; i < columnWidths.Length; i++)
+            {
+                columnWidths[i] *= scaleFactor;
+            }
+
+            return columnWidths;
+        }
+
+        public static void GenerateEmployeeTrainingPdf(string employeeName, DateTime hireDate, DateTime? retireDate, 
+            string financeNumber, string level, string departmentName, string jobTitle, 
+            Guna2DataGridView dataGridView = null)
+        {
+            Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+            using (FileStream stream = new FileStream("EmployeeTrainingReport.pdf", FileMode.Create))
+            {
+                PdfWriter writer = PdfWriter.GetInstance(document, stream);
+                document.Open();
+                string arialPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf");
+                BaseFont cairoFont = BaseFont.CreateFont(arialPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                var headerFont1 = new Font(cairoFont, 18f, Font.BOLD);
+                var headerFont2 = new Font(cairoFont, 14f, Font.BOLD);
+                var headerFont3 = new Font(cairoFont, 12f, Font.BOLD);
+                var normalFont = new Font(cairoFont, 9f, Font.NORMAL);
+
+                // Add header (logo + brand title) - same as original
+                PdfPTable headerTable = new PdfPTable(3)
+                {
+                    WidthPercentage = 100
+                };
+                headerTable.SetWidths(new float[] { 3f, 2, 4f });
+
+                // Logo
+                string logoPath = "logo.jpg";
+                if (File.Exists(logoPath))
+                {
+                    Image logo = Image.GetInstance(logoPath);
+                    logo.ScaleAbsolute(100f, 100f);
+                    PdfPCell logoCell = new PdfPCell(logo)
+                    {
+                        Border = Rectangle.NO_BORDER,
+                        HorizontalAlignment = Element.ALIGN_LEFT
+                    };
+                    headerTable.AddCell(logoCell);
+                }
+                else
+                {
+                    headerTable.AddCell("");
+                }
+
+                // Brand title
+                Font brandFont = headerFont2;
+                Phrase brandName = new Phrase("شركة اسيوط لتكرير البترول\nالادارة العامة لاعداد وتنمية الموارد البشرية", brandFont);
+                
+                PdfPCell brandCell = new PdfPCell(brandName)
+                {
+                    Border = Rectangle.NO_BORDER,
+                    HorizontalAlignment = Element.ALIGN_CENTER,
+                    VerticalAlignment = Element.ALIGN_MIDDLE,
+                    RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+                };
+                PdfPCell space = new PdfPCell()
+                {
+                    Border = Rectangle.NO_BORDER,
+                    HorizontalAlignment = Element.ALIGN_CENTER,
+                    VerticalAlignment = Element.ALIGN_MIDDLE,
+                    RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+                };
+                headerTable.AddCell(space);
+                headerTable.AddCell(brandCell);
+
+                document.Add(headerTable);
+                document.Add(new Paragraph(" "));
+
+                // Main title
+                PdfPTable title = new PdfPTable(1);
+                title.AddCell(new PdfPCell(new Paragraph("بيان بالبرامج التدريبية للعامل", headerFont1))
+                {
+                    RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+                    HorizontalAlignment = Element.ALIGN_CENTER,
+                    VerticalAlignment = Element.ALIGN_MIDDLE,
+                    Border = Rectangle.NO_BORDER
+                });
+                document.Add(title);
+                document.Add(new Paragraph(" "));
+
+                // Employee information table
+                PdfPTable employeeInfoTable = new PdfPTable(3)
+                {
+                    WidthPercentage = 80,
+                    RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+                    HorizontalAlignment = Element.ALIGN_LEFT,
+                    
+                };
+                employeeInfoTable.SetWidths(new float[] { 5f, 2f,1.5f });
+
+                // Employee details
+                AddEmployeeInfoRow(employeeInfoTable, "اسم العامل:", employeeName, normalFont);
+                AddEmployeeInfoRow(employeeInfoTable, "تاريخ التعيين:", hireDate.ToString("yyyy/MM/dd"), normalFont);
+                AddEmployeeInfoRow(employeeInfoTable, "تاريخ التقاعد:", retireDate?.ToString("yyyy/MM/dd") ?? "غير محدد", normalFont);
+                AddEmployeeInfoRow(employeeInfoTable, "الرقم المالي:", financeNumber, normalFont);
+                AddEmployeeInfoRow(employeeInfoTable, "المستوي:", level, normalFont);
+                AddEmployeeInfoRow(employeeInfoTable, "الإدارة:", departmentName, normalFont);
+                AddEmployeeInfoRow(employeeInfoTable, "المسمى الوظيفي:", jobTitle, normalFont);
+
+                document.Add(employeeInfoTable);
+                document.Add(new Paragraph(" "));
+
+                // Calculate column widths for training data table
+                float[] columnWidths = CalculateColumnWidths(dataGridView, cairoFont, headerFont3).Reverse().ToArray();
+
+                // Create training data table
+                PdfPTable table = new PdfPTable(dataGridView.Columns.Count)
+                {
+                    WidthPercentage = 100,
+                    RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+                };
+                
+                table.SetWidths(columnWidths);
+
+                // Header row
+                foreach (DataGridViewColumn column in dataGridView.Columns)
+                {
+                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, headerFont3))
+                    {
+                        BackgroundColor = BaseColor.LIGHT_GRAY,
+                        HorizontalAlignment = Element.ALIGN_CENTER,
+                        RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+                        VerticalAlignment = Element.ALIGN_MIDDLE,
+                    };
+                    table.AddCell(cell);
+                }
+
+                // Data rows
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    if (row.IsNewRow) continue;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        string cellText = cell.Value?.ToString() ?? "";
+                        table.AddCell(new PdfPCell(new Phrase(cellText, normalFont))
+                        {
+                            RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+                            HorizontalAlignment = Element.ALIGN_CENTER,
+                            VerticalAlignment = Element.ALIGN_MIDDLE,
+                        });
+                    }
+                }
+                document.Add(table);
+
+                document.Close();
+                writer.Close();
+                stream.Close();
+                try
+                {
+                    using (var pdfDocument = PdfiumViewer.PdfDocument.Load(stream.Name))
+                    {
+                        using (PrintDocument printDocument = pdfDocument.CreatePrintDocument())
+                        {
+                            printDocument.PrinterSettings.PrinterName = new PrinterSettings().PrinterName;
+                            printDocument.PrintController = new StandardPrintController();
+                            printDocument.Print();
+                        }
+                    }
+                    File.Delete(stream.Name);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Print Error: " + ex.Message);
+                }
+                UserMessages.Info("تم تحميل الملف بنجاح");
+            }
+        }
+
+        private static void AddEmployeeInfoRow(PdfPTable table, string label, string value, Font font)
+        {
+            PdfPCell labelCell = new PdfPCell(new Phrase(label, font))
+            {
+                RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+                HorizontalAlignment = Element.ALIGN_LEFT,
+                VerticalAlignment = Element.ALIGN_MIDDLE,
+                Border = Rectangle.NO_BORDER,
+               
+                PaddingBottom = 5f,
+                PaddingTop = 5f
+            };
+
+            PdfPCell valueCell = new PdfPCell(new Phrase(value, font))
+            {
+                RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+                HorizontalAlignment = Element.ALIGN_LEFT,
+                VerticalAlignment = Element.ALIGN_MIDDLE,
+                Border = Rectangle.NO_BORDER,
+
+                PaddingBottom = 5f,
+                PaddingTop = 5f
+            }; PdfPCell valueCell2 = new PdfPCell(new Phrase("", font))
+            {
+                RunDirection = PdfWriter.RUN_DIRECTION_RTL,
+                HorizontalAlignment = Element.ALIGN_LEFT,
+                VerticalAlignment = Element.ALIGN_MIDDLE,
+                Border = Rectangle.NO_BORDER,
+
+                PaddingBottom = 5f,
+                PaddingTop = 5f
+            };
+
+            table.AddCell(labelCell);
+            table.AddCell(valueCell);
+            table.AddCell(valueCell2);
         }
 
         public static void GenerateFilledFollowingReportDoc(FollowingReport report, string templatePath, string outputPath)

@@ -1,4 +1,5 @@
-﻿using Petrol.Services;
+﻿using Petrol.Models;
+using Petrol.Services;
 using Petrol.Utils;
 using System;
 using System.Data;
@@ -14,6 +15,8 @@ namespace Petrol.SubPages.Programs
         {
             InitializeComponent();
             service = new ProgramService();
+            LoadData();
+            DataGridViewHelper.FixIndexColumnSorting(ProgramsData);
         }
 
         private void AddProgramBtn_Click(object sender, EventArgs e)
@@ -68,7 +71,7 @@ namespace Petrol.SubPages.Programs
             var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             foreach (DataGridViewColumn col in ProgramsData.Columns)
             {
-                if (col.Visible && !(col.ValueType is DataGridViewImageCell))
+                if (col.Visible )
                     filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
             }
 

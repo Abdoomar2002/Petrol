@@ -17,6 +17,7 @@ namespace Petrol.SubPages.Places
         {
             InitializeComponent();
             service = new PlaceService();
+            DataGridViewHelper.FixIndexColumnSorting(Data);
         }
         public void SetPlaceId(int id) 
         {
@@ -111,7 +112,7 @@ namespace Petrol.SubPages.Places
             var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             foreach (DataGridViewColumn col in Data.Columns)
             {
-                if (col.Visible && !(col.ValueType is DataGridViewImageCell))
+                if (col.Visible )
                     filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
             }
 

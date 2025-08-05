@@ -1,6 +1,6 @@
 ﻿using Petrol.Models;
 using Petrol.Services;
-using Petrol.SubPages.Employees;
+using Petrol.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +20,8 @@ namespace Petrol.SubPages.Users
         {
             InitializeComponent();
             service = new UserService();
+            LoadData();
+            DataGridViewHelper.FixIndexColumnSorting(UsersData);
         }
 
         private void AddUserBtn_Click(object sender, EventArgs e)

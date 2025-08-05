@@ -23,6 +23,7 @@ namespace Petrol.SubPages.Finances
         public EmployeeCost()
         {
             InitializeComponent();
+            DataGridViewHelper.FixIndexColumnSorting(TrainingData);
         }
         public void LoadData() 
         {
@@ -114,7 +115,7 @@ namespace Petrol.SubPages.Finances
             var filteredGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             foreach (DataGridViewColumn col in TrainingData.Columns)
             {
-                if (col.Visible && !(col.ValueType is DataGridViewImageCell))
+                if (col.Visible )
                     filteredGrid.Columns.Add((DataGridViewColumn)col.Clone());
             }
 

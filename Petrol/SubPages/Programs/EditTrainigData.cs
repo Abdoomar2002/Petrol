@@ -31,6 +31,7 @@ namespace Petrol.SubPages.Programs
             placeService = new PlaceService();
             programTypeService = new ProgramTypeService();
             trainingService = new EmployeeTrainingService();
+            DataGridViewHelper.FixIndexColumnSorting(EmployeeData);
         }
 
         public void SetTrainingId(int trainingId, int programId)

@@ -463,6 +463,7 @@
       <DependentUpon>MainUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Constants.cs" />
+    <Compile Include="Utils\DataGridViewHelper.cs" />
     <Compile Include="Utils\DateValidator.cs" />
     <Compile Include="Utils\ExcelImporter.cs" />
     <Compile Include="Utils\ExcelReader.cs" />

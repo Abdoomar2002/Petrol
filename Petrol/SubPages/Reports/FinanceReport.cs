@@ -23,6 +23,7 @@ namespace Petrol.SubPages.Reports
             service = new FollowingReportService();
             excelExporter = new ExcelExporter();
             programTypeService=new ProgramTypeService();
+            DataGridViewHelper.FixIndexColumnSorting(FinanceData);
         }
         public void LoadData() 
         {
